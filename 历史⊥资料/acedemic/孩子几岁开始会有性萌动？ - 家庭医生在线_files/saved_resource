@@ -1,0 +1,67 @@
+(function (customer) {
+    if (typeof window.MIP !== "object") {
+        return;
+    }
+
+    var _hmt = _hmt || [];
+    var hm = document.createElement("script");
+    var s = document.getElementsByTagName("script")[0];
+
+    if (customer.isDis([744], [470])) {
+        hm.src = "https://hm.baidu.com/hm.js?a39ea7ca383cfc1dfa211aa718aacbd9";
+    }
+    
+    if (customer.isDis([2824, 4887, 7900, 697, 11838], [1296, 1857, 2660, 939, 3298])) {
+        hm.src = "https://hm.baidu.com/hm.js?ea592756780ed1b19d8663b19149e5c9";
+    }
+    
+    if (customer.isDep([9, 62, 63])) {
+        hm.src = "https://hm.baidu.com/hm.js?b0d0f74038c142e017fbe1eb528f7e68";
+    }
+    
+    if (customer.isDis([230, 2439, 3296, 3838, 3960, 6912, 6921, 7023, 8057, 8881, 9882, 9999, 10380, 12164, 12297, 12430, 12528, 12548, 12717, 13078, 13079, 13080, 13081, 241, 7953, 5264, 8858, 3857], [107, 1142, 1411, 2389, 2988, 3251, 3173, 3177, 1983, 1592])) {
+        hm.src = "https://hm.baidu.com/hm.js?df2912248622e9a8c105e88b567bd271";
+    }
+    
+    if ((customer.isDis([6788], [537]) || customer.isDep([5]))) {
+        hm.src = "https://hm.baidu.com/hm.js?f1aea485633db13de56037efac1a07c3";
+    }
+    
+    if (customer.isDep([29, 80, 81, 82, 83, 84, 85, 86, 87])) {
+        hm.src = "https://hm.baidu.com/hm.js?d590cdf2ca85e8841c2c537c86d2685a";
+    }
+    
+    if (customer.isDep([60])) {
+        hm.src = "https://hm.baidu.com/hm.js?2b1de3c79e11c64f465717fc9bbcf02e";
+    }
+    
+    if (customer.isDep([4])) {
+        hm.src = "https://hm.baidu.com/hm.js?6e9100d1e888834f42847d433ae0145c";
+    }
+    
+    if (customer.isDep([3, 54, 55])) {
+        hm.src = "https://hm.baidu.com/hm.js?674a1b116d3f95583a35211d0745de3e";
+    }
+    
+    if (customer.isDep([43])) {
+        hm.src = "https://hm.baidu.com/hm.js?23a8dade28b99eb27bf5689c6d732664";
+    }
+    
+    if (customer.isDep([58])) {
+        hm.src = "https://hm.baidu.com/hm.js?9ecd7fc94810eef735a2cb25008dbfac";
+    }
+    
+    if (customer.isDep([46])) {
+        hm.src = "https://hm.baidu.com/hm.js?a5553c1d9820fb10b58e7bf480ec4717";
+    }
+    
+    if (customer.isDep([10, 64, 65])) {
+        hm.src = "https://hm.baidu.com/hm.js?0b1b334a673b3009513ed9b803419fa3";
+    }
+    
+    if (customer.isDep([22])) {
+        hm.src = "https://hm.baidu.com/hm.js?d357af3c73f0bec486b59655f4a6c2e3";
+    }
+
+    s.parentNode.insertBefore(hm, s);
+})(CUSTOMER);

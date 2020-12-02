@@ -1,0 +1,78 @@
+.lemmaWgt-sideRecommend {
+	background: rgb(252, 252, 252); margin: 0px 0px 10px; padding: 10px 0px 0px 14px; border: 1px solid rgb(230, 230, 230); border-image: none; font-size: 12px; display: none;
+}
+.lemmaWgt-sideRecommend .zhixin-box .hidden {
+	display: none;
+}
+.lemmaWgt-sideRecommend .zhixin-box .zhixin-group {
+	position: relative;
+}
+.lemmaWgt-sideRecommend .zhixin-box .zhixin-group h6 {
+	margin: 0px 0px 8px; height: 20px; color: rgb(85, 85, 85); line-height: 20px; padding-right: 14px; font-family: arial; font-size: 14px; font-weight: 700; position: relative;
+}
+.lemmaWgt-sideRecommend .zhixin-box .zhixin-group h6 .zhixin-more {
+	top: 0px; height: 20px; text-align: right; right: 14px; line-height: 20px; overflow: hidden; font-weight: 400; position: absolute; diplay: block;
+}
+.lemmaWgt-sideRecommend .zhixin-box .zhixin-list {
+	position: relative;
+}
+.lemmaWgt-sideRecommend .zhixin-box .zhixin-list::after {
+	height: 0px; overflow: hidden; clear: both; font-size: 0px; display: block; visibility: hidden; content: "\0020";
+}
+.lemmaWgt-sideRecommend .zhixin-box .zhixin-list .zhixin-item {
+	margin: 0px 12px 5px 0px; width: 72px; float: left;
+}
+.lemmaWgt-sideRecommend .zhixin-box .zhixin-list .zhixin-item .portraitbox:hover img {
+	opacity: 0.8;
+}
+.lemmaWgt-sideRecommend .zhixin-box .zhixin-list .zhixin-item .portraitbox {
+	background: rgb(242, 242, 242); width: 72px; height: 72px; position: relative;
+}
+.lemmaWgt-sideRecommend .zhixin-box .zhixin-list .zhixin-item .portraitbox a {
+	display: block;
+}
+.lemmaWgt-sideRecommend .zhixin-box .zhixin-list .zhixin-item .portraitbox a img {
+	width: 72px; height: 72px; display: block;
+}
+.lemmaWgt-sideRecommend .zhixin-box .zhixin-list .zhixin-item .portraitbox .shine-box {
+	background: linear-gradient(135deg, transparent 20%, rgb(255, 255, 255) 50%, transparent 60%); transition:none; left: -100px; top: 0px; width: 100px; height: 100px; position: absolute; cursor: pointer; opacity: 0.2; -webkit-transition: none;
+}
+.lemmaWgt-sideRecommend .zhixin-box .zhixin-list .zhixin-item .item-title {
+	margin: 0px; width: 72px; height: 25px; text-align: center; line-height: 25px; overflow: hidden; white-space: nowrap; -ms-word-wrap: normal; -ms-text-overflow: ellipsis;
+}
+.lemmaWgt-sideRecommend .zhixin-box .zhixin-list .zhixin-item:hover .portraitbox .shine-box {
+	transition:0.2s ease-in; left: 100px; -webkit-transition: all .2s ease-in;
+}
+.lemmaWgt-sideRecommend .zhixin-box a {
+	text-decoration: none;
+}
+.lemmaWgt-sideRecommend .zhixin-box-b .zhixin-group {
+	margin: 0px;
+}
+.lemmaWgt-sideRecommend .zhixin-box-b .zhixin-list {
+	height: auto;
+}
+.lemmaWgt-sideRecommend .zhixin-group .openFix {
+	display: block;
+}
+.lemmaWgt-sideRecommend .zhixin-group .show .closeFix {
+	display: block;
+}
+.lemmaWgt-sideRecommend .zhixin-group .show .openFix {
+	display: none;
+}
+.lemmaWgt-sideRecommend .zhixin-group .closeFix {
+	display: none;
+}
+.lemmaWgt-sideRecommend .zhixin-fixBtn {
+	top: 0px; width: 75px; text-align: right; right: 14px; color: rgb(102, 102, 102); position: absolute; cursor: pointer;
+}
+.lemmaWgt-sideRecommend .zhixin-fixBtn:hover {
+	text-decoration: underline;
+}
+.lemmaWgt-sideRecommend .zhixin-box .zhixinErrorBox a {
+	background: rgb(248, 247, 211); padding: 3px 16px; text-decoration: underline;
+}
+.lemmaWgt-sideRecommend .zhixinErrorBox {
+	text-align: center; color: rgb(153, 153, 153);
+}

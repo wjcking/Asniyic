@@ -1,0 +1,153 @@
+.wgt-userbar.wgt-userbar-n {
+	top: 0px; right: 0px; font-family: arial; font-size: 12px; position: absolute; z-index: 1999;
+}
+.wgt-userbar.wgt-userbar-n li {
+	padding: 0px 11px; float: left; position: relative;
+}
+.wgt-userbar.wgt-userbar-n li:last-child {
+	padding-right: 20px;
+}
+.wgt-userbar.wgt-userbar-n li.userbar_user em {
+	transform-origin: center 60%; transition:0.1s linear; color: rgb(193, 193, 193); margin-right: 0px; margin-left: 3px; -webkit-transform-origin: center 60%; -webkit-transition: .1s linear;
+}
+.wgt-userbar.wgt-userbar-n li.userbar_setting em {
+	transform-origin: center 60%; transition:0.1s linear; color: rgb(193, 193, 193); margin-left: 3px; -webkit-transform-origin: center 60%; -webkit-transition: .1s linear;
+}
+.wgt-userbar.wgt-userbar-n li.userbar_mall em {
+	color: rgb(51, 141, 230);
+}
+.wgt-userbar.wgt-userbar-n li.userbar_message {
+	margin: auto 11px;
+}
+.wgt-userbar.wgt-userbar-n li.userbar_message em.userbar_message_new {
+	left: -3px; top: 6px; color: rgb(51, 141, 230); display: none; position: absolute;
+}
+.wgt-userbar.wgt-userbar-n li.newMessage em.userbar_message_new {
+	display: block;
+}
+.wgt-userbar.wgt-userbar-n li.split {
+	color: rgb(204, 204, 204); padding-right: 2px; padding-left: 2px;
+}
+.wgt-userbar.wgt-userbar-n li a {
+	outline: 0px; color: rgb(51, 51, 51); position: relative;
+}
+.wgt-userbar.wgt-userbar-n li a em {
+	margin: 0px 5px 0px 0px; color: rgb(181, 181, 181); font-size: 14px; vertical-align: text-bottom;
+}
+.wgt-userbar.wgt-userbar-n li a:hover {
+	color: rgb(51, 51, 51); text-decoration: underline;
+}
+.wgt-userbar.wgt-userbar-n li .udl {
+	text-decoration: underline;
+}
+.wgt-userbar.wgt-userbar-n li .icon-triangle-down {
+	border-width: 4px; border-style: solid; border-color: rgb(139, 140, 140) transparent transparent; top: 5px; right: -11px; position: absolute;
+}
+.userbar_hide_icon li .icon-triangle-down {
+	display: none;
+}
+.userbar_hide_icon .userbar_user {
+	padding-right: 8px;
+}
+.userbar_hide_icon .userbar_setting {
+	padding-right: 8px;
+}
+.wgt-bubble-userMenu {
+	border-radius: 0px; border: 1px solid rgb(209, 209, 209); border-image: none; font-family: arial; font-size: 12px; margin-top: 3px; z-index: 1002; box-shadow: 1px 1px 5px #d1d1d1;
+}
+.wgt-bubble-setMenu {
+	border-radius: 0px; border: 1px solid rgb(209, 209, 209); border-image: none; font-family: arial; font-size: 12px; margin-top: 3px; z-index: 1002; box-shadow: 1px 1px 5px #d1d1d1;
+}
+.wgt-bubble-userMenu ul {
+	background: rgb(255, 255, 255); min-width: 70px;
+}
+.wgt-bubble-setMenu ul {
+	background: rgb(255, 255, 255); min-width: 70px;
+}
+.wgt-bubble-userMenu ul .split {
+	background: rgb(226, 226, 226); margin: 0px 11px; height: 1px; display: block;
+}
+.wgt-bubble-setMenu ul .split {
+	background: rgb(226, 226, 226); margin: 0px 11px; height: 1px; display: block;
+}
+.wgt-bubble-userMenu ul li.top a {
+	padding-top: 2px;
+}
+.wgt-bubble-setMenu ul li.top a {
+	padding-top: 2px;
+}
+.wgt-bubble-userMenu ul li.bottom a {
+	padding-bottom: 2px;
+}
+.wgt-bubble-setMenu ul li.bottom a {
+	padding-bottom: 2px;
+}
+.wgt-bubble-userMenu ul li a {
+	padding: 0px 11px; outline: 0px; height: 24px; color: rgb(51, 51, 51); line-height: 24px; text-decoration: none; display: block;
+}
+.wgt-bubble-setMenu ul li a {
+	padding: 0px 11px; outline: 0px; height: 24px; color: rgb(51, 51, 51); line-height: 24px; text-decoration: none; display: block;
+}
+.wgt-bubble-userMenu ul li a:hover {
+	background: rgb(51, 136, 255); color: rgb(255, 255, 255); text-decoration: none;
+}
+.wgt-bubble-setMenu ul li a:hover {
+	background: rgb(51, 136, 255); color: rgb(255, 255, 255); text-decoration: none;
+}
+.wgt_bubble.wgt-bubble-userMenu .tail {
+	top: -5px; width: 8px; height: 8px; box-shadow: none; text-shadow: 0px 0px 1px #505050;
+}
+.wgt_bubble.wgt-bubble-userMsg {
+	border-radius: 0px; border: 1px solid rgb(209, 209, 209); border-image: none; font-family: arial; font-size: 12px; margin-top: 3px; z-index: 1002; box-shadow: 1px 1px 5px #d1d1d1;
+}
+.wgt_bubble.wgt-bubble-userMsg ul {
+	background: rgb(255, 255, 255);
+}
+.wgt_bubble.wgt-bubble-userMsg ul li.top a {
+	padding-top: 2px;
+}
+.wgt_bubble.wgt-bubble-userMsg ul li.bottom a {
+	padding-bottom: 2px;
+}
+.wgt_bubble.wgt-bubble-userMsg ul li a {
+	padding: 0px 11px; outline: 0px; height: 24px; color: rgb(51, 51, 51); line-height: 24px; text-decoration: none; display: block;
+}
+.wgt_bubble.wgt-bubble-userMsg ul li a:hover {
+	background: rgb(51, 136, 255); color: rgb(255, 255, 255); text-decoration: none;
+}
+.wgt_bubble.wgt-bubble-userMsg ul li a:hover .userMsgCount {
+	color: rgb(255, 255, 255);
+}
+.wgt_bubble.wgt-bubble-userMsg ul li:hover {
+	background: rgb(248, 248, 248);
+}
+.wgt_bubble.wgt-bubble-userMsg ul .userMsgCount {
+	color: rgb(51, 141, 230); font-weight: 700; margin-left: 3px;
+}
+.wgt_bubble.wgt-bubble-userMsg .tail {
+	top: -5px; width: 8px; height: 8px; box-shadow: none; text-shadow: 0px 0px 1px #505050;
+}
+.wgt_bubble.wgt-bubble-lemmaMsg {
+	border: 1px solid rgb(201, 186, 147); border-image: none; font-family: arial,tahoma,"Microsoft Yahei","ËÎÌו",sans-serif; font-size: 12px; z-index: 1001;
+}
+.wgt_bubble.wgt-bubble-lemmaMsg ul {
+	background: rgb(255, 255, 218); padding: 10px 5px; border-radius: 3px; width: 200px;
+}
+.wgt_bubble.wgt-bubble-lemmaMsg ul li a {
+	padding: 0px 10px; outline: 0px; height: 24px; color: rgb(43, 102, 180); line-height: 24px; text-decoration: none;
+}
+.wgt_bubble.wgt-bubble-lemmaMsg ul li a:hover {
+	text-decoration: none;
+}
+.wgt_bubble.wgt-bubble-lemmaMsg ul li.cancelAlarm {
+	margin-top: 10px;
+}
+.wgt_bubble.wgt-bubble-lemmaMsg .wgt-bubble-lemmaMsg_close {
+	top: 6px; right: 6px; color: rgb(176, 176, 176); font-family: arial; font-size: 10px; text-decoration: none; position: absolute; cursor: pointer;
+}
+.wgt_bubble.wgt-bubble-lemmaMsg .wgt-bubble-lemmaMsg_close:hover {
+	color: rgb(171, 171, 171); text-decoration: none;
+}
+.wgt_bubble.pos_bottom.align_center.wgt-bubble-lemmaMsg .tail {
+	background: rgb(255, 255, 218); top: -5px; width: 8px; height: 8px; box-shadow: none; text-shadow: 0px 0px 1px #1e1c16;
+}

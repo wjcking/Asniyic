@@ -1,0 +1,78 @@
+.tool-buttons {
+	right: 120px; margin-top: 18px; margin-left: 150px; position: absolute;
+}
+.tool-buttons .button {
+	color: rgb(153, 153, 153); font-size: 12px; margin-left: 30px; float: left; display: block; cursor: pointer;
+}
+.tool-buttons .toolButtons-edit:focus {
+	outline: 0px;
+}
+.tool-buttons .toolButtons-collect:focus {
+	outline: 0px;
+}
+.tool-buttons .toolButtons-vote:focus {
+	outline: 0px;
+}
+.tool-buttons .toolButtons-discussion:focus {
+	outline: 0px;
+}
+.tool-buttons .toolButtons-edit:hover {
+	color: rgb(54, 149, 245); text-decoration: none;
+}
+.tool-buttons .toolButtons-collect:hover {
+	color: rgb(54, 149, 245); text-decoration: none;
+}
+.tool-buttons .toolButtons-vote:hover {
+	color: rgb(54, 149, 245); text-decoration: none;
+}
+.tool-buttons .toolButtons-discussion:hover {
+	color: rgb(54, 149, 245); text-decoration: none;
+}
+.tool-buttons .toolButtons-edit .wiki-lemma-icons {
+	top: 2px; font-size: 16px; margin-right: 6px; vertical-align: -1px; position: relative;
+}
+.tool-buttons .toolButtons-collect .wiki-lemma-icons {
+	top: 2px; font-size: 16px; margin-right: 6px; vertical-align: -1px; position: relative;
+}
+.tool-buttons .toolButtons-vote .wiki-lemma-icons {
+	top: 2px; font-size: 16px; margin-right: 6px; vertical-align: -1px; position: relative;
+}
+.tool-buttons .toolButtons-discussion .wiki-lemma-icons {
+	top: 2px; font-size: 16px; margin-right: 6px; vertical-align: -1px; position: relative;
+}
+.tool-buttons .toolButtons-collect .wiki-lemma-icons_star-hollow {
+	display: inline-block;
+}
+.tool-buttons .toolButtons-collect .wiki-lemma-icons_star-solid {
+	display: none;
+}
+.tool-buttons .toolButtons-collect.collected {
+	color: rgb(54, 149, 245);
+}
+.tool-buttons .toolButtons-collect:hover {
+	color: rgb(54, 149, 245);
+}
+.tool-buttons .toolButtons-collect.collected .wiki-lemma-icons_star-hollow {
+	display: none;
+}
+.tool-buttons .toolButtons-collect.collected .wiki-lemma-icons_star-solid {
+	color: rgb(69, 157, 245); display: inline-block;
+}
+.tool-buttons .toolButtons-vote {
+	padding-left: 0px;
+}
+.tool-buttons .toolButtons-vote .wiki-lemma-icons_zan-hollow {
+	display: inline-block;
+}
+.tool-buttons .toolButtons-vote .wiki-lemma-icons_zan-solid {
+	display: none;
+}
+.tool-buttons .toolButtons-vote.voted {
+	color: rgb(54, 149, 245);
+}
+.tool-buttons .toolButtons-vote.voted .wiki-lemma-icons_zan-hollow {
+	display: none;
+}
+.tool-buttons .toolButtons-vote.voted .wiki-lemma-icons_zan-solid {
+	color: rgb(69, 157, 245); display: inline-block;
+}

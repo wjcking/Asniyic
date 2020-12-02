@@ -1,0 +1,54 @@
+body .label-bubble {
+	border: 0px currentColor; border-image: none;
+}
+body .label-bubble .cmn-btn-blue {
+	border-radius: 3px; padding-right: 10px; padding-left: 10px;
+}
+body .label-bubble div {
+	background: rgb(240, 175, 63); padding: 2px 6px; border-radius: 3px; color: rgb(255, 255, 255);
+}
+body .label-wrap {
+	background: rgb(255, 244, 40);
+}
+body .label-path-container {
+	height: 5px; padding-left: 15px; position: absolute;
+}
+body .label-path-container .label-block {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/tools/label/resource/img/path_1a8b708.png"); left: 0px; top: 0px; width: 15px; height: 5px; position: absolute;
+}
+body .label-path-container .label-horizontal {
+	border-top-color: rgb(243, 125, 10); border-top-width: 1px; border-top-style: dashed;
+}
+body .label-comment-container {
+	background: rgb(253, 228, 204); padding: 5px 10px; border-radius: 3px; left: 1019px; width: 180px; position: absolute; box-shadow: 0px 4px 6px -4px rgba(0,0,0,0.2);
+}
+body .label-comment-container b {
+	color: rgb(153, 153, 153);
+}
+body .label-comment-container .delete-comment {
+	outline: 0px; top: 5px; right: 5px; color: rgb(153, 153, 153); font-size: 12px; text-decoration: none; position: absolute;
+}
+body .label-comment-container .delete-comment:hover {
+	color: rgb(243, 125, 10);
+}
+body .label-comment-container .delete-comment em {
+	font-size: 14px;
+}
+body .label-comment-container .modify-comment {
+	outline: 0px; top: 5px; right: 22px; color: rgb(153, 153, 153); font-size: 12px; text-decoration: none; position: absolute;
+}
+body .label-comment-container .modify-comment:hover {
+	color: rgb(243, 125, 10);
+}
+body .label-comment-container:hover {
+	z-index: 9; cursor: default;
+}
+body .label-dialog .con {
+	padding: 40px 40px 20px;
+}
+body .label-dialog .con .dialog-title {
+	margin: 0px 0px 10px; text-align: left; font-size: 16px;
+}
+body .label-dialog .con textarea {
+	margin: 0px 0px -15px; padding: 5px; border-radius: 3px; border: 1px solid rgb(204, 204, 204); border-image: none; width: 450px; height: 120px; font-size: 14px; display: block; resize: none;
+}

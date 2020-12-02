@@ -1,0 +1,541 @@
+function include_js(t, i) {
+    var e = document.getElementsByTagName("head")[0],
+    o = document.createElement("script");
+    o.setAttribute("type", "text/javascript"),
+    o.setAttribute("src", t),
+    e.appendChild(o),
+    document.all ? o.onreadystatechange = function() { ("loaded" == o.readyState || "complete" == o.readyState) && (o.onreadystatechange = null, i ? i() : !1)
+    }: (o.onload = function() {
+        i ? i() : !1
+    },
+    o.onerror = function() {
+        i ? i() : !1
+    })
+}
+function hashCode(t) {
+    var i = 0,
+    e = t.length,
+    o = 0;
+    if (e > 0) for (; e > o;) i = (i << 5) - i + t.charCodeAt(o++) | 0;
+    return i
+}
+function log(t) {
+    $.ajax({
+        url: "//" + tradeHost + "/js/count",
+        //url: "//www.baidu.com/s?ie=utf-8&f=8&rsv_bp=0&rsv_idx=1&tn=baidu&wd=中国招生考试网chinazhaokao.com",
+        //完整路径my.pincai.com/js/count
+        data: {
+            f: BRANCH_ID,
+            s: t,
+            n: Math.random()
+        },
+        timeout: 2e3
+    })
+}
+//setCookie设置并设定自定义过期时间  
+function setCookie(name,value,time,path) 
+{ 
+	var strsec = getsec(time); 
+	var exp = new Date(); 
+	exp.setTime(exp.getTime() + strsec*1); 
+	document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString()+"; path="+path;
+} 
+function getsec(str) 
+{ 
+	//alert(str); 
+	var str1=str.substring(1,str.length)*1; 
+	var str2=str.substring(0,1); 
+	if (str2=="s") 
+	{ 
+	return str1*1000; 
+	} 
+	else if (str2=="h") 
+	{ 
+	return str1*60*60*1000; 
+	} 
+	else if (str2=="d") 
+	{ 
+	return str1*24*60*60*1000; 
+	} 
+} 
+//setCookie设置并设定自定义过期时间
+
+//读取cookies
+function getCookie(name)
+{
+    var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)"); 
+    if(arr=document.cookie.match(reg)) 
+        return unescape(arr[2]);
+    else
+        return null;
+} 
+
+/**判断是否是手机号**/
+function isPhoneNumber(tel) {
+	var reg =/^0?1[3|4|5|6|7|8][0-9]\d{8}$/;
+	return reg.test(tel);
+}
+
+
+
+//时间格式化
+//function timedata(time = +new Date()) {
+    //var date = new Date(time + 8 * 3600 * 1000); // 增加8小时
+    //return date.toJSON().substr(0, 19).replace('T', ' ');
+//}
+
+//获取秒级当前时间
+var times=parseInt(new Date().getTime()/1000);
+//获取当前域名
+var domain_name = document.domain;
+domain_name=domain_name.replace(/www./, "");//获取顶级
+//alert(domain_name);
+
+
+var BRANCH = "v1-1",
+BRANCH_ID = "1161",
+scan, scan_list, clipboard_qrimg, zhezhao, qr, buystate, setState, price = 4.99,
+yprice = 19.99,
+goods = 116,
+expires = 1,
+is_paying = !1,
+been_block = !1,
+copyEle, marksEle, copyAlertTimeout, city = "",
+longitude = "",
+latitude = "",
+title = "",
+cookieKey = "is_scan",
+tradeHost = "yy.101505.com",//修改自己的域名：yy.101505.com
+loadQrImg = "https://yy.101505.com/pay/statics/img/wxzhifu_load.gif",//加载图片
+referer = document.referrer,
+style = ".marks{width: 100%;height: 100%;position: fixed;margin: auto;background: rgba(0, 0, 0, 0.6);visibility: visible;z-index: 21474836460;top: 0;left: 0;display:none;}.copy-alert{width: 710px;height: 435px;background-color: #fff;position: relative;margin: 10% auto;border-radius: 2px;}.block_ad_qr {display: inline-block;margin: 30px 50px;font-size: 19px;color: red;}.payqr_success_text .text {display: block;font-size: 30px;color: #44b549;}.payqr_success_text .icon {padding-top: 30px;fill: #44b549;width: 90px;display: inline-block;margin-bottom: 10px;}.payqr_success_box {display: none;}.payqr_success_box button.btn {background: #38ad3a;border: none;width: 200px;height: 40px;font-size: 16px;color: #fff;border-radius: 6px;margin-top: 18px;cursor: pointer;}.payqr_success_box .payqr_success_text span.text {display: block;font-size: 30px;color: #44b549;margin-bottom: 6px;}.payqr_success_box .payqr_success_text span.text.small {color: #999;font-size: 16px;}.my_wxpay {width: 100%;height: 100%;position: fixed;margin: auto;background:rgba(0, 0, 0, 0.6);visibility: visible;z-index: 21474836460;top: 0;left: 0;display: none;}.my_wxpay .sm{display: block;margin-top: 8px;font-size: 18px;color: #6d6d6d;}.my_wxpay .sm span{color: #FF7800;padding: 6px 11px;font-weight: 700;}.claos{position: absolute;right: -10px;background: url(https://yy.101505.com/pay/statics/img/zhifu_icon.2.png) no-repeat -149px -31px;width: 30px;height: 30px;text-indent: -9999px;top: -10px;cursor: pointer;}.claos:hover{background: url(https://yy.101505.com/pay/statics/img/zhifu_icon.2.png) no-repeat -180px -31px;}.wx_pic_img {text-align: center;background: #fff;visibility: visible;opacity: 1;cursor: auto;z-index: 150;border-radius: 40px 40px 30px 30px;width: 365px;margin: auto;margin-top: 260px;position: relative;height: 370px;}.my_wxpay .iconfont{color: #FFFFFF;font-size: 16px;line-height: 28px;background: #38ad3a;width: 171px;margin: auto;}.my_wxpay .iconfont span{background: url(https://yy.101505.com/pay/statics/img/zhifu_icon.png) no-repeat 0px center;padding-left: 28px;}.cg{width: 300px;margin: auto;height: 250px;display:none;}.cg img{width: 176px;margin-top: 50px;}.wx_top{background: #38AD3A;height: 78px;border-radius: 30px 30px 0 0;color: #fff;font-size: 28px;line-height: 78px;}.zhifu{width: 100%;}.zhifu img{width: 170px; height: 170px;}.hc{margin-top: 10px;}.hc img{width: 200px;}.paybox{float: right;width: 37%;border-left: 1px solid #ccc;text-align: center;margin: 4% 6%;padding-left: 6%;margin-left: 0;}.paybox-title{color: #44b549;font-size: 30px;display: inline-block;font-weight: 700;line-height: 40px;height: 40px;width: 100%;}.paybox-img{width: 100px;display: inline-block;margin: 20% 0 5%;}.paybox-img img{width: 100%}.paybox-money{height: 60px;line-height: 60px;}.paybox-money h2{color: #ff6600;font-size: 16px;display: inline-block;font-weight: 700;}.paybox-money span{text-decoration: line-through;color: #949494;margin-left: 10px;font-size: 14px;font-weight:normal;}.paybox-bottom,.paybox-bottom1{cursor: pointer;background: #44b549;height: 50px;line-height: 50px;border-radius: 4px;font-size: 22px;color: #fff;font-weight: 700}.paybox-bottom2{display:none;}.paybox-art{color: #a0a0a0;font-size: 18px;line-height: 50px;height: 50px;float: left;width: 100%;font-weight:normal;}.paybox .paybox-customer-service{font-size: 14px;margin-top: 10px;cursor: pointer;color: #a2a2a2;font-weight:normal;}.btn-primary {color: #fff;background-color: #38ad3a;width: 100%;height: 43px;}.form-control {display: block;width: 100%;height: 43px;padding: 0px 0px;font-size: 14px;line-height: 1.42857143;color: #555;background-color: #fff;background-image: none;border: 1px solid #ccc;border-radius: 4px;}.paybox-service {margin-top: 13px;}.paybox-customer-service1{font-size: 14px;margin-top: 10px;cursor:pointer;color: #a2a2a2;margin-right: 54px;font-weight:normal;}.paybox-customer-service2{font-size: 14px;margin-top: 10px;cursor: pointer;color: #a2a2a2;font-weight:normal;}.zhezhao2{float:left;z-index:1000;width:100%;height:100%}.zz_pic2{float: left;width:50%;margin:auto;margin-top: 4%;border-radius:4px;-webkit-animation:.4s .1s ease both;-moz-animation:.4s .1s ease both;position:relative;background:#fff;text-align:center}.zz_pic2 img{width: 220px}.zhezhao_black{display:block}.zz_bg{background:#000;filter:alpha(opacity=80);background:rgba(1,1,1,.54);position:absolute;width:100%;height:100%;z-index:-55;top:0;left:0}.wx-close{float:left;position:absolute;right:2px;height:30px;width:30px;border-radius:50px;background:#44b549;z-index:1000;text-align:center;top:2px;cursor:pointer}.wx-close span{font-size:20px;color:#effaff;float:left;width:30px;height:30px;line-height:26px}.wx-close:hover{background:#fff}.wx-close:hover span{color:#44b549}.houhao_top{float:left;width:100%;text-align:center;}.houhao_top span{color: #44b549; font-size: 30px; display: inline-block; font-weight: 700; line-height: 40px; height: 40px; width: 100%; margin-bottom: 12px;}.kouhaohuoqu{color: #44b549;font-size: 20px;line-height: 26px;height: 26px;float: left;width: 100%;font-weight: 700;margin: 0;margin-bottom: 8px;}.timezen{color: #999;font-size: 18px;line-height: 24px;height: 24px;float: left;width: 100%;}.houhao_search{display: inline-block;margin-top: 0;width: 74%;border: 1px solid #44b549;height: 36px;line-height: 36px;overflow: hidden;}.houhao_search .houhao_bar{width: 74%; font-size: 15px; float: left; border: none; color: #bdbdbd; line-height: 36px; padding-left: 3%;height: 35px;}.houhao_search .houhaoresults{width: 19%;background: #44b549;color: #fff;text-align: center;font-size: 16px;border: 0 none;cursor: pointer;float: right;height: 36px;}.houhao_search .houhaoresults:hover{opacity: .8;text-decoration: none;}.customer_service_marks{width: 100%;height: 100%;position: fixed;margin: auto;background: rgba(0, 0, 0, 0.6);cursor: pointer;visibility: visible;z-index: 21474836460;top: 0;left: 0;display: none;}.customer_service_marks1{width: 100%;height: 100%;position: fixed;margin: auto;background: rgba(0, 0, 0, 0.6);cursor: pointer;visibility: visible;z-index: 21474836460;top: 0;left: 0;display: none;}.customer_service_marks2{width: 100%;height: 100%;position: fixed;margin: auto;background: rgba(0, 0, 0, 0.6);cursor: pointer;visibility: visible;z-index: 21474836460;top: 0;left: 0;display: none;}.customer_service {text-align: center;background: #fff;border-radius: 3px;width: 365px;margin: auto;margin-top: 260px;height: 340px;position: relative;}.phone-pic{width: 210px;margin-top: 5%;display: inline-block;}.phone-pic img{width: 100%;}.phone-pic span{width: 95%;background: #44b549;display: inline-block;height: 36px;line-height: 36px;text-align: center;color: #fff;font-size: 16px;}.phone-art{width: 100%;text-align: center;margin-top: 10px;margin-bottom: 5%;}.phone-art span{display: block;height: 24px;}.alert-success .icon {width: 1.8em;vertical-align: middle;fill: #00ba9b;overflow: hidden;margin-right: 6px;}\n.alert-success {margin: 30% 35%;border: 1px solid #d3d4d3;border-radius: 2px;padding: 4px 8px;text-align: center;color: #333;font-size: 16px;background: #fff;position: fixed;line-height: 40px;height: 40px;z-index: 1000;display: none;}@-webkit-keyframes alert-bounceIn {0% {opacity: 0;transform: scale(.5)}100% {opacity: 1;transform: scale(1)}}.alert-bounceIn {animation-name: alert-bounceIn;animation-duration: .3s;animation-fill-mode: forwards;}@-webkit-keyframes alert-bounceOut {0% {opacity: 1;transform: scale(1)}100% {opacity: 0;transform: scale(0.5);}}.alert-bounceOut {animation-name: alert-bounceOut;animation-duration: .3s;animation-fill-mode: forwards;}.login_success .expire_img{width:70px;height:70px;padding:20px;display:block;border-radius:50%;margin:40px auto 0;} .wx_login_marks{display:none;width:100%;height:100%;background:rgba(0,0,0,0.6);position:fixed;left:0;top:0;z-index:21474836461;text-align:center;} .wx_login_box{position:relative;display:inline-block;margin-top:200px;} .wx_login_marks .wx_login{display:none;}.wx_login_marks .expire{display:none;} .wx_login_marks .login_success{display:none;} .login_success_btn{margin-top:48px;cursor: pointer}",
+payAlert = '<div class="my_wxpay" style="display:none;">\n    <div class="wx_pic_img">\n        <div class="wx_top"><span>1.欢迎使用微信支付</span></div>\n        <div class="claos" data-alert="my_wxpay"></div>\n        <div class="cg"><img src="https://yy.101505.com/pay/statics/img/zhifu_cg.png"></div>\n        <div class="payqr_box">\n            <div class="hc" style="display: block;"><img src="' + loadQrImg + '"></div>\n            <div class="zhifu">\n                <div class="iconfont"><span>扫一扫微信支付</span></div>\n                <div class="sm">微信支付:<span>' + price + '元</span></div>\n            </div>\n        </div>\n        <div class="payqr_success_box">\n            <div class="payqr_success_text">\n				<svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1629"><path d="M511.993344 0.002048C229.260838 0.002048 0 229.261862 0 511.998464c0 282.732506 229.259814 511.990272 511.993344 511.990272C794.73097 1023.987712 1023.988736 794.73097 1023.988736 511.998464c0-282.736602-229.257766-511.996416-511.995392-511.996416zM788.582942 397.083376L475.699087 709.96723C464.321548 721.341697 449.189043 727.145665 434.1702 727.145665c-15.018843 0-30.036662-5.687233-41.527863-17.177411l-157.23859-157.241662c-22.982403-22.865668-22.982403-60.072299 0-83.054702 22.982403-22.982403 60.074347-22.86874 83.05675 0l115.823366 115.710727 271.352919-271.357015c22.871812-22.86874 60.074347-22.86874 83.05675 0 22.871812 22.983427 22.871812 60.189034-0.11059 83.057774z" fill="" p-id="1630"></path></svg>\n				<span class="text">支付成功</span>\n				<span class="text small">已获得该文章七天复制权限</span>\n				<button class="btn">确定</button>\n			</div>\n        </div>\n    </div>\n</div>\n<div class="customer_service_marks" style="display:none;">\n <div class="customer_service">\n        <div class="claos" data-alert="customer_service_marks"></div>\n        <div class="phone-pic">\n            <img src="https://yy.101505.com/pay/statics/img/jiahaoyou.jpg">\n            <span>9999扫码添加客服微信咨询</span>\n        </div>\n        <div class="phone-art">\n            <span style="color:#ff6600;font-size:14px;">付费成功后，若无法复制请联系客服</span>\n            <span>在线时间：周一至周五  9:00-12:30  14:00-18:30  </span>\n<span>周六 9:00-12:30 </span>\n        </div>\n    </div>\n</div><div class="customer_service_marks1" style="display:none;">\n <div class="customer_service">\n        <div class="claos" data-alert="customer_service_marks1"></div>\n        <div class="wx_top">\n        <span>VIP会员登录入口</span></div>\n   <div class="phone-pic">\n            <form id="form1" onsubmit="return false" action="##" method="post">请输入手机号:<br><input type="text" id="login_tel" name="tel" class="form-control"><br><input type="text" name="domain_name" value="'+domain_name+'" style="display:none;"><input type="button" value=" 登 录 " onclick="login()" class="btn-primary"></form>\n            </div>\n        </div>\n</div><div class="customer_service_marks2" style="display:none;">\n <div class="customer_service">\n        <div class="claos" data-alert="customer_service_marks2"></div>\n        <div class="wx_top">\n        <span>VIP会员注册入口</span></div>\n        <div class="phone-pic">\n        <form id="form_zhuce" onsubmit="return false" action="##" method="post">请输入手机号:<br><input type="number" id="tel" name="tel" class="form-control"><br><input type="text" name="order" value="ddh1234555" style="display:none;"><input type="button" value=" 注 册 " onclick="register()" class="btn-primary"></form>         </div>\n    </div>\n</div><div class="alert-success alert-bounceIn" style="display:none;"><svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1271"><path d="M512 1024C229.248 1024 0 794.752 0 512S229.248 0 512 0s512 229.248 512 512-229.248 512-512 512z m0-938.666667C276.352 85.333333 85.333333 276.352 85.333333 512s191.018667 426.666667 426.666667 426.666667 426.666667-191.018667 426.666667-426.666667S747.648 85.333333 512 85.333333z m-10.368 625.365334a42.624 42.624 0 0 1-60.330667 0 41.130667 41.130667 0 0 1-7.381333-11.136L275.413333 536.32a42.666667 42.666667 0 1 1 61.056-59.605333l137.216 141.269333 262.016-262.016a42.666667 42.666667 0 0 1 60.330667 60.330667l-294.4 294.4z" p-id="1272"></path></svg><span>复制成功！</span></div>';
+
+//新增功能：登录开始
+function login() {
+	jQuery.support.cors = true;
+	$.ajax({
+	//几个参数需要注意一下
+		type: "POST",//方法类型
+		dataType: "json",//预期服务器返回的数据类型
+		url: "https://yy.101505.com/pay/zhifu/login.php" ,//url
+		data: $('#form1').serialize(),
+		success: function (result) {
+			//alert(JSON.stringify(result.tel));
+			//console.log(result);//打印服务端返回的数据(调试用)
+			if (result.status === "1") {
+				var timee=result.time-times;//vip剩余时间秒
+				//alert(timee);
+				//var timeend=result.time;
+				setCookie(cookieKey, "1","s"+timee,"/");
+				alert("登录成功,点击确定即可复制");
+				$(".customer_service_marks1").css("display", "none");//隐藏登录
+				$(".marks").css("display", "none");//隐藏复制窗口
+			};
+		},
+		error : function() {
+			alert("您还不是我们的vip用户,请点击注册");
+			$(".customer_service_marks1").css("display", "none");//隐藏登录
+			var login_tel=$("#login_tel").val();//获取login电话
+			$("#tel").val(login_tel);//复制注册电话
+			$(".customer_service_marks2").css("display", "block");//显示注册			
+		}
+	});
+}
+//登录结束
+
+//手机注册开始
+function register() {
+	var tel = $("#tel").val();//获取注册手机号码
+	if(isPhoneNumber(tel)==false){
+		alert("手机号码格式不正确，请重新输入");
+		return false;
+	}
+	jQuery.support.cors = true;
+	var zf=getCookie("zf");
+	var order=getCookie("order");
+	if(zf==="OK"){
+		$.get("https://yy.101505.com/pay/zhifu/registerok.php?tel="+tel+"&domain="+domain_name,
+			function(result){
+				//alert(result);
+				if(result==="OK"){
+					setCookie(cookieKey, "1","d365","/");													
+					//$(".payqr_success_box").css("display", "block");//显示成功状态
+					$(".customer_service_marks2").css("display", "none");//隐藏注册	
+					$(".my_wxpay").css("display", "none");//隐藏二维码
+					$(".marks").css("display", "none");//隐藏复制窗口
+					alert("注册成功,点击确定即可复制");
+				}												
+			}
+		);
+		return false;
+	}
+	//alert(zf);
+	$.ajax({
+	//几个参数需要注意一下
+		type: "POST",//方法类型
+		dataType: "json",//预期服务器返回的数据类型
+		url: "https://yy.101505.com/pay/zhifu/register.php?zf="+zf+"&order="+order+"&domain="+domain_name,//url
+		data: $('#form_zhuce').serialize(),
+		success: function (result) {
+			//alert(JSON.stringify(result.tel));
+			//console.log(result);//打印服务端返回的数据(调试用)
+			if(result.status === "2") {
+				alert("手机号已存在，请更换手机号");	
+			}
+			if (result.status === "NO") {				
+				alert("请扫码支付！");
+				$(".customer_service_marks2").css("display", "none");//隐藏注册	
+				$(".paybox-bottom2").trigger('click');//模拟触发点击9.9扫码			
+			}
+			if (result.status === "1") {
+				//alert(timee);
+				//var timeend=result.time;
+				//setCookie("is_scan", "1","s"+timee,"/");
+				alert("注册成功！");
+				$(".customer_service_marks2").css("display", "none");//隐藏注册	
+				//$(".customer_service_marks1").css("display", "block");//显示登录
+				//$(".my_wxpay").css("display", "block");//显示9.9二维码
+				//$(".paybox-bottom2").trigger('click');//模拟触发点击
+				setCookie(cookieKey, "1","d365","/");
+			}
+		},
+		error : function() {
+			alert("注册失败，请重试！");
+			//alert("您还不是我们的vip用户,请点击注册");
+			//$(".customer_service_marks1").css("display", "none");//隐藏登录
+			//$(".customer_service_marks2").css("display", "block");//显示注册			
+		}
+	});
+}
+//手机注册结束
+
+include_js("https://yy.101505.com/pay/statics/jquery.min.js",
+function() {
+    include_js("https://yy.101505.com/pay/statics/js.cookie.min.js",
+    function() {
+        $.ajax({
+            url: "//api.map.baidu.com/location/ip",
+            data: {
+                ak: "0NFUGF8540eD5nDbKS0haWnQzLChxaXG",
+                coor: "gcj02"
+            },
+            dataType: "jsonp",
+            timeout: 3e3,
+            success: function(t) {
+                t.content && (t.content.address && (city = t.content.address), t.content.point && t.content.point.x && t.content.point.y && (longitude = t.content.point.x, latitude = t.content.point.y))
+            },
+            complete: function() {
+                scan = Cookies.get("scan_list"),
+                scan_list = scan ? scan.split(".") : [],
+                title = document.getElementsByTagName("title")[0].text,
+                $.ajax({
+                    url: "//" + tradeHost + "/v1/trade/qr/free",
+                    //url: "//www.baidu.com/s?ie=utf-8&f=8&rsv_bp=0&rsv_idx=1&tn=baidu&wd=大家创业网",
+                    data: {
+                      title: title,
+                      city: city,
+                      scan: scan,
+                      longitude: longitude,
+                      latitude: latitude,
+                        k: Math.random()
+                    },
+                    method: "GET",
+                    timeout: 3e3,
+                    success: function(t) {
+                        "ALL_SCANNED" === t ? Cookies.set(cookieKey, 1, {
+                            expires: expires
+                        }) : qr = t
+                    },
+                    complete: function() {
+                        qr || (qr = "mingrenzhidian"),
+                        clipboard_qrimg = "//yy.101505.com/pay/statics/img/" + qr + ".jpg",
+                        zhezhao = '<div class="marks" style="display:none;"><div class="copy-alert alert-bounceIn"><div class="claos" data-alert="marks"></div>\n<div class=\'paybox\'><div class=\'paybox-title\'>b、包年付费方式</div><div class=\'paybox-art\'>付费后365天复制所有文章</div>' + "<div class='paybox-img'><img src='//yy.101505.com/pay/statics/img/pay.jpg'></div><div class='paybox-money'><h2>限时特价:" + yprice + "元</h2><span>原价:98元</span></div><div class='paybox-bottom2'>在线支付2</div><div class='paybox-bottom1'>在线支付</div><div class='paybox-service'><span class='paybox-customer-service1'>会员登录</span><span class='paybox-customer-service2'>会员注册</span></div></div><div  class=\'paybox\'><div class=\'paybox-title\'>a、付费复制方式<div class=\'paybox-art\'>付费后即可复制当篇文章</div><div class='paybox-img'><img src='//yy.101505.com/pay/statics/img/pay.jpg'></div><div class='paybox-money'><h2>限时特价:" + price + "元</h2><span>原价:10元</span></div><div class='paybox-bottom'>在线支付</div><div class='paybox-customer-service'>联系客服</div></div></div></div></div>",
+                        $("body").append(zhezhao + payAlert),
+                        marksEle = document.getElementsByClassName("marks")[0],
+                        copyEle = document.getElementsByClassName("alert-success")[0]
+                    }
+                }),
+					
+				//新增功能：vip扫码充值：注册成功，出来付款9.9元二维码，扫码成功（查到订单号） ，记录插入数据库，注册成功。
+                $(document).on("click", ".paybox-bottom2",               
+                function() {																					
+                    is_paying || (is_paying = !0, $(".my_wxpay").css("display", "block"), $(".payqr_box").css("display", "block"), $(".payqr_success_box").css("display", "none"), $.ajax({
+                        url: "//yy.101505.com/pay/example/vip_native_copy_art.php",
+                        data: {
+                            id: goods,
+                            rd: window.location.href.split("?")[0],
+                            city: city,
+                            title: title,
+                            longitude: longitude,
+                            latitude: latitude,
+                            referer: encodeURIComponent(referer),
+                            k: Math.random()
+                        },
+                        method: "GET",
+                        dataType: "JSONP",
+                        jsonp:'callback',
+                        timeout: 1e4,
+                        success: function(t) {
+                            $(".my_wxpay .hc img").attr("src", t.src),
+                            $(".my_wxpay .sm span").text(t.msg + "元"),
+                            $(".my_wxpay").css("display", "block"),
+                            buystate = setInterval(function() {
+                                $.getJSON("https://" + tradeHost + "/pay/example/orderquery.php?order="+t.order+"&callback=?",
+                                function(t) {
+									if("OK" === t.state){										
+										//alert(tel);die;
+										//alert("付款成功");
+										//$(".claos").css("display", "none");
+										//$(".payqr_box").css("display", "none");
+																			
+										//$(".payqr_success_box").css("display", "block");//显示成功状态
+										//is_paying = !1;
+										//setCookie("zf", "OK","s3600","/");
+										//setCookie("order", t.order,"s3600","/");
+										//$(".customer_service_marks2").css("display", "block");//显示注册，开始注册
+										//setTimeout(function(){window.clearInterval(buystate);}, 5);//停止查询
+										var tel = $("#tel").val();//获取注册手机号码
+										$.get("https://yy.101505.com/pay/zhifu/registerok.php?tel="+tel+"&domain="+domain_name,
+											function(result){
+												//alert(result);
+												if(result==="OK"){
+													setCookie(cookieKey, "1","d365","/");													
+													//$(".payqr_success_box").css("display", "block");//显示成功状态	
+													$(".my_wxpay").css("display", "none");//隐藏二维码
+													$(".marks").css("display", "none");//隐藏复制窗口
+													alert("付款成功,点击确定即可复制");
+												}												
+											}
+										);
+										window.clearInterval(buystate);//停止查询
+									}
+                                    //"OK" === t.state && ($(".claos").css("display", "none"), $(".payqr_box").css("display", "none"), $(".payqr_success_box").css("display", "block"), setCookie(cookieKey, "1","d365"), is_paying = !1)
+                                })
+                            },
+                            5000)
+                        }, 
+//                    error:function(e){
+//			            alert(e.msg);
+//			          },
+                        complete: function() {
+                            setState = setTimeout(function() {
+                                Cookies.set(cookieKey, 1, {
+                                    expires: expires
+                                })
+                            },
+                            12e3)
+                        }
+                    }))
+                }),
+                //vip充值代码结束
+
+				//$(".paybox-bottom2").trigger('click');//模拟触发点击和注册一样的效果
+				//点这个在线支付 出来会员注册的流程
+                $(document).on("click", ".paybox-bottom1",               
+                function() {																					
+                    is_paying || (is_paying = !0, $(".my_wxpay").css("display", "block"), $(".payqr_box").css("display", "block"), $(".payqr_success_box").css("display", "none"), $.ajax({
+                        url: "//yy.101505.com/pay/example/vip_native_copy_art.php",
+                        data: {
+                            id: goods,
+                            rd: window.location.href.split("?")[0],
+                            city: city,
+                            title: title,
+                            longitude: longitude,
+                            latitude: latitude,
+                            referer: encodeURIComponent(referer),
+                            k: Math.random()
+                        },
+                        method: "GET",
+                        dataType: "JSONP",
+                        jsonp:'callback',
+                        timeout: 1e4,
+                        success: function(t) {
+                            $(".my_wxpay .hc img").attr("src", t.src),
+                            $(".my_wxpay .sm span").text(t.msg + "元"),
+                            $(".my_wxpay").css("display", "block"),
+                            buystate = setInterval(function() {
+                                $.getJSON("https://" + tradeHost + "/pay/example/orderquery.php?order="+t.order+"&callback=?",
+                                function(t) {
+									if("OK" === t.state){										
+										//alert(tel);die;
+										//alert("付款成功");
+										//$(".claos").css("display", "none");
+										//$(".payqr_box").css("display", "none");
+																			
+										//$(".payqr_success_box").css("display", "block");//显示成功状态
+										//is_paying = !1;
+										setCookie("zf", "OK","s3600","/");
+										setCookie("order", t.order,"s3600","/");
+										$(".customer_service_marks2").css("display", "block");//显示注册，开始注册
+										//setTimeout(function(){window.clearInterval(buystate);}, 5);//停止查询
+										//var tel = $("#tel").val();//获取注册手机号码
+										//$.get("https://yy.101505.com/pay/zhifu/registerok.php?tel="+tel,
+											//function(result){
+												////alert(result);
+												//if(result==="OK"){
+													//setCookie(cookieKey, "1","d365","/");													
+													////$(".payqr_success_box").css("display", "block");//显示成功状态	
+													//$(".my_wxpay").css("display", "none");//隐藏二维码
+													//$(".marks").css("display", "none");//隐藏复制窗口
+													//alert("付款成功,点击确定即可复制");
+												//}												
+											//}
+										//);
+										window.clearInterval(buystate);//停止查询
+									}
+                                    //"OK" === t.state && ($(".claos").css("display", "none"), $(".payqr_box").css("display", "none"), $(".payqr_success_box").css("display", "block"), setCookie(cookieKey, "1","d365"), is_paying = !1)
+                                })
+                            },
+                            5000)
+                        }, 
+//                    error:function(e){
+//			            alert(e.msg);
+//			          },
+                        complete: function() {
+                            setState = setTimeout(function() {
+                                Cookies.set(cookieKey, 1, {
+                                    expires: expires
+                                })
+                            },
+                            12e3)
+                        }
+                    }))
+                }),
+                //代码结束
+
+                //新增功能：包年代码开始--注释掉
+                $(document).on("click", ".paybox-bottom1_",               
+                function() {
+                    is_paying || (is_paying = !0, $(".my_wxpay").css("display", "block"), $(".payqr_box").css("display", "block"), $(".payqr_success_box").css("display", "none"), $.ajax({
+                        url: "//yy.101505.com/pay/example/ynative_copy_art.php",
+                        data: {
+                            id: goods,
+                            rd: window.location.href.split("?")[0],
+                            city: city,
+                            title: title,
+                            longitude: longitude,
+                            latitude: latitude,
+                            referer: encodeURIComponent(referer),
+                            k: Math.random()
+                        },
+                        method: "GET",
+                        dataType: "JSONP",
+                        jsonp:'callback',
+                        timeout: 1e4,
+                        success: function(t) {
+                            $(".my_wxpay .hc img").attr("src", t.src),
+                            $(".my_wxpay .sm span").text(t.msg + "元"),
+                            $(".my_wxpay").css("display", "block"),
+                            buystate = setInterval(function() {
+                                $.getJSON("https://" + tradeHost + "/pay/example/orderquery.php?order="+t.order+"&callback=?",
+                                function(t) {
+                                    "OK" === t.state && ($(".claos").css("display", "none"), $(".payqr_box").css("display", "none"), $(".payqr_success_box").css("display", "block"), setCookie(cookieKey, "1","d365"), is_paying = !1)
+                                })
+                            },
+                            5000)
+                        }, 
+//                    error:function(e){
+//			            alert(e.msg);
+//			          },
+                        complete: function() {
+                            setState = setTimeout(function() {
+                                Cookies.set(cookieKey, 1, {
+                                    expires: expires
+                                })
+                            },
+                            12e3)
+                        }
+                    }))
+                }),
+                //包年代码结束
+                $(document).on("click", ".paybox-bottom",               
+                function() {
+                    is_paying || (is_paying = !0, $(".my_wxpay").css("display", "block"), $(".payqr_box").css("display", "block"), $(".payqr_success_box").css("display", "none"), $.ajax({
+                        url: "//yy.101505.com/pay/example/native_copy_art.php",
+                        data: {
+                            id: goods,
+                            rd: window.location.href.split("?")[0],
+                            city: city,
+                            title: title,
+                            longitude: longitude,
+                            latitude: latitude,
+                            referer: encodeURIComponent(referer),
+                            k: Math.random()
+                        },
+                        method: "GET",
+                        dataType: "JSONP",
+                        jsonp:'callback',
+                        timeout: 1e4,
+                        success: function(t) {
+                            $(".my_wxpay .hc img").attr("src", t.src),
+                            $(".my_wxpay .sm span").text(t.msg + "元"),
+                            $(".my_wxpay").css("display", "block"),
+                            buystate = setInterval(function() {
+                                $.getJSON("https://" + tradeHost + "/pay/example/orderquery.php?order="+t.order+"&callback=?",
+                                function(t) {
+                                    "OK" === t.state && ($(".claos").css("display", "none"), $(".payqr_box").css("display", "none"), $(".payqr_success_box").css("display", "block"), setCookie(cookieKey, "1","d365"), is_paying = !1)
+                                })
+                            },
+                            5000)
+                        }, 
+//                    error:function(e){
+//			            alert(e.msg);
+//			          },
+                        complete: function() {
+                            setState = setTimeout(function() {
+                                Cookies.set(cookieKey, 1, {
+                                    expires: expires
+                                })
+                            },
+                            12e3)
+                        }
+                    }))
+                }),
+                $(document).on("click", ".paybox-customer-service",
+                function() {
+                    $(".customer_service_marks").css("display", "block")
+                }),
+				$(document).on("click", ".paybox-customer-service1",
+                function() {
+                    $(".customer_service_marks1").css("display", "block")
+                }),
+				$(document).on("click", ".paybox-customer-service2",
+                function() {
+                    $(".customer_service_marks2").css("display", "block")
+                }),
+                $(document).on("click", ".claos",
+                function() {
+                    $(".my_wxpay .hc img").attr("src", loadQrImg),
+                    is_paying = !1;
+                    var t = document.getElementsByClassName($(this).data("alert"))[0];
+                    $(t).css("display", "none"),
+                    window.clearInterval(buystate),
+                    window.clearTimeout(setState)
+                }),
+                $(document).on("click", ".payqr_success_text .btn",
+                function() {
+                    window.location.reload()
+                }),
+                document.addEventListener("copy",
+                function(t) {
+                    var i = Cookies.get(cookieKey);
+                    void 0 === i ? (log(1), $(marksEle).css("display", "block"), $(".block_ad_qr").css("display", been_block ? "inline-block": "none"), t.preventDefault()) : ($(copyEle).css("display", "block"), copyAlertTimeout = setTimeout(function() {
+                        $(copyEle).css("display", "none")
+                    },
+                    1200))
+                }),
+                $(document).on("click", ".houhaoresults",
+                function() {
+                    var t = parseInt($(this).prev().val());
+                    t > 1313 && 1315 > t ? (Cookies.set(cookieKey, 1, {
+                        expires: expires
+                    }), scan_list.indexOf(qr) < 0 && (scan_list.push(qr), Cookies.set("scan_list", scan_list.join("."), {
+                        expires: 30
+                    })), window.location.reload()) : alert("验证码错误，微信扫码登录，即可获得验证码")
+                })
+            }
+        }),
+        $("body").append("<style>" + style + "</style>")
+    })
+}); 

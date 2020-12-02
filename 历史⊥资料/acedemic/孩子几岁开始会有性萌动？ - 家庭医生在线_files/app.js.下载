@@ -1,0 +1,192 @@
+FD.dom.ready(function(){
+    if(!window.noFastClick){
+        FastClick.attach(document.body); //消除click 300ms延迟
+    }
+    
+    initDropdownMenu(); //启用下拉菜单
+    new FD.GotoTop();   //启用返回顶部
+});
+
+//初始化头部下拉菜单
+function initDropdownMenu(){
+    var $trigger = FD.dom.get("header .js-more");
+    var $menu = FD.dom.get("#dropdown-menu");
+    var drawer = new FD.Drawer({
+        content: $menu || '',
+        direction: "toBottom",
+        offset: [0, "45px"],
+        zIndex: 99,
+        showMask: false,
+    });
+
+    var toggle = function () {
+        $trigger.classList.toggle("icon-up-white");
+
+        if($trigger.classList.contains("icon-up-white")){
+            $trigger.innerHTML = "收起";
+        }else{
+            $trigger.innerHTML = "导航";
+        }
+    }
+    
+    $trigger.onclick = function(){
+        drawer.toggle();
+        toggle();
+    };
+
+    $trigger.onfocus = function () { this.blur(); }
+}
+
+//Tab切换 
+FD.dom.on("click", ".js-tabs a", function () {
+    var $that = this;
+    
+    if($that.classList.contains("on")){
+        return;
+    }
+
+    var $wrap = findParent($that, "js-tab-wrap");
+    var $items = $wrap.querySelectorAll(".js-tab-item");
+    var tabs = [].slice.call($that.parentNode.querySelectorAll("a"), 0);
+    var $oldTab = $that.parentNode.querySelector("a.on");
+    var m = tabs.indexOf($oldTab);
+    var n = tabs.indexOf($that);
+    
+    $oldTab.classList.remove("on");
+    $that.classList.add("on");
+    $items[m].classList.add("hide");
+    $items[n].classList.remove("hide");
+
+    function findParent(elem, className){
+        var parent = elem.parentNode;
+        var target = null;
+
+        while(parent){
+            if(parent.classList.contains(className)){
+                target = parent;
+                break;
+            }
+
+            parent = parent.parentNode;
+        }
+
+        return target;
+    }
+});
+
+//分享
+FD.dom.on("click", "#btn-native-share", function(){
+    var title = FD.dom.get("h1").innerText;
+    var desc = document.querySelector("meta[name=description]") || "";
+    // var img = "https://img.familydoctor.com.cn/images/jtys-512.png";
+    var img = 'https://www.familydoctor.cn/images/jtys-512.png';
+    var config = {
+        url: location.href,
+        title: title,
+        desc: desc,
+        img: img,
+        img_title: title,
+        from: "家庭医生在线"
+    };
+
+    new MobileShare(config);
+});
+
+FD.dom.on("click", "#diseases-trigger", function () {
+    this.classList.toggle("on");
+
+    var $cont = FD.dom.get("#diseases-cont");
+
+    $cont && $cont.classList.toggle("hide"); 
+});
+
+//分享
+(function(){
+    function Share(config){
+        if(!(this instanceof Share)){ return new Share(config); }
+        this.config = config;
+        this.box = document.createElement("div");
+        this.box.className = "native-share";
+        this.drawer = null;
+        this.init();
+    }
+
+    Share.options = {};
+    Share.prototype.isInitBaiduShare = false;
+    Share.prototype.bdShare = document.createElement("div");
+
+    Share.prototype.init = function(){
+        var that = this;
+
+        that.drawer = new FD.Drawer({
+            content: that.box,
+            direction: "toBottom",
+            zIndex: 9999,
+            className: "drawer drawer-share",
+            offset: [0, "100px"],
+            onInit: function(dw){
+                new NativeShare(that.box, that.config, function(type){
+                    if(type === 0){
+                        dw.box.style.marginTop = "-100px";
+                    }
+
+                    if(type === 3){
+                        Share.options = {
+                            bdText : that.config.title,	
+                            bdDesc : that.config.desc || that.config.title,	
+                            bdUrl : that.config.url, 	
+                            bdPic : that.config.img
+                        };
+
+                        if(!Share.prototype.isInitBaiduShare){
+                            Share.prototype.isInitBaiduShare = true;
+                            that.initBaiduShare();
+                            Share.prototype.bdShare.className = "";
+                        }
+
+                        FD.dom.append(that.box, Share.prototype.bdShare);
+                    }
+                });
+            }
+        });
+
+        that.drawer.show();
+    };
+
+    Share.prototype.initBaiduShare = function(){
+        var that = this;
+        //var url = '//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5);
+        var url = 'https://img.familydoctor.com.cn/bdshare/static/api/js/share.js?cdnversion='+~(-new Date()/36e5);
+        var html = '<h2>分享到</h2>';
+
+            html += '<div class="bdsharebuttonbox">';
+            html += '<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>';
+            html += '<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>';
+            html += '<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>';
+            html += '<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>';
+            html += '</div>';
+        
+        Share.prototype.bdShare.className = "hide";
+        Share.prototype.bdShare.innerHTML = html;
+        document.body.appendChild(Share.prototype.bdShare);
+
+        window._bd_share_config = {
+            common: {
+                bdText : '',
+                bdDesc : '',
+                bdUrl : location.href,
+                bdPic : '',
+                onBeforeClick: function(){
+                    return Share.options;
+                }
+            },
+            share: {
+                "bdSize" : 32
+            }
+        };
+
+        FD.getScript(url);
+    };
+
+    window.MobileShare = Share;
+})();

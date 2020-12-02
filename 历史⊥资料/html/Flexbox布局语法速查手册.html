@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)https://www.webhek.com/apps/flex-cheatsheet/#flex-direction -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width">
+    <title>Flexbox布局语法速查手册</title>
+    <meta name="description" content="一个flex父容器元素能给它的子元素建立一种新型的flex内容布局。这种布局其实是和将元素设定为display:block是很相似的，只是在flex布局里block换成了flex。在flex布局里没有float特征，flex父容器的margin不会和其子元素的margin有重叠效果。Flex父容器元素所形成的block容器特性跟普通的block容器元素所表现的特征完全一样。overflow特征也适用于Flex父容器元素。">
+
+    <meta>
+    <style type="text/css">/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */LI,Ul,body{margin:0}.l-aside,.nav{max-width:300px}.nav,UL{list-style-type:none}html{font-family:family:PingFang SC,Lantinghei SC,Helvetica Neue,Helvetica,Arial,Microsoft YaHei,\\5FAE\8F6F\96C5\9ED1,STHeitiSC-Light,simsun,\\5B8B\4F53,WenQuanYi Zen Hei,WenQuanYi Micro Hei,"sans";-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}.hidden-content,[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,optgroup,strong{font-weight:700}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{box-sizing:content-box;height:0}pre,textarea{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{height:auto}input[type=search]{-webkit-appearance:textfield;box-sizing:content-box}.content__item,.demo__code,.demo__view,.nav{box-sizing:border-box}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}LI,Ul,legend,td,th{padding:0}legend{border:0}table{border-collapse:collapse;border-spacing:0}BODY{background:#FFF;font:16px/1.4 "PingFang SC",Lantinghei SC,Helvetica Neue,Helvetica,Arial,Microsoft YaHei,\\5FAE\8F6F\96C5\9ED1,STHeitiSC-Light,simsun,\\5B8B\4F53,WenQuanYi Zen Hei,WenQuanYi Micro Hei,"sans";color:#111}A{color:#0a38c2}H1,H2,H3,H4{margin-top:0;font-weight:400}MARK{background:#333;box-shadow:0 0 0 2px #333;color:#FFF}.visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;border:0;padding:0;clip:rect(0 0 0 0);overflow:hidden}.child,.l-aside{position:relative}.content__item{display:block;width:100%;min-height:100vh;padding:1rem 2em;border-bottom:1px dotted}.demo,.l-wrapper,.nav{display:flex}.content-values__term{font-weight:700}.content-values__desc{margin-bottom:1rem}.l-wrapper{min-height:100%}.l-main{flex:1}.l-aside{width:23%;min-width:230px;order:-1}.demo-wrapper{margin:2rem 0}.demo-values__control{margin:0 .5rem .5rem 0;padding:.3rem .7rem;border:0;border-radius:3px;background:#AAA}.demo-values__control--current{background:#333;color:#FFF}.demo{justify-content:space-between;flex-wrap:wrap}.demo__view{width:50%;flex-grow:1;height:250px;margin:0 1rem 1rem 0;padding:.5rem;border:2px solid #000}@media (max-width:960px){.demo__view{width:100%;margin-right:0}}.demo__code{flex-grow:1;flex-shrink:0;margin-bottom:1rem;padding:1rem;background:#DDD;border-radius:.75rem;white-space:pre;font-family:monospace}.parent{border:1px dashed}.child{min-width:2.5rem;min-height:2.5rem;padding:.5rem;background-color:#CCC;background-repeat:no-repeat;background-position:50% 50%;border:1px solid #FFF}.demo--has-featured .child--featured{background-color:#999}.child:nth-child(1){background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.25em' style='font: 30px/1 Georgia, serif' fill='%230' fill-opacity='.6'%3E 1 %3C/text%3E%3C/svg%3E")}.child:nth-child(2){background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.25em' style='font: 30px/1 Georgia, serif' fill='%230' fill-opacity='.6'%3E 2 %3C/text%3E%3C/svg%3E")}.child:nth-child(3){background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.25em' style='font: 30px/1 Georgia, serif' fill='%230' fill-opacity='.6'%3E 3 %3C/text%3E%3C/svg%3E")}.child:nth-child(4){background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.25em' style='font: 30px/1 Georgia, serif' fill='%230' fill-opacity='.6'%3E 4 %3C/text%3E%3C/svg%3E")}.nav{position:fixed;z-index:1;flex-direction:column;width:23%;min-width:230px;height:100%;overflow:hidden;padding:1.5rem 0;background:#DDD}@media (min-width:1200px){.nav{padding-left:1rem}}.nav:before{content:'';display:inline-block;position:absolute;right:0;top:0;bottom:0;height:100%;width:2px;background:#000}.nav__subheader{margin-top:1rem;margin-bottom:.5rem;padding:0 1rem;font-size:1.3rem;line-height:1}@media (min-width:1130px){.nav__subheader{font-size:1.45rem}}.nav__item{margin-bottom:.4rem}@media (min-width:900px){.nav__item{margin-bottom:.6rem}}.nav__link{position:relative;display:block;margin-left:2rem;padding:0 1rem}.nav__link:hover{text-decoration:none}.nav__item--current .nav__link{text-decoration:none;font-weight:700;color:#000}.nav__marker{position:absolute;margin-top:-.45rem;right:-1rem;width:2rem;height:2rem;border-radius:50%;box-shadow:0 0 0 2px #000;background:#FFF;transition:top .5s}.project-links{display:flex;margin-top:2rem;margin-left:3rem}.project-link{width:1.5rem;height:1.5rem;margin:0 1.5rem 0 0;text-indent:-1000px;overflow:hidden;opacity:.7;transition:opacity .25s}.project-link:hover{opacity:1}.project-link--git{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23000' d='M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z'%3E%3C/path%3E%3C/svg%3E")}.project-link--twitter{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23000' d='M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z'%3E%3C/path%3E%3C/svg%3E")}.theme-control{position:absolute;right:.5rem;top:.5rem;z-index:1000;padding:.2rem .4rem;border-radius:5px;background:0 0;border:2px solid}BODY[data-theme=seagreen]{background:#CFF09E;font:16px/1.4 PingFang SC,Lantinghei SC,Helvetica Neue,Helvetica,Arial,Microsoft YaHei,\\5FAE\8F6F\96C5\9ED1,STHeitiSC-Light,simsun,\\5B8B\4F53,WenQuanYi Zen Hei,WenQuanYi Micro Hei,"sans";color:#072f46}[data-theme=seagreen] A{color:#0B486B}[data-theme=seagreen] MARK{box-shadow:0 0 0 2px #337474;background:#337474;color:#cceacc}[data-theme=seagreen] .content__title,[data-theme=seagreen] .theme-control{color:#3B8686}[data-theme=seagreen] .content__item{border-color:#3B8686}[data-theme=seagreen] .content-values__term{color:#2b6363}[data-theme=seagreen] .nav{overflow:hidden;background:#0B486B}[data-theme=seagreen] .nav:before{width:10px;background:#3B8686}[data-theme=seagreen] .nav__subheader{font-weight:400;color:#fff;text-shadow:2px 2px 0 #0B486B,3px 3px 0 #010a0f}[data-theme=seagreen] .nav A{color:#9bceb4}[data-theme=seagreen] .nav A:hover{color:#A8DBA8}[data-theme=seagreen] .nav__item--current A{font-weight:400;color:#CFF09E}[data-theme=seagreen] .nav__marker{background:#CFF09E;box-shadow:0 0 0 10px #3B8686}[data-theme=seagreen] .demo-values__control{background:#3B8686;color:#A8DBA8}[data-theme=seagreen] .demo-values__control--current{background:#0B486B;color:#CFF09E}[data-theme=seagreen] .demo__view{border-color:#79BD9A}[data-theme=seagreen] .demo__code{background:#A8DBA8;color:#0B486B}[data-theme=seagreen] .parent{border-color:#3B8686}[data-theme=seagreen] .child{background-color:#79BD9A;border-color:#CFF09E}[data-theme=seagreen] .demo--has-featured .child--featured{background-color:#3B8686}[data-theme=seagreen] .child:nth-child(1){background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.25em' style='font: 30px/1 Georgia, serif' fill='%230B486B' fill-opacity='.7'%3E 1 %3C/text%3E%3C/svg%3E")}[data-theme=seagreen] .child:nth-child(2){background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.25em' style='font: 30px/1 Georgia, serif' fill='%230B486B' fill-opacity='.7'%3E 2 %3C/text%3E%3C/svg%3E")}[data-theme=seagreen] .child:nth-child(3){background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.25em' style='font: 30px/1 Georgia, serif' fill='%230B486B' fill-opacity='.7'%3E 3 %3C/text%3E%3C/svg%3E")}[data-theme=seagreen] .child:nth-child(4){background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.25em' style='font: 30px/1 Georgia, serif' fill='%230B486B' fill-opacity='.7'%3E 4 %3C/text%3E%3C/svg%3E")}[data-theme=seagreen] .project-link--git{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23041926' d='M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z'%3E%3C/path%3E%3C/svg%3E")}[data-theme=seagreen] .project-link--twitter{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23041926' d='M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z'%3E%3C/path%3E%3C/svg%3E")}
+
+.content__desc i, .content__desc a{margin-left: 0.5rem; margin-right: 0.5rem;}</style>
+<style id="style-display">.demo--prop-display .parent {
+  display: flex;
+}
+</style><style id="style-flex-direction">.demo--prop-flex-direction .parent {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+</style><style id="style-flex-wrap">.demo--prop-flex-wrap .parent {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  height: 100%;
+}
+.demo--prop-flex-wrap .child {
+  width: 40%;
+}
+</style><style id="style-flex-flow">.demo--prop-flex-flow .parent {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 100%;
+}
+.demo--prop-flex-flow .child {
+  width: 40%;
+  height: 40%;
+}
+</style><style id="style-order">.demo--prop-order .parent {
+  display: flex;
+  align-items: flex-start;
+  height: 100%;
+}
+.demo--prop-order .child--featured {
+  order: -1;
+}
+</style><style id="style-justify-content">.demo--prop-justify-content .parent {
+  display: flex;
+  justify-content: flex-start;
+  height: 100%;
+}
+</style><style id="style-align-items">.demo--prop-align-items .parent {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+}
+</style><style id="style-align-self">.demo--prop-align-self .parent {
+  display: flex;
+  height: 100%;
+}
+.demo--prop-align-self .child--featured {
+  align-self: flex-start;
+}
+</style><style id="style-align-content">.demo--prop-align-content .parent {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: stretch;
+  height: 100%;
+}
+.demo--prop-align-content .child {
+  width: 30%;
+}
+</style><style id="style-flex-grow">.demo--prop-flex-grow .parent {
+  display: flex;
+  height: 100%;
+}
+.demo--prop-flex-grow .child--featured {
+  flex-grow: 1;
+}
+</style><style id="style-flex-shrink">.demo--prop-flex-shrink .parent {
+  display: flex;
+  height: 100%;
+}
+.demo--prop-flex-shrink .child {
+  width: 40%;
+}
+.demo--prop-flex-shrink .child--featured {
+  flex-shrink: 1;
+}
+</style><style id="style-flex-basis">.demo--prop-flex-basis .parent {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  height: 100%;
+}
+.demo--prop-flex-basis .child--featured {
+  flex-basis: 30%;
+}
+.clearfix:after{
+  content: '';
+  display: block;
+  clear: both;
+}
+</style><style id="flex"></style><style id="style-display">.demo--prop-display .parent {
+  display: flex;
+}
+</style><style id="style-flex-direction">.demo--prop-flex-direction .parent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+</style><style id="style-flex-wrap">.demo--prop-flex-wrap .parent {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  height: 100%;
+}
+.demo--prop-flex-wrap .child {
+  width: 40%;
+}
+</style><style id="style-flex-flow">.demo--prop-flex-flow .parent {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 100%;
+}
+.demo--prop-flex-flow .child {
+  width: 40%;
+  height: 40%;
+}
+</style><style id="style-order">.demo--prop-order .parent {
+  display: flex;
+  align-items: flex-start;
+  height: 100%;
+}
+.demo--prop-order .child--featured {
+  order: -1;
+}
+</style><style id="style-justify-content">.demo--prop-justify-content .parent {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+</style><style id="style-align-items">.demo--prop-align-items .parent {
+  display: flex;
+  align-items: flex-start;
+  height: 100%;
+}
+</style><style id="style-align-self">.demo--prop-align-self .parent {
+  display: flex;
+  height: 100%;
+}
+.demo--prop-align-self .child--featured {
+  align-self: flex-start;
+}
+</style><style id="style-align-content">.demo--prop-align-content .parent {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: stretch;
+  height: 100%;
+}
+.demo--prop-align-content .child {
+  width: 30%;
+}
+</style><style id="style-flex-grow">.demo--prop-flex-grow .parent {
+  display: flex;
+  height: 100%;
+}
+.demo--prop-flex-grow .child--featured {
+  flex-grow: 1;
+}
+</style><style id="style-flex-shrink">.demo--prop-flex-shrink .parent {
+  display: flex;
+  height: 100%;
+}
+.demo--prop-flex-shrink .child {
+  width: 40%;
+}
+.demo--prop-flex-shrink .child--featured {
+  flex-shrink: 1;
+}
+</style><style id="style-flex-basis">.demo--prop-flex-basis .parent {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  height: 100%;
+}
+.demo--prop-flex-basis .child--featured {
+  flex-basis: 30%;
+}
+</style><style id="flex"></style></head>
+<body data-theme="seagreen">
+<div class="l-wrapper">
+    <main class="l-main">
+
+    <h1 style="margin-left: 1rem;margin-top: 1rem">Flexbox布局语法速查手册</h1>
+<div class="clearfix" style="margin:0 auto 2rem 1rem"><!-- JiaThis Button BEGIN -->
+<div class="jiathis_style_24x24">
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_renren"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<!-- JiaThis Button END --></div>
+
+    <div class="content" style="height: 0; position: absolute;left: -9999px"><section class="content__item" id="display"><h2 class="content__title" id="display">display</h2><a href="https://www.w3.org/TR/css-flexbox-1/#flex-containers" class="content__link">w3.org/TR/css-flexbox-1/#flex-containers</a><div class="demo-wrapper"><div class="demo-values"><button class="demo-values__control demo-values__control--current" name="flex">flex</button><button class="demo-values__control" name="inline-flex">inline-flex</button></div>
+        <div class="demo demo--prop-display">
+            <div class="demo__view">一些文字内容
+              <div class="parent">
+                  <div class="child"></div>
+                  <div class="child"></div>
+                  <div class="child child--featured"></div>
+                  <div class="child"></div>
+              </div>
+            </div>
+
+            <div class="demo__code" spellcheck="false">.parent {
+  <mark>display: flex;
+</mark>}
+</div>
+        </div>
+    </div><div class="content__desc"><p>一个<i>flex父容器元素</i>能给它的子元素建立一种新型的<dfn>flex内容布局</dfn>。这种布局其实是和将元素设定为<code>display:block</code>是很相似的，只是在flex布局里block换成了flex。在flex布局里没有float特征，flex父容器的margin不会和其子元素的margin有重叠效果。<i>Flex父容器元素</i>所形成的block容器特性跟普通的block容器元素所表现的特征<a href="https://www.w3.org/TR/CSS2/visudet.html#containing-block-details">完全一样。</a><a href="https://www.w3.org/TR/css-overflow-3/#overflow">overflow</a>特征也适用于<i>Flex父容器元素</i>。</p><p>Flex父容器元素并不等同于普通的block元素，有一些block元素具有的属性在flex父元素上并不适用。特别的：</p><p>如果一个元素被指定为<a href="https://www.w3.org/TR/CSS22/visuren.html#propdef-display">display</a>:<i>inline-flex</i>，那么，在某些情况下，它的<a href="https://www.w3.org/TR/CSS22/visuren.html#propdef-display">display</a>属性会按做<i>flex</i>来计算： 在<a href="https://www.w3.org/TR/CSS2/visuren.html#dis-pos-flo">CSS 2.1 Section 9.7</a>的表格里将会增加有一行，在 'Specified Value' 列里多出<i>inline-flex</i>行和在 'Computed Value' 列里多出<i>flex</i>行</p></div><p class="content__initial-value"><b>适用元素</b>: 所有元素.</p><dl class="content-values"><dt id="display__flex" class="content-values__term">flex</dt><dd class="content-values__desc">指定此元素为block级别的<i>flex布局</i>的父元素/Flex容器元素。</dd><dt id="display__inline-flex" class="content-values__term">inline-flex</dt><dd class="content-values__desc">指定此元素为inline级别的<i>flex布局</i>的父元素/Flex容器元素。</dd></dl></section><section class="content__item" id="flex-direction"><h2 class="content__title" id="flex-direction">flex-direction</h2><a href="https://www.w3.org/TR/css-flexbox-1/#flex-direction-property" class="content__link">w3.org/TR/css-flexbox-1/#flex-direction-property</a><div class="demo-wrapper"><div class="demo-values"><button class="demo-values__control demo-values__control--current" name="row">row</button><button class="demo-values__control" name="row-reverse">row-reverse</button><button class="demo-values__control" name="column">column</button><button class="demo-values__control" name="column-reverse">column-reverse</button></div>
+        <div class="demo demo--prop-flex-direction">
+            <div class="demo__view">
+              <div class="parent">
+                  <div class="child"></div>
+                  <div class="child"></div>
+                  <div class="child child--featured"></div>
+                  <div class="child"></div>
+              </div>
+            </div>
+
+            <div class="demo__code" spellcheck="false">.parent {
+  display: flex;
+  <mark>flex-direction: row;
+</mark>  height: 100%;
+}
+</div>
+        </div>
+    </div><div class="content__desc"><p><i>flex-direction</i>属性指明<i>flex子元素</i>在flex父容器内的布局方向，也就是是flex父容器的排列方向。flex子元素的布局方向就根据这个值。</p><p role="note">注意：这里的反向(reverse)值并不是指排序的反向，跟<a href="https://www.w3.org/TR/css-writing-modes-3/#propdef-writing-mode">writing-mode</a>和<a href="https://www.w3.org/TR/css-writing-modes-3/#propdef-direction">direction</a>一样，它是指将布局排列方向反向。元素的渲染顺序，语音输出顺序，导航顺序都不受影响。</p></div><p class="content__initial-value"><b>适用元素</b>: Flex父容器元素.</p><p class="content__initial-value"><b>初始值</b>: row.</p><dl class="content-values"><dt id="flex-direction__row" class="content-values__term">row</dt><dd class="content-values__desc">flex布局的排列方向跟当前<a href="https://www.w3.org/TR/css-writing-modes-3/#writing-mode">writing mode</a>下<a href="https://www.w3.org/TR/css-writing-modes-3/#inline-axis">inline axis</a>方向相同。它们的<i>main-start</i> 和 <i>main-end</i> 端等同于当前<a href="https://www.w3.org/TR/css-writing-modes-3/#writing-mode">writing mode</a>下的<a href="https://www.w3.org/TR/css-writing-modes-3/#inline-start">inline-start</a> 和 <a href="https://www.w3.org/TR/css-writing-modes-3/#inline-end">inline-end</a> 端。</dd><dt id="flex-direction__row-reverse" class="content-values__term">row-reverse</dt><dd class="content-values__desc">类似 <i>row</i> 值，只是它们的<i>main-start</i> 和 <i>main-end</i> 端互换，也就是反向。</dd><dt id="flex-direction__column" class="content-values__term">column</dt><dd class="content-values__desc">flex布局的排列方向跟当前<a href="https://www.w3.org/TR/css-writing-modes-3/#writing-mode">writing mode</a>下<a href="https://www.w3.org/TR/css-writing-modes-3/#block-axis">block axis</a>方向相同。它们的<i>main-start</i> 和 <i>main-end</i> 端等同于当前<a href="https://www.w3.org/TR/css-writing-modes-3/#writing-mode">writing mode</a>下的<a href="https://www.w3.org/TR/css-writing-modes-3/#block-start">block-start</a> 和 <a href="https://www.w3.org/TR/css-writing-modes-3/#block-end">block-end</a> 端。</dd><dt id="flex-direction__column-reverse" class="content-values__term">column-reverse</dt><dd class="content-values__desc">类似 <i>column</i> 值，只是它们的<i>main-start</i> 和 <i>main-end</i> 端互换，也就是反向。</dd></dl></section><section class="content__item" id="flex-wrap"><h2 class="content__title" id="flex-wrap">flex-wrap</h2><a href="https://www.w3.org/TR/css-flexbox-1/#flex-wrap-property" class="content__link">w3.org/TR/css-flexbox-1/#flex-wrap-property</a><div class="demo-wrapper"><div class="demo-values"><button class="demo-values__control demo-values__control--current" name="nowrap">nowrap</button><button class="demo-values__control" name="wrap">wrap</button><button class="demo-values__control" name="wrap-reverse">wrap-reverse</button></div>
+        <div class="demo demo--prop-flex-wrap">
+            <div class="demo__view">
+              <div class="parent">
+                  <div class="child"></div>
+                  <div class="child"></div>
+                  <div class="child child--featured"></div>
+                  <div class="child"></div>
+              </div>
+            </div>
+
+            <div class="demo__code" spellcheck="false">.parent {
+  display: flex;
+  align-items: flex-start;
+  <mark>flex-wrap: nowrap;
+</mark>  height: 100%;
+}
+.child {
+  width: 40%;
+}
+</div>
+        </div>
+    </div><div class="content__desc"><p><i>flex-wrap</i>属性控制着flex容器是单行还是多行，还有它的 <i>cross-axis</i> 换行方向，也就是新行的布局方向。</p><p>对于非 <i>wrap-reverse</i> 的值，<i>cross-start</i>端等同于当前<a href="https://www.w3.org/TR/css-writing-modes-3/#writing-mode">writing mode</a>下的<a href="https://www.w3.org/TR/css-writing-modes-3/#inline-start">inline-start</a> 或 <a href="https://www.w3.org/TR/css-writing-modes-3/#block-start">block-start</a>端。也就是<i>cross axis</i>换行方向的起始端。而<i>cross-end</i>端是<i>cross-start</i>端的反向端。当<i>flex-wrap</i>值为<i>wrap-reverse</i>时，<i>cross-start</i> 和 <i>cross-end</i>端互换。</p></div><p class="content__initial-value"><b>适用元素</b>: Flex父容器元素.</p><p class="content__initial-value"><b>初始值</b>: nowrap.</p><dl class="content-values"><dt id="flex-wrap__nowrap" class="content-values__term">nowrap</dt><dd class="content-values__desc">flex容器是单行显示子元素。</dd><dt id="flex-wrap__wrap" class="content-values__term">wrap</dt><dd class="content-values__desc">flex容器是多行显示子元素，也就是可以换行。</dd><dt id="flex-wrap__wrap-reverse" class="content-values__term">wrap-reverse</dt><dd class="content-values__desc">跟<i>wrap</i>值类似，只是换行方向反过来。</dd></dl></section><section class="content__item" id="flex-flow"><h2 class="content__title" id="flex-flow">flex-flow</h2><a href="https://www.w3.org/TR/css-flexbox-1/#flex-flow-property" class="content__link">w3.org/TR/css-flexbox-1/#flex-flow-property</a><div class="demo-wrapper"><div class="demo-values"><button class="demo-values__control demo-values__control--current" name="row nowrap">row nowrap</button><button class="demo-values__control" name="column-reverse">column-reverse</button><button class="demo-values__control" name="column wrap">column wrap</button><button class="demo-values__control" name="row-reverse wrap-reverse">row-reverse wrap-reverse</button></div>
+        <div class="demo demo--prop-flex-flow">
+            <div class="demo__view">
+              <div class="parent">
+                  <div class="child"></div>
+                  <div class="child"></div>
+                  <div class="child child--featured"></div>
+                  <div class="child"></div>
+              </div>
+            </div>
+
+            <div class="demo__code" spellcheck="false">.parent {
+  display: flex;
+  <mark>flex-flow: row nowrap;
+</mark>  height: 100%;
+}
+.child {
+  width: 40%;
+  height: 40%;
+}
+</div>
+        </div>
+    </div><div class="content__desc"><p><i>flex-flow</i>属性是<i>flex-direction</i>属性和<i>flex-wrap</i>属性的组合体简写，用来控制flex容器的排列方向和换行方向。</p></div><p class="content__initial-value"><b>适用元素</b>: Flex父容器元素.</p><p class="content__initial-value"><b>初始值</b>: row nowrap.</p></section><section class="content__item" id="order"><h2 class="content__title" id="order">order</h2><a href="https://www.w3.org/TR/css-flexbox-1/#order-property" class="content__link">https://www.w3.org/TR/css-flexbox-1/#order-property</a><div class="demo-wrapper"><div class="demo-values"><button class="demo-values__control demo-values__control--current" name="-1">-1</button><button class="demo-values__control" name="0">0</button><button class="demo-values__control" name="1">1</button></div>
+        <div class="demo demo--prop-order demo--has-featured">
+            <div class="demo__view">
+              <div class="parent">
+                  <div class="child"></div>
+                  <div class="child"></div>
+                  <div class="child child--featured"></div>
+                  <div class="child"></div>
+              </div>
+            </div>
+
+            <div class="demo__code" spellcheck="false">.parent {
+  display: flex;
+  align-items: flex-start;
+  height: 100%;
+}
+.child--featured {
+  <mark>order: -1;
+</mark>}
+</div>
+        </div>
+    </div><div class="content__desc"><p><i>order</i>属性可以控制某个flex子元素在flex容器中出现的位置顺序，通过给它一个相关的值。 <i>order</i>属性的值是 一个<dfn><a href="https://www.w3.org/TR/css3-values/#integer-value">&lt;数字&gt;</a></dfn>，指明flex子元素的排列顺序如何变更。</p><p>flex容器排列拥有指定顺序的flex子元素时，这个值小的排在前面，值大的靠后排。值相同的按原始顺序排。零值等同于原顺序。这个值会影响<a href="https://www.w3.org/TR/CSS2/zindex.html">渲染输出顺序</a>，效果跟重新修改源代码后显示的效果相同。</p><p>这个属性对非flex子元素无效果，除非将来规范做出修改。</p></div><p class="content__initial-value"><b>适用元素</b>: flex子元素.</p><p class="content__initial-value"><b>初始值</b>: 0.</p></section><section class="content__item" id="justify-content"><h2 class="content__title" id="justify-content">justify-content</h2><a href="https://www.w3.org/TR/css-flexbox-1/#justify-content-property" class="content__link">w3.org/TR/css-flexbox-1/#justify-content-property</a><div class="demo-wrapper"><div class="demo-values"><button class="demo-values__control demo-values__control--current" name="flex-start">flex-start</button><button class="demo-values__control" name="flex-end">flex-end</button><button class="demo-values__control" name="center">center</button><button class="demo-values__control" name="space-between">space-between</button><button class="demo-values__control" name="space-around">space-around</button></div>
+        <div class="demo demo--prop-justify-content">
+            <div class="demo__view">
+              <div class="parent">
+                  <div class="child"></div>
+                  <div class="child"></div>
+                  <div class="child child--featured"></div>
+                  <div class="child"></div>
+              </div>
+            </div>
+
+            <div class="demo__code" spellcheck="false">.parent {
+  display: flex;
+  <mark>justify-content: flex-start;
+</mark>  height: 100%;
+}
+</div>
+        </div>
+    </div><div class="content__desc"><p><i>justify-content</i>属性用来设定flex容器内子元素沿当前排列方向的对齐方式。这种对齐是在所有可以自由伸缩的长度和所有<i>auto margins</i>距离确定后完成的。通常，这个属性是用来分配所有flex子元素在一行排列上的剩余空间，或者是虽然没有剩余空间但元素宽宽度可以自由伸缩的情况。它也可以用来控制当子元素长度溢出时的对齐问题。</p></div><p class="content__initial-value"><b>适用元素</b>: Flex父容器元素.</p><p class="content__initial-value"><b>初始值</b>: flex-start.</p><dl class="content-values"><dt id="justify-content__flex-start" class="content-values__term">flex-start</dt><dd class="content-values__desc"><i>Flex子元素</i>向行首对齐。第一个子元素的起始边跟行的起始边对齐，之后的子元素的起始边跟前一个的末边对齐，依次类推。</dd><dt id="justify-content__flex-end" class="content-values__term">flex-end</dt><dd class="content-values__desc"><i>Flex子元素</i>向行的末端对齐。flex子元素的最后一个元素的末边和行的末端对齐，倒数第二个子元素的末边和倒数第一个的始边对齐，依次类推。</dd><dt id="justify-content__center" class="content-values__term">center</dt><dd class="content-values__desc"><i>Flex子元素</i>向行中间对齐。flex子元素相互靠拢，然后整体向行的中间对齐。行首和行末的剩余空间是相等的。如果子元素总长度超出容器宽度，那两边溢出的宽度的相同的。</dd><dt id="justify-content__space-between" class="content-values__term">space-between</dt><dd class="content-values__desc"><i>Flex子元素</i>平均分布在行上。如果子元素总长度溢出或只有一个子元素，那它的效果等同于<i>flex-start</i>的效果。否则，第一个子元素的起始边和行的起始边对齐，最后一个子元素的终边和行的末边对齐，剩余其它元素都等距离分布在剩余空间里。</dd><dt id="justify-content__space-around" class="content-values__term">space-around</dt><dd class="content-values__desc"><i>Flex子元素</i>平均分布在行上，但行首和行末留有1/2的其它子元素之间的空间。如果子元素总长度溢出，或只有一个子元素，那么时的效果等同于<i>center</i>效果。否则，子元素平均分布在行上，它们之间的空间距离是相同的。而且行后和行末也空间，但空间的宽度只有子元素之间的宽度的一半。</dd></dl></section><section class="content__item" id="align-items"><h2 class="content__title" id="align-items">align-items</h2><a href="https://www.w3.org/TR/css-flexbox-1/#propdef-align-items" class="content__link">w3.org/TR/css-flexbox-1/#propdef-align-items</a><div class="demo-wrapper"><div class="demo-values"><button class="demo-values__control" name="flex-start">flex-start</button><button class="demo-values__control" name="flex-end">flex-end</button><button class="demo-values__control" name="center">center</button><button class="demo-values__control" name="baseline">baseline</button><button class="demo-values__control demo-values__control--current" name="stretch">stretch</button></div>
+        <div class="demo demo--prop-align-items">
+            <div class="demo__view">
+              <div class="parent">
+                  <div class="child"></div>
+                  <div class="child"></div>
+                  <div class="child child--featured"></div>
+                  <div class="child"></div>
+              </div>
+            </div>
+
+            <div class="demo__code" spellcheck="false">.parent {
+  display: flex;
+  <mark>align-items: stretch;
+</mark>  height: 100%;
+}
+</div>
+        </div>
+    </div><div class="content__desc"><p>这个属性用来调整<i>Flex子元素</i>在列方向上的对齐方式，它跟<i>justify-content</i>的作用非常相似，只是一个作用于行方向上的对齐，一个作用于列方向上的对齐。<i>align-items</i>用于设定flex容器里所以子元素的缺省列对齐方式，包括匿名的flex子元素。而使用下面要讲的<i>align-self</i>属性可以覆盖父容器指定的<i>align-items</i>属性。(对于匿名flex子元素，它的<i>align-self</i>和父元素指定的<i>align-items</i>值相同。)</p><p>如果<i>flex子元素</i>的列方向上的margin有值，则无效。</p><p>对于绝对定位的元素，<i>auto</i>值表明是自动计算。其它情况下，<i>auto</i>值<i>align-self</i>等同于父元素指定的<i>align-items</i>值，如果没有父元素，则设置为<i>stretch</i>。</p></div><p class="content__initial-value"><b>适用元素</b>: Flex父容器元素.</p><p class="content__initial-value"><b>初始值</b>: stretch.</p><dl class="content-values"><dt id="align-items__flex-start" class="content-values__term">flex-start</dt><dd class="content-values__desc">flex子元素向列首靠拢对齐。</dd><dt id="align-items__flex-end" class="content-values__term">flex-end</dt><dd class="content-values__desc">flex子元素向列尾靠拢对齐。</dd><dt id="align-items__center" class="content-values__term">center</dt><dd class="content-values__desc">flex子元素向列中靠拢对齐。如果子元素在列方向上的高度溢出，则上下溢出的长度相同。</dd><dt id="align-items__baseline" class="content-values__term">baseline</dt><dd class="content-values__desc">If the <i>flex item</i>’s inline axis is the same as the <i>cross axis</i>, this value is identical to <i>flex-start</i>. <p>Otherwise, it <dfn>participates in baseline alignment</dfn>: all participating <i>flex items</i> on the line are aligned such that their baselines align, and the item with the largest distance between its baseline and its <i>cross-start</i> margin edge is placed flush against the <i>cross-start</i> edge of the line.</p></dd><dt id="align-items__stretch" class="content-values__term">stretch</dt><dd class="content-values__desc">如果子元素列方向上的高度值为<i>auto</i>，并且列方向上没有设定margin值，则子元素会拉伸。拉伸的高度是最大化的和列的高度相同。但同时还会受<a href="https://www.w3.org/TR/CSS22/visudet.html#propdef-min-height">min-height</a>/<a href="https://www.w3.org/TR/CSS22/visudet.html#propdef-min-width">min-width</a>/<a href="https://www.w3.org/TR/CSS22/visudet.html#propdef-max-height">max-height</a>/<a href="https://www.w3.org/TR/CSS22/visudet.html#propdef-max-width">max-width</a>的约束。 <p role="note">注意: 如果flex容器的高度小于这些约束高度，则子元素会溢出。</p> <p>溢出时，列首边和子元素起始边对齐，另外一端溢出。</p></dd></dl></section><section class="content__item" id="align-self"><h2 class="content__title" id="align-self">align-self</h2><a href="https://www.w3.org/TR/css-flexbox-1/#propdef-align-self" class="content__link">w3.org/TR/css-flexbox-1/#propdef-align-self</a><div class="demo-wrapper"><div class="demo-values"><button class="demo-values__control demo-values__control--current" name="flex-start">flex-start</button><button class="demo-values__control" name="flex-end">flex-end</button><button class="demo-values__control" name="center">center</button><button class="demo-values__control" name="baseline">baseline</button><button class="demo-values__control" name="stretch">stretch</button></div>
+        <div class="demo demo--prop-align-self demo--has-featured">
+            <div class="demo__view">
+              <div class="parent">
+                  <div class="child"></div>
+                  <div class="child"></div>
+                  <div class="child child--featured"></div>
+                  <div class="child"></div>
+              </div>
+            </div>
+
+            <div class="demo__code" spellcheck="false">.parent {
+  display: flex;
+  height: 100%;
+}
+.child--featured {
+  <mark>align-self: flex-start;
+</mark>}
+</div>
+        </div>
+    </div><div class="content__desc"><p>此属性和<i>justify-content</i>的作用很相似，不同的是，<i>justify-content</i>是让元素在行方向上对齐，而这个属性是在列方向上对齐。另外<i>align-items</i>属性是作用在flex父元素上，设定容器内所有子元素的缺省列对齐方式，而此属性是作用在单个子元素上，设定指定子元素的列对齐方式。(对于匿名的flex子元素，<i>align-self</i>和<i>align-items</i>的效果是一样的)</p><p>如果<i>flex子元素</i>的列方向上的margin有值，则无效。</p><p>对于绝对定位的元素，值为<i>auto</i>时，系统自动计算效果。其它情况下，如果<i>align-self</i>值为<dfn>auto</dfn>，效果根据父元素的<i>align-self</i>而定，如果没有父元素，则设置为<i>stretch</i></p></div><p class="content__initial-value"><b>适用元素</b>: flex子元素.</p><p class="content__initial-value"><b>初始值</b>: auto.</p><dl class="content-values"><dt id="align-self__flex-start" class="content-values__term">flex-start</dt><dd class="content-values__desc">向列首对齐</dd><dt id="align-self__flex-end" class="content-values__term">flex-end</dt><dd class="content-values__desc">向列尾对齐</dd><dt id="align-self__center" class="content-values__term">center</dt><dd class="content-values__desc">向列中对齐(如果子元素高度溢出，则列两端溢出高度相同。)</dd><dt id="align-self__baseline" class="content-values__term">baseline</dt><dd class="content-values__desc">If the <i>flex item</i>’s inline axis is the same as the <i>cross axis</i>, this value is identical to <i>flex-start</i>. <p>Otherwise, it <dfn>participates in baseline alignment</dfn>: all participating <i>flex items</i> on the line are aligned such that their baselines align, and the item with the largest distance between its baseline and its <i>cross-start</i> margin edge is placed flush against the <i>cross-start</i> edge of the line.</p></dd><dt id="align-self__stretch" class="content-values__term">stretch</dt><dd class="content-values__desc">如果flex子元素的高度设置等同于 <span>auto</span>，且列方向上的margin值不少 <span>auto</span>， 则<i>flex子元素拉伸。拉伸的高度是尽可能的达到容器的最大高度，但同时仍受<a href="https://www.w3.org/TR/CSS22/visudet.html#propdef-min-height">min-height</a>/<a href="https://www.w3.org/TR/CSS22/visudet.html#propdef-min-width">min-width</a>/<a href="https://www.w3.org/TR/CSS22/visudet.html#propdef-max-height">max-height</a>/<a href="https://www.w3.org/TR/CSS22/visudet.html#propdef-max-width">max-width</a>的限制。<p role="note">注意：上面的这些约束的高度如果是超出了容器的高度，这子元素会溢出。</p> <p>溢出时子元素跟列首对齐，末端溢出。</p></i></dd></dl></section><section class="content__item" id="align-content"><h2 class="content__title" id="align-content">align-content</h2><a href="https://www.w3.org/TR/css-flexbox-1/#align-content-property" class="content__link">w3.org/TR/css-flexbox-1/#align-content-property</a><div class="demo-wrapper"><div class="demo-values"><button class="demo-values__control" name="flex-start">flex-start</button><button class="demo-values__control" name="flex-end">flex-end</button><button class="demo-values__control" name="center">center</button><button class="demo-values__control" name="space-between">space-between</button><button class="demo-values__control" name="space-around">space-around</button><button class="demo-values__control demo-values__control--current" name="stretch">stretch</button></div>
+        <div class="demo demo--prop-align-content">
+            <div class="demo__view">
+              <div class="parent">
+                  <div class="child"></div>
+                  <div class="child"></div>
+                  <div class="child child--featured"></div>
+                  <div class="child"></div>
+              </div>
+            </div>
+
+            <div class="demo__code" spellcheck="false">.parent {
+  display: flex;
+  flex-wrap: wrap;
+  <mark>align-content: stretch;
+</mark>  height: 100%;
+}
+.child {
+  width: 30%;
+}
+</div>
+        </div>
+    </div><div class="content__desc"><p><i>align-content</i>属性的作用是在flex子元素是多行时，而且容器内还有剩余空间时，设定子元素的对齐方式，跟<i>justify-content</i>相似。注意：这个属性对单行子元素无效果。属性值的含义是：</p><p role="note">注意: 只有容器内是多行子元素时，且列方向上有剩余空间时有效，因为如果是单行，子元素的高度会自动拉伸填满剩余高度。</p></div><p class="content__initial-value"><b>适用元素</b>: flex父容器.</p><p class="content__initial-value"><b>初始值</b>: stretch.</p><dl class="content-values"><dt id="align-content__flex-start" class="content-values__term">flex-start</dt><dd class="content-values__desc">子元素向列首对齐，子元素各行紧挨着前一行向列首对齐。</dd><dt id="align-content__flex-end" class="content-values__term">flex-end</dt><dd class="content-values__desc">子元素向列尾对齐，子元素各行紧挨着后一行向列尾对齐。</dd><dt id="align-content__center" class="content-values__term">center</dt><dd class="content-values__desc">子元素各行向列中对齐。各行之间不留空间。而列首和列尾剩余的空间是相同高度。如果子元素高度溢出，在列首和列尾溢出的高度相同。</dd><dt id="align-content__space-between" class="content-values__term">space-between</dt><dd class="content-values__desc">子元素各行平均分布在列高度上。并且列首和列尾不留空间，各子元素之间的空间距离相等。</dd><dt id="align-content__space-around" class="content-values__term">space-around</dt><dd class="content-values__desc">子元素各行平均分布在列高度上，各列之间的距离相等，并且列首和列尾也有空间，空间的高度是各列之间的距离的一半。如果子元素的高度溢出，则此属性的效果等同于<i>center</i>。</dd><dt id="align-content__stretch" class="content-values__term">stretch</dt><dd class="content-values__desc">各列等高度的拉伸，填满整个列高度。如果子元素高度溢出，在此属性效果等同于<i>flex-start</i></dd></dl></section><section class="content__item" id="flex-grow"><h2 class="content__title" id="flex-grow">flex-grow</h2><a href="https://www.w3.org/TR/css-flexbox-1/#flex-grow-property" class="content__link">w3.org/TR/css-flexbox-1/#flex-grow-property</a><div class="demo-wrapper"><div class="demo-values"><button class="demo-values__control" name="0">0</button><button class="demo-values__control demo-values__control--current" name="1">1</button></div>
+        <div class="demo demo--prop-flex-grow demo--has-featured">
+            <div class="demo__view">
+              <div class="parent">
+                  <div class="child"></div>
+                  <div class="child"></div>
+                  <div class="child child--featured"></div>
+                  <div class="child"></div>
+              </div>
+            </div>
+
+            <div class="demo__code" spellcheck="false">.parent {
+  display: flex;
+  height: 100%;
+}
+.child--featured {
+  <mark>flex-grow: 1;
+</mark>}
+</div>
+        </div>
+    </div><div class="content__desc"><p><i>flex-grow</i>属性用来设定felx子元素的<i>扩展因子</i>，值的类型是<dfn><a href="https://www.w3.org/TR/css3-values/#number-value">&lt;数字&gt;</a></dfn>。负值无效。</p></div><p class="content__initial-value"><b>适用元素</b>: flex子元素.</p><p class="content__initial-value"><b>初始值</b>: 0.</p></section><section class="content__item" id="flex-shrink"><h2 class="content__title" id="flex-shrink">flex-shrink</h2><a href="https://www.w3.org/TR/css-flexbox-1/#flex-shrink-property" class="content__link">w3.org/TR/css-flexbox-1/#flex-shrink-property</a><div class="demo-wrapper"><div class="demo-values"><button class="demo-values__control" name="0">0</button><button class="demo-values__control demo-values__control--current" name="1">1</button></div>
+        <div class="demo demo--prop-flex-shrink demo--has-featured">
+            <div class="demo__view">
+              <div class="parent">
+                  <div class="child"></div>
+                  <div class="child"></div>
+                  <div class="child child--featured"></div>
+                  <div class="child"></div>
+              </div>
+            </div>
+
+            <div class="demo__code" spellcheck="false">.parent {
+  display: flex;
+  height: 100%;
+}
+.child {
+  width: 40%;
+}
+.child--featured {
+  <mark>flex-shrink: 1;
+</mark>}
+</div>
+        </div>
+    </div><div class="content__desc"><p><i>flex-shrink</i>属性用来设定flex子元素的<i>收缩因子</i>，值的类型是 <dfn><a href="https://www.w3.org/TR/css3-values/#number-value">&lt;数字&gt;</a></dfn>。负值无效。</p></div><p class="content__initial-value"><b>适用元素</b>: flex子元素.</p><p class="content__initial-value"><b>初始值</b>: 1.</p></section><section class="content__item" id="flex-basis"><h2 class="content__title" id="flex-basis">flex-basis</h2><a href="https://www.w3.org/TR/css-flexbox-1/#flex-basis-property" class="content__link">w3.org/TR/css-flexbox-1/#flex-basis-property</a><div class="demo-wrapper"><div class="demo-values"><button class="demo-values__control demo-values__control--current" name="30%">30%</button><button class="demo-values__control" name="50%">50%</button><button class="demo-values__control" name="content">content</button></div>
+        <div class="demo demo--prop-flex-basis demo--has-featured">
+            <div class="demo__view">
+              <div class="parent">
+                  <div class="child"></div>
+                  <div class="child"></div>
+                  <div class="child child--featured"></div>
+                  <div class="child"></div>
+              </div>
+            </div>
+
+            <div class="demo__code" spellcheck="false">.parent {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  height: 100%;
+}
+.child--featured {
+  <mark>flex-basis: 30%;
+</mark>}
+</div>
+        </div>
+    </div><div class="content__desc"><p><i>flex-basis</i>属性用来设定flex子元素的伸缩度，它能接受的值和<a href="https://www.w3.org/TR/CSS22/visudet.html#propdef-width">width</a> 和 <a href="https://www.w3.org/TR/CSS22/visudet.html#propdef-height">height</a>属性能接受的值一样，而且还可以设置成<i>content</i>。</p><p>如果这个属性的值不是指定成<i>auto</i> 或 <i>content</i>, <i>flex-basis</i>属性的作用在横向上和<a href="https://www.w3.org/TR/CSS22/visudet.html#propdef-width">width</a>属性的作用是一样的。如果值设定为<span>auto</span>，则效果等同于<i>content</i>值。例如，对于百分比的值来说，它的大小决定于容器的大小。如果容器的大小不确定，则等效于 <i>content</i> 值。反而推之，<i>flex-basis</i>可以决定容器的宽度，除非有 <a href="https://www.w3.org/TR/css3-ui/#propdef-box-sizing">box-sizing</a> 等属性的设定。</p></div><p class="content__initial-value"><b>适用元素</b>: flex items.</p><p class="content__initial-value"><b>初始值</b>: auto.</p></section></div><div class="content"><section class="content__item" id="display"><h2 class="content__title" id="display">display</h2><a href="http://www.w3.org/TR/css-flexbox-1/#flex-containers" class="content__link">w3.org/TR/css-flexbox-1/#flex-containers</a><div class="demo-wrapper"><div class="demo-values"><button class="demo-values__control demo-values__control--current" name="flex">flex</button><button class="demo-values__control" name="inline-flex">inline-flex</button></div>
+        <div class="demo demo--prop-display">
+            <div class="demo__view">一些文字内容
+              <div class="parent">
+                  <div class="child"></div>
+                  <div class="child"></div>
+                  <div class="child child--featured"></div>
+                  <div class="child"></div>
+              </div>
+            </div>
+
+            <div class="demo__code" spellcheck="false">.parent {
+  <mark>display: flex;
+</mark>}
+</div>
+        </div>
+    </div><div class="content__desc"><p>一个<i>flex父容器元素</i>能给它的子元素建立一种新型的<dfn>flex内容布局</dfn>。这种布局其实是和将元素设定为<code>display:block</code>是很相似的，只是在flex布局里block换成了flex。float属性不好影响flex布局，flex父容器的margin不会和其子元素的margin有重叠效果。<i>Flex父容器元素</i>所形成的block容器特性跟普通的block容器元素所表现的特征<a href="https://www.w3.org/TR/CSS2/visudet.html#containing-block-details">完全一样。</a><a href="https://www.w3.org/TR/css-overflow-3/#overflow">overflow</a>特征也适用于<i>Flex父容器元素</i>。</p><p>Flex父容器元素并不等同于普通的block元素，有一些block元素具有的属性在flex父元素上并不适用。特别的：</p><p>如果一个元素被指定为<a href="https://www.w3.org/TR/CSS22/visuren.html#propdef-display">display</a>:<i>inline-flex</i>，那么，在某些情况下，它的<a href="https://www.w3.org/TR/CSS22/visuren.html#propdef-display">display</a>属性会按做<i>flex</i>来计算： 在<a href="https://www.w3.org/TR/CSS2/visuren.html#dis-pos-flo">CSS 2.1 Section 9.7</a>的表格里将会增加有一行，在 'Specified Value' 列里多出<i>inline-flex</i>行和在 'Computed Value' 列里多出<i>flex</i>行</p></div><p class="content__initial-value"><b>适用元素</b>: 所有元素.</p><dl class="content-values"><dt id="display__flex" class="content-values__term">flex</dt><dd class="content-values__desc">指定此元素为block级别的<i>flex布局</i>的父元素/Flex容器元素。</dd><dt id="display__inline-flex" class="content-values__term">inline-flex</dt><dd class="content-values__desc">指定此元素为inline级别的<i>flex布局</i>的父元素/Flex容器元素。</dd></dl></section><section class="content__item" id="flex-direction"><h2 class="content__title" id="flex-direction">flex-direction</h2><a href="http://www.w3.org/TR/css-flexbox-1/#flex-direction-property" class="content__link">w3.org/TR/css-flexbox-1/#flex-direction-property</a><div class="demo-wrapper"><div class="demo-values"><button class="demo-values__control" name="row">row</button><button class="demo-values__control" name="row-reverse">row-reverse</button><button class="demo-values__control demo-values__control--current" name="column">column</button><button class="demo-values__control" name="column-reverse">column-reverse</button></div>
+        <div class="demo demo--prop-flex-direction">
+            <div class="demo__view">
+              <div class="parent">
+                  <div class="child"></div>
+                  <div class="child"></div>
+                  <div class="child child--featured"></div>
+                  <div class="child"></div>
+              </div>
+            </div>
+
+            <div class="demo__code" spellcheck="false">.parent {
+  display: flex;
+  <mark>flex-direction: column;
+</mark>  height: 100%;
+}
+</div>
+        </div>
+    </div><div class="content__desc"><p><i>flex-direction</i>属性指明<i>flex子元素</i>在flex父容器内的布局方向，也就是flex父容器的排列方向。flex子元素的布局方向就根据这个值。</p><p role="note">注意：这里的反向(reverse)值并不是指排序的反向，跟<a href="https://www.w3.org/TR/css-writing-modes-3/#propdef-writing-mode">writing-mode</a>和<a href="https://www.w3.org/TR/css-writing-modes-3/#propdef-direction">direction</a>一样，它是指将布局排列方向反向。元素的渲染顺序，语音输出顺序，导航顺序都不受影响。</p></div><p class="content__initial-value"><b>适用元素</b>: Flex父容器元素.</p><p class="content__initial-value"><b>初始值</b>: row.</p><dl class="content-values"><dt id="flex-direction__row" class="content-values__term">row</dt><dd class="content-values__desc">按行的方向排列</dd><dt id="flex-direction__row-reverse" class="content-values__term">row-reverse</dt><dd class="content-values__desc">类似 <i>row</i> 值，但是反向。</dd><dt id="flex-direction__column" class="content-values__term">column</dt><dd class="content-values__desc">按列的方向排列</dd><dt id="flex-direction__column-reverse" class="content-values__term">column-reverse</dt><dd class="content-values__desc">类似 <i>column</i> 值，但是反向。</dd></dl></section><section class="content__item" id="flex-wrap"><h2 class="content__title" id="flex-wrap">flex-wrap</h2><a href="http://www.w3.org/TR/css-flexbox-1/#flex-wrap-property" class="content__link">w3.org/TR/css-flexbox-1/#flex-wrap-property</a><div class="demo-wrapper"><div class="demo-values"><button class="demo-values__control demo-values__control--current" name="nowrap">nowrap</button><button class="demo-values__control" name="wrap">wrap</button><button class="demo-values__control" name="wrap-reverse">wrap-reverse</button></div>
+        <div class="demo demo--prop-flex-wrap">
+            <div class="demo__view">
+              <div class="parent">
+                  <div class="child"></div>
+                  <div class="child"></div>
+                  <div class="child child--featured"></div>
+                  <div class="child"></div>
+              </div>
+            </div>
+
+            <div class="demo__code" spellcheck="false">.parent {
+  display: flex;
+  align-items: flex-start;
+  <mark>flex-wrap: nowrap;
+</mark>  height: 100%;
+}
+.child {
+  width: 40%;
+}
+</div>
+        </div>
+    </div><div class="content__desc"><p><i>flex-wrap</i>属性控制着flex容器是单行还是多行，还有它的 <i>cross-axis</i> 换行方向，也就是新行的布局方向。</p><p>对于非 <i>wrap-reverse</i> 的值，<i>cross-start</i>端等同于当前<a href="https://www.w3.org/TR/css-writing-modes-3/#writing-mode">writing mode</a>下的<a href="https://www.w3.org/TR/css-writing-modes-3/#inline-start">inline-start</a> 或 <a href="https://www.w3.org/TR/css-writing-modes-3/#block-start">block-start</a>端。也就是<i>cross axis</i>换行方向的起始端。而<i>cross-end</i>端是<i>cross-start</i>端的反向端。当<i>flex-wrap</i>值为<i>wrap-reverse</i>时，<i>cross-start</i> 和 <i>cross-end</i>端互换。</p></div><p class="content__initial-value"><b>适用元素</b>: Flex父容器元素.</p><p class="content__initial-value"><b>初始值</b>: nowrap.</p><dl class="content-values"><dt id="flex-wrap__nowrap" class="content-values__term">nowrap</dt><dd class="content-values__desc">flex容器是单行显示子元素。</dd><dt id="flex-wrap__wrap" class="content-values__term">wrap</dt><dd class="content-values__desc">flex容器是多行显示子元素，也就是可以换行。</dd><dt id="flex-wrap__wrap-reverse" class="content-values__term">wrap-reverse</dt><dd class="content-values__desc">跟<i>wrap</i>值类似，只是换行方向反过来。</dd></dl></section><section class="content__item" id="flex-flow"><h2 class="content__title" id="flex-flow">flex-flow</h2><a href="http://www.w3.org/TR/css-flexbox-1/#flex-flow-property" class="content__link">w3.org/TR/css-flexbox-1/#flex-flow-property</a><div class="demo-wrapper"><div class="demo-values"><button class="demo-values__control demo-values__control--current" name="row nowrap">row nowrap</button><button class="demo-values__control" name="column-reverse">column-reverse</button><button class="demo-values__control" name="column wrap">column wrap</button><button class="demo-values__control" name="row-reverse wrap-reverse">row-reverse wrap-reverse</button></div>
+        <div class="demo demo--prop-flex-flow">
+            <div class="demo__view">
+              <div class="parent">
+                  <div class="child"></div>
+                  <div class="child"></div>
+                  <div class="child child--featured"></div>
+                  <div class="child"></div>
+              </div>
+            </div>
+
+            <div class="demo__code" spellcheck="false">.parent {
+  display: flex;
+  <mark>flex-flow: row nowrap;
+</mark>  height: 100%;
+}
+.child {
+  width: 40%;
+  height: 40%;
+}
+</div>
+        </div>
+    </div><div class="content__desc"><p><i>flex-flow</i>属性是<i>flex-direction</i>属性和<i>flex-wrap</i>属性的组合体简写，用来控制flex容器的排列方向和换行方向。</p></div><p class="content__initial-value"><b>适用元素</b>: Flex父容器元素.</p><p class="content__initial-value"><b>初始值</b>: row nowrap.</p></section><section class="content__item" id="order"><h2 class="content__title" id="order">order</h2><a href="https://www.w3.org/TR/css-flexbox-1/#order-property" class="content__link">https://www.w3.org/TR/css-flexbox-1/#order-property</a><div class="demo-wrapper"><div class="demo-values"><button class="demo-values__control demo-values__control--current" name="-1">-1</button><button class="demo-values__control" name="0">0</button><button class="demo-values__control" name="1">1</button></div>
+        <div class="demo demo--prop-order demo--has-featured">
+            <div class="demo__view">
+              <div class="parent">
+                  <div class="child"></div>
+                  <div class="child"></div>
+                  <div class="child child--featured"></div>
+                  <div class="child"></div>
+              </div>
+            </div>
+
+            <div class="demo__code" spellcheck="false">.parent {
+  display: flex;
+  align-items: flex-start;
+  height: 100%;
+}
+.child--featured {
+  <mark>order: -1;
+</mark>}
+</div>
+        </div>
+    </div><div class="content__desc"><p><i>order</i>属性可以控制某个flex子元素在flex容器中出现的位置顺序，值不同位置不同。 <i>order</i>属性的值是 一个<dfn><a href="https://www.w3.org/TR/css3-values/#integer-value">&lt;数字&gt;</a></dfn>，指明flex子元素的排列顺序如何变更。</p><p>flex容器排列拥有指定顺序的flex子元素时，这个值小的排在前面，值大的靠后排。值相同的按原始顺序排。零值等同于原顺序。这个值会影响<a href="https://www.w3.org/TR/CSS2/zindex.html">渲染输出顺序</a>，效果跟重新修改源代码后显示的效果相同。</p><p>这个属性对非flex子元素无效果，除非将来规范做出修改。</p></div><p class="content__initial-value"><b>适用元素</b>: flex子元素.</p><p class="content__initial-value"><b>初始值</b>: 0.</p></section><section class="content__item" id="justify-content"><h2 class="content__title" id="justify-content">justify-content</h2><a href="http://www.w3.org/TR/css-flexbox-1/#justify-content-property" class="content__link">w3.org/TR/css-flexbox-1/#justify-content-property</a><div class="demo-wrapper"><div class="demo-values"><button class="demo-values__control" name="flex-start">flex-start</button><button class="demo-values__control" name="flex-end">flex-end</button><button class="demo-values__control" name="center">center</button><button class="demo-values__control demo-values__control--current" name="space-between">space-between</button><button class="demo-values__control" name="space-around">space-around</button></div>
+        <div class="demo demo--prop-justify-content">
+            <div class="demo__view">
+              <div class="parent">
+                  <div class="child"></div>
+                  <div class="child"></div>
+                  <div class="child child--featured"></div>
+                  <div class="child"></div>
+              </div>
+            </div>
+
+            <div class="demo__code" spellcheck="false">.parent {
+  display: flex;
+  <mark>justify-content: space-between;
+</mark>  height: 100%;
+}
+</div>
+        </div>
+    </div><div class="content__desc"><p><i>justify-content</i>属性用来设定flex容器内子元素沿当前排列方向的对齐方式。这种对齐是在所有可以自由伸缩的长度和所有<i>auto margins</i>距离确定后完成的。通常，这个属性是用来分配所有flex子元素在一行排列上的剩余空间，或者是虽然没有剩余空间但元素宽度可以自由伸缩的情况。它也可以用来控制当子元素长度溢出时的对齐问题。</p></div><p class="content__initial-value"><b>适用元素</b>: Flex父容器元素.</p><p class="content__initial-value"><b>初始值</b>: flex-start.</p><dl class="content-values"><dt id="justify-content__flex-start" class="content-values__term">flex-start</dt><dd class="content-values__desc"><i>Flex子元素</i>向行首对齐。第一个子元素的起始边跟行的起始边对齐，之后的子元素的起始边跟前一个的末边对齐，依次类推。</dd><dt id="justify-content__flex-end" class="content-values__term">flex-end</dt><dd class="content-values__desc"><i>Flex子元素</i>向行的末端对齐。flex子元素的最后一个元素的末边和行的末端对齐，倒数第二个子元素的末边和倒数第一个的始边对齐，依次类推。</dd><dt id="justify-content__center" class="content-values__term">center</dt><dd class="content-values__desc"><i>Flex子元素</i>向行中间对齐。flex子元素相互靠拢，然后整体向行的中间对齐。行首和行末的剩余空间是相等的。如果子元素总长度超出容器宽度，那两边溢出的宽度的相同的。</dd><dt id="justify-content__space-between" class="content-values__term">space-between</dt><dd class="content-values__desc"><i>Flex子元素</i>平均分布在行上。如果子元素总长度溢出或只有一个子元素，那它的效果等同于<i>flex-start</i>的效果。否则，第一个子元素的起始边和行的起始边对齐，最后一个子元素的终边和行的末边对齐，剩余其它元素都等距离分布在剩余空间里。</dd><dt id="justify-content__space-around" class="content-values__term">space-around</dt><dd class="content-values__desc"><i>Flex子元素</i>平均分布在行上，但行首和行末留有1/2的其它子元素之间的空间。如果子元素总长度溢出，或只有一个子元素，那么时的效果等同于<i>center</i>效果。否则，子元素平均分布在行上，它们之间的空间距离是相同的。而且行首和行末也空间，但空间的宽度只有子元素之间的宽度的一半。</dd></dl></section><section class="content__item" id="align-items"><h2 class="content__title" id="align-items">align-items</h2><a href="http://www.w3.org/TR/css-flexbox-1/#propdef-align-items" class="content__link">w3.org/TR/css-flexbox-1/#propdef-align-items</a><div class="demo-wrapper"><div class="demo-values"><button class="demo-values__control demo-values__control--current" name="flex-start">flex-start</button><button class="demo-values__control" name="flex-end">flex-end</button><button class="demo-values__control" name="center">center</button><button class="demo-values__control" name="baseline">baseline</button><button class="demo-values__control" name="stretch">stretch</button></div>
+        <div class="demo demo--prop-align-items">
+            <div class="demo__view">
+              <div class="parent">
+                  <div class="child"></div>
+                  <div class="child"></div>
+                  <div class="child child--featured"></div>
+                  <div class="child"></div>
+              </div>
+            </div>
+
+            <div class="demo__code" spellcheck="false">.parent {
+  display: flex;
+  <mark>align-items: flex-start;
+</mark>  height: 100%;
+}
+</div>
+        </div>
+    </div><div class="content__desc"><p>这个属性用来调整<i>Flex子元素</i>在列方向上的对齐方式，它跟<i>justify-content</i>的作用非常相似，只是一个作用于行方向上的对齐，一个作用于列方向上的对齐。<i>align-items</i>用于设定flex容器里所以子元素的缺省列对齐方式，包括匿名的flex子元素。而使用下面要讲的<i>align-self</i>属性可以覆盖父容器指定的<i>align-items</i>属性。(对于匿名flex子元素，它的<i>align-self</i>和父元素指定的<i>align-items</i>值相同。)</p><p>如果<i>flex子元素</i>的列方向上的margin有值，则无效。</p><p>对于绝对定位的元素，<i>auto</i>值表明是自动计算。其它情况下，具有<i>auto</i>值的<i>align-self</i>等同于父元素指定的<i>align-items</i>值，如果没有父元素，则等同于<i>stretch</i>。</p></div><p class="content__initial-value"><b>适用元素</b>: Flex父容器元素.</p><p class="content__initial-value"><b>初始值</b>: stretch.</p><dl class="content-values"><dt id="align-items__flex-start" class="content-values__term">flex-start</dt><dd class="content-values__desc">flex子元素向列首靠拢对齐。</dd><dt id="align-items__flex-end" class="content-values__term">flex-end</dt><dd class="content-values__desc">flex子元素向列尾靠拢对齐。</dd><dt id="align-items__center" class="content-values__term">center</dt><dd class="content-values__desc">flex子元素向列中靠拢对齐。如果子元素在列方向上的高度溢出，则上下溢出的长度相同。</dd><dt id="align-items__baseline" class="content-values__term">baseline</dt><dd class="content-values__desc">If the <i>flex item</i>’s inline axis is the same as the <i>cross axis</i>, this value is identical to <i>flex-start</i>. <p>Otherwise, it <dfn>participates in baseline alignment</dfn>: all participating <i>flex items</i> on the line are aligned such that their baselines align, and the item with the largest distance between its baseline and its <i>cross-start</i> margin edge is placed flush against the <i>cross-start</i> edge of the line.</p></dd><dt id="align-items__stretch" class="content-values__term">stretch</dt><dd class="content-values__desc">如果子元素列方向上的高度值为<i>auto</i>，并且列方向上没有设定margin值，则子元素会拉伸。拉伸的高度是最大化的和列的高度相同。但同时还会受<a href="https://www.w3.org/TR/CSS22/visudet.html#propdef-min-height">min-height</a>/<a href="https://www.w3.org/TR/CSS22/visudet.html#propdef-min-width">min-width</a>/<a href="https://www.w3.org/TR/CSS22/visudet.html#propdef-max-height">max-height</a>/<a href="https://www.w3.org/TR/CSS22/visudet.html#propdef-max-width">max-width</a>的约束。 <p role="note">注意: 如果flex容器的高度小于这些约束高度，则子元素会溢出。</p> <p>溢出时，列首边和子元素起始边对齐，另外一端溢出。</p></dd></dl></section><section class="content__item" id="align-self"><h2 class="content__title" id="align-self">align-self</h2><a href="http://www.w3.org/TR/css-flexbox-1/#propdef-align-self" class="content__link">w3.org/TR/css-flexbox-1/#propdef-align-self</a><div class="demo-wrapper"><div class="demo-values"><button class="demo-values__control demo-values__control--current" name="flex-start">flex-start</button><button class="demo-values__control" name="flex-end">flex-end</button><button class="demo-values__control" name="center">center</button><button class="demo-values__control" name="baseline">baseline</button><button class="demo-values__control" name="stretch">stretch</button></div>
+        <div class="demo demo--prop-align-self demo--has-featured">
+            <div class="demo__view">
+              <div class="parent">
+                  <div class="child"></div>
+                  <div class="child"></div>
+                  <div class="child child--featured"></div>
+                  <div class="child"></div>
+              </div>
+            </div>
+
+            <div class="demo__code" spellcheck="false">.parent {
+  display: flex;
+  height: 100%;
+}
+.child--featured {
+  <mark>align-self: flex-start;
+</mark>}
+</div>
+        </div>
+    </div><div class="content__desc"><p>此属性和<i>justify-content</i>的作用很相似，不同的是，<i>justify-content</i>是让元素在行方向上对齐，而这个属性是在列方向上对齐。另外<i>align-items</i>属性是作用在flex父元素上，设定容器内所有子元素的缺省列对齐方式，而此属性是作用在单个子元素上，设定指定子元素的列对齐方式。(对于匿名的flex子元素，<i>align-self</i>和<i>align-items</i>的效果是一样的)</p><p>如果<i>flex子元素</i>的列方向上的margin有值，则无效。</p><p>对于绝对定位的元素，值为<i>auto</i>时，系统自动计算效果。其它情况下，如果<i>align-self</i>值为<dfn>auto</dfn>，效果根据父元素的<i>align-self</i>而定，如果没有父元素，则设置为<i>stretch</i></p></div><p class="content__initial-value"><b>适用元素</b>: flex子元素.</p><p class="content__initial-value"><b>初始值</b>: auto.</p><dl class="content-values"><dt id="align-self__flex-start" class="content-values__term">flex-start</dt><dd class="content-values__desc">向列首对齐</dd><dt id="align-self__flex-end" class="content-values__term">flex-end</dt><dd class="content-values__desc">向列尾对齐</dd><dt id="align-self__center" class="content-values__term">center</dt><dd class="content-values__desc">向列中对齐(如果子元素高度溢出，则列两端溢出高度相同。)</dd><dt id="align-self__baseline" class="content-values__term">baseline</dt><dd class="content-values__desc">If the <i>flex item</i>’s inline axis is the same as the <i>cross axis</i>, this value is identical to <i>flex-start</i>. <p>Otherwise, it <dfn>participates in baseline alignment</dfn>: all participating <i>flex items</i> on the line are aligned such that their baselines align, and the item with the largest distance between its baseline and its <i>cross-start</i> margin edge is placed flush against the <i>cross-start</i> edge of the line.</p></dd><dt id="align-self__stretch" class="content-values__term">stretch</dt><dd class="content-values__desc">如果flex子元素的高度设置等同于 <span>auto</span>，且列方向上的margin值不是 <span>auto</span>， 则flex子元素拉伸。拉伸的高度是尽可能的达到容器的最大高度，但同时仍受<a href="https://www.w3.org/TR/CSS22/visudet.html#propdef-min-height">min-height</a>/<a href="https://www.w3.org/TR/CSS22/visudet.html#propdef-min-width">min-width</a>/<a href="https://www.w3.org/TR/CSS22/visudet.html#propdef-max-height">max-height</a>/<a href="https://www.w3.org/TR/CSS22/visudet.html#propdef-max-width">max-width</a>的限制。<p role="note">注意：上面的这些约束的高度如果是超出了容器的高度，这子元素会溢出。</p> <p>溢出时子元素跟列首对齐，末端溢出。</p></dd></dl></section><section class="content__item" id="align-content"><h2 class="content__title" id="align-content">align-content</h2><a href="http://www.w3.org/TR/css-flexbox-1/#align-content-property" class="content__link">w3.org/TR/css-flexbox-1/#align-content-property</a><div class="demo-wrapper"><div class="demo-values"><button class="demo-values__control" name="flex-start">flex-start</button><button class="demo-values__control" name="flex-end">flex-end</button><button class="demo-values__control" name="center">center</button><button class="demo-values__control" name="space-between">space-between</button><button class="demo-values__control" name="space-around">space-around</button><button class="demo-values__control demo-values__control--current" name="stretch">stretch</button></div>
+        <div class="demo demo--prop-align-content">
+            <div class="demo__view">
+              <div class="parent">
+                  <div class="child"></div>
+                  <div class="child"></div>
+                  <div class="child child--featured"></div>
+                  <div class="child"></div>
+              </div>
+            </div>
+
+            <div class="demo__code" spellcheck="false">.parent {
+  display: flex;
+  flex-wrap: wrap;
+  <mark>align-content: stretch;
+</mark>  height: 100%;
+}
+.child {
+  width: 30%;
+}
+</div>
+        </div>
+    </div><div class="content__desc"><p><i>align-content</i>属性的作用是在flex子元素是多行时，而且容器内还有剩余空间时，设定子元素的对齐方式，跟<i>justify-content</i>相似。注意：这个属性对单行子元素无效果。属性值的含义是：</p><p role="note">注意: 只有容器内是多行子元素时，且列方向上有剩余空间时有效，因为如果是单行，子元素的高度会自动拉伸填满剩余高度。</p></div><p class="content__initial-value"><b>适用元素</b>: flex父容器.</p><p class="content__initial-value"><b>初始值</b>: stretch.</p><dl class="content-values"><dt id="align-content__flex-start" class="content-values__term">flex-start</dt><dd class="content-values__desc">子元素向列首对齐，子元素各行紧挨着前一行向列首对齐。</dd><dt id="align-content__flex-end" class="content-values__term">flex-end</dt><dd class="content-values__desc">子元素向列尾对齐，子元素各行紧挨着后一行向列尾对齐。</dd><dt id="align-content__center" class="content-values__term">center</dt><dd class="content-values__desc">子元素各行向列中对齐。各行之间不留空间。而列首和列尾剩余的空间是相同高度。如果子元素高度溢出，在列首和列尾溢出的高度相同。</dd><dt id="align-content__space-between" class="content-values__term">space-between</dt><dd class="content-values__desc">子元素各行平均分布在列高度上。并且列首和列尾不留空间，各子元素之间的空间距离相等。</dd><dt id="align-content__space-around" class="content-values__term">space-around</dt><dd class="content-values__desc">子元素各行平均分布在列高度上，各列之间的距离相等，并且列首和列尾也有空间，空间的高度是各列之间的距离的一半。如果子元素的高度溢出，则此属性的效果等同于<i>center</i>。</dd><dt id="align-content__stretch" class="content-values__term">stretch</dt><dd class="content-values__desc">各列等高度的拉伸，填满整个列高度。如果子元素高度溢出，在此属性效果等同于<i>flex-start</i></dd></dl></section><section class="content__item" id="flex-grow"><h2 class="content__title" id="flex-grow">flex-grow</h2><a href="http://www.w3.org/TR/css-flexbox-1/#flex-grow-property" class="content__link">w3.org/TR/css-flexbox-1/#flex-grow-property</a><div class="demo-wrapper"><div class="demo-values"><button class="demo-values__control" name="0">0</button><button class="demo-values__control demo-values__control--current" name="1">1</button></div>
+        <div class="demo demo--prop-flex-grow demo--has-featured">
+            <div class="demo__view">
+              <div class="parent">
+                  <div class="child"></div>
+                  <div class="child"></div>
+                  <div class="child child--featured"></div>
+                  <div class="child"></div>
+              </div>
+            </div>
+
+            <div class="demo__code" spellcheck="false">.parent {
+  display: flex;
+  height: 100%;
+}
+.child--featured {
+  <mark>flex-grow: 1;
+</mark>}
+</div>
+        </div>
+    </div><div class="content__desc"><p><i>flex-grow</i>属性用来设定felx子元素的<i>扩展因子</i>，值的类型是<dfn><a href="https://www.w3.org/TR/css3-values/#number-value">&lt;数字&gt;</a></dfn>。负值无效。</p></div><p class="content__initial-value"><b>适用元素</b>: flex子元素.</p><p class="content__initial-value"><b>初始值</b>: 0.</p></section><section class="content__item" id="flex-shrink"><h2 class="content__title" id="flex-shrink">flex-shrink</h2><a href="http://www.w3.org/TR/css-flexbox-1/#flex-shrink-property" class="content__link">w3.org/TR/css-flexbox-1/#flex-shrink-property</a><div class="demo-wrapper"><div class="demo-values"><button class="demo-values__control" name="0">0</button><button class="demo-values__control demo-values__control--current" name="1">1</button></div>
+        <div class="demo demo--prop-flex-shrink demo--has-featured">
+            <div class="demo__view">
+              <div class="parent">
+                  <div class="child"></div>
+                  <div class="child"></div>
+                  <div class="child child--featured"></div>
+                  <div class="child"></div>
+              </div>
+            </div>
+
+            <div class="demo__code" spellcheck="false">.parent {
+  display: flex;
+  height: 100%;
+}
+.child {
+  width: 40%;
+}
+.child--featured {
+  <mark>flex-shrink: 1;
+</mark>}
+</div>
+        </div>
+    </div><div class="content__desc"><p><i>flex-shrink</i>属性用来设定flex子元素的<i>收缩因子</i>，值的类型是 <dfn><a href="https://www.w3.org/TR/css3-values/#number-value">&lt;数字&gt;</a></dfn>。负值无效。</p></div><p class="content__initial-value"><b>适用元素</b>: flex子元素.</p><p class="content__initial-value"><b>初始值</b>: 1.</p></section><section class="content__item" id="flex-basis"><h2 class="content__title" id="flex-basis">flex-basis</h2><a href="http://www.w3.org/TR/css-flexbox-1/#flex-basis-property" class="content__link">w3.org/TR/css-flexbox-1/#flex-basis-property</a><div class="demo-wrapper"><div class="demo-values"><button class="demo-values__control demo-values__control--current" name="30%">30%</button><button class="demo-values__control" name="50%">50%</button><button class="demo-values__control" name="content">content</button></div>
+        <div class="demo demo--prop-flex-basis demo--has-featured">
+            <div class="demo__view">
+              <div class="parent">
+                  <div class="child"></div>
+                  <div class="child"></div>
+                  <div class="child child--featured"></div>
+                  <div class="child"></div>
+              </div>
+            </div>
+
+            <div class="demo__code" spellcheck="false">.parent {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  height: 100%;
+}
+.child--featured {
+  <mark>flex-basis: 30%;
+</mark>}
+</div>
+        </div>
+    </div><div class="content__desc"><p><i>flex-basis</i>属性用来设定flex子元素的伸缩度，它能接受的值和<a href="https://www.w3.org/TR/CSS22/visudet.html#propdef-width">width</a> 和 <a href="https://www.w3.org/TR/CSS22/visudet.html#propdef-height">height</a>属性能接受的值一样，而且还可以设置成<i>content</i>。</p><p>如果这个属性的值不是指定成<i>auto</i> 或 <i>content</i>, <i>flex-basis</i>属性的作用在横向上和<a href="https://www.w3.org/TR/CSS22/visudet.html#propdef-width">width</a>属性的作用是一样的。如果值设定为<span>auto</span>，则效果等同于<i>content</i>值。例如，对于百分比的值来说，它的大小决定于容器的大小。如果容器的大小不确定，则等效于 <i>content</i> 值。反而推之，<i>flex-basis</i>可以决定容器的宽度，除非有 <a href="https://www.w3.org/TR/css3-ui/#propdef-box-sizing">box-sizing</a> 等属性的设定。</p></div><p class="content__initial-value"><b>适用元素</b>: flex items.</p><p class="content__initial-value"><b>初始值</b>: auto.</p></section></div></main>
+    
+
+
+
+    <aside class="l-aside"><ul class="nav"><li class="nav__item nav__item--display" data-name="display"><a href="https://www.webhek.com/apps/flex-cheatsheet/#display" data-parent-nav-item="display" class="nav__link">display</a></li><li class="nav__item nav__item--ordering-orientation" data-name="ordering-orientation"><h2 class="nav__subheader">排序和排方向</h2></li><li class="nav__item nav__item--flex-direction" data-name="flex-direction"><a href="https://www.webhek.com/apps/flex-cheatsheet/#flex-direction" data-parent-nav-item="flex-direction" class="nav__link">flex-direction</a></li><li class="nav__item nav__item--flex-wrap" data-name="flex-wrap"><a href="https://www.webhek.com/apps/flex-cheatsheet/#flex-wrap" data-parent-nav-item="flex-wrap" class="nav__link">flex-wrap</a></li><li class="nav__item nav__item--flex-flow" data-name="flex-flow"><a href="https://www.webhek.com/apps/flex-cheatsheet/#flex-flow" data-parent-nav-item="flex-flow" class="nav__link">flex-flow</a></li><li class="nav__item nav__item--order" data-name="order"><a href="https://www.webhek.com/apps/flex-cheatsheet/#order" data-parent-nav-item="order" class="nav__link">order</a></li><li class="nav__item nav__item--alignment" data-name="alignment"><h2 class="nav__subheader">对齐</h2></li><li class="nav__item nav__item--justify-content" data-name="justify-content"><a href="https://www.webhek.com/apps/flex-cheatsheet/#justify-content" data-parent-nav-item="justify-content" class="nav__link">justify-content</a></li><li class="nav__item nav__item--align-items nav__item--current" data-name="align-items"><a href="https://www.webhek.com/apps/flex-cheatsheet/#align-items" data-parent-nav-item="align-items" class="nav__link">align-items</a></li><li class="nav__item nav__item--align-self" data-name="align-self"><a href="https://www.webhek.com/apps/flex-cheatsheet/#align-self" data-parent-nav-item="align-self" class="nav__link">align-self</a></li><li class="nav__item nav__item--align-content" data-name="align-content"><a href="https://www.webhek.com/apps/flex-cheatsheet/#align-content" data-parent-nav-item="align-content" class="nav__link">align-content</a></li><li class="nav__item nav__item--flexibility" data-name="flexibility"><h2 class="nav__subheader">伸缩</h2></li><li class="nav__item nav__item--flex-grow" data-name="flex-grow"><a href="https://www.webhek.com/apps/flex-cheatsheet/#flex-grow" data-parent-nav-item="flex-grow" class="nav__link">flex-grow</a></li><li class="nav__item nav__item--flex-shrink" data-name="flex-shrink"><a href="https://www.webhek.com/apps/flex-cheatsheet/#flex-shrink" data-parent-nav-item="flex-shrink" class="nav__link">flex-shrink</a></li><li class="nav__item nav__item--flex-basis" data-name="flex-basis"><a href="https://www.webhek.com/apps/flex-cheatsheet/#flex-basis" data-parent-nav-item="flex-basis" class="nav__link">flex-basis</a></li><li class="nav__item nav__item--project-links"><div class="project-links">
+      <a href="https://github.com/yoksel/flex-cheatsheet" class="project-link project-link--git" title="Project on github">Project on github</a>
+      <a href="https://twitter.com/yoksel_en" class="project-link project-link--twitter" title="Twitter @yoksel_en">@yoksel_en</a>
+    </div></li><li class="nav__marker" style="top: 327px;"></li></ul><ul class="nav" style="display:none"><li class="nav__item nav__item--display" data-name="display"><a href="https://www.webhek.com/apps/flex-cheatsheet/#display" data-parent-nav-item="display" class="nav__link">display</a></li><li class="nav__item nav__item--ordering-orientation" data-name="ordering-orientation"><h2 class="nav__subheader">排序和排方向</h2></li><li class="nav__item nav__item--flex-direction" data-name="flex-direction"><a href="https://www.webhek.com/apps/flex-cheatsheet/#flex-direction" data-parent-nav-item="flex-direction" class="nav__link">flex-direction</a></li><li class="nav__item nav__item--flex-wrap" data-name="flex-wrap"><a href="https://www.webhek.com/apps/flex-cheatsheet/#flex-wrap" data-parent-nav-item="flex-wrap" class="nav__link">flex-wrap</a></li><li class="nav__item nav__item--flex-flow" data-name="flex-flow"><a href="https://www.webhek.com/apps/flex-cheatsheet/#flex-flow" data-parent-nav-item="flex-flow" class="nav__link">flex-flow</a></li><li class="nav__item nav__item--order" data-name="order"><a href="https://www.webhek.com/apps/flex-cheatsheet/#order" data-parent-nav-item="order" class="nav__link">order</a></li><li class="nav__item nav__item--alignment" data-name="alignment"><h2 class="nav__subheader">对齐</h2></li><li class="nav__item nav__item--justify-content" data-name="justify-content"><a href="https://www.webhek.com/apps/flex-cheatsheet/#justify-content" data-parent-nav-item="justify-content" class="nav__link">justify-content</a></li><li class="nav__item nav__item--align-items" data-name="align-items"><a href="https://www.webhek.com/apps/flex-cheatsheet/#align-items" data-parent-nav-item="align-items" class="nav__link">align-items</a></li><li class="nav__item nav__item--align-self" data-name="align-self"><a href="https://www.webhek.com/apps/flex-cheatsheet/#align-self" data-parent-nav-item="align-self" class="nav__link">align-self</a></li><li class="nav__item nav__item--align-content" data-name="align-content"><a href="https://www.webhek.com/apps/flex-cheatsheet/#align-content" data-parent-nav-item="align-content" class="nav__link">align-content</a></li><li class="nav__item nav__item--flexibility" data-name="flexibility"><h2 class="nav__subheader">伸缩</h2></li><li class="nav__item nav__item--flex-grow" data-name="flex-grow"><a href="https://www.webhek.com/apps/flex-cheatsheet/#flex-grow" data-parent-nav-item="flex-grow" class="nav__link">flex-grow</a></li><li class="nav__item nav__item--flex-shrink" data-name="flex-shrink"><a href="https://www.webhek.com/apps/flex-cheatsheet/#flex-shrink" data-parent-nav-item="flex-shrink" class="nav__link">flex-shrink</a></li><li class="nav__item nav__item--flex-basis" data-name="flex-basis"><a href="https://www.webhek.com/apps/flex-cheatsheet/#flex-basis" data-parent-nav-item="flex-basis" class="nav__link">flex-basis</a></li><li class="nav__item nav__item--project-links"></li><li class="nav__marker" style="top: 24px;"></li></ul>
+
+    </aside>
+</div>
+
+
+
+
+<div class="hidden-content">
+    <div class="demo-wrapper">
+        <div class="demo">
+            <div class="demo__view">
+              <div class="parent">
+                  <div class="child"></div>
+                  <div class="child"></div>
+                  <div class="child child--featured"></div>
+                  <div class="child"></div>
+              </div>
+            </div>
+
+            <div class="demo__code" spellcheck="false"></div>
+        </div>
+    </div>
+
+    
+</div>
+
+
+
+<script src="./Flexbox布局语法速查手册_files/data.js.下载"></script>
+<script src="./Flexbox布局语法速查手册_files/tinylib.js.下载"></script>
+<script src="./Flexbox布局语法速查手册_files/script.js.下载"></script><button class="theme-control">Change theme</button>
+
+
+<script type="text/javascript" src="https://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+
+
+</body></html>

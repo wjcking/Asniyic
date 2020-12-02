@@ -1,0 +1,57 @@
+.new-bdsharebuttonbox.new-side-share {
+	background: rgb(255, 255, 255); width: 45px; right: 0px; bottom: 40%; border-bottom-color: rgb(224, 224, 224); border-bottom-width: 1px; border-bottom-style: solid; position: fixed; z-index: 1001;
+}
+.new-bdsharebuttonbox.new-side-share a {
+	padding: 10px 10px 0px; outline: 0px; width: 25px; height: 25px; color: rgb(153, 153, 153); font-size: 24px; display: block;
+}
+.new-bdsharebuttonbox.new-side-share a:hover {
+	outline: 0px; text-decoration: none;
+}
+.new-bdsharebuttonbox.new-side-share .title {
+	height: 40px; text-align: center; color: rgb(255, 255, 255); line-height: 40px; font-size: 14px; border-top-color: rgb(100, 170, 241); border-right-color: rgb(100, 170, 241); border-left-color: rgb(100, 170, 241); border-top-width: 1px; border-right-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-left-style: solid; display: block; background-color: rgb(111, 182, 253);
+}
+.new-bdsharebuttonbox.new-side-share .triangle {
+	border-width: 4px; border-style: solid; border-color: rgb(111, 182, 253) transparent transparent; margin: 0px auto; width: 0px; height: 0px; display: block;
+}
+.new-bdsharebuttonbox.new-side-share .bds_wechat:hover {
+	color: rgb(106, 190, 95);
+}
+.new-bdsharebuttonbox.new-side-share .bds_qzone {
+	margin-top: -4px;
+}
+.new-bdsharebuttonbox.new-side-share .bds_qzone:hover {
+	color: rgb(246, 180, 54);
+}
+.new-bdsharebuttonbox.new-side-share .bds_tqq {
+	padding-bottom: 14px;
+}
+.new-bdsharebuttonbox.new-side-share .bds_tqq:hover {
+	color: rgb(121, 195, 241);
+}
+.new-bdsharebuttonbox.new-side-share .bds_tsina:hover {
+	color: rgb(246, 136, 62);
+}
+.new-bdsharebuttonbox.new-side-share .side-border {
+	border-right-color: rgb(224, 224, 224); border-left-color: rgb(224, 224, 224); border-right-width: 1px; border-left-width: 1px; border-right-style: solid; border-left-style: solid;
+}
+@media screen and (max-height:680px)
+{
+.new-bdsharebuttonbox.new-side-share {
+	bottom: 200px;
+}
+}
+.qrcode-wrapper {
+	background: rgb(255, 255, 255); padding: 10px; border: 1px solid rgb(216, 216, 216); border-image: none; left: 50%; top: 50%; width: 240px; height: 275px; font-size: 12px; margin-top: -138px; margin-left: -120px; position: fixed; z-index: 11001;
+}
+.qrcode-wrapper .cmn-icons_close {
+	right: 10px; position: absolute; cursor: pointer;
+}
+.qrcode-wrapper .bd_weixin_popup_header {
+	margin: 10px 0px 20px; height: 16px; text-align: left; color: rgb(0, 0, 0); line-height: 16px; font-size: 12px; font-weight: 700; position: relative;
+}
+.qrcode-wrapper #wechat-qrcode-img {
+	margin: 0px auto; width: 180px;
+}
+.qrcode-wrapper .bd_weixin_popup_footer {
+	text-align: left; color: rgb(102, 102, 102); line-height: 22px; font-size: 12px; margin-top: 20px;
+}

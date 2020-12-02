@@ -1,0 +1,12 @@
+#announcement {
+	background: rgb(249, 243, 218); margin: 0px 0px 5px; padding: 10px 30px; border-radius: 3px; border: 1px solid rgb(231, 222, 186); border-image: none; top: -5px; color: rgb(145, 127, 84); font-size: 14px; position: relative; z-index: 1000;
+}
+#announcement::after {
+	height: 0px; overflow: hidden; clear: both; font-size: 0px; display: block; visibility: hidden; content: "\0020";
+}
+#announcement .announcement_content {
+	width: 100%; text-align: left; line-height: 22px; float: left;
+}
+#announcement .announcement_close {
+	top: 0px; right: 5px; line-height: 24px; position: absolute; cursor: pointer;
+}

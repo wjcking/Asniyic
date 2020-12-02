@@ -1,0 +1,93 @@
+/**
+ * Created by Administrator on 2016/11/4 0004.
+ */
+    $(function(){
+        var _title = window._share_uu_config._title;
+        var _desc = window._share_uu_config._desc;
+        var _link = window._share_uu_config._link;
+        var _imgUrl = window._share_uu_config._imgUrl;
+
+        //判断是否微信浏览器
+        function isWeiXin(){
+            var ua = window.navigator.userAgent.toLowerCase();
+            if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        if(isWeiXin()){
+            $('.sharearea2').show();
+        }else{
+            $('.sharearea1').show();
+        }
+
+        //nativeShare(浏览器微信\QQ好友)设置
+        var config = {
+            url : _link,
+            title : _title,
+            desc : _desc,
+            img : _imgUrl
+        };
+        var share_obj = new nativeShare('nativeShare','nativeShare2',config);
+
+        //百度分享的设置
+        window._bd_share_config={
+            "common":{
+                "bdSnsKey":{
+                    "tsina" : "2185145709",
+                    "tqq" : "1101055484",
+                },
+                'wbUid' : "1744259092",
+                "bdText": _title,
+                "bdDesc" : _desc,
+                "bdUrl" : _link,
+                "bdPic" : _imgUrl,
+                "bdMini":"2",
+                "bdMiniList":false,
+                "bdStyle":"1",
+                "bdSize":"32",
+                "bdCustomStyle":"css/style.css",
+                'render':false,  //百度统计回流分享
+                'review':'normal',
+                'onAfterClick':function(cmd){
+//				console.log(cmd);
+                    switch (cmd){
+                        case "qzone":
+                            var i = 4;
+                            break;
+                        case "tsina":
+                            var i = 5;
+                            break;
+                        case "sqq":
+                            var i = 3;
+                            break;
+                        case "douban":
+                            var i = 8;
+                            break;
+                    }
+                    shareTopicRank(i);
+                }
+            },
+            "share":{}
+        };
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        document.getElementById('bdshell_js').src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
+
+
+        //普通浏览器展开更多分享
+        if(!isWeiXin()) {
+            $(".more-btn").bind("click", function () {
+                $('.moreshare-bottombox').bottomBox().open();
+            });
+            $("#more-btn").bind("click", function () {
+                $('.moreshare-bottombox').bottomBox().open();
+            });
+        }
+
+        //针对分享中的微信提示按钮
+        $('.forweixin-btn').bind("click",function(){
+            $('.cls-wechattip').bottomBox().open();
+        });
+    })

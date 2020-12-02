@@ -1,0 +1,990 @@
+/**
+ * Created by wei on 2015/12/3.
+ */
+
+var locked = false,
+    more_page = 2, date = new Date(), data = {}, tmp_announce = 0, parentID = 0;
+
+var shareMoreList = {
+    page:1,
+}
+//提供外部接口
+controller.$content.fireFunc(function(scope){
+    //更改排序数据
+    scope.addFunc('http.comment.sort', function(cover) {
+        ;
+        http_api(sprintf(kdapi.detail.uri, kdapi.kdnetapiformat), 'get', cover, 'comment.sort.always');
+
+        data.page++;
+    });
+
+    scope.addFunc('comment.sort.always', function() {
+        $('#list-loading-change-sort').removeClass('active');
+        $('#list-loading').show();
+    });
+
+    scope.addFunc('style.fontsize',function(number){
+        $('body>.content').css('font-size',number+"%");
+    });
+
+    //不接受外部调用，请求隐藏楼层数据；
+    scope.addFunc('floor.loadHide',function(floorid){
+        //向原生发出交互请求
+        console.log(floorid)
+    });
+
+    scope.addFunc('floor.addFloor',function(status,data){
+        if(status && scope._currentFloor){
+            var _html = '<div class="reply"> <div class="reply"> <p class="color-text3 small-l"><span class="fr">3</span>凯迪开发者</p> <div class="word"> 继续加油！ </div> </div> <p class="color-text3 small-l"><span class="fr">4</span>凯迪开发者</p> <div class="word"> 继续加油！ </div> </div><p class="color-text3 small-l"><span class="fr">5</span>凯迪开发者</p> <div class="word"> 继续加油！ </div>'||data;
+            var self=scope._currentFloor;
+            scope._currentFloor=null;
+            var _oldFloor = $(self).parent().prev();
+            var _parent = $(self).parent().parent();
+            var _ele = $(_html);
+            _ele.find('.reply:last').prepend(_oldFloor);
+            _parent.prepend(_ele);
+            $(self).parent().next().remove();
+            $(self).parent().remove();
+        }
+    })
+})
+
+
+
+controller.$content.fireFunc(function(scope){
+
+    //scope.pager={
+    //    start:0,
+    //    size:10
+    //};
+
+    function toCheckMaxHeight(){
+        $('.text-overflow-cont').each(function(index, el) {
+            var _maxHeight = $(this).parent().css('max-height') || '0px';
+            _maxHeight = _maxHeight.replace(/[a-zA-Z]*/, '');
+            _maxHeight = parseFloat(_maxHeight);
+            var _height=$(this).height();
+            if (_height/_maxHeight>2 ) {
+                $(this).parent().addClass('cls-text-overflow-hidden');
+            }else if(_height/_maxHeight>1){
+                $(this).parent().after('<p class="word color-blue cls-slideDown-replay">全文</p>');
+
+            }
+            $(this).removeClass('text-overflow-cont');
+        });
+    }
+
+    scope.addFunc('comment.onAfterData',function(){
+        toCheckMaxHeight();
+    });
+
+    if (isCss3.isTransform) {
+        this.addFunc('setToolbarTop', function(x, y, z) {
+            $('.cls-tool-bar').css('transform', 'translate(' + x + ',' + y + ')');
+        })
+    } else {
+        this.addFunc('setToolbarTop', function(x, y, z) {
+            $('.cls-tool-bar').css('top', y);
+        })
+    }
+
+
+
+    //绑定更改排序按钮
+    $('#btn-sort-wrap a').on('click',function() {
+        scope.changeSort(this);
+    });
+
+
+    //更改排序失败，重新加载
+    $('#list-loading-error').on('click',function(){
+        scope.changeSort($('#btn-sort-wrap a.active'),true);
+    });
+
+    //更改排序
+    scope.changeSort = function(ele) {
+        if ($('#list-loading-change-sort').hasClass('active')) {
+            return;
+        }
+
+        $(ele).addClass('active');
+        $(ele).siblings().removeClass('active up down');
+        //console.log(isReverse);
+
+        //if(!isReverse){
+        if($(ele).hasClass('up')){
+            $(ele).removeClass('up').addClass('down');
+        }else if ($(ele).hasClass('down')){
+            $(ele).removeClass('down').addClass('up');
+        }else{
+            $(ele).addClass('up');
+        }
+        //}
+
+        $('#list-loading-error').removeClass('active');
+        $('#list-noreply').removeClass('active');
+        $('#list-loading-change-sort').addClass('active');
+        //scope.pager.start = 0;
+        scope.fireFunc('dataIsDone');
+
+        more_page = 1;
+
+        data = {
+            tid: TopicID,
+            page : more_page,
+            content : 0
+        };
+
+        //data[$(ele).data('sort')] = $(ele).data('sort') == 'date' ? ($(ele).hasClass('up') ? 'asc' : 'desc') : ($(ele).hasClass('up') ? 'up' : 'down');
+        data[$(ele).data('sort')] = $(ele).data('sort') == 'date' ? ($(ele).hasClass('up') ? 'asc' : 'desc') : ($(ele).data('sort') == 'atti' ? ($(ele).hasClass('up') ? 'up' : 'down') : $(ele).data('val'));
+        scope.fireFunc('http.comment.sort', [1], 'comment.sort.always');
+
+        $(document).scrollra().addEvent({
+            start: function() {
+                return $('#list-loading').offset().top - $(window).get(0).innerHeight
+            },
+
+            handler: function() {
+                scope.fireFunc('http.comment.sort', [0]);
+            }
+        });
+    };
+
+    //弹出操作条
+    //$('.cls-pennyer-list').on('click', 'li', function(e) {
+    //    if ($(this).data('screen'))
+    //        return;
+    //
+    //    if (!$(e.target).parent().attr('action-type') && !$(e.target).attr('action-type')) {
+    //        if ($(this).data('announce') != tmp_announce) {
+    //            if ($('.cls-tool-bar').hasClass('active')) {
+    //                $('.cls-tool-bar').hide();
+    //                $('.cls-tool-bar').removeClass('active');
+    //            }
+    //
+    //            var top = $(this).position().top,
+    //                button = $('.cls-tool-bar').find('button'),
+    //                zan = button.eq(0), cai = button.eq(1);
+    //
+    //            if ($(this).data('ding')) {
+    //                zan.data('action','unapprove').data('announce', $(this).data('announce')).find('span').html('取消赞');
+    //                cai.data('action','against').data('announce', $(this).data('announce')).find('span').html('踩');
+    //            } else if ($(this).data('cai'))  {
+    //                zan.data('action','approve').data('announce', $(this).data('announce')).find('span').html('赞');
+    //                cai.data('action','unagainst').data('announce', $(this).data('announce')).find('span').html('取消踩');
+    //            } else {
+    //                zan.data('action','approve').data('announce', $(this).data('announce')).find('span').html('赞');
+    //                cai.data('action','against').data('announce', $(this).data('announce')).find('span').html('踩');
+    //            }
+    //
+    //            //button.each(function(){
+    //            //    $(this).data('announce', $(this).data('announce'));
+    //            //});
+    //
+    //            $('.cls-tool-bar').show();
+    //            rAF(function() {
+    //                $('.cls-tool-bar').addClass('active');
+    //                scope.fireFunc('setToolbarTop', ["-50%", top + "px", 0]);
+    //
+    //            });
+    //            e.preventDefault();
+    //            e.stopPropagation();
+    //
+    //            tmp_announce = $(this).data('announce');
+    //        } else {
+    //            tmp_announce = 0;
+    //        }
+    //    }
+    //});
+
+
+    //跟帖赞和踩
+    //$('.cls-tool-bar').on('click', 'button.judge',function(e){
+    //    var announce = $(this).data('announce'),
+    //        action = $(this).data('action');
+    //    var dc = $('li[data-announce="' + announce + '"]').find('.cls-zangoode');
+    //    var num = parseInt(dc.find('span').html());
+    //    $.ajax({
+    //        // url: kdapi.kdnetapihost + sprintf(kdapi.topicjudge.uri, kdapi.kdnetapiformat),
+    //        url: 'http://cluster.kdnet.net/api/topic/judge.json',
+    //        dataType: 'jsonp',
+    //        data: {
+    //            tid: TopicID,
+    //            aid: announce,
+    //            action: action
+    //        },
+    //        beforeSend: function() {
+    //            if((!$.cookie('kdaccesstoken')) || $.cookie('kdaccesstoken') == "logout") {
+    //                // $('body').append('<div class="loading active" id="error-load"><p><span class="icon"><i class="icon_warning"></i></span><span class="text">请先登陆</span></p></div>');
+    //                // setTimeout(function () {
+    //                //     $('#error-load').remove();
+    //                // }, 1500);
+    //                // return false;
+    //                var dingcai = '{"tid":"'+TopicID+'","aid":"'+announce+'","action":"'+action+'"}';
+    //                $.cookie('dingcai', dingcai, {expires: 1, path: '/', domain: 'kdnet.net'});
+    //                window.location.href="http://uc.kdnet.net/?redirect=http://"+host_name+"/"+sharetype+"-"+TopicID+".html";
+    //            }
+    //
+    //            if (action == 'approve') {
+    //             dc.addClass('active').find('span').html(num + 1);
+    //            } else if (action == 'unapprove') {
+    //             dc.removeClass('active').find('span').html(num - 1);
+    //            } else if (action == 'against' || action == 'unagainst') {
+    //             if (dc.find('span').hasClass('active')) {
+    //                 // dc.removeClass('active');
+    //                 dc.removeClass('active').find('span').html(num - 1);
+    //             }
+    //            }
+    //        }
+    //    })
+    //    .done(function (json) {
+    //        if (json.success) {
+    //            var ding = $('li[data-announce="' + announce + '"]');
+    //            if (action == 'approve') {
+    //                ding.data('ding', true).data('cai', false).find('.cls-zangoode').addClass('active').find('span').html(json.data.ding);
+    //            } else if (action == 'unapprove') {
+    //                ding.data('ding', false).find('.cls-zangoode').removeClass('active').find('span').html(json.data.ding);
+    //            } else if (action == 'against') {
+    //                ding.data('ding', false).data('cai', true).find('.cls-zangoode').removeClass('active').find('span').html(json.data.ding);
+    //            } else if (action == 'unagainst') {
+    //                ding.data('cai', false).find('.cls-zangoode').removeClass('active').find('span').html(json.data.ding);
+    //            }
+    //            //$("."+announce + "_ding").html(json.data.ding);
+    //        } else {
+    //            // alert(json.message);
+    //            $('body').append('<div class="loading active" id="error-load"><p><span class="icon"><i class="icon_warning"></i></span><span class="text">'+ json.message+'</span></p></div>');
+    //            setTimeout(function () {
+    //                    $('#error-load').remove();
+    //            }, 1500);
+    //            dc.removeClass('active').find('span').html(num);
+    //        }
+    //
+    //        tmp_announce = 0;
+    //    })
+    //    .fail(function () {
+    //        console.log("error");
+    //    })
+    //    .always(function () {
+    //
+    //    });
+    //
+    //});
+
+
+    //跟帖赞和踩
+    //var zanlock = true;
+    $('.cls-pennyer-list').on('click', 'button.judge', function(e){
+        //if(!zanlock) return;
+        //zanlock = false;
+        var announce = $(this).attr('announce'),
+            ding = $('li[announce="' + announce + '"]'),
+            action = ding.attr('action'),
+            dc = ding.find('.cls-zangoode'),
+            num = parseInt(dc.find('span').html());
+        $.ajax({
+            // url: kdapi.kdnetapihost + sprintf(kdapi.topicjudge.uri, kdapi.kdnetapiformat),
+            url: 'http://cluster.kdnet.net/api/topic/judge.json',
+            dataType: 'jsonp',
+            data: {
+                tid: TopicID,
+                aid: announce,
+                action: action
+            },
+            beforeSend: function() {
+                if((!$.cookie('kdaccesstoken')) || $.cookie('kdaccesstoken') == "logout") {
+                    $('body').append('<div class="loading active" id="error-load"><p><span class="icon"><i class="icon_warning"></i></span><span class="text">未登录</span></p></div>');
+                    setTimeout(function () {
+                        $('#error-load').remove();
+                        var dingcai = '{"tid":"'+TopicID+'","aid":"'+announce+'","action":"'+action+'"}';
+                        $.cookie('dingcai', dingcai, {expires: 1, path: '/', domain: 'kdnet.net'});
+                        window.location.href="http://uc.kdnet.net/?redirect=http://"+host_name+"/"+sharetype+"-"+TopicID+".html";
+                    }, 1500);
+                    return false;
+                }
+                //预先处理样式
+                if (action == 'approve') {
+                    dc.addClass('active').find('span').html(num + 1);
+                    ding.attr('ding', true).attr('action', 'unapprove');
+                } else if (action == 'unapprove') {
+                    dc.removeClass('active').find('span').html(num - 1);
+                    ding.attr('ding', false).attr('action', 'approve');
+                }
+                //else if (action == 'against' || action == 'unagainst') {
+                //    if (dc.find('span').hasClass('active')) {
+                //        // dc.removeClass('active');
+                //        dc.removeClass('active').find('span').html(num - 1);
+                //    }
+                //}
+            }
+        })
+            .done(function (json) {
+                if (json.success) {
+                    //alert(json.data.action);
+                    //if (json.data.action == 'approve') {
+                    //    ding.attr('ding', true).attr('action', 'unapprove');
+                    //} else if (json.data.action == 'unapprove') {
+                    //    ding.attr('ding', false).attr('action', 'approve');
+                    //}
+                    //else if (json.data.action == 'against') {
+                    //    ding.attr('ding', false).attr('cai', true).find('.cls-zangoode').removeClass('active').find('span').html(json.data.ding);
+                    //} else if (json.data.action == 'unagainst') {
+                    //    ding.attr('cai', false).attr('.cls-zangoode').removeClass('active').find('span').html(json.data.ding);
+                    //}
+                } else {
+                    if (action == 'approve') {
+                        dc.addClass('active').find('span').html(num);
+                    }else if (action == 'unapprove') {
+                        dc.removeClass('active').find('span').html(num);
+                    }
+                    //$('body').append('<div class="loading active" id="error-load"><p><span class="icon"><i class="icon_warning"></i></span><span class="text">'+ json.message+'</span></p></div>');
+                    //setTimeout(function () {
+                    //    $('#error-load').remove();
+                    //}, 1500);
+                }
+                //setTimeout(function(){
+                //    zanlock = true;
+                //},150);
+                tmp_announce = 0;
+            })
+    });
+
+    //主贴赞和踩
+    //var mainzanlock = true;
+    $('.main-ding, .main-cai').click(function() {
+        //if(!mainzanlock) return;
+        //mainzanlock = false;
+
+        var $this = $(this),
+            announce = $this.data('announce'),
+            action = $this.data('action');
+        var Ding = $('span[data-ding="' + announce + '"]');
+        var Cai = $('span[data-cai="' + announce + '"]');
+        var D_num = parseInt(Ding.html().match(/\d+/));
+        var C_num = parseInt(Cai.html().match(/\d+/));
+        $.ajax({
+            // url: kdapi.kdnetapihost + sprintf(kdapi.topicjudge.uri, kdapi.kdnetapiformat),
+            url: 'http://cluster.kdnet.net/api/topic/judge.json',
+            dataType: 'jsonp',
+            data: {
+                tid: TopicID,
+                aid: announce,
+                action: action
+            },
+            beforeSend: function() {
+                if((!$.cookie('kdaccesstoken')) || $.cookie('kdaccesstoken') == "logout") {
+                    $('body').append('<div class="loading active" id="error-load"><p><span class="icon"><i class="icon_warning"></i></span><span class="text">请先登陆</span></p></div>');
+                    setTimeout(function () {
+                        $('#error-load').remove();
+                        var dingcai = '{"tid":"'+TopicID+'","aid":"'+announce+'","action":"'+action+'"}';
+                        $.cookie('dingcai', dingcai, {expires: 1, path: '/', domain: 'kdnet.net'});
+                        window.location.href="http://uc.kdnet.net/?redirect=http://"+host_name+"/"+sharetype+"-"+TopicID+".html";
+                    }, 1500);
+                    return false;
+                }
+
+                /*已废弃 start*/
+                // if (action == 'approve') {
+                //   Ding.addClass('active').find('span').html(parseInt(Ding.find('span').html()) + 1);
+                // } else if (action == 'unapprove') {
+                //   Ding.removeClass('active').find('span').html(parseInt(Ding.find('span').html()) - 1);
+                // } else if (action == 'against' || action == 'unagainst') {
+                //   if (dc.find('span').hasClass('active')) {
+                //     //dc.removeClass('active');
+                //     dc.removeClass('active').find('span').html(parseInt(dc.find('span').html()) - 1);
+                //   }
+                // }
+                /*已废弃 end*/
+
+                var tmp_D_num = D_num;
+                var tmp_C_num = C_num;
+                if (action == 'approve') {
+                    if (Cai.hasClass('active')) {
+                        Cai.removeClass('active').data('action', 'against');
+                        tmp_C_num-=1;
+                    }
+                    $this.addClass('cls-zangoode active').data('action', 'unapprove');
+                    tmp_D_num+=1;
+                } else if (action == 'against') {
+                    if (Ding.hasClass('active')) {
+                        Ding.removeClass('active').data('action', 'approve');
+                        tmp_D_num-=1;
+                    }
+                    $this.addClass('cls-bad-normal active').data('action', 'unagainst');
+                    tmp_C_num+=1;
+                } else if (action == 'unapprove') {
+                    $this.removeClass('active').data('action', 'approve');
+                    tmp_D_num-=1;
+                } else if (action == 'unagainst') {
+                    $this.removeClass('active').data('action', 'against');
+                    tmp_C_num-=1;
+                }
+                Ding.find('span').html(tmp_D_num);
+                Cai.find('span').html(tmp_C_num);
+            }
+        })
+            .done(function (json) {
+
+                if (json.success) {
+                    //if (action == 'approve') {
+                    //    if (Cai.hasClass('active')) {
+                    //        Cai.removeClass('active').data('action', 'against');
+                    //    }
+                    //    $this.addClass('cls-zangoode active').data('action', 'unapprove');
+                    //} else if (action == 'against') {
+                    //    if (Ding.hasClass('active')) {
+                    //        Ding.removeClass('active').data('action', 'approve');
+                    //    }
+                    //    $this.addClass('cls-bad-normal active').data('action', 'unagainst');
+                    //} else if (action == 'unapprove') {
+                    //    $this.removeClass('active').data('action', 'approve');
+                    //} else if (action == 'unagainst') {
+                    //    $this.removeClass('active').data('action', 'against');
+                    //}
+                    // if (action == 'approve') {
+                    //   //Cai.replaceParam('action', 'against');
+                    //   //$this.replaceParam('action', 'unapprove');
+                    // } else if (action == 'against') {
+                    //   //Ding.replaceParam('action', 'approve');
+                    //   //that.replaceParam('action', 'unagainst');
+                    // } else if (action == 'unapprove') {
+                    //   //that.replaceParam('action', 'approve');
+                    // } else if (action == 'unagainst') {
+                    //   //that.replaceParam('action', 'against');
+                    // }
+                    //Ding.html(Ding.html().replace(/\d+/, json.data.ding));
+                    //Cai.html(Cai.html().replace(/\d+/, json.data.cai));
+                } else {
+                    //$('body').append('<div class="loading active" id="error-load"><p><span class="icon"><i class="icon_warning"></i></span><span class="text">'+ json.message+'</span></p></div>');
+                    //setTimeout(function () {
+                    //    $('#error-load').remove();
+                    //}, 1500);
+                    Ding.find('span').html(D_num);
+                    Cai.find('span').html(C_num);
+                }
+                //mainzanlock = true;
+            })
+    });
+
+
+    //从这里去到全文页面
+    $('.cls-pennyer-list').on('click', '.cls-text-overflow-hidden', function(e) {
+        alert("打开全文页面")
+    });
+
+
+    //绑定工具条
+    $(document).on('click', function() {
+        $('.cls-tool-bar').removeClass('active');
+        setTimeout(function() {
+            $('.cls-tool-bar').hide();
+        }, 200);
+    });
+
+    //展开/收起全文
+    $('.cls-pennyer-list').on('click', '.cls-slideDown-replay', function(e) {
+
+        $(this).parent().toggleClass('slidedown');
+        //if ($(this).parent().hasClass('slidedown')) {
+        var that = $(this).parent(),
+            topic = $(this).data('topicid'),
+            announce = $(this).data('announce'),
+            act = $(this).data('act');
+
+        $.ajax({
+            type: 'post',
+            url: sprintf(kdapi.topicview.uri, kdapi.kdnetapiformat),
+            data: {tid: topic, aid: announce, act: act},
+            success: function (json) {
+                if (json.code == 0 && json.success) {
+                    if (act == 'shorttext') {
+                        var html = '<p style="cursor:pointer;" data-topicid="' + topic + '" data-announce="' + announce + '" data-act="fulltext" class="word color-blue cls-slideDown-replay">全文</p>'
+                    }else{
+                        var html = '<p style="cursor:pointer;" data-topicid="' + topic + '" data-announce="' + announce + '"  data-act="shorttext" class="word color-blue cls-slideDown-replay">收起</p>'
+                    }
+                    $('[comment-id="' + announce + '"]').html(json.data.cleanBody + html);
+                    //$this.remove();
+                } else {
+                    alert(json.message);
+                }
+            }
+        });
+        //}
+        if ($.isFunction(window.tracking_log)){tracking_log();}//统计
+
+        e.preventDefault();
+        e.stopPropagation();
+    });
+
+    //赞赏
+    $('.donate-money').click(function () {
+        var money = $(this).data('money'),
+            regex = /^\d+$/;
+
+        //if ($('input[name="guest"]').is(':checked'))
+        //    $('input[name="is_guest"]').addClass('icon-check-on').attr("checked", "checked");
+
+        if (regex.test(money))
+        {
+            $('#rewardNum').val(money);
+            $('#donate_form')[0].submit();
+        } else {
+            $('body').append('<div class="loading active" id="error-load"><p><span class="icon"><i class="icon_warning"></i></span><span class="text">请选择有效金额</span></p></div>');
+            setTimeout(function () {
+                $('#error-load').remove();
+            }, 1500);
+        }
+    });
+
+    $('#donate-submit').click(function () {
+        var money = $('#rewardNum').val(),
+            regex = /^\d+$/;
+
+        if (money && regex.test(money))
+        {
+            $('#donate_form')[0].submit();
+        } else {
+            $('body').append('<div class="loading active" id="error-load"><p><span class="icon"><i class="icon_warning"></i></span><span class="text">请输入有效金额</span></p></div>');
+            setTimeout(function () {
+                $('#error-load').remove();
+            }, 1500);
+        }
+    });
+
+    //加载隐藏楼层
+    $(document).on('click', '[action-type="view-hide"]', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        var //that = $(this).find("a"),
+            that = $(this),
+            announce = $(this).data('announce');
+
+        $.ajax({
+            type: 'post',
+            datatype: 'json',
+            url: sprintf(kdapi.floorshow.uri, kdapi.kdnetapiformat),
+            data: {tid: TopicID, aid: announce},
+            success: function(json){
+                if(json.success){
+                    that.unwrap();
+                    var parents = that.parents('.body').find('.reply');
+                    $.each(json.data, function(k, v){
+                        var html = '';
+                        html +=  '<p class="color-text3 small-l"><span class="fr">' + v.num + '</span>' + v.UserName + '</p>';
+                        html +='<div class="word">' + v.cleanBody + '</div>';
+                        html += '</div>';
+                        parents.eq(1).wrap('<div class="reply"></div>').parent().append(html);
+                    });
+                    that.siblings('.icon-arrow-down').remove();
+                    that.remove();
+                }else{
+                    alert(json.message);
+                }
+            }
+        });
+        if ($.isFunction(window.tracking_log)){tracking_log();}//统计
+    })
+
+
+
+    // //清理加载更多评论事件
+    // this.addFunc('dataIsDone', function() {
+    //    if ($(document).scrollra()) {
+    //        $(document).scrollra().clearEvent();
+    //    }
+    //    $('#list-loading').hide();
+    // });
+
+
+
+    // //加载更多评论
+    // scope.addFunc('comment.loadMoreCallback',function(total){
+    //    locked = false;
+    //    $('#list-loading .icon-loading').removeClass('active');
+    //    $('#list-loading span').html('加载更多...');
+    //    scope.pager.start+=scope.pager.size;
+    //    if(total<=scope.pager.start){
+    //        scope.fireFunc('dataIsDone');
+    //    }
+    // });
+
+    // this.addFunc('loadMore', function() {
+    //    data = {
+    //        tid: TopicID,
+    //        page: more_page,
+    //        end_id: end_id,
+    //        pre_page: more_page - 1
+    //    };
+
+    //    http_api(sprintf(kdapi.detail.uri, kdapi.kdnetapiformat), 'get');
+    //    //http_api('/api/topic/detail.json', 'get');
+    // });
+
+    // this.addFunc('init', function(){
+    //    $('#list-loading .icon-loading').removeClass('active');
+    //    $('#list-loading span').html('加载更多...');
+    //    $('#list-loading').show();
+
+    //    donate_init();
+
+    //    if($(document).scrollra()){
+    //        $(document).scrollra().clearEvent();
+    //    }
+
+    //    $(document).scrollra().addEvent({
+    //        start: function() {
+    //            return $('#list-loading').offset().top - $(window).get(0).innerHeight
+    //        },
+
+    //        handler: function() {
+    //            scope.fireFunc('loadMore');
+    //        }
+    //    });
+    // });
+
+    // if (page){
+    //    controller.$content.fireFunc("init");
+    // }
+
+
+    $('#reply').click(function () {
+        $.ajax({
+            url: sprintf(kdapi.topicreply.uri, kdapi.kdnetapiformat),
+            type: 'post',
+            dataType: 'json',
+            data: {
+                tid: TopicID,
+                ParentID: parentID,
+                Body: $('#reply-body').val(),
+                Expression: ''
+            }
+        }).done(function (json) {
+            if (json.success) {
+                parentID = 0;
+                $('#id-inputbox').bottomBox().close();
+                alert('发帖成功');
+            } else {
+                $('body').append('<div class="loading active" id="error-load"><p><span class="icon"><i class="icon_warning"></i></span><span class="text">'+json.message+'</span></p></div>');
+                setTimeout(function () {
+                    $('#error-load').remove();
+                }, 1500);
+            }
+        })
+            .fail(function () {
+                $('body').append('<div class="loading active" id="error-load"><p><span class="icon"><i class="icon_warning"></i></span><span class="text">网络错误</span></p></div>');
+                setTimeout(function () {
+                    $('#error-load').remove();
+                }, 1500);
+            });
+        if ($.isFunction(window.tracking_log)){tracking_log();}//统计
+    });
+
+    // /*赞，踩 凯迪客户端 提示*/
+    // $(".cls-zantip").on("click", function () {
+    //     $('.j-cover').bottomBox().open();
+    // });
+
+    //选择赞赏金额
+
+    $('.zan-money ul li').on('click',function(){
+        // $(this).addClass("active").siblings().removeClass("active")
+        $(this).addClass("active")
+    });
+
+    $(".zan-btn").on("click",function(){
+        $('#zan-pop').show();
+    });
+
+    $(".zan-close").on("click",function(){
+        $('#zan-pop').hide();
+        //$('#zan-other-pop').hide();
+    });
+
+    $(".zan-other").on("click",function(){
+        $('.zan-money').addClass('hide');
+        $('#zan-other-pop').removeClass('hide');
+        //$('#zan-pop').hide();
+        //$('#zan-other-pop').show();
+    });
+
+    //增加评论弹窗
+    $("#editReply").on("click",function(){
+        parentID = 0;
+        $('#id-inputbox').bottomBox().open(function(){
+            $('#id-inputbox .sty-textarea').focus();
+        });
+    });
+
+    $('.cls-tool-bar').on('click', 'button.reply',function() {
+        parentID = tmp_announce;
+        tmp_announce = 0;
+        $('#id-inputbox').bottomBox().open(function(){
+            $('#id-inputbox .sty-textarea').focus();
+        });
+    });
+
+    $('.btn-cancel').on('click', function () {
+        parentID = 0;
+    });
+
+});
+
+function http_api(url, type, cover, always) {
+    cover = cover ? true : false;
+    type = type ? type : 'post';
+
+    // data = data ? data : data;
+
+    if (locked)
+        return;
+
+    locked = true;
+
+    $('#list-loading .icon-loading').addClass('active');
+    $('#list-loading span').html('正在加载...');
+    // var $ele=$('#btn-sort-wrap a.active');
+
+    $.ajax({
+        url: url,
+        type: type,
+        dataType: 'json',
+        data: data
+        //beforeSend: function( xhr ) {
+        //    //
+        //}
+    }).done(function (json) {
+        if (json.success && json.data.data) {
+            var html = '';
+            $.each(json.data.data, function (key, value) {
+                if (value.is_screen) {
+                    html +='<li class="disabled" data-screen="true">';
+                } else {
+                    var d = 'false', c = 'false';
+                    if (value.hasDing)
+                        d = 'true';
+                    else if (value.hasCai)
+                        c = 'true';
+
+                    var e;
+                    if (d=='true'){
+                        e = 'unapprove';
+                    }else{
+                        e = 'approve';
+                    }
+
+                    html +='<li announce='+value.AnnounceID+' ding='+d+' cai='+c+' action='+e+'>';
+                }
+                html +='<div><div class="cls-leftright clearfix"><a href="user/userindex?u='+value.PostUserID+' "><div class="float fl ';
+                if(value.user.PCertify){
+                    html += 'cls-attest';
+                }
+                // html += '"><img onerror="this.src=\'/statics/images/icon100_Default.png\'" src="http://imgcdn.kdnet.net/upload/userface/'+value.PostUserID+'_40_40.jpg?t='+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds()+'" class="inline-block cls-header-size"></div></a>';
+                html += '"><img src="'+value.user.UserFace+'" class="inline-block cls-header-size"></div></a>';
+                html +='<div class="body"><p class="cls-userinlist-info">';
+                if (!value.is_screen) {
+                    var ac_class = value.hasDing ? 'active' : '';
+                    html +='<span class="fr btn-icon color-text3 cls-zangoode ' + ac_class + '">' + '<button cur-action="'+'" type="button" class="btn-icon btn-icon-text judge" announce="'+value.AnnounceID+'"><span>'+value.ding+'</span><i class="icon-zangoode"></i></button>';
+                } else {
+                    html +='<span class="fr btn-icon color-text3">';
+                }
+                html +='</span>'+value.UserName+'</p><p class="small color-text3 time"><small class="mr-10">第'+value.floor+'楼</small><small>'+value.units+'</small></p>';
+
+                if (value.is_quto) {
+                    for (var i = 0; i < value.quto_body.length; i++) {
+                        html += '<div class="reply">';
+                    }
+
+                    $.each(value.quto_body, function (k, v) {
+                        if ($.isPlainObject(v)) {
+                            html += '<p class="color-text3 small-l"><span class="fr">'+v.num+'</span>'+v.user+'</p><div class="word" comment-id='+v.AnnounceID+'>'+ v.content + '</div></div>';
+                            if(v.clickShowMore) {
+                                html += '<p style="cursor:pointer;" data-topicid="' + TopicID + '" data-announce="' + v.AnnounceID + '" data-act="fulltext" class="word color-blue cls-slideDown-replay">全文</p>';
+                            }else{
+
+                            }
+                        }
+
+                        if ($.isArray(v)) {
+                            html += '<p class="color-text3 text-center floor-hidden"><button class="color-text3 btn-icon btn-icon-text-left btn-floor-show small-l" action-type="view-hide" data-announce='+value.AnnounceID+'><span>展开隐藏楼层</span><i class="icon-arrow-down"></i></button></p></div>';
+                            //html += '<p class="color-text3 text-center floor-hidden"><a href="javascript:void(0)" style="cursor:pointer;" data-announce='+value.AnnounceID+' action-type="view-hide">展开隐藏楼层</a><i class="icon-arrow-down"></i></p></div>';
+                        }
+                    });
+                }
+
+                html += '<div class="word">'+value.cleanBody+'</div></div></div></div></li>';
+            });
+
+            if (cover) {
+                $('#comment-list').html(html);
+            } else {
+                $('#comment-list').append(html);
+            }
+
+            more_page++;
+            console.log(json.data.data[json.data.data.length - 1]);
+            end_id = json.data.data[json.data.data.length - 1]['AnnounceID'];
+        }
+
+        if (json.data.pager.total_count && json.data.pager.current_page < json.data.pager.total_page) {
+            $('#list-loading').addClass('hide');
+            $('#list-loading .icon-loading').removeClass('active');
+            $('#list-loading span').html('加载更多...');
+        } else {
+            $(document).scrollra().clearEvent();
+            $('#list-loading').remove();
+
+            //2016.4.22 linhan 新增
+            $('.post-more').remove();
+        }
+
+    })
+        .fail(function () {
+            console.log("error");
+        })
+        .always(function () {
+            locked = false;
+            if (always)
+                controller.$content.fireFunc(always);
+        });
+    if ($.isFunction(window.tracking_log)){tracking_log();}//统计
+}
+
+function donate_init() {
+    $.ajax({
+        url: '/api/donate/list.json',
+        dataType: 'json',
+        data: {
+            tid: TopicID,
+            size: 18
+        }
+    }).done(function (json) {
+        if (json.success && json.data.data) {
+            var html = $('<ul class="list-nostyle"></ul>');
+            $.each(json.data.data, function (key, value) {
+                if (value.is_guest) {
+                    html.append('<li><img src="/statics/images/icon100_Default.png" class="img-radius cls-header-size"></li>');
+                } else {
+                    // html.append('<li><img onerror="this.src=\'/statics/images/icon100_Default.png\'" src="http://imgcdn.kdnet.net/upload/userface/'+value.userid+'_40_40.jpg?t='+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds()+'" class="img-radius cls-header-size"></li>');
+                    html.append('<li><img src="'+value.user.UserFace+'" class="img-radius cls-header-size"></li>');
+                }
+
+            });
+            $('.cls-header-list').append(html);
+            if(json.data.data.length>0){
+                $('#cls-header-list-cont').show();
+            }
+        }
+    })
+        .fail(function () {
+            console.log("error");
+        });
+    if ($.isFunction(window.tracking_log)){tracking_log();}//统计
+}
+
+function getDonateRanking(){
+    $.ajax({
+        url: 'http://opapi.kdnet.net/ranking/api/donate',
+        type: 'GET',
+        dataType: 'jsonp',
+        // jsonp: 'callback',
+        // jsonpCallback: '',
+        success: function (data){
+            var _html = '';
+            // var re = new RegExp('^(\[\u8f6c\u8d34\]|\[\u8f6c\u5e16\]|\[\u539f\u521b\]|\[\u704c\u6c34\]){1}');
+            var _has = false;
+            if (data.success) {
+                for (var i = 0; i < 4; i++) {
+                    if (data.data.list[i].id == TopicID) {
+                        // console.log('true'+data.data.list[i].id);
+                        _has = true;
+                        continue;
+                    }else if ((!_has) && i==3) {
+                        // console.log('没有相同的，跳过第四条');
+                        continue;
+                    }
+                    _html += '<div class="li"><a href="/topic-'+data.data.list[i].id+'.html">'+data.data.list[i].title.replace(/^(\[\u8f6c\u8d34\]|\[\u8f6c\u5e16\]|\[\u539f\u521b\]|\[\u704c\u6c34\]){1}/,"")+'</a></div>';
+                    // console.log(data.data.list[i].id);
+                }
+                // console.log(_html);
+                $('#donateranking').html(_html);
+            }
+        }
+    })
+}
+
+//分享帖子成功统计数据
+function shareTopicRank(i){
+    $.ajax({
+        url: 'http://opapi.kdnet.net/api/share/log',
+        type: 'GET',
+        dataType: 'jsonp',
+        jsonp: 'callback',
+        data:{
+            class:3,
+            place:i,
+            sid:TopicID
+        },
+        success: function (data){}
+    })
+}
+
+//分享成功后显示内容弹出框--开始
+function openSharePopup(){
+    $('.popup-share-bg,.popup-share').fadeIn(300);
+}
+//分享成功后显示内容弹出框--结束
+
+function closeSharePopup(){
+    $('.popup-share-bg,.popup-share').fadeOut(300);
+}
+
+// 更多好看内容板块的滚动加载（未测试上线）
+function loadMore(type) {
+    if (locked) return;
+    locked = true;
+    $('#btn_loadmore .icon-loading').addClass('active');
+    $('#btn_loadmore span').html('正在加载...');
+
+    $.ajax({
+        url: '/api/topic/getHotTopicList.json',
+        type: 'post',
+        dataType: 'json',
+        data: {
+            page: shareMoreList.page,
+        }
+    }).done(function (json) {
+        if (json.success && json.data && json.data.data.length) {
+            $.each(json.data.data, function (key, value) {
+                //console.log(value);
+                var html = "<li>";
+                html+= '<a href="/'+ type +'-'+ value.topicid +'.html">';
+                html+= '<p class="title">'+ value.title +'</p>';
+                html+= '<p class="source">'+ value.cluster +'</p>';
+                html+= '<p class="thread">'+ value.child +'跟帖</p>';
+                html+= '</a></li>';
+                $('#list-warp').append(html);
+            });
+
+            if(shareMoreList.page == 3){
+                $('.pagebottom').show().addClass('on');
+                $(document).scrollra().clearEvent();
+                $('#btn_loadmore').remove();
+            }else{
+                shareMoreList.page++;
+            }
+        } else {
+            $(document).scrollra().clearEvent();
+            $('#btn_loadmore').remove();
+        }
+    })
+        .fail(function () {
+            $('.share-more').append('<div class="loading active" id="error-load"><p><span class="icon"><i class="icon_warning"></i></span><span class="text">网络错误</span></p></div>');
+            setTimeout(function () {
+                $('#error-load').remove();
+            }, 1500);
+        })
+        .always(function () {
+            locked = false;
+        });
+    if ($.isFunction(window.tracking_log)){tracking_log();} //统计
+}

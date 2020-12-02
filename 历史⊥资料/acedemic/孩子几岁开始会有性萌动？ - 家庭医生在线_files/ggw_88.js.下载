@@ -1,0 +1,81 @@
+﻿
+if (!window.CUSTOMER && window.MIP && window.MIP.sandbox && window.MIP.sandbox.CUSTOMER) {
+    window.CUSTOMER = window.MIP.sandbox.CUSTOMER;
+}
+
+CUSTOMER.ready(function(customer){
+    
+    
+
+            
+            //Weights:10,showWeight:0
+            
+            
+            if (customer.isCus(["channel:fuke"])) {
+                
+                customer.handle({pid: 88, cid:8577, styles:null});
+                return;
+                
+            }
+            
+            
+            //Weights:8,showWeight:0
+            
+            
+            if (customer.isCus(["channel:ganbing"])) {
+                
+                customer.handle({pid: 88, cid:12873, styles:null});
+                return;
+                
+            }
+            
+            
+            //Weights:8,showWeight:0
+            
+            
+            if (customer.isCus(["channel:nanke"])) {
+                
+                customer.handle({pid: 88, cid:13495, styles:null});
+                return;
+                
+            }
+            
+            
+            //Weights:4,showWeight:0
+            
+            
+            if (customer.isRefUrl(["sogou.com"])) {
+                    
+                    CUSTOMER.setId(14190);
+                    document.write('<script type="text/javascript">	var sogou_ad_id=1124705;	var sogou_ad_width=20;	var sogou_ad_height=10;	var sogou_ad_float=0;	var sogou_ad_close=1;</'+'script>'+'<script type="text/javascript" src="https://theta.sogoucdn.com/wap/js/wp.js"></'+'script>');
+                    return;
+                    
+            }
+            
+            
+            //Weights:2,showWeight:0
+            
+            
+            if (!customer.isCus(["channel:eye"])) {
+                    
+                    var baidu = '<script type="text/javascript" src="//kdewa111.familydoctor.com.cn/production/cx-p/source/dfm-d/resource/uu.js"></'+'script>';
+                    if(typeof window.MIP === "object"){
+                        customer.mipAdd(baidu, 88, 990);
+                    }else{
+                        customer.renderBaidu(baidu, 88, 990);
+                    }
+                    return;
+                    
+            }
+            
+
+                
+                return;
+                
+    
+
+});
+
+if (typeof mipgg === 'function') {
+    mipgg();
+}

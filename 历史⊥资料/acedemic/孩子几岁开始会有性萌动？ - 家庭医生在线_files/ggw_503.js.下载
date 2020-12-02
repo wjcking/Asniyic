@@ -1,0 +1,92 @@
+﻿
+if (!window.CUSTOMER && window.MIP && window.MIP.sandbox && window.MIP.sandbox.CUSTOMER) {
+    window.CUSTOMER = window.MIP.sandbox.CUSTOMER;
+}
+
+CUSTOMER.ready(function(customer){
+    
+    
+
+            
+            //Weights:10,showWeight:0
+            
+            
+            if (customer.isUrl(["channel:xnxg"])) {
+                
+                customer.handle({pid: 503, cid:19685, styles:null});
+                return;
+                
+            }
+            
+            
+            //Weights:10,showWeight:0
+            
+            
+            if (customer.isCus(["channel:hx,mouth"])) {
+                
+                customer.handle({pid: 503, cid:20116, styles:null});
+                return;
+                
+            }
+            
+            
+            //Weights:10,showWeight:0
+            
+            
+            if (customer.isCus(["channel:medicine,teng"])) {
+                
+                customer.handle({pid: 503, cid:20121, styles:null});
+                return;
+                
+            }
+            
+            
+            //Weights:10,showWeight:0
+            
+            
+            if (customer.isCus(["channel:baby,changdao"])) {
+                
+                customer.handle({pid: 503, cid:20122, styles:null});
+                return;
+                
+            }
+            
+            
+            //Weights:4,showWeight:0
+            
+            
+            if (( customer.isRefUrl(["sogou.com"]) || customer.isBro(["sougou"])  )) {
+                    
+                    CUSTOMER.setId(14124);
+                    document.write('<script type="text/javascript">	var sogou_ad_id=1124707;	var sogou_ad_width=20;	var sogou_ad_height=10;	var sogou_ad_float=0;	var sogou_ad_close=1;</'+'script>'+'<script type="text/javascript" src="https://theta.sogoucdn.com/wap/js/wp.js"></'+'script>');
+                    return;
+                    
+            }
+            
+            
+            //Weights:2,showWeight:0
+            
+            
+            if (!customer.isCus(["channel:eye"])) {
+                    
+                    var baidu = '<script type="text/javascript" src="//kdewa111.familydoctor.com.cn/production/f_asz_p/production/bz/jp.js"></'+'script>';
+                    if(typeof window.MIP === "object"){
+                        customer.mipAdd(baidu, 503, 989);
+                    }else{
+                        customer.renderBaidu(baidu, 503, 989);
+                    }
+                    return;
+                    
+            }
+            
+
+                
+                return;
+                
+    
+
+});
+
+if (typeof mipgg === 'function') {
+    mipgg();
+}

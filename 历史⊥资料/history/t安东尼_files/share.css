@@ -1,0 +1,182 @@
+/*更多分享*/
+.more-cont {
+    padding: .75em 1em;
+}
+.more-cont h3 {
+    font-size: 1em;
+}
+.more-cont .share-list {
+    padding: 1em 0;
+}
+.more-cont a {
+    display: inline-block;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: .75em;
+    width: 2em;
+    height: 2em;
+    overflow: hidden;
+}
+.more-cont a i {
+    width: 2em;
+    height: 2em;
+    display: block;
+}
+.more-cont a i.icon-qq {
+    height: 2.1em;
+}
+.more-cont a i.icon-copy {
+    width: 1.55em;
+    margin: 0 auto;
+}
+.more-cont .fun-list {
+    padding: 1em 0;
+}
+.more-cont dl dd {
+    float: left;
+    margin-right: 1em;
+    margin-bottom: 1em;
+}
+.more-cont .more-txt {
+    display: block;
+    text-align: center;
+    margin-top: .5em;
+    font-size: .75em;
+    color: #555659;
+}
+.icon-qq:before {
+    content: "";
+    width: 2em;
+    height: 2em;
+    display: inline-block;
+    vertical-align: baseline;
+    background-image: url('../images/icon-qq.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 95% auto
+}
+.icon-sina:before {
+    content: "";
+    width: 2em;
+    height: 2em;
+    display: inline-block;
+    vertical-align: baseline;
+    background-image: url('../images/icon-sina.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% auto
+}
+.icon-copy:before {
+    content: "";
+    width: 2em;
+    height: 2em;
+    display: inline-block;
+    vertical-align: baseline;
+    background-image: url('../images/icon-copy.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% auto
+}
+.icon-qzone:before {
+    content: '';
+    width: 2em;
+    height: 2em;
+    display: inline-block;
+    vertical-align: baseline;
+    background-image: url('../images/icon-qzone.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% auto
+}
+.icon-douban:before {
+    content: '';
+    width: 2em;
+    height: 2em;
+    display: inline-block;
+    vertical-align: baseline;
+    background-image: url('../images/icon-douban.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% auto
+}
+.icon-weixin:before {
+    content: '';
+    width: 2em;
+    height: 2em;
+    display: inline-block;
+    vertical-align: baseline;
+    background-image: url('../images/icon-weixin.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% auto
+}
+.icon-weixinFriend:before {
+    content: '';
+    width: 2em;
+    height: 2em;
+    display: inline-block;
+    vertical-align: baseline;
+    background-image: url('../images/icon-weixinfriend.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% auto
+}
+
+/*页面上分享*/
+.sharearea p {
+    font-size: 0.875em;
+    margin-bottom: 8px;
+}
+.share-btn {
+    width: 20%;
+    font-size: 0.688em;
+    display: inline-block;
+    margin-bottom: 9px;
+    color: #9da0a6;
+    position: relative;
+}
+.share-btn:before {
+    content: '';
+    display: block;
+    width: 3em;
+    height: 3.1em;
+    margin: 0 auto 8px;
+}
+#share-wechat:before {
+    background: url("../images/icon-share-wechat.png") no-repeat;
+    background-size: 100%;
+}
+#share-moment:before {
+    background: url("../images/icon-share-moment.png") no-repeat;
+    background-size: 100%;
+}
+#share-weibo:before {
+    background: url("../images/icon-share-wb.png") no-repeat;
+    background-size: 100%;
+}
+#share-qq:before {
+    background: url("../images/icon-share-qq.png") no-repeat;
+    background-size: 100%;
+}
+#share-more:before {
+    background: url("../images/icon-share-more.png") no-repeat;
+    background-size: 100%;
+}
+#share-qzone:before {
+    background: url("../images/icon-share-qzone.png") no-repeat;
+    background-size: 100%;
+}
+#share-douban:before {
+    background: url("../images/icon-share-douban.png") no-repeat;
+    background-size: 100%;
+}
+#share-copy:before {
+    background: url("../images/icon-share-copy.png") no-repeat;
+    background-size: 100%;
+}
+#nativeShare {
+    padding: 0 -15px;
+}
+.sharearea2 {
+    display: none;
+}

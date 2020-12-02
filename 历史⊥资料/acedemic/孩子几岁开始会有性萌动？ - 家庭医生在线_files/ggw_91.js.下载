@@ -1,0 +1,32 @@
+﻿
+
+        
+
+if (!window.CUSTOMER && window.MIP && window.MIP.sandbox && window.MIP.sandbox.CUSTOMER) {
+    window.CUSTOMER = window.MIP.sandbox.CUSTOMER;
+}
+
+CUSTOMER.ready(function(customer){
+    var list = []; 
+    customer.loadArea(function(){
+  
+            var ids_91_5=[];
+                    
+                    //Weights:5,showWeight:0
+                    if(( customer.isCus(["channel:Sex"]) && customer.isArea([325,427,452,453,454,455,456,457,458,459,460,461,462,463,465,466,467,468,469,470,471]) )){ 
+                        ids_91_5.push(1024);
+                    }
+                    
+            
+           list.push({level: 5, ids:ids_91_5});
+           
+    
+    customer.mutiple({pid: 91, list: list, limit: 0, type: "vertical", duration: 0, styles:null});
+    });
+    
+
+});
+
+if (typeof mipgg === 'function') {
+    mipgg();
+}

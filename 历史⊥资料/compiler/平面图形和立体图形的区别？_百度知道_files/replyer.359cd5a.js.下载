@@ -1,0 +1,1507 @@
+;/*!question-new:widget/ask/replyer/replyer.js*/
+define('question-new:widget/ask/replyer/replyer', function(require, exports, module) {
+
+  /**
+   * @file 回答页详情
+   * @author hewenguang@baidu.com
+   * @date 2017-09-20
+   */
+  
+  var $ = require('common:widget/js/util/tangram/tangram');
+  var UEditor = require('common:widget/js/logic/ueditor/ueditor');
+  var log = require('common:widget/js/util/log/log');
+  var ec = require('common:widget/js/util/event/event');
+  var Submit = require('common:widget/js/logic/submit/submit');
+  var Dialog = require('common:widget/js/ui/dialog/dialog');
+  var Carousel = require('common:widget/js/ui/carousel/carousel');
+  var juicer = require('common:widget/lib/juicer/juicer');
+  var Storage = require('common:widget/js/util/store/store');
+  var editorGuide = require('question-new:widget/ask/editor-guide/editor-guide');
+  var popTip = require('common:widget/js/ui/pop-tip/pop-tip');
+  var task = require('common:widget/task/task-last');
+  
+  var answerBar = $('#answer-bar');
+  var editorStatus = 'down';
+  var editor = null;
+  
+  var curQid = '' + F.context('page')['qid'];
+  var curUid = '' + F.context('user').uid;
+  
+  var EDITING_HTML = '<i class="iknow-icons answer-editing-icon">&#xe630;</i>回答自动保存中';
+  var EDITED_HTML = '你输入的回答已保存';
+  
+  var editCountDown = null;
+  var editingCountDown = null;
+  
+  /**
+   * 任务模块
+   * 读取页面Refer，获得用户入口页面
+   */
+  var urlRegObj = {
+      "ql"				:   /browse(?:\/\d+(?:$|\?lm=2|\?[^lm])|$|\/$|\/\?lm=2)/i,	// 所有待解决问题列表页面,ql分类页待解决问题tab
+      "ql_tab_hscore"		:	/browse\/\d*\?lm\=4/,									//QL页高分Tab
+      "ql_tab_zero"		:	/browse\/\d*\?lm\=8/,									//QL页零回答Tab
+      "ql_tab_emergency"	:	/browse\/\d*\?lm\=16/,									//QL页紧急Tab
+      "zhuanti"			:	/zhidao\.baidu\.com\/s\/([a-zA-Z0-9_\-]+)/,				//专题
+      "search"			:   /zhidao\.baidu\.com\/search/
+  };
+  
+  // 初始化页面的任务入口
+  (function (){
+      var refer = document.referrer;
+      var entryValue = '';
+      var matchArr;
+      for(var key in urlRegObj){
+          matchArr = refer.match(urlRegObj[key]);
+          if (matchArr){
+              entryValue = key;
+              break;
+          }
+      }
+      if(entryValue && entryValue == "zhuanti"){
+          entryValue = matchArr[1];
+      }
+      // 来自个人中心的推送
+      if (!entryValue) {
+          var query = $.url.queryToJson(location.search || '');
+          if (query && query.fr == 'uc_push') {
+              if (query.push == 'keyword') {
+                  entryValue = 'uc_tab_keyword';
+              } else if (query.push == 'category') {
+                  entryValue = 'uc_tab_class';
+              } else {
+                  entryValue = 'uc_tab_recommand';
+              }
+          }
+      }
+      //是否回答的是手机端提问
+      var fromWapBool = F.context('page').isFromWap;
+      var value = entryValue + (parseInt(fromWapBool) ? ";wap_question_replyed" : "");
+      // 添加任务入口参数
+      F.context('extra', {title: value, answerfr: value});
+  })();
+  
+  /*
+   * entry参数
+   * 区分qb回答提交的不同入口，便于后端统计分析
+   * @modify 2014.8.22 hanzongze
+   * 提问来源统计统一规划
+   *     规则为：一级来源页面_二级来源页面_二级入口版块
+   *     如：qb_home_asking
+   */
+  (function(){
+  
+      var referCfg = {
+          'home'      : /zhidao\.baidu\.com\/$/,
+          'browse'    : /zhidao\.baidu\.com\/browse/,
+          'ihome'     : /zhidao\.baidu\.com\/ihome(?!\/hangjia)/,
+          'qb'        : /zhidao\.baidu\.com\/question/,
+          'hangjia'   : /zhidao\.baidu\.com\/mavin\/home\/index/,
+          'team'      : /zhidao\.baidu\.com\/team/
+      };
+  
+      //只通过url中的entry参数做匹配
+      //若无entry参数，则取refer
+      var url       = location.href;
+      var refer     = document.referrer;
+      var entryWord = $.url.getQueryValue(url, 'entry') || '';
+      if (entryWord == '') {
+          for (var key in referCfg) {
+              if (refer.match(referCfg[key])) {
+                  entryWord = 'qb_' + key + '_none';
+                  break;
+              }
+          }
+          entryWord = entryWord == '' ? 'qb_none_none' : entryWord;
+      }
+      F.context('extra')['entry'] = entryWord;
+  })();
+  
+  var answerOptions = {
+      qid: F.context('page').qid,
+      title: F.context('extra').title
+  };
+  
+  function clearStorage(key) {
+      var storeObj = Storage.get('IKNOW_QB_ANSWER_AUTOSAVE') || {};
+      storeObj[key] && storeObj[key][curQid] && (delete storeObj[key][curQid]);
+      Storage.set('IKNOW_QB_ANSWER_AUTOSAVE', storeObj);
+  }
+  
+  /**
+   * 读缓存内容 && 写入编辑器
+   *
+   * @param {Object} answerOptions 回答参数
+   */
+  function initContent(answerOptions) {
+      answerOptions.answerfr = F.context('extra').answerfr;
+      answerOptions.feedback = F.context('feedback');
+      answerOptions.entry = F.context('extra').entry === 'uhome_homecenter_video'
+          ? 'recommend_video_list_qb'
+          : F.context('extra').entry; // 标记提交入口参数
+      var storeObj = Storage.get('IKNOW_QB_ANSWER_AUTOSAVE') || {};
+      var storeKey = F.context('user').isLogin === '1' ? curUid : 'nologin';
+      if (storeObj[storeKey] && storeObj[storeKey][curQid] && answerBar.size()) {
+          editor = editor || getEditor(
+              editorGuide.content,
+              'answer-editor',
+              true,
+              false,
+              beforeJump,
+              beforeError,
+              (F.context('extra').entry === 'uhome_homecenter_video' || F.context('extra').entry === 'qb_right_videoquestion'),
+              answerOptions,
+              false,
+              null,
+              true
+          );
+          log.addKey({
+              'auto_expand_editor': 1
+          });
+          $('.wgt-search-relate, .search-relate').show();
+          editorStatus = 'up';
+          editor.addListener('ready', function () {
+              editor.setEditorContent(storeObj[storeKey][curQid].content);
+          });
+      }
+  }
+  
+  initContent(answerOptions);
+  
+  /**
+   * 获取编辑器实例
+   *
+   * @param {string} guideContent 引导文案
+   * @param {string} ele 元素id
+   * @param {boolean} needAutoSave 是否自动保存
+   * @param {boolean} forceRecreate 是否强制创建一个新的ueditor(等我来答需要)
+   * @param {Function} beforeJump 成功跳转事件
+   * @param {Function} beforeError 失败事件
+   * @param {boolean} dontShowAtFirst 是否第一次隐藏
+   * @param {Object} answerOptions 回答参数
+   * @param {boolean} scaleEnabled 不自动增高
+   * @param {number} initialFrameHeight 编辑器初始高度
+   * @param {boolean} showLoading 是否显示loading
+   * @return {editorInstance} ueditor实例
+   */
+  function getEditor(
+      guideContent,
+      ele,
+      needAutoSave,
+      forceRecreate,
+      beforeJump,
+      beforeError,
+      dontShowAtFirst,
+      answerOptions,
+      scaleEnabled,
+      initialFrameHeight,
+      showLoading
+  ) {
+      ele = ele || 'answer-editor';
+      needAutoSave = needAutoSave != null ? needAutoSave : true;
+      // 是否登录
+      var userLogin = F.context('user').isLogin === '1';
+      // 是否有满意回答
+      var isAdopted = F.context('page').isAdopted === '1';
+      // 是否有最佳答案
+      var newbest = F.context('newbest') === '1';
+  
+      var defaultContent = [
+          '该提问求助发自手机，请精简回答，方便查看',
+          '这个问题你有什么看法，展开讲讲...',
+          '提问者正在等待您的回答',
+          '请输入您的回答...',
+          '详细的问题说明，有助于回答者给出准确的答案',
+          '1.步骤类：①整体简介②所需工具/原料③方法/步骤④注意事项<br>2.常识类：①直接回答问题②详细给出具体原因/理由/介绍<br>3.原因类：①详细解释原因/理由②提供有效解决方案（构成见步骤类）<br>4.其他类型详见高质量标准（点击回答框右侧图片）'
+      ];
+  
+      var initialContent = '';
+      if (newbest) {
+          initialContent = defaultContent[1];
+      } else {
+          initialContent = userLogin ? isAdopted
+              ? defaultContent[3] : defaultContent[2] : defaultContent[2];
+      }
+  
+      var toolbarBtns = [
+          'undo',
+          'redo',
+          'removeformat',
+          '|',
+          'bold',
+          'italic',
+          'paragraph',
+          '|',
+          'insertunorderedlist',
+          'insertorderedlist',
+          'horizontal',
+          'blockquote',
+          '|',
+          'link',
+          'insertimage',
+          'uploadvideo',
+          'map',
+          'template',
+          'uploadbaiduyun',
+          'insertgoods',
+          'fullscreen'
+      ];
+  
+      // 代码高亮，只在电脑/网络分类下出现
+      if (F.context('page').cidTop === '74') {
+          toolbarBtns.push('|', 'insertcode');
+      }
+  
+      // 判断回答编辑器是否要显示 GIF 图片
+      var showVideoGifObj = Storage.get('SHOW_VIDEO_ANSWER_GIF') || {};
+      var date = new Date();
+      var key = 'answer-' + date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+      var showVideoGif = false;
+      if (
+          showVideoGifObj
+          && !showVideoGifObj[key]
+          && F.context('extra').entry !== 'uhome_homecenter_video'
+          && F.context('extra').entry !== 'qb_right_videoquestion'
+      ) {
+          showVideoGif = true;
+          showVideoGifObj = {};
+          showVideoGifObj[key] = 1;
+          Storage.set('SHOW_VIDEO_ANSWER_GIF', showVideoGifObj);
+      }
+  
+      // 判断回答编辑器是否展示回答带货、当前是否绑定淘宝联盟账号、是否展示引导动画
+      var bjhGoodsInfo = F.context('user').bjhGoods || {};
+      var params = {};
+      // bjhGoodsInfo存在表示有商品挂载权限
+      if (+bjhGoodsInfo.status === 0) {
+          params.hasInsertGoodsAuth = true;
+          // status: 0 && auth_info存在 表示绑定过淘宝联盟账号
+          if (bjhGoodsInfo.auth_info) {
+              params.isBindAli = true;
+              params.aliPid = bjhGoodsInfo.auth_info;
+          } else {
+              params.isBindAli = false;
+          }
+          // 判断用户是否展示挂载商品引导动画
+          var key = 'showInsertGoods' + $.cookie.get('BAIDUID');
+          if (Storage.get(key)) {
+              params.isShowGuideAnimate = false;
+          } else {
+              Storage.set(key, true);
+              params.isShowGuideAnimate = true;
+          }
+      } else {
+          params = {
+              hasInsertGoodsAuth: false, // 是否有挂载商品权限
+              isBindAli: false,  // 是否绑定淘宝账号
+              isShowGuideAnimate: false
+          }
+      }
+  
+      var editOpt = {
+          imageCaption: true,
+          needHttpsAutoTrans: true,
+          insertVideoBtnNeedNewIcon: (parseInt(F.context('baiduyunTip'), 10) !== 1
+              && F.context('extra').entry !== 'uhome_homecenter_video'
+              && F.context('extra').entry !== 'qb_right_videoquestion'), // 标题涉及网盘资源则关闭其他的new
+          insertBaiduYunBtnNeedNewIcon: parseInt(F.context('baiduyunTip'), 10) === 1, // 标题涉及网盘资源则展示new
+          showVideoGif: showVideoGif,
+          forceRecreate: forceRecreate,
+          dontShowAtFirst: dontShowAtFirst,
+          scaleEnabled: scaleEnabled,
+          initialFrameWidth: '100%',
+          initialFrameHeight: initialFrameHeight || 280,
+          toolbars: [toolbarBtns],
+          initialContent: guideContent ? guideContent : initialContent,
+          maximumWords: 9999,
+          token: F.context('user').stoken
+      };
+  
+      var editorInstance = UEditor.getEditor(ele, $.extend(editOpt, params));
+  
+      var showAnonymouse = true;
+  
+      // 企业回答不展现匿名功能
+      if (F.context('user').isFromBusiness) {
+          showAnonymouse = false;
+      }
+  
+      // 初始化编辑器周边控件
+      editorInstance.iknowInit({
+          isLogin: userLogin,
+          submitBtn: '提交回答',
+          anonymouse: showAnonymouse,
+          extraParam: {
+              qid: F.context('page').qid
+          }
+      }, function (submitBtn, anonymouse) {
+          submitBtn && $(submitBtn).click(function (e) {
+              if ($('#' + ele).find('.change-to-ueditor').size() && dontShowAtFirst) {
+                  // 在编辑器没有显示出来点击提交回答弹 toast
+                  var toast = $('.cover-ueditor .toast');
+                  toast.show();
+                  setTimeout(function () {
+                      toast.hide();
+                  }, 3000);
+                  return;
+              }
+              editorSubmitHandler(
+                  e,
+                  editorInstance,
+                  beforeJump,
+                  beforeError,
+                  answerOptions,
+                  showLoading
+              );
+          });
+          var $addons = $(submitBtn).closest('.addons');
+          needAutoSave && $addons.append('<p class="answer-editstatus">' + EDITING_HTML + '</p>');
+      });
+  
+      var isChange = false;
+  
+      var sendLog = function () {
+          if (isChange) {
+              return;
+          }
+          isChange = true;
+          log.send({
+              action: 'input',
+              area: 'answer-editor'
+          });
+      };
+      // 自动保存逻辑
+      var autoSave = function () {
+          editCountDown && clearTimeout(editCountDown);
+          editCountDown = setTimeout(function () {
+              var content = editor.getEditorContent();
+              var saveObj = Storage.get('IKNOW_QB_ANSWER_AUTOSAVE') || {};
+              var updateData = {
+                  time: new Date().getTime(),
+                  content: content,
+                  key: curQid
+              };
+              var saveKey = F.context('user').isLogin === '1' ? curUid : 'nologin';
+  
+              // 存储内容
+              if (F.context('user').isLogin === '1' && saveObj[curUid]) {
+                  saveObj[curUid][curQid] = updateData;
+                  if (!$.trim(content) && saveObj[curUid][curQid]) {
+                      delete saveObj[curUid][curQid];
+                  }
+              }
+              else if (F.context('user').isLogin === '1') {
+                  if (!$.trim(content)) {
+                      return;
+                  }
+                  saveObj[curUid] = {};
+                  saveObj[curUid][curQid] = updateData;
+              }
+              else if (saveObj['nologin']) {
+                  saveObj['nologin'][curQid] = updateData;
+                  if (!$.trim(content) && saveObj['nologin'][curQid]) {
+                      delete saveObj['nologin'][curQid];
+                  }
+              }
+              else {
+                  if (!$.trim(content)) {
+                      return;
+                  }
+                  saveObj['nologin'] = {};
+                  saveObj['nologin'][curQid] = updateData;
+              }
+              Storage.set('IKNOW_QB_ANSWER_AUTOSAVE', saveObj);
+  
+              needAutoSave && $('#answer-editor').find('.answer-editstatus').html(EDITING_HTML).show();
+              editingCountDown && clearTimeout(editingCountDown);
+              editingCountDown = setTimeout(function () {
+                  clearTimeout(editingCountDown);
+                  needAutoSave && $('#answer-editor').find('.answer-editstatus').html(EDITED_HTML);
+              }, 800);
+  
+              // 清除多余数据 - 放在最后来处理，处理不及就不管了
+              var saveArr = $.object.values(saveObj[saveKey]);
+              var saveLen = saveArr.length;
+              var maxLen = 10;
+  
+              if (saveLen > maxLen) {
+                  saveArr = saveArr.sort(function (a, b) {
+                      return a.time - b.time;
+                  });
+                  for (var i = 0; i < saveLen - maxLen; i++) {
+                      delete saveObj[saveKey][saveArr[i].key];
+                  }
+                  Storage.set('IKNOW_QB_ANSWER_AUTOSAVE', saveObj);
+              }
+          }, 1000);
+      };
+      editorInstance.addListener('contentChange', sendLog);
+      needAutoSave && editorInstance.addListener('contentChange', autoSave);
+  
+      return editorInstance;
+  }
+  
+  log.addKey({
+      'has_better_answer_btn': (answerBar.length && answerBar.is(':visible')) ? 1 : 0
+  });
+  // 展开和收起回答框
+  answerBar.click(function () {
+      var btnText = $(this).text();
+      log.send({
+          module: 'question',
+          action: 'click',
+          page: 'replyer',
+          area: 'have-better-answer-btn',
+          btn_type: btnText,
+          isLogin: F.context('user').isLogin === '1' ? 1 : 0
+      });
+      editor = editor || getEditor(
+          editorGuide.content,
+          'answer-editor',
+          true,
+          false,
+          beforeJump,
+          beforeError,
+          (F.context('extra').entry === 'uhome_homecenter_video' || F.context('extra').entry === 'qb_right_videoquestion'),
+          answerOptions,
+          false,
+          null,
+          true
+      );
+      if (editorStatus === 'down') {
+          // 动态展开编辑器
+          editor.expandEditor(function (container) {
+              container.style.overflow = 'inherit';
+              $('#answer-editor').css({visibility: 'inherit'});
+          });
+          editorStatus = 'up';
+          $('.wgt-search-relate, .search-relate').show();
+      } else {
+          // 动态关闭编辑器
+          editor.collapseEditor(function (container) {
+              container.style.overflow = 'hidden';
+              $('#answer-editor').css({visibility: 'hidden'});
+          });
+          editorStatus = 'down';
+          $('.wgt-search-relate, .search-relate').hide();
+      }
+  });
+  
+  //创建提示浮层
+  function showLoad() {
+      if ($(editor.container).hasClass('iknow-editor-fullscreen')) {
+          editor && editor.submitBtn && (editor.submitBtn.style.display = 'none');
+      }
+      var layerBg = $(".layerBg");
+      var edui = $("#edui1"),
+          width = edui.width() - 2,
+          height = edui.height() - 2;
+      var css = "height:" + height + "px;width:" + width + "px";
+      if (layerBg.length) {
+          layerBg.attr("style",css).show();
+      } else {
+          var bg = $("<div style='" +  css + "' class='layerBg'></div>");
+          var span = $("<span class='loading-layer'></span>");
+          edui.append(bg, span);
+      }
+  }
+  function createTip(className,html) {
+      $(".loading-layer").hide();
+      $(".layerBg").hide();
+      if ($("." + className).length) {
+          $("." + className).show();
+      } else {
+          var edui = $("#edui1"),
+              width = edui.width() - 2,
+              height = edui.height() - 2;
+          var css = "height:" + height + "px;width:" + width + "px";
+          var tips = $("<div class='tipLayer'></div>");
+          edui.append(tips);
+          var tipLayer = $(".tipLayer");
+          tipLayer.attr("class","tipLayer " + className).html("<span class='icon'></span><div>" + html + "</div>");
+          tipLayer.css({
+              'margin-left': (width - $(".tipLayer").width()) / 2 + 'px',
+              'width': '100px'
+          });
+      }
+  }
+  
+  // 初始化推荐团队数据
+  var carouselInstance = null;
+  var visitJoinData = F.context('visitJoin');
+  var $visitJoinModelTemplate = $('#visit-join-model-template');
+  
+  function visitJoin(callback) {
+  
+      var tempDate = '';
+      var carouselData = [];
+      var visitJoinDataLengh = visitJoinData.length;
+  
+      $('.loading-layer').hide();
+      $('.layerBg').hide();
+  
+      if (visitJoinDataLengh.length <= 3) {
+          $.each(visitJoinData, function (index, item) {
+              tempDate += [
+                  '<div class="visit-join-model-item">',
+                  '<a target="_blank" href="/uteam/view?teamId=' + item.teamId + '" class="visit-join-model-img"><img src="' + item.imgUrl + '" alt=""></a>',
+                  '<h3><a target="_blank" href="/uteam/view?teamId=' + item.teamId + '">' + (item.teamName.length > 7 ? item.teamName.slice(0, 7) : item.teamName) + '</a></h3>',
+                  '<p><span>' + item.cname + '</span>' + item.userNum + '人</p>',
+                  '<a href="javascript:void(0);" data-teamid="' + item.teamId + '" class="visit-join-model-btn">加入</a></div>'
+              ].join('');
+          });
+          carouselData.push(tempDate);
+      } else {
+          $.each(visitJoinData, function (index, item) {
+              tempDate += [
+                  '<div class="visit-join-model-item"><a target="_blank" href="/uteam/view?teamId=' + item.teamId + '" class="visit-join-model-img"><img src="' + item.imgUrl + '" alt=""></a>',
+                  '<h3><a target="_blank" href="/uteam/view?teamId=' + item.teamId + '">' + (item.teamName.length > 7 ? item.teamName.slice(0, 7) : item.teamName) + '</a></h3>',
+                  '<p><span>' + item.cname + '</span>' + item.userNum + '人</p>',
+                  '<a href="javascript:void(0);" data-teamid="' + item.teamId + '" class="visit-join-model-btn">加入</a></div>'
+              ].join('');
+  
+              if ((index + 1) % 3 === 0 && index !== 0 || index === visitJoinDataLengh - 1) {
+                  carouselData.push(tempDate);
+                  tempDate = '';
+              }
+          });
+      }
+  
+      Dialog.alert($visitJoinModelTemplate.html(), {
+          className: 'visit-join-model-wrap',
+          title: '提交成功',
+          width: 500,
+          height: 396,
+          open: function () {
+  
+              var $visitJoinBtns;
+              var $visitJoinContrlBtns;
+              var $visitJoinWrap = $('#visit-join-model-content');
+  
+              if (!carouselInstance) {
+                  carouselInstance = new Carousel({
+                      direction: 'horizontal',
+                      controls: false,
+                      activeIndex: 0,
+                      items: carouselData,
+                      interval: 0
+                  });
+                  carouselInstance.render($visitJoinWrap);
+              }
+  
+              $visitJoinBtns = $visitJoinWrap.find('.visit-join-model-btn');
+  
+              // 绑定入团按钮事件
+              $visitJoinBtns.click(function () {
+                  var item = $(this);
+                  if (item.hasClass('visit-join-model-active')) {
+                      item.removeClass('visit-join-model-active');
+                  } else {
+                      $visitJoinBtns.removeClass('visit-join-model-active');
+                      item.addClass('visit-join-model-active');
+                  }
+              });
+  
+              $visitJoinContrlBtns = $visitJoinWrap.find('.visit-join-control');
+  
+              if (visitJoinDataLengh <= 3) {
+                  $visitJoinContrlBtns.hide();
+              } else {
+                  $visitJoinContrlBtns.click(function () {
+                      var item = $(this);
+                      var action = item.data('action');
+                      var sliderIndex = 0;
+                      var sliderCount = carouselInstance.items.length;
+  
+                      if (action === 'left') {
+                          if (!item.hasClass('visit-join-control-left-disable')) {
+                              carouselInstance.prev();
+                              sliderIndex = carouselInstance.getActiveIndex() - 1;
+                              if (sliderIndex <= 0) {
+                                  item.addClass('visit-join-control-left-disable');
+                              } else {
+                                  item.removeClass('visit-join-control-left-disable');
+                              }
+                              item.siblings().removeClass('visit-join-control-right-disable');
+                          }
+                      } else {
+                          if (!item.hasClass('visit-join-control-right-disable')) {
+                              carouselInstance.next();
+                              sliderIndex = carouselInstance.getActiveIndex() + 1;
+                              if (sliderIndex >= sliderCount - 1) {
+                                  item.addClass('visit-join-control-right-disable');
+                              } else {
+                                  item.removeClass('visit-join-control-right-disable');
+                              }
+                              item.siblings().removeClass('visit-join-control-left-disable');
+                          }
+                      }
+                  });
+              }
+  
+              $('.visit-join-model-wrap .ui-dialog-titlebar-close').click(function () {
+                  $.cookie.set('VISIT_VISIT_MODEL', 'show', {
+                      'expires': 86400000 * 7,
+                      'path': '/'
+                  });
+                  callback && callback();
+              });
+          },
+          buttons: [{
+              'text': '确定',
+              'click': function () {
+                  var selectVisitJoin;
+                  var $visitJoinWrap = $('#visit-join-model-content');
+                  var $visitJoinBtns = $visitJoinWrap.find('.visit-join-model-btn');
+                  var $visitJoinWarn = $('#visit-join-warn');
+  
+                  $visitJoinBtns.each(function () {
+                      var item = $(this);
+                      if (item.hasClass('visit-join-model-active')) {
+                          selectVisitJoin = item;
+                          return true;
+                      }
+                  });
+  
+                  if (selectVisitJoin) {
+                      $.post('/uteam/submit/applyJoin', {
+                          fr: 'recalert',
+                          teamId: selectVisitJoin.data('teamid')
+                      }, function (res) {
+                          if (typeof res === 'string') {
+                              res = $.parseJSON(res);
+                          }
+                          Dialog.close();
+                          if (res.errno !== 0) {
+                              Dialog.alert(res.errmsg, {
+                                  className: 'visit-join-model-error',
+                                  open: function () {
+                                      $('.visit-join-model-error .ui-dialog-titlebar-close').click(function () {
+                                          $.cookie.set('VISIT_VISIT_MODEL', 'show', {
+                                              'expires': 86400000 * 7,
+                                              'path': '/'
+                                          });
+                                          callback && callback();
+                                      });
+                                  },
+                                  buttons: [{
+                                      'text': '确定',
+                                      'click': function () {
+                                          $.cookie.set('VISIT_VISIT_MODEL', 'show', {
+                                              'expires': 86400000 * 7,
+                                              'path': '/'
+                                          });
+                                          callback && callback();
+                                      }
+                                  }]
+                              });
+                          } else {
+                              $.cookie.set('VISIT_VISIT_MODEL', 'show', {
+                                  'expires': 86400000 * 7,
+                                  'path': '/'
+                              });
+                              callback && callback();
+                          }
+                      });
+                      log.send({
+                          module: 'question',
+                          action: 'visit-join',
+                          page: 'unview',
+                          area: 'join-alert'
+                      });
+                  } else {
+                      $visitJoinWarn.animate({
+                          height: 24
+                      });
+                      setTimeout(function () {
+                          $visitJoinWarn.animate({
+                              height: 0
+                          });
+                      }, 1000);
+                  }
+              }
+          }]
+      });
+  
+      log.send({
+          module: 'question',
+          action: 'visit-join',
+          page: 'unview',
+          area: 'alert'
+      });
+  }
+  
+  var submitLoading = false;
+  // 激励用户添加标签弹窗
+  function renderAddtags(data) {
+      log.send({
+          module: 'question',
+          page: 'reply-question',
+          area: 'submit',
+          action: 'submit-success',
+          addtagsHatch: 1
+      });
+      var tmpl = juicer($('#replyer-addtags-tmpl').html());
+      $('body').append(tmpl.render(data));
+      var newshowCount = Number(Storage.get('showCount')) + 1;
+      Storage.set('showCount', newshowCount);
+      $('.tags-box').on('click', 'li', function () {
+          // 选择tag
+          var $item = $(this);
+          $item.hasClass('selected') ? $item.removeClass('selected') : $item.addClass('selected');
+      });
+      $('.addtags-box').on('click', '.addtags-close', function () {
+          // 关闭
+          $('.addtags-box').remove();
+          location.reload();
+      }).on('click', '.addtags-notip', function () {
+          // 不再提示
+          $('.addtags-box').remove();
+          log.send({
+              module: 'question',
+              page: 'reply-question',
+              area: 'submit',
+              action: 'submit-success',
+              addtagsNotip: 1
+          });
+          Storage.set('addtagsHatch', 'notip');
+          location.reload();
+      }).on('click', '.addtags-sub', function () {
+          // 提交
+          var tags = getTags();
+          if (tags.length === 0) {
+              log.send({
+                  module: 'question',
+                  page: 'reply-question',
+                  area: 'submit',
+                  action: 'submit-success',
+                  notAddtags: 1
+              });
+              window.open('https://zhidao.baidu.com/ihome#body');
+              location.reload();
+          } else {
+              log.send({
+                  module: 'question',
+                  page: 'reply-question',
+                  area: 'submit',
+                  action: 'submit-success',
+                  hasAddtags: 1
+              });
+              $.ajax({
+                  url: '/submit/user',
+                  type: 'post',
+                  dataType: 'json',
+                  data: {
+                      cm: 100522,
+                      tags: tags,
+                      stoken: F.context('user').stoken
+                  }
+              }).done(function (res) {
+                  if (res.errorNo === 0) {
+                      setTimeout(function () {
+                          window.location = 'https://zhidao.baidu.com/ihome#body';
+                      }, 500);
+                  } else {
+                      Dialog.alert(res.errorMsg);
+                  }
+              }).fail(function () {
+                  Dialog.alert('网络故障，请重试');
+              });
+          }
+      });
+  }
+  function getTags() {
+      var getTags = [];
+      $('.tags-box li').each(function () {
+          var $item = $(this);
+          if ($item.hasClass('selected')) {
+              getTags.push($item .text());
+          }
+      });
+      return getTags.join('\t');
+  }
+  function renderTags() {
+      log.addKey({
+          subHatch: 1
+      });
+      var tmpl = juicer($('#replyer-tags-tmpl').html());
+      $('body').append(tmpl.render());
+      Storage.set('subshowCount', Number(Storage.get('subshowCount')) + 1);
+      $('.tags-content').on('click', '.tags-close', function () {
+          // close
+          $('.tags-box').remove();
+          location.reload();
+      }).on('click', '.tags-notip', function () {
+          // 不再提示
+          $('.tags-box').remove();
+          log.send({
+              module: 'question',
+              page: 'reply-question',
+              area: 'submit',
+              action: 'submit-success',
+              subaddtagsNotip: 1
+          });
+          Storage.set('skipHatch', 'notip');
+          location.reload();
+      }).on('click', '.tags-sub', function () {
+          // 继续答题
+          log.send({
+              module: 'question',
+              page: 'reply-question',
+              area: 'submit',
+              action: 'submit-success',
+              subHatchskip: 1
+          });
+          window.open('https://zhidao.baidu.com/ihome#body');
+          location.reload();
+      });
+  }
+  // 回答后刷新逻辑，抽取出来
+  function reloadPage() {
+      // &newAnswer=1 用于标志当前页面是新回答过来的，而不是从个人中心。。。跳转过来
+      var href = location.href;
+      if (href.indexOf('hideOtherAnswer') < 0) {
+          if (href.indexOf('#') > 0) {
+              href = href.substring(0, href.indexOf('#'));
+          }
+          if (href.indexOf('?') > 0) {
+              location.href = href += '&hideOtherAnswer=true&newAnswer=1';
+          }
+          else {
+              location.href = href += '?hideOtherAnswer=true&newAnswer=1';
+          }
+      } else {
+          location.reload();
+      }
+  }
+  
+  function beforeError() {
+      $('.loading-layer').hide();
+      $('.layerBg').hide();
+      log.send({
+          area: 'submit',
+          action: 'submit-error'
+      });
+  }
+  
+  function beforeJump(event, data) {
+      clearStorage(curUid);
+  
+      // 如果用户是新手且没有添加过分类
+      if(F.context("user").isNew == 0 && F.context("user").isHaveCid == 0){
+          $.ajax({
+              type:"post",
+              url:"/submit/user",
+              data:{
+                  cm: 100522,
+                  word: F.context("page").cid,
+                  stoken: F.context("user").stoken
+              }
+          });
+      }
+      var beforeDialog = 'normal';
+  
+      if ($('#answer-for-lottery').size()) {
+          var tmpl = juicer($('#answer-for-lottery').html());
+          beforeDialog = 'datichoujiang';
+          $('body').append(tmpl.render(data));
+          // 关闭
+          $('.affairs-box').on('click', '.affairs-close', function () {
+  
+              $('.affairs-box').remove();
+              setTimeout(function () {
+                  if (F.context('extra').entry === 'uhome_homecenter_invited_reply') {
+                      openInvitedReplyDialog(data, openTaskFinishRewardDialog);
+                  } else {
+                      openTaskFinishRewardDialog();
+                  }
+              }, 2000);
+          });
+      } else if (visitJoinData
+                  && visitJoinData.length
+                  && $.cookie.get('VISIT_VISIT_MODEL') !== 'show') {
+          visitJoin(function () {
+              reloadPage();
+          });
+      } else {
+          // 答题用户引导添加标签
+          if (!Storage.get('showCount')) {
+              Storage.set('showCount', 0);
+          }
+          if (!Storage.get('subshowCount')) {
+              Storage.set('subshowCount', 0);
+          }
+          var addtagsHatch = !F.context('user').tag
+                          && Storage.get('addtagsHatch') !== 'notip'
+                          && Storage.get('showCount') < 2;
+          var skipHatch = F.context('user').tag && F.context('user').tag.length !== 0
+                          && Storage.get('skipHatch') !== 'notip'
+                          && Storage.get('subshowCount') < 2;
+          if (addtagsHatch && F.context('isUnview') === 'true') {
+              // 无标签，没有点击不再提示, 展示次数不超过两次
+              $.ajax({
+                  url: '/misc/getrecommendtag',
+                  type: 'post',
+                  dataType: 'json',
+                  data: {
+                      qid: F.context('page').qid
+                  }
+              }).done(function (res) {
+                  if (res.error === 0) {
+                      renderAddtags(res.data);
+                  } else {
+                      Dialog.alert(res.errorMsg);
+                  }
+              }).fail(function () {
+                  Dialog.alert('网络故障，请重试');
+              });
+          } else if (skipHatch && F.context('isUnview') === 'true') {
+              // 有标签 没有点击不再提示
+              renderTags();
+          } else {
+              createTip('success-tip', '提交成功');
+              setTimeout(function () {
+                  if (F.context('extra').entry === 'uhome_homecenter_invited_reply') {
+                      openInvitedReplyDialog(data, openTaskFinishRewardDialog);
+                  } else {
+                      openTaskFinishRewardDialog();
+                  }
+              }, 2000);
+          }
+      }
+      log.send({
+          module: 'question',
+          page: 'reply-question',
+          area: 'submit',
+          action: 'submit-success',
+          rid: data.aid,
+          qid: F.context('page')['qid'],
+          '10per': F.context('per10'),
+          beforeDialog: beforeDialog
+      });
+  }
+  
+  
+  /**
+   * 提交事件绑定
+   *
+   * @param {Event} e DOM点击事件
+   * @param {Ueditor} editor Ueditor实例
+   * @param {Function} beforeJump 成功跳转事件
+   * @param {Function} beforeError 失败跳转事件
+   * @param {Object} answerOptions 回答内容
+   * @param {boolean} showLoading 是否显示loading
+   */
+  function editorSubmitHandler(
+      e,
+      editor,
+      beforeJump,
+      beforeError,
+      answerOptions,
+      showLoading
+  ) {
+      e.preventDefault();
+      if (submitLoading) {
+          return;
+      }
+      answerOptions.cm = 100009;
+      submitLoading = true;
+      setTimeout(function () {
+          submitLoading = false;
+      }, 1000);
+      
+      if( editor.checkEditor() ){
+          var content = editor.getEditorContent();
+          content.indexOf('<baiduyun') > 0 && log.send({
+              module: 'question-new',
+              page: 'question',
+              area: 'answer-with-yun',
+              action: 'pv'
+          });
+          // 是否含有阿里商品卡片
+          var hasAliGoods = content.indexOf('aligoods') > -1;
+          // 获取编辑器纯文本长度
+          var txtLength = editor.getContentLength(true);
+          // 编辑器插入商品卡之前要有100字
+          if (hasAliGoods) {
+              var reg = /\<p\>(?=\<aligoods)/g;
+              var beforeAliContent = content.split(reg)[0];
+              if ($(beforeAliContent).text().length < 100) {
+                  popTip('前100字的回答中不可添加商品卡，请修改后重新提交吧');
+                  return;
+              }
+          }
+          // 含有阿里商品，回答内容要超过200字
+          if (hasAliGoods && txtLength < 200) {
+              popTip('挂载商品的回答需≥200字，请丰富内容后再提交吧');
+              return;
+          }
+          // 用户是否首次提交带有回答带货商品
+          var key = 'submitInsertgoods' + $.cookie.get('BAIDUID');
+          if (hasAliGoods && !Storage.get(key)) {
+              Storage.set(key, true);
+              var insertgoodsConfirmTpl = [function(_template_object
+  ) {
+  var _template_fun_array=[];
+  var fn=(function(__data__){
+  var _template_varName='';
+  for(var name in __data__){
+  _template_varName+=('var '+name+'=__data__["'+name+'"];');
+  };
+  eval(_template_varName);
+  _template_fun_array.push('<div class="insertgoods-confirm-wrapper">    <div class="title">提交提示</div>    <div class="tips-wrapper">        <div class="tip-item">            <span class="tip-icon"></span>            <span class="tip-content">                因该回答包含回答带货将在48小时内审核完毕，审核通过后您的回答及回答带货才可展现，请至                <a class="tip-detail" href="/ihome/homepage/myanwser?tab_type=goodsReview" target="_blank">个人中心-我的回答-商品审核</a>中查看审核进度。            </span>        </div>        <div class="tip-item">            <span class="tip-icon"></span>            <span class="tip-content">                您挂载的商品仅可在移动端问答页被浏览者查看。            </span>        </div>        <div class="tip-item">            <span class="tip-icon"></span>            <span class="tip-content">                若您挂载的商品违反知道规范或与问答相关性较差，官方将有权取消您的回答带货权益。            </span>        </div>    </div></div>');
+  _template_varName=null;
+  })(_template_object);
+  fn = null;
+  return _template_fun_array.join('');
+  
+  }][0]();
+              var confirmDialog = new Dialog({
+                  content: insertgoodsConfirmTpl,
+                  width: 410,
+                  height: 360,
+                  dialogClass: 'ui-dialog-new',
+                  buttons: [{
+                      text: '返回修改',
+                      click: function () {
+                          confirmDialog.close();
+                      }
+                  }, {
+                      text: '确认提交',
+                      click: function () {
+                          confirmDialog.close();
+                          confirmSubmit(showLoading);
+                      }
+                  }]
+              });
+          } else {
+              confirmSubmit(showLoading)
+          }
+      }
+  }
+  
+  // 任务完成奖励弹窗
+  function openTaskFinishRewardDialog() {
+      var rewardParams = {
+          op: 'reply',
+          from: 'PC'
+      };
+      var taskSign = F.context('taskSign');
+  
+      if ($.url.getQueryValue(window.location.href, 'fr') === 'taskSign' && taskSign && !taskSign.isSignin) {
+          rewardParams.needTaskSignInfo = 1;
+      }
+      $.ajax({
+          url: '/task/api/taskcomnotice',
+          type: 'post',
+          data: rewardParams,
+          dataType: 'json',
+          success: function (response) {
+              if (!response.errno && response.data.notice === 1) {
+                  task.openTaskFinishRewardDialog(response.data, reloadPage);
+              } else {
+                  reloadPage();
+              }
+          }
+      });
+  }
+  
+  // 受邀回答的问题完成奖励弹窗
+  function openInvitedReplyDialog(submitRes, callback) {
+      // 该问题是否为受邀回答的问题
+      var isInvitedReply = parseInt(submitRes.isAskHelp, 10);
+      if (!isInvitedReply) {
+          callback && callback();
+          return;
+      }
+      // 该回答的质量分得分: [0，3]，取值为整数。
+      var qualityScore = parseInt(submitRes.qualityScore, 10) || 0;
+      var rewardDialogTpl = '';
+      if (qualityScore >= 2) {
+          rewardDialogTpl = '<div class="reply-success-title"></div>'
+              + '<div class="reply-success-content"><div class="high-quality-reply-success-icon"></div>'
+              + '<p class="reply-success-reward">财富值+100</p></div>';
+      } else {
+          rewardDialogTpl = '<div class="reply-success-title"></div>'
+              + '<div class="reply-success-content"><div class="low-quality-reply-success-icon"></div>'
+              + '<p class="reply-success-reward">然而这个回答质量不够好不能提供奖励</p></div>';
+      }
+      var rewardDialog = new Dialog({
+          content: rewardDialogTpl,
+          width: 408,
+          autoDispose: true,
+          dialogClass: 'reply-success-dialog',
+          open: function () {
+              $('.ui-widget-overlay').css('opacity', '0.5');
+              $('body').css('overflow', 'hidden');
+              log.send({
+                  module: 'question',
+                  area: 'invited-reply-reward-dialog',
+                  action: 'pv',
+                  uid: F.context('user').uid
+              });
+              let $this = $(this);
+              $this.on('click', '.reply-success-close-btn', function () {
+                  rewardDialog.close();
+                  $('body').css('overflow', 'auto');
+                  callback && callback();
+              });
+          },
+          buttons: [{
+              text: qualityScore >= 2 ? '继续回答赚更多' : '继续努力',
+              className: 'reply-success-close-btn',
+              click: function () {
+                  rewardDialog.close();
+                  $('body').css('overflow', 'auto');
+                  callback && callback();
+              }
+          }]
+      });
+  }
+  
+  function confirmSubmit(showLoading) {
+      // 这个参数值为了后端统计准确才配合这么改 fe:xyh
+      var entry = F.context('extra')['entry'] === 'uhome_homecenter_video' ? 'recommend_video_list' : F.context('extra')['entry'];
+      var answerOptions = {
+          cm : 100009,
+          qid : F.context('page')['qid'],
+          title : F.context('extra')['title'],
+          answerfr : F.context('extra')['answerfr'],
+          feedback: F.context('feedback'),
+          entry : entry //标记提交入口参数
+      };
+      // 有料回答
+      var youliaoId = $.url.getQueryValue(location.href, 'youliao_id');
+      if (youliaoId) {
+          answerOptions.youliao_id = youliaoId;
+      }
+      var orderId  = $.url.getQueryValue(location.href, 'orderId');
+      orderId && (answerOptions.orderId = orderId);
+  
+      //新手首次回答 - 直接切ihome
+      if(F.context('user')['isNew'] == 0 && $.cookie.get("IK_FORCE_UHOME") != 0){
+          $.cookie.set("IK_FORCE_UHOME", "0", {
+              "expires": 86400000*365,
+              "path": "/"
+          });
+      }
+  
+      if (F.context('extra')['entry'].indexOf('team_teamtask_') > -1) {
+          answerOptions.teamId = $.url.getQueryValue(window.location.href, 'teamId');
+          answerOptions.taskId = $.url.getQueryValue(window.location.href, 'taskId');
+      }
+      // 签到任务添加参数
+      if ($.url.getQueryValue(window.location.href, 'fr') === 'taskSign'
+          && F.context('taskSign') && !F.context('taskSign').isSignin) {
+          answerOptions.taskfr = 'taskSign';
+      }
+  
+      var content = editor.getEditorContent();
+      answerOptions.co = content;
+      answerOptions.cite = '';
+      answerOptions.rich = 1;
+      // 标示来自新的编辑器，以便后端做统计
+      answerOptions.edit = 'new';
+  
+      // 验证码提交处理
+      editor.authcode &&  editor.authcode.submitParam(answerOptions);
+  
+      // 匿名回答
+      if (editor.anonymouse && editor.anonymouse.checked) {
+          answerOptions.anoy = 1;
+      }
+  
+      // 加粗飘红增加统计参数 privilege
+      var privilegeType = '';
+  
+      if(answerOptions.co && answerOptions.co.match(/<strong>/) && answerOptions.co.match(/<em>/)){
+          privilegeType = 'both';
+      }else{
+          if(answerOptions.co && answerOptions.co.match(/<strong>/)){
+              privilegeType = 'replyBold';
+          }else{
+              if(answerOptions.co && answerOptions.co.match(/<em>/)){
+                  privilegeType = 'replyRed';
+              }
+          }
+      }
+  
+      // 统计
+      log.send({
+          area: 'answer_submit_btn',
+          action: 'answer',
+          privilegeSubmit: privilegeType,
+          uid: F.context('user').uid
+      });
+      //提交开始至成功返回之前的load状态
+      if (showLoading) {
+          showLoad();
+      }
+      ec.fire('login.check', {
+          isLogin: function (result) {
+              localStorage.removeItem('HAS_NOT_COMMIT_ID');
+              localStorage.removeItem('HAS_NOT_COMMIT_CONTENT');
+              if (result.isRealName === 1 && $('#passport-accRealName-pop').length === 0) {
+                  ec.fire('login.realName', {
+                      onHide: function () {
+                          $(".loading-layer").hide();
+                          $(".layerBg").hide();
+                      },
+                      onSubmitSuccess: function () {
+                          loginSubmitAnswer();
+                      }
+                  });
+              } else if (result.isRealName === 1 && $('#passport-accRealName-pop').length > 0) {
+                  $('#passport-accRealName-pop').show();
+                  $('body').children('div:first-child').show();
+                  if ($('#passport-accRealName-pop').is(':hidden')) {
+                      $('.loading-layer').hide();
+                      $('.layerBg').hide();
+                  } else {
+                      $('.loading-layer').show();
+                      $('.layerBg').show();
+                  }
+              } else {
+                  loginSubmitAnswer();
+              }
+              function loginSubmitAnswer() {
+                  /* eslint-disable */
+                  new Submit({
+                  /* eslint-enable */
+                      params: answerOptions,
+                      hasJump: false,
+                      syncId: 'answer',
+                      jumpSubmitDelay: 4500,
+                      editor: editor,
+                      beforeJump: beforeJump,
+                      beforeError: beforeError
+                  });
+              }
+          },
+          noLogin: function(){
+              $('.loading-layer').hide();
+              $('.layerBg').hide();
+              // 第三方登录记录回答内容
+              localStorage.setItem('HAS_NOT_COMMIT_ID', F.context('page').qid);
+              localStorage.setItem('HAS_NOT_COMMIT_CONTENT', answerOptions.co);
+              log.send({
+                  area: 'answer_click_loginpop',
+                  action: 'pv'
+              });
+              ec.fire('login.log', {
+                  onLoginSuccess: function (res) {
+                      if (res) {
+                          F.context('user').stoken = res.stoken;
+                      }
+                      if (res.isRealName === 1) {
+                          $('.loading-layer').hide();
+                          $('.layerBg').hide();
+                      } else {
+                          /* eslint-disable */
+                          new Submit({
+                          /* eslint-enable */
+                              params: answerOptions,
+                              hasJump: false,
+                              syncId: 'answer',
+                              editor: editor,
+                              beforeJump: function (e, data) {
+                                  clearStorage('nologin');
+                                  log.send({
+                                      area: 'submit',
+                                      action: 'unlogin-submit-success'
+                                  });
+                                  if (visitJoinData && visitJoinData.length && $.cookie.get('VISIT_VISIT_MODEL') !== 'show') {
+                                      visitJoin(function () {
+                                          reloadPage();
+                                      });
+                                  } else {
+                                      createTip('success-tip', '提交成功');
+                                      setTimeout(function () {
+                                          if (F.context('extra').entry === 'uhome_homecenter_invited_reply') {
+                                              openInvitedReplyDialog(data, openTaskFinishRewardDialog);
+                                          } else {
+                                              openTaskFinishRewardDialog();
+                                          }
+                                      }, 2000);
+                                  }
+                              },
+                              beforeError: function(){
+                                  $('.loading-layer').hide();
+                                  $('.layerBg').hide();
+                                  log.send({
+                                      area: 'submit',
+                                      action: 'unlogin-submit-error'
+                                  });
+                              },
+                              authcode: editor.authcode || null
+                          });
+                      }
+                  }
+              });
+          }
+      });
+  }
+  
+  // [搜索相关资料]
+  (function () {
+      if (!$('.wgt-search-relate').length
+          && !(
+              F.context('extra').entry === 'uhome_homecenter_video'
+              || F.context('extra').entry === 'qb_right_videoquestion'
+          )) {
+          var link = $('<a/>').html('<span class="iknow-icons">&#xe631;</span>搜索资料')
+                      .addClass('search-relate')
+                      .attr('href', 'http://www.baidu.com/s?wd=' + encodeURIComponent(F.context('page').title) + '&ie=utf-8')
+                      .attr('target', '_blank')
+                      .hide()
+                      .insertBefore('#answer-bar');
+      }
+      else if (
+          !$('.wgt-search-relate').length
+          && (
+              F.context('extra').entry === 'uhome_homecenter_video'
+              || F.context('extra').entry === 'qb_right_videoquestion'
+          )
+      ) {
+          $('.wgt-replyer-line').css('margin-bottom', '15px');
+      }
+  })();
+  
+  /**
+   * 展示新手引导Gif
+   *
+   * @param {Object} editor 编辑器实例
+   */
+  function showGif(editor) {
+      var newIconHtml = '<img class="gif" height="72" width="157" src="https://gss0.bdstatic.com/7051cy89RcgCncy6lo7D0j9wexYrbOWh7c50/iknow/answer-video/PCask-1.gif">';
+      var editorId = editor.key;
+      $('#' + editorId + ' .edui-editor-toolbarbox .edui-for-insertvideo').append(newIconHtml);
+      setTimeout(function () {
+          $('#' + editorId + ' .edui-editor-toolbarbox .edui-for-insertvideo img:last-child').remove();
+          if (parseInt(F.context('baiduyunTip'), 10) !== 1) {
+              var newIconHtml = '<span class="insertvideobtn-newicon"></span>';
+              $('#' + editorId + ' .edui-editor-toolbarbox .edui-for-insertvideo').append(newIconHtml);
+          }
+      }, 4600);
+  }
+  
+  /**
+   * 视频编辑器(其实就是一个div)
+   *
+   * @param {string} ele ueditor容器
+   * @param {Object} editor 实例
+   */
+  function coverUeditor(ele, editor) {
+      var coverUeditorHtml = '<div class="cover-ueditor">'
+      + '<span class="change-to-ueditor">默认编辑器</span>'
+      + '<div class="toast">请先上传视频再提交回答哦~</div>'
+      + '<div class="upload-icon">'
+      + '<div class="upload-svg"></div>'
+      + '<p class="upload-text">上传视频</p>'
+      + '</div>'
+      + '<div class="step">'
+      + '<p>1.请上传与回答相关的视频，在回答中添加无关视频将会导致回答被删除</p>'
+      + '<p>2.视频时长在8秒到20分钟内，视频大小需小于2G</p>'
+      + '<p>3.无水印，高清晰度视频更佳</p>'
+      + '</div>'
+      + '</div>';
+  
+      var answerEditor = document.getElementById(ele);
+      answerEditor.innerHTML += coverUeditorHtml;
+  
+      ele = '#' + ele;
+      $(ele + ' .cover-ueditor').on('click', function () {
+          $(ele + ' .cover-ueditor').remove();
+          $(ele + ' .change-to-ueditor').remove();
+          $(ele + ' .edui-editor').show();
+          setTimeout(function () {
+              editor.execCommand('newinsertvideo');
+          }, 500);
+      });
+  
+      $(ele + ' .change-to-ueditor').on('click', function () {
+          $(ele + ' .cover-ueditor').remove();
+          $(ele + ' .change-to-ueditor').remove();
+          $(ele + ' .edui-editor').show();
+          // 判断回答编辑器是否要显示 GIF 图片
+          var showVideoGifObj = Storage.get('SHOW_VIDEO_ANSWER_GIF') || {};
+          var date = new Date();
+          var key = 'answer-' + date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+          if (
+              showVideoGifObj
+              && !showVideoGifObj[key]
+          ) {
+              showVideoGifObj = {};
+              showVideoGifObj[key] = 1;
+              Storage.set('SHOW_VIDEO_ANSWER_GIF', showVideoGifObj);
+              showGif(editor);
+          }
+      });
+  
+  }
+  
+  // 根据策略，回答入口默认展示回答框
+  if (
+      F.context('extra').entry === 'uhome_homecenter_video'
+      || F.context('extra').entry === 'qb_right_videoquestion'
+      || F.context('page').isView !== '1'
+      || F.context('isExpandAnswer') === '1'
+      || (F.context('page').qid === localStorage.getItem('HAS_NOT_COMMIT_ID') && F.context('user').isLogin === '1')
+  ) {
+      if (!answerBar.size()) {
+          return;
+      }
+      $(function () {
+  
+          log.addKey({
+              'auto_expand_editor': 1
+          });
+          $('.wgt-search-relate, .search-relate').show();
+  
+          editor = editor || getEditor(
+              editorGuide.content,
+              'answer-editor',
+              true,
+              false,
+              beforeJump,
+              beforeError,
+              (F.context('extra').entry === 'uhome_homecenter_video' || F.context('extra').entry === 'qb_right_videoquestion'),
+              answerOptions,
+              false,
+              null,
+              true
+          );
+  
+          // 编辑器引导
+          editorGuide(editor);
+  
+          // 动态展开编辑器
+          editor.addListener('ready', function () {
+              var hasNotCommitContent = localStorage.getItem('HAS_NOT_COMMIT_CONTENT');
+              // 第三方登录编辑器自动回填
+              if (
+                  hasNotCommitContent
+                  && F.context('page').qid === hasNotCommitContent
+              ) {
+                  editor.setEditorContent(hasNotCommitContent);
+              }
+          });
+  
+          if (
+              F.context('extra').entry === 'uhome_homecenter_video'
+              || F.context('extra').entry === 'qb_right_videoquestion'
+          ) {
+              coverUeditor('answer-editor', editor);
+          }
+  
+          if (F.context('isExpandAnswer') === '1' && F.context('page').isView === '1') {
+              editorStatus = 'up';
+          }
+  
+      });
+  }
+  
+  module.exports = getEditor;
+  
+
+});

@@ -1,0 +1,19 @@
+//木泉网模版的几个简单的jquery特效
+jq(document).ready(function(){
+//导航固定:门户列表及内页全局
+  jq(function(){
+    jq(window).scroll(function() {
+    if(jq(window).scrollTop()>=50){
+    jq(".fixedtop").addClass("fixtop");
+    }else{
+    jq(".fixedtop").removeClass("fixtop");
+    }
+    });
+    });
+//纯图列表弹出摘要
+    jq('.chuntu li ').hover(function(){
+  jq(".zhaiyao", this).stop().animate({top:'128px', left:'0px'},{queue:false,duration:500})
+      }, function() {
+jq(".zhaiyao", this).stop().animate({top:'200px', left:'0px'},{queue:false,duration:500})
+      })
+  })

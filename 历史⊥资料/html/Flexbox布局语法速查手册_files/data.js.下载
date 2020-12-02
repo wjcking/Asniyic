@@ -1,0 +1,554 @@
+var accentColor = 'khaki';
+var data = [];
+
+
+data[data.length] = {
+  name: 'display',
+
+  link: 'http://www.w3.org/TR/css-flexbox-1/#flex-containers',
+
+  targetForDemo: 'flex containers',
+  appliesTo: '所有元素',
+
+  desc: '<p>一个<i>flex父容器元素</i>能给它的子元素建立一种新型的<dfn >flex内容布局</dfn>。这种布局其实是和将元素设定为<code>display:block</code>是很相似的，只是在flex布局里block换成了flex。float属性不好影响flex布局，flex父容器的margin不会和其子元素的margin有重叠效果。<i>Flex父容器元素</i>所形成的block容器特性跟普通的block容器元素所表现的特征<a href=\'https://www.w3.org/TR/CSS2/visudet.html#containing-block-details\'>完全一样。</a><a href=\'https://www.w3.org/TR/css-overflow-3/#overflow\'>overflow</a>特征也适用于<i>Flex父容器元素</i>。</p><p>Flex父容器元素并不等同于普通的block元素，有一些block元素具有的属性在flex父元素上并不适用。特别的：</p><p>如果一个元素被指定为<a href=\'https://www.w3.org/TR/CSS22/visuren.html#propdef-display\'>display</a>:<i>inline-flex</i>，那么，在某些情况下，它的<a href=\'https://www.w3.org/TR/CSS22/visuren.html#propdef-display\'>display</a>属性会按做<i>flex</i>来计算： 在<a href=\'https://www.w3.org/TR/CSS2/visuren.html#dis-pos-flo\'>CSS 2.1 Section 9.7</a>的表格里将会增加有一行，在 \'Specified Value\' 列里多出<i>inline-flex</i>行和在 \'Computed Value\' 列里多出<i>flex</i>行</p>',
+
+  values: [{
+      'name': 'flex',
+      'desc': '指定此元素为block级别的<i>flex布局</i>的父元素/Flex容器元素。',
+      current: true
+    },
+    {
+      'name': 'inline-flex',
+      'desc': '指定此元素为inline级别的<i>flex布局</i>的父元素/Flex容器元素。'
+    }
+  ],
+  initValue: '',
+
+  cssRules: [{
+    'selector': '.parent',
+    'rules': {
+      'display': 'flex'
+    }
+  }],
+
+  demoBefore: '一些文字内容'
+};
+
+
+data[data.length] = {
+  name: 'ordering-orientation',
+  title: '排序和排方向',
+  type: 'subheader'
+};
+
+
+data[data.length] = {
+  name: 'flex-direction',
+
+  link: 'http://www.w3.org/TR/css-flexbox-1/#flex-direction-property',
+
+  targetForDemo: 'flex containers',
+  appliesTo: 'Flex父容器元素',
+
+  desc: '<p><i>flex-direction</i>属性指明<i>flex子元素</i>在flex父容器内的布局方向，也就是flex父容器的排列方向。flex子元素的布局方向就根据这个值。</p><p role=\'note\'>注意：这里的反向(reverse)值并不是指排序的反向，跟<a href=\'https://www.w3.org/TR/css-writing-modes-3/#propdef-writing-mode\'>writing-mode</a>和<a href=\'https://www.w3.org/TR/css-writing-modes-3/#propdef-direction\'>direction</a>一样，它是指将布局排列方向反向。元素的渲染顺序，语音输出顺序，导航顺序都不受影响。</p>',
+
+  values: [{
+      name: 'row',
+      desc: '按行的方向排列'
+    },
+    {
+      name: 'row-reverse',
+      desc: '类似 <i>row</i> 值，但是反向。'
+    },
+    {
+      name: 'column',
+      desc: '按列的方向排列'
+    },
+    {
+      name: 'column-reverse',
+      desc: '类似 <i>column</i> 值，但是反向。'
+    }
+  ],
+
+  initValue: 'row',
+
+  cssRules: [{
+    'selector': '.parent',
+    'rules': {
+      'display': 'flex',
+      'flex-direction': 'row',
+      'height': '100%'
+    }
+  }],
+};
+
+
+data[data.length] = {
+  name: 'flex-wrap',
+
+  link: 'http://www.w3.org/TR/css-flexbox-1/#flex-wrap-property',
+
+  targetForDemo: 'flex containers',
+  appliesTo: 'Flex父容器元素',
+
+  desc: '<p><i>flex-wrap</i>属性控制着flex容器是单行还是多行，还有它的 <i>cross-axis</i> 换行方向，也就是新行的布局方向。</p><p>对于非 <i>wrap-reverse</i> 的值，<i>cross-start</i>端等同于当前<a href=\'https://www.w3.org/TR/css-writing-modes-3/#writing-mode\'>writing mode</a>下的<a href=\'https://www.w3.org/TR/css-writing-modes-3/#inline-start\'>inline-start</a> 或 <a href=\'https://www.w3.org/TR/css-writing-modes-3/#block-start\'>block-start</a>端。也就是<i>cross axis</i>换行方向的起始端。而<i>cross-end</i>端是<i>cross-start</i>端的反向端。当<i>flex-wrap</i>值为<i>wrap-reverse</i>时，<i>cross-start</i> 和 <i>cross-end</i>端互换。</p>',
+
+  values: [{
+      name: 'nowrap',
+      desc: 'flex容器是单行显示子元素。'
+    },
+    {
+      name: 'wrap',
+      desc: 'flex容器是多行显示子元素，也就是可以换行。'
+    },
+    {
+      name: 'wrap-reverse',
+      desc: '跟<i>wrap</i>值类似，只是换行方向反过来。'
+    }
+  ],
+
+  initValue: 'nowrap',
+
+  cssRules: [{
+      'selector': '.parent',
+      'rules': {
+        'display': 'flex',
+        'align-items': 'flex-start',
+        'flex-wrap': 'nowrap',
+        'height': '100%'
+      }
+    },
+    {
+      'selector': '.child',
+      'rules': {
+        'width': '40%'
+      }
+    }
+  ],
+};
+
+
+data[data.length] = {
+  name: 'flex-flow',
+
+  link: 'http://www.w3.org/TR/css-flexbox-1/#flex-flow-property',
+
+  targetForDemo: 'flex containers',
+  appliesTo: 'Flex父容器元素',
+
+  desc: '<p><i>flex-flow</i>属性是<i>flex-direction</i>属性和<i>flex-wrap</i>属性的组合体简写，用来控制flex容器的排列方向和换行方向。</p>',
+
+  initValue: 'row nowrap',
+
+  customValues: [{
+      name: 'row nowrap',
+      current: true
+    },
+    {
+      name: 'column-reverse'
+    },
+    {
+      name: 'column wrap'
+    },
+    {
+      name: 'row-reverse wrap-reverse'
+    }
+  ],
+
+  cssRules: [{
+      'selector': '.parent',
+      'rules': {
+        'display': 'flex',
+        'flex-flow': 'row nowrap',
+        'height': '100%',
+      }
+    },
+    {
+      'selector': '.child',
+      'rules': {
+        'width': '40%',
+        'height': '40%'
+      }
+    }
+  ],
+};
+
+
+data[data.length] = {
+  name: 'order',
+
+  link: 'https://www.w3.org/TR/css-flexbox-1/#order-property',
+
+  targetForDemo: 'flex items',
+  appliesTo: 'flex子元素',
+
+  desc: '<p><i>order</i>属性可以控制某个flex子元素在flex容器中出现的位置顺序，值不同位置不同。 <i>order</i>属性的值是 一个<dfn ><a href=\'https://www.w3.org/TR/css3-values/#integer-value\'>&lt;数字&gt;</a></dfn>，指明flex子元素的排列顺序如何变更。</p><p>flex容器排列拥有指定顺序的flex子元素时，这个值小的排在前面，值大的靠后排。值相同的按原始顺序排。零值等同于原顺序。这个值会影响<a href=\'https://www.w3.org/TR/CSS2/zindex.html\'>渲染输出顺序</a>，效果跟重新修改源代码后显示的效果相同。</p><p>这个属性对非flex子元素无效果，除非将来规范做出修改。</p>',
+
+  initValue: '0',
+
+  customValues: [{
+      name: '-1',
+      current: true
+    },
+    {
+      name: '0'
+    },
+    {
+      name: '1'
+    }
+  ],
+
+  cssRules: [{
+      'selector': '.parent',
+      'rules': {
+        'display': 'flex',
+        'align-items': 'flex-start',
+        'height': '100%'
+      }
+    },
+    {
+      'selector': '.child--featured',
+      'rules': {
+        'order': '-1'
+      }
+    }
+  ],
+};
+
+
+data[data.length] = {
+  name: 'alignment',
+  title: '对齐',
+  type: 'subheader'
+};
+
+
+data[data.length] = {
+  name: 'justify-content',
+
+  link: 'http://www.w3.org/TR/css-flexbox-1/#justify-content-property',
+
+  targetForDemo: 'flex containers',
+  appliesTo: 'Flex父容器元素',
+
+  desc: '<p><i>justify-content</i>属性用来设定flex容器内子元素沿当前排列方向的对齐方式。这种对齐是在所有可以自由伸缩的长度和所有<i>auto margins</i>距离确定后完成的。通常，这个属性是用来分配所有flex子元素在一行排列上的剩余空间，或者是虽然没有剩余空间但元素宽度可以自由伸缩的情况。它也可以用来控制当子元素长度溢出时的对齐问题。</p>',
+
+  values: [{
+      name: 'flex-start',
+      desc: '<i>Flex子元素</i>向行首对齐。第一个子元素的起始边跟行的起始边对齐，之后的子元素的起始边跟前一个的末边对齐，依次类推。'
+    },
+    {
+      name: 'flex-end',
+      desc: '<i>Flex子元素</i>向行的末端对齐。flex子元素的最后一个元素的末边和行的末端对齐，倒数第二个子元素的末边和倒数第一个的始边对齐，依次类推。'
+    },
+    {
+      name: 'center',
+      desc: '<i>Flex子元素</i>向行中间对齐。flex子元素相互靠拢，然后整体向行的中间对齐。行首和行末的剩余空间是相等的。如果子元素总长度超出容器宽度，那两边溢出的宽度的相同的。'
+    },
+    {
+      name: 'space-between',
+      desc: '<i>Flex子元素</i>平均分布在行上。如果子元素总长度溢出或只有一个子元素，那它的效果等同于<i>flex-start</i>的效果。否则，第一个子元素的起始边和行的起始边对齐，最后一个子元素的终边和行的末边对齐，剩余其它元素都等距离分布在剩余空间里。'
+    },
+    {
+      name: 'space-around',
+      desc: '<i>Flex子元素</i>平均分布在行上，但行首和行末留有1/2的其它子元素之间的空间。如果子元素总长度溢出，或只有一个子元素，那么时的效果等同于<i>center</i>效果。否则，子元素平均分布在行上，它们之间的空间距离是相同的。而且行首和行末也空间，但空间的宽度只有子元素之间的宽度的一半。'
+    }
+  ],
+
+  initValue: 'flex-start',
+
+  cssRules: [{
+    'selector': '.parent',
+    'rules': {
+      'display': 'flex',
+      'justify-content': 'flex-start',
+      'height': '100%'
+    }
+  }],
+};
+
+
+data[data.length] = {
+  name: 'align-items',
+
+  link: 'http://www.w3.org/TR/css-flexbox-1/#propdef-align-items',
+
+  targetForDemo: 'flex containers',
+  appliesTo: 'Flex父容器元素',
+
+  desc: '<p>这个属性用来调整<i>Flex子元素</i>在列方向上的对齐方式，它跟<i>justify-content</i>的作用非常相似，只是一个作用于行方向上的对齐，一个作用于列方向上的对齐。<i>align-items</i>用于设定flex容器里所以子元素的缺省列对齐方式，包括匿名的flex子元素。而使用下面要讲的<i>align-self</i>属性可以覆盖父容器指定的<i>align-items</i>属性。(对于匿名flex子元素，它的<i>align-self</i>和父元素指定的<i>align-items</i>值相同。)</p><p>如果<i>flex子元素</i>的列方向上的margin有值，则无效。</p><p>对于绝对定位的元素，<i>auto</i>值表明是自动计算。其它情况下，具有<i>auto</i>值的<i>align-self</i>等同于父元素指定的<i>align-items</i>值，如果没有父元素，则等同于<i>stretch</i>。</p>',
+
+  values: [{
+      name: 'flex-start',
+      desc: 'flex子元素向列首靠拢对齐。'
+    },
+    {
+      name: 'flex-end',
+      desc: 'flex子元素向列尾靠拢对齐。'
+    },
+    {
+      name: 'center',
+      desc: 'flex子元素向列中靠拢对齐。如果子元素在列方向上的高度溢出，则上下溢出的长度相同。'
+    },
+    {
+      name: 'baseline',
+      desc: 'If the <i>flex item</i>’s inline axis is the same as the <i>cross axis</i>, this value is identical to <i>flex-start</i>. <p>Otherwise, it <dfn >participates in baseline alignment</dfn>: all participating <i>flex items</i> on the line are aligned such that their baselines align, and the item with the largest distance between its baseline and its <i>cross-start</i> margin edge is placed flush against the <i>cross-start</i> edge of the line.</p>'
+    },
+    {
+      name: 'stretch',
+      desc: '如果子元素列方向上的高度值为<i>auto</i>，并且列方向上没有设定margin值，则子元素会拉伸。拉伸的高度是最大化的和列的高度相同。但同时还会受<a href=\'https://www.w3.org/TR/CSS22/visudet.html#propdef-min-height\'>min-height</a>/<a href=\'https://www.w3.org/TR/CSS22/visudet.html#propdef-min-width\'>min-width</a>/<a href=\'https://www.w3.org/TR/CSS22/visudet.html#propdef-max-height\'>max-height</a>/<a href=\'https://www.w3.org/TR/CSS22/visudet.html#propdef-max-width\'>max-width</a>的约束。 <p role=\'note\'>注意: 如果flex容器的高度小于这些约束高度，则子元素会溢出。</p> <p>溢出时，列首边和子元素起始边对齐，另外一端溢出。</p>'
+    }
+  ],
+
+  initValue: 'stretch',
+
+  cssRules: [{
+    'selector': '.parent',
+    'rules': {
+      'display': 'flex',
+      'align-items': 'stretch',
+      'height': '100%'
+    }
+  }],
+};
+
+
+data[data.length] = {
+  name: 'align-self',
+
+  link: 'http://www.w3.org/TR/css-flexbox-1/#propdef-align-self',
+
+  initValue: 'auto',
+
+  targetForDemo: 'flex items',
+  appliesTo: 'flex子元素',
+
+  desc: '<p>此属性和<i>justify-content</i>的作用很相似，不同的是，<i>justify-content</i>是让元素在行方向上对齐，而这个属性是在列方向上对齐。另外<i>align-items</i>属性是作用在flex父元素上，设定容器内所有子元素的缺省列对齐方式，而此属性是作用在单个子元素上，设定指定子元素的列对齐方式。(对于匿名的flex子元素，<i>align-self</i>和<i>align-items</i>的效果是一样的)</p><p>如果<i>flex子元素</i>的列方向上的margin有值，则无效。</p><p>对于绝对定位的元素，值为<i>auto</i>时，系统自动计算效果。其它情况下，如果<i>align-self</i>值为<dfn >auto</dfn>，效果根据父元素的<i>align-self</i>而定，如果没有父元素，则设置为<i>stretch</i></p>',
+
+  values: [{
+      name: 'flex-start',
+      desc: '向列首对齐',
+      current: true
+    },
+    {
+      name: 'flex-end',
+      desc: '向列尾对齐'
+    },
+    {
+      name: 'center',
+      desc: '向列中对齐(如果子元素高度溢出，则列两端溢出高度相同。)'
+    },
+    {
+      name: 'baseline',
+      desc: 'If the <i>flex item</i>’s inline axis is the same as the <i>cross axis</i>, this value is identical to <i>flex-start</i>. <p>Otherwise, it <dfn >participates in baseline alignment</dfn>: all participating <i>flex items</i> on the line are aligned such that their baselines align, and the item with the largest distance between its baseline and its <i>cross-start</i> margin edge is placed flush against the <i>cross-start</i> edge of the line.</p>'
+    },
+    {
+      name: 'stretch',
+      desc: '如果flex子元素的高度设置等同于 <span >auto</span>，且列方向上的margin值不是 <span >auto</span>， 则flex子元素拉伸。拉伸的高度是尽可能的达到容器的最大高度，但同时仍受<a href=\'https://www.w3.org/TR/CSS22/visudet.html#propdef-min-height\'>min-height</a>/<a href=\'https://www.w3.org/TR/CSS22/visudet.html#propdef-min-width\'>min-width</a>/<a href=\'https://www.w3.org/TR/CSS22/visudet.html#propdef-max-height\'>max-height</a>/<a href=\'https://www.w3.org/TR/CSS22/visudet.html#propdef-max-width\'>max-width</a>的限制。<p role=\'note\'>注意：上面的这些约束的高度如果是超出了容器的高度，这子元素会溢出。</p> <p>溢出时子元素跟列首对齐，末端溢出。</p>'
+    }
+  ],
+
+  cssRules: [{
+      'selector': '.parent',
+      'rules': {
+        'display': 'flex',
+        'height': '100%'
+      }
+    },
+    {
+      'selector': '.child--featured',
+      'rules': {
+        'align-self': 'flex-start'
+      }
+    }
+  ],
+};
+
+
+data[data.length] = {
+  name: 'align-content',
+
+  link: 'http://www.w3.org/TR/css-flexbox-1/#align-content-property',
+
+  targetForDemo: 'flex containers',
+  appliesTo: 'flex父容器',
+
+  desc: '<p><i>align-content</i>属性的作用是在flex子元素是多行时，而且容器内还有剩余空间时，设定子元素的对齐方式，跟<i>justify-content</i>相似。注意：这个属性对单行子元素无效果。属性值的含义是：</p><p role=\'note\'>注意: 只有容器内是多行子元素时，且列方向上有剩余空间时有效，因为如果是单行，子元素的高度会自动拉伸填满剩余高度。</p>',
+
+  values: [{
+      name: 'flex-start',
+      desc: '子元素向列首对齐，子元素各行紧挨着前一行向列首对齐。'
+    },
+    {
+      name: 'flex-end',
+      desc: '子元素向列尾对齐，子元素各行紧挨着后一行向列尾对齐。'
+    },
+    {
+      name: 'center',
+      desc: '子元素各行向列中对齐。各行之间不留空间。而列首和列尾剩余的空间是相同高度。如果子元素高度溢出，在列首和列尾溢出的高度相同。'
+    },
+    {
+      name: 'space-between',
+      desc: '子元素各行平均分布在列高度上。并且列首和列尾不留空间，各子元素之间的空间距离相等。'
+    },
+    {
+      name: 'space-around',
+      desc: '子元素各行平均分布在列高度上，各列之间的距离相等，并且列首和列尾也有空间，空间的高度是各列之间的距离的一半。如果子元素的高度溢出，则此属性的效果等同于<i>center</i>。'
+    },
+    {
+      name: 'stretch',
+      desc: '各列等高度的拉伸，填满整个列高度。如果子元素高度溢出，在此属性效果等同于<i>flex-start</i>'
+    }
+  ],
+
+  initValue: 'stretch',
+
+  cssRules: [{
+      'selector': '.parent',
+      'rules': {
+        'display': 'flex',
+        'flex-wrap': 'wrap',
+        'align-content': 'stretch',
+        'height': '100%',
+      }
+    },
+    {
+      'selector': '.child',
+      'rules': {
+        'width': '30%'
+      }
+    }
+  ],
+};
+
+
+data[data.length] = {
+  name: 'flexibility',
+  title: '伸缩',
+  type: 'subheader'
+};
+
+
+data[data.length] = {
+  name: 'flex-grow',
+
+  link: 'http://www.w3.org/TR/css-flexbox-1/#flex-grow-property',
+
+  initValue: '0',
+
+  targetForDemo: 'flex items',
+  appliesTo: 'flex子元素',
+
+  desc: '<p><i>flex-grow</i>属性用来设定felx子元素的<i>扩展因子</i>，值的类型是<dfn ><a href=\'https://www.w3.org/TR/css3-values/#number-value\'>&lt;数字&gt;</a></dfn>。负值无效。</p>',
+
+  customValues: [{
+      name: '0'
+    },
+    {
+      name: '1',
+      current: true
+    }
+  ],
+
+  cssRules: [{
+      'selector': '.parent',
+      'rules': {
+        'display': 'flex',
+        'height': '100%',
+      }
+    },
+    {
+      'selector': '.child--featured',
+      'rules': {
+        'flex-grow': '1'
+      }
+    }
+  ],
+};
+
+
+data[data.length] = {
+  name: 'flex-shrink',
+
+  link: 'http://www.w3.org/TR/css-flexbox-1/#flex-shrink-property',
+
+  initValue: '1',
+
+  targetForDemo: 'flex items',
+  appliesTo: 'flex子元素',
+
+  desc: '<p><i>flex-shrink</i>属性用来设定flex子元素的<i>收缩因子</i>，值的类型是 <dfn ><a href=\'https://www.w3.org/TR/css3-values/#number-value\'>&lt;数字&gt;</a></dfn>。负值无效。</p>',
+
+  customValues: [{
+      name: '0'
+    },
+    {
+      name: '1',
+      current: true
+    }
+  ],
+
+  cssRules: [{
+      'selector': '.parent',
+      'rules': {
+        'display': 'flex',
+        'height': '100%',
+      }
+    },
+    {
+      'selector': '.child',
+      'rules': {
+        'width': '40%'
+      }
+    },
+    {
+      'selector': '.child--featured',
+      'rules': {
+        'flex-shrink': '1'
+      }
+    }
+  ],
+};
+
+
+data[data.length] = {
+  name: 'flex-basis',
+
+  link: 'http://www.w3.org/TR/css-flexbox-1/#flex-basis-property',
+
+  initValue: 'auto',
+
+  targetForDemo: 'flex items',
+  appliesTo: 'flex items',
+
+  desc: '<p><i>flex-basis</i>属性用来设定flex子元素的伸缩度，它能接受的值和<a href=\'https://www.w3.org/TR/CSS22/visudet.html#propdef-width\'>width</a> 和 <a href=\'https://www.w3.org/TR/CSS22/visudet.html#propdef-height\'>height</a>属性能接受的值一样，而且还可以设置成<i>content</i>。</p><p>如果这个属性的值不是指定成<i>auto</i> 或 <i>content</i>, <i>flex-basis</i>属性的作用在横向上和<a href=\'https://www.w3.org/TR/CSS22/visudet.html#propdef-width\'>width</a>属性的作用是一样的。如果值设定为<span >auto</span>，则效果等同于<i>content</i>值。例如，对于百分比的值来说，它的大小决定于容器的大小。如果容器的大小不确定，则等效于 <i>content</i> 值。反而推之，<i>flex-basis</i>可以决定容器的宽度，除非有 <a href=\'https://www.w3.org/TR/css3-ui/#propdef-box-sizing\'>box-sizing</a> 等属性的设定。</p>',
+
+  customValues: [{
+      name: '30%',
+      current: true
+    },
+    {
+      name: '50%'
+    },
+    {
+      name: 'content'
+    }
+  ],
+
+  cssRules: [{
+      'selector': '.parent',
+      'rules': {
+        'display': 'flex',
+        'flex-wrap': 'wrap',
+        'align-content': 'center',
+        'height': '100%',
+      }
+    },
+    {
+      'selector': '.child--featured',
+      'rules': {
+        'flex-basis': '30%'
+      }
+    }
+  ],
+};

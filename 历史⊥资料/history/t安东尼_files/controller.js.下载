@@ -1,0 +1,247 @@
+;
+(function(w) {
+    if (!w.controller) {
+        w.controller = {};
+    }
+    var _controller = {};
+
+    function Controller(func) {
+        return function() {
+            var _event = {};
+            this.init = function() {};
+            this.fireFunc = function(func, parms) {
+                if (typeof(func) == "string") {
+                    if (_event[func]) {
+                        _event[func].apply(this, parms);
+                    }
+                } else {
+                    func.call(this, this);
+                }
+
+            }
+            this.addFunc = function(name, func, auto) {
+                _event[name] = func;
+                if (auto) {
+                    this.fireFunc(name);
+                }
+            }
+            func.call(this, this);
+            this.init.apply(this, arguments);
+        }
+    };
+    _controller["$register"] = Controller(function(scope) {
+
+    });
+    _controller["$iaed"] = Controller(function(scope) {
+
+    });
+    _controller["$resetPwd"] = Controller(function(scope) {
+
+    });
+    _controller["$page"]=Controller(function(scope){});
+    _controller["$payOut"] = Controller(function(scope) {});
+    _controller["$gift"] = Controller(function(scope) {});
+    _controller["$content"] = Controller(function(scope) {});
+    _controller["$payIn"] = Controller(function(scope) {
+        scope.init = function() {
+            $('#id_pay_mode a').on('click', function() {
+                $(this).parent().siblings().find('a').removeClass('active');
+                $(this).addClass('active');
+                scope.fireFunc('selectedPayWayCallback', [this]);
+            })
+        }
+    });
+    _controller["$withdrawals"] = Controller(function(scope) {
+        scope.init = function() {
+            $('#id_pay_mode li>a').on('click', function() {
+                $(this).parent().siblings().find('.icon-check-off').removeClass('icon-check-on');
+                $(this).find('.icon-check-off').addClass('icon-check-on');
+                scope.fireFunc('selectedPayWayCallback', [this]);
+            })
+        }
+    });
+    _controller["$bindAccount"] = Controller(function(scope) {
+        scope.init = function() {
+            $('.nav-wrap li').on('click', function() {
+                var _index = $(this).index();
+                $(this).siblings().find("a").removeClass('active');
+                $(this).find("a").addClass('active');
+                $('.container .tab').hide();
+                $('.container .tab').eq(_index).show();
+            })
+        }
+    });
+    var controllerString = $('body').attr('controller');
+    if (controllerString) {
+        controllerString = $.parseJSON(controllerString);
+        for (var i in controllerString) {
+            if (_controller[controllerString[i]]) {
+                w.controller[controllerString[i]] = new _controller[controllerString[i]]();
+            }
+        }
+    }
+})(window);
+(function() {
+    var isIos = navigator.userAgent.match(/iphone|ipod/ig);
+    var cAF = window.cancelAnimationFrame || window.cancelRequestAnimationFrame;
+    var rAF = window.requestAnimationFrame;
+    (function(w) {
+        var vendors = ['moz', 'webkit', 'o', 'ms'];
+        var lastTime = 0;
+        // For a more accurate WindowAnimationTiming interface implementation, ditch the native
+        // requestAnimationFrame when cancelAnimationFrame is not present (older versions of Firefox)
+        for (var i = 0, l = vendors.length; i < l && !cAF; ++i) {
+            cAF = w[vendors[i] + 'CancelAnimationFrame'] || w[vendors[i] + 'CancelRequestAnimationFrame'];
+            rAF = cAF && w[vendors[i] + 'RequestAnimationFrame'];
+        }
+        if (!cAF) {
+            rAF = function(callback) {
+                var currTime = +new Date();
+                var timeToCall = Math.max(0, 17 - (currTime - lastTime));
+                lastTime = currTime + timeToCall;
+                return w.setTimeout(function() {
+                        callback(currTime + timeToCall);
+                    },
+                    timeToCall);
+            };
+            cAF = function(id) {
+                clearTimeout(id);
+            };
+        }
+        w.rAF = rAF;
+        w.cAF = cAF;
+        w.isCss3 = (function isCss3(w) {
+            var docStyle = document.documentElement.style;
+            var isAnimate = false,
+                is3D = false;
+            isTransform = false;
+            var engine;
+            if (w.opera && Object.prototype.toString.call(opera) === '[object Opera]') {
+                engine = 'presto';
+            } else if ('MozAppearance' in docStyle) {
+                engine = 'gecko';
+            } else if ('WebkitAppearance' in docStyle) {
+                engine = 'webkit';
+            } else if (typeof navigator.cpuClass === 'string') {
+                engine = 'trident';
+            }
+
+            var vendorPrefix = {
+                trident: 'ms',
+                gecko: 'Moz',
+                webkit: 'Webkit',
+                presto: 'O'
+            }[engine];
+
+            var helperElem = document.createElement("div");
+            var undef;
+
+            var perspectiveProperty = vendorPrefix + "Perspective";
+            var transformProperty = vendorPrefix + "Transform";
+            var transitionProperty = vendorPrefix + "Transition";
+
+            if (helperElem.style[perspectiveProperty] !== undef) {
+                is3D = true;
+                isTransform = true;
+
+            } else if (helperElem.style[transformProperty] !== undef) {
+
+                isTransform = true;
+
+            } else {
+
+            }
+            if (helperElem.style[transitionProperty] !== undef) {
+                isAnimate = true;
+            }
+            return {
+                isAnimate: isAnimate,
+                isTransform: isTransform,
+                is3D: is3D
+            }
+        })(window);
+    }(window));
+    function bindPageTrigger() {
+        $(document).on('click', 'a[pagetran-direction]', function(e) {
+            var isAuto = $(this).attr('pagetran-auto') || true;
+            if (!isAuto || isAuto == "false") {
+                return false;
+            }
+            var _page =  $(this).attr('pagetran-to');
+            if (_page == 'pop') {
+                var _obj = $.pagetran.getPage() || null;
+                if(_obj){
+                    var _view=_obj.page;
+                    var _direction=_obj.direction;
+                    if(_direction=="right"){
+                        $(_view).pagetran().move({
+                            trigger: $(this),
+                            direction:_direction
+                        })
+                    }else{
+                        _view=$.pagetran.curPage;
+                        $(_view).pagetran().move({
+                            from:"null",
+                            direction:_direction
+                        })
+                    } 
+                }
+            } else {
+                $(_page).pagetran().move({
+                    trigger: $(this)
+                })
+            }
+            e.stopPropagation();
+            e.preventDefault();
+        });
+    }
+    bindPageTrigger();
+    if (isIos) {
+        $('html').addClass('iosDevice');
+    }
+    $('.input-clear-wrap input').on('keyup focus', function() {
+        var _val = $(this).val();
+        _val = _val.replace(/(^[\s]*)|([\s]*$)/g, '');
+        if (_val) {
+            $(this).parent().addClass('active');
+        } else {
+            $(this).parent().removeClass('active');
+        }
+    })
+    $('.cls-input-radio input').on('change', function() {
+        var name = $(this).attr('name');
+        $('input:radio[name=' + name + ']').prev().removeClass('icon-check-on');
+        $(this).prev().addClass('icon-check-on');
+    })
+    $('.cls-input-checkbox input').on('change', function() {
+        if (this.checked) {
+            $(this).prev().addClass('icon-check-on');
+
+        } else {
+            $(this).prev().removeClass('icon-check-on');
+        }
+    })
+    $('.input-clear-wrap .icon-clear').on('click', function() {
+        $(this).parent().removeClass('active');
+        $(this).parent().find('input').val('');
+        $(this).parent().find('input').focus();
+    })
+    $('.input-clear-wrap input').on('blur', function(e) {
+        var self = this;
+        setTimeout(function() {
+            $(self).parent().removeClass('active');
+        }, 300);
+    })
+    if (localStorage && localStorage.skin && localStorage.skin == "night") {
+        $('html').addClass('skin-night');
+    }
+    //$('html').addClass('skin-night');
+})()
+;
+(function(w) {
+    w.formatString=function(value){
+        value=value||'';
+        value.replace.toString().replace(/^\s*|\s*$/g, '');
+        return value;
+    }
+})(window);

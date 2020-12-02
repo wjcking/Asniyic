@@ -1,0 +1,45 @@
+/**
+ * Created by Administrator on 2016/3/17 0017.
+ */
+var c_link = {
+    downlink : 'http://3g.kdnet.net/app.php?type=t7',
+    //ÅÐ¶ÏÎ¢ÐÅ
+    isWeiXin : function(){
+        var ua = window.navigator.userAgent.toLowerCase();
+        if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+            return true;
+        }else{
+            return false;
+        }
+    },
+    //´ò¿ªÊÖ»úapp
+    applink : function(url){
+        window.location = url;
+        var clickedAt = +new Date;
+        setTimeout(function(){
+            if (+new Date - clickedAt < 2000){
+                window.location = c_link.downlink;
+            }
+        }, 1000);
+    },
+    //Ìø×ªÂß¼­ÅÐ¶Ï
+    openApp : function(data){
+        console.log(data);
+        if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
+            if(c_link.isWeiXin()){
+                //alert('Î¢ÐÅä¯ÀÀÆ÷');
+                window.location = c_link.downlink;
+            }else{
+                c_link.applink('zfb2015080400198961://kidnet.net?type='+data.type+'&name='+data.name+'&id='+data.id+'&time'+new Date().getTime());
+            }
+        }
+        else if (navigator.userAgent.match(/android/i)) {
+            if(c_link.isWeiXin()){
+                //alert('Î¢ÐÅä¯ÀÀÆ÷');
+                window.location = c_link.downlink;
+            }else {
+                c_link.applink('kdnet://net.kdnet.club?type=' + data.type + '&name=' + data.name + '&id=' + data.id+'&time'+new Date().getTime());
+            }
+        }
+    }
+}

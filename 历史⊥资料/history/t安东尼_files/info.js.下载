@@ -1,0 +1,29 @@
+/*Go*/
+	BCMain.Info.ads90417101= {
+    sn: "ads90417101",
+    data: {
+        aid: 174,
+        spid: "1071",
+        atype: 0,
+        has_text: "",
+        w: 400,
+        h: 150,
+        show_js: "https://ssp.kdnet.net/show.js",
+        click_js: "https://ssp.kdnet.net/click.js",
+        third_show_js: "",
+        third_click_js: "",
+        src: 0,
+        view_type: 0,
+        pushid: "",
+        ad_mark: 1,
+        staff: [{
+            "adid": 174,
+            "landing_page": "https://aidoubox.com/app.php/game/get_game_detail/game_id/189.html",
+            "type": "1",
+            "height": 150,
+            "width": 400,
+            "addr": "https://ssp.kdnet.net/assets/uploads/20200722/5f17b8e419063.jpg",
+            "text": ""
+        }]
+    }
+}

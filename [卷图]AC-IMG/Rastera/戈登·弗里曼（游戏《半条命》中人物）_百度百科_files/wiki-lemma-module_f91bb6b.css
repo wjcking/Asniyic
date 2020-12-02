@@ -1,0 +1,3702 @@
+.add-sub-icon {
+	outline: 0px; width: 16px; height: 18px; padding-right: 8px; padding-left: 8px; display: none;
+}
+.add-sub-icon:focus {
+	outline: 0px;
+}
+.add-sub-dialog {
+	background: rgb(255, 255, 255); padding-bottom: 10px;
+}
+.add-sub-dialog dt {
+	color: rgb(51, 51, 51); padding-right: 20px; padding-left: 20px; font-size: 14px; font-weight: 700;
+}
+.add-sub-dialog dt .add-sub-main-title-inner {
+	color: rgb(51, 51, 51); font-size: 14px; font-weight: 700;
+}
+.add-sub-dialog dt a {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/basicElement/addSub/img/questionIcon_a1f42fe.jpg") no-repeat 0px 50%; left: 15px; padding-left: 20px; font-size: 12px; text-decoration: none; position: relative; _height: 15px; _zoom: 1;
+}
+.add-sub-dialog.wgt_dialog dd.con {
+	padding: 50px 0px 35px;
+}
+.add-sub-dialog .add-sub {
+	color: rgb(51, 51, 51);
+}
+.add-sub-dialog .add-sub .content-inner {
+	padding-right: 13px; padding-left: 13px;
+}
+.add-sub-dialog .add-sub .content-inner .tip {
+	text-align: left; line-height: 22px; margin-top: 10px; margin-bottom: 10px; display: block; position: static;
+}
+.add-sub-dialog .add-sub .content-inner .example {
+	border: 1px solid rgb(213, 213, 213); border-image: none; color: rgb(135, 135, 135); font-size: 12px; margin-bottom: 15px; position: relative;
+}
+.add-sub-dialog .add-sub .content-inner .example .example-tit {
+	left: 15px; top: 6px; line-height: 20px; font-weight: 700; position: absolute;
+}
+.add-sub-dialog .add-sub .content-inner .example .example-show {
+	margin: 6px 20px 6px 55px; text-align: left; line-height: 20px;
+}
+.add-sub-dialog .add-sub .content-inner .example .example-show .show-li .tit {
+	width: 85px; margin-right: 10px; float: left;
+}
+.add-sub-dialog .add-sub .content-inner .example .example-show .show-li .content {
+	font-weight: 700;
+}
+.add-sub-dialog .add-sub .content-inner .form-item {
+	margin-top: 12px; margin-bottom: 12px;
+}
+.add-sub-dialog .add-sub .content-inner .form-item label {
+	width: 160px; text-align: left; line-height: 26px; margin-right: 20px; float: left;
+}
+.add-sub-dialog .add-sub .content-inner .form-item input {
+	border: 1px solid rgb(213, 213, 213); border-image: none; width: 244px; height: 26px; _width: 242px;
+}
+.add-sub-dialog .add-sub .content-inner .form-item.name-lemma input {
+	background: rgb(255, 255, 255); border: 0px currentColor; border-image: none; font-weight: 700;
+}
+.add-sub-dialog .add-sub .content-inner .form-notice {
+	text-align: left; color: rgb(135, 135, 135);
+}
+.add-sub-dialog .add-sub .content-inner .notice {
+	text-align: left; color: rgb(135, 135, 135);
+}
+.add-sub-dialog .add-meanItem {
+	border: 0px currentColor; border-image: none;
+}
+.add-sub-dialog .add-sub-main-close {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/basicElement/addSub/img/closeIcon_b630177.jpg") no-repeat 50% 50%; border: 0px currentColor; border-image: none; top: 16px; width: 10px; height: 10px; right: 10px; position: absolute; cursor: pointer; opacity: 1;
+}
+.add-sub-dialog .add-sub-main-footer {
+	text-align: center;
+}
+.add-sub-dialog .add-sub-main-button {
+	border-radius: 3px; width: 80px; height: 28px; text-align: center; line-height: 28px; font-weight: 700; display: inline-block; cursor: pointer;
+}
+.add-sub-dialog .add-sub-main-button.add-sub-main-accept {
+	background: rgb(51, 111, 171); border: 1px solid rgb(49, 107, 164); border-image: none; color: rgb(255, 255, 255);
+}
+.add-sub-dialog .add-sub-main-button.add-sub-main-cancel {
+	background: rgb(255, 255, 255); border: 1px solid rgb(213, 213, 213); border-image: none; color: rgb(53, 116, 178); margin-left: 10px;
+}
+.add-sub-dialog .error-msg {
+	text-align: center; margin-top: 40px;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .add-subLemma {
+	border-width: 0px; padding: 7px 0px; outline: 0px; border-radius: 3px; width: 28px; height: 14px; line-height: 14px; font-size: 12px; text-decoration: none; display: none; position: relative; -moz-box-orient: vertical;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .add-subLemma:active {
+	outline: 0px; text-decoration: none;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .add-subLemma:focus {
+	outline: 0px; text-decoration: none;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .add-subLemma:visited {
+	outline: 0px; text-decoration: none;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .add-subLemma:hover {
+	background: rgb(82, 163, 245); color: rgb(255, 255, 255); text-decoration: none;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .add-subLemma:hover em {
+	color: rgb(255, 255, 255); text-decoration: none;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .add-subLemma em {
+	color: rgb(153, 153, 153); line-height: 12px; font-size: 14px; text-decoration: none; vertical-align: sub;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle-dark .add-subLemma {
+	background: rgba(255, 255, 255, 0.7); border: 0px currentColor; border-image: none; width: 28px; padding-top: 7px; padding-bottom: 7px;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle-dark .add-subLemma em {
+	color: rgb(82, 163, 245);
+}
+.wiki-lemma .lemmaWgt-lemmaTitle-light .add-subLemma {
+	background: rgba(0, 0, 0, 0.3); border: 0px currentColor; border-image: none; width: 28px; padding-top: 7px; padding-bottom: 7px;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle-light .add-subLemma:hover {
+	background: rgba(82, 163, 245, 0.7);
+}
+.wiki-lemma .lemmaWgt-lemmaTitle-light .add-subLemma em {
+	color: rgb(255, 255, 255);
+}
+.anchor-list {
+	position: relative;
+}
+.anchor-list.building {
+	top: -40px;
+}
+.anchor-list .lemma-anchor {
+	top: -50px; position: absolute;
+}
+#main-wrap #sec-content0 {
+	position: relative;
+}
+.posterFlag {
+	display: block; z-index: 1;
+}
+.posterFlag.excellent-icon {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/basicElement/authority/img/aside-icon-excellent_7d3da22.png") no-repeat 0px 0px; left: -47px; top: 30px; width: 47px; height: 97px; position: absolute;
+}
+.posterFlag.expert-icon {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/basicElement/authority/img/aside-icon-expert_40c4a48.png") no-repeat 0px 0px; left: -47px; top: 30px; width: 47px; height: 89px; position: absolute;
+}
+.posterFlag.expert-icon.authority-icon {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/basicElement/authority/img/aside-icon-authority_49e75c0.png") no-repeat 0px 0px;
+}
+.posterFlag.authentication-icon {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/basicElement/authority/img/aside-icon-authentication_4a2c798.png") no-repeat 0px 0px; left: -45px; top: 30px; width: 45px; height: 90px; position: absolute;
+}
+.posterFlag.member-icon {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/basicElement/authority/img/aside-icon-member_d0d5df6.png") no-repeat 0px 0px; left: -44px; top: 0px; width: 44px; height: 90px; position: absolute;
+}
+.large-feature .posterFlag.excellent-icon {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/basicElement/authority/img/aside-flag-excellent_222664c.png") no-repeat 0px 0px; left: -48px; top: 0px;
+}
+.poster-top .posterFlag.excellent-icon {
+	left: -47px;
+}
+.poster-top .posterFlag.expert-icon {
+	left: -47px;
+}
+.authorityListPrompt {
+	margin: 15px 0px;
+}
+.authorityListPrompt .main-content-zj {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/basicElement/authority/authorityListPrompt/resource/img/authority_f9093fa.png") no-repeat left; color: rgb(102, 102, 102); padding-left: 20px; font-size: 12px;
+}
+.authorityListPrompt .main-content-zj a {
+	text-decoration: none;
+}
+.authorityListPrompt .bottom-content-zj {
+	background: rgb(249, 249, 249); padding: 5px 0px 5px 60px; border: 1px solid rgb(241, 241, 241); border-image: none; color: rgb(102, 102, 102); font-size: 12px; margin-top: 8px; position: relative;
+}
+.authorityListPrompt .bottom-content-zj .extinfo1 {
+	font-weight: 700;
+}
+.authorityListPrompt .bottom-content-zj .extinfo2 {
+	color: rgb(153, 153, 153);
+}
+.authorityListPrompt .bottom-content-zj em {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/basicElement/authority/authorityListPrompt/resource/img/editor_335f223.png") no-repeat left; left: 10px; top: 7px; width: 42px; height: 18px; display: block; position: absolute;
+}
+.authorityListPrompt .bottom-content-zj td {
+	padding: 0px 5px; border: 0px currentColor; border-image: none;
+}
+.top-collect {
+	height: 18px; color: rgb(136, 136, 136); line-height: 16px; padding-right: 8px; padding-left: 6px; font-family: arial; font-size: 12px; text-decoration: none; display: block; position: relative; cursor: pointer;
+}
+.top-collect .collect-tip {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/basicElement/collect/img/top-collect_5c2018b.png") no-repeat 0px -52px; left: 5px; top: 22px; width: 85px; height: 29px; text-align: center; color: rgb(102, 102, 102); line-height: 33px; display: none; position: absolute;
+}
+.top-collect:hover {
+	color: rgb(77, 138, 200); text-decoration: none;
+}
+.top-collect.collected .cmn-icon {
+	color: rgb(245, 189, 93) !important;
+}
+.commonModule-pager {
+	margin: 0px auto;
+}
+.commonModule-pager .cmp-page .cmp-prev {
+	margin: 0px 4px; font-size: 12px; font-weight: 400; text-decoration: none; display: inline-block; cursor: pointer;
+}
+.commonModule-pager .cmp-page .cmp-next {
+	margin: 0px 4px; font-size: 12px; font-weight: 400; text-decoration: none; display: inline-block; cursor: pointer;
+}
+.commonModule-pager .cmp-page .cmp-prev.disabled {
+	color: rgb(187, 187, 187); cursor: text;
+}
+.commonModule-pager .cmp-page .cmp-next.disabled {
+	color: rgb(187, 187, 187); cursor: text;
+}
+.commonModule-pager .cmp-page .cmp-index {
+	width: 16px; color: rgb(19, 110, 194); font-size: 12px; text-decoration: none; display: inline-block; cursor: pointer;
+}
+.commonModule-pager .cmp-page .cmp-index.selected {
+	color: rgb(0, 0, 0); font-weight: 700; cursor: text;
+}
+.commonModule-pager .cmp-page .cmp-split {
+	margin: 0px 4px; width: 3px; color: rgb(187, 187, 187); display: inline-block;
+}
+.commonModule-pager .cmp-model {
+	height: 30px; text-align: right; line-height: 30px; font-size: 12px;
+}
+.commonModule-pager .cmp-model .cmp-default {
+	margin: 0px 4px; color: rgb(19, 110, 194); text-decoration: none; display: inline-block;
+}
+.commonModule-pager .cmp-model .cmp-all {
+	margin: 0px 4px; color: rgb(19, 110, 194); text-decoration: none; display: inline-block;
+}
+.commonModule-pager .cmp-model .cmp-default.selected {
+	color: rgb(0, 0, 0); font-weight: 700; cursor: text;
+}
+.commonModule-pager .cmp-model .cmp-all.selected {
+	color: rgb(0, 0, 0); font-weight: 700; cursor: text;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .edit-lemma {
+	border-color: rgb(197, 197, 197); margin: 0px 5px 0px 0px; outline: 0px; border-radius: 3px; width: 60px; height: 14px; color: rgb(102, 102, 102); line-height: 14px; padding-right: 0px; padding-left: 0px; font-size: 12px; display: none; position: relative; -moz-box-orient: vertical;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemma-discussion {
+	border-color: rgb(197, 197, 197); margin: 0px 5px 0px 0px; outline: 0px; border-radius: 3px; width: 60px; height: 14px; color: rgb(102, 102, 102); line-height: 14px; padding-right: 0px; padding-left: 0px; font-size: 12px; display: none; position: relative; -moz-box-orient: vertical;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .edit-lemma:active {
+	outline: 0px;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemma-discussion:active {
+	outline: 0px;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .edit-lemma:focus {
+	outline: 0px;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemma-discussion:focus {
+	outline: 0px;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .edit-lemma:visited {
+	outline: 0px;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemma-discussion:visited {
+	outline: 0px;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .edit-lemma:hover {
+	background: rgb(82, 163, 245); border: 0px currentColor; border-image: none; width: 62px; color: rgb(255, 255, 255); padding-top: 7px; padding-bottom: 7px; text-decoration: none;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemma-discussion:hover {
+	background: rgb(82, 163, 245); border: 0px currentColor; border-image: none; width: 62px; color: rgb(255, 255, 255); padding-top: 7px; padding-bottom: 7px; text-decoration: none;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .edit-lemma:hover em {
+	color: rgb(255, 255, 255); text-decoration: none;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemma-discussion:hover em {
+	color: rgb(255, 255, 255); text-decoration: none;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .edit-lemma em {
+	margin: 0px 7px 0px 0px; color: rgb(82, 163, 245); line-height: 12px; font-size: 12px; vertical-align: text-top;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemma-discussion em {
+	margin: 0px 7px 0px 0px; color: rgb(82, 163, 245); line-height: 12px; font-size: 12px; vertical-align: text-top;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemma-discussion {
+	display: inline-block;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemma-discussion em {
+	vertical-align: -2px;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemma-discussion .num {
+	background: rgb(243, 79, 29); padding: 0px 5px; border-radius: 10px; top: -10px; height: 16px; right: -8px; color: rgb(255, 255, 255); line-height: 16px; font-size: 12px; position: absolute; z-index: 1;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemma-discussion:hover .num {
+	top: -9px; right: -7px;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lock-lemma {
+	margin: 0px 5px 0px 0px; outline: 0px; height: 12px; color: rgb(153, 153, 153); font-size: 12px; display: none; -moz-box-orient: vertical;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lock-lemma:active {
+	outline: 0px; color: rgb(160, 160, 160);
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lock-lemma:focus {
+	outline: 0px; color: rgb(160, 160, 160);
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lock-lemma:visited {
+	outline: 0px; color: rgb(160, 160, 160);
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lock-lemma:hover {
+	color: rgb(82, 163, 245); text-decoration: none;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lock-lemma:hover em {
+	text-decoration: none;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lock-lemma:hover span {
+	text-decoration: none;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lock-lemma em {
+	margin: 0px 5px 0px 0px; height: 12px; line-height: 12px; font-size: 12px; vertical-align: text-top;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle-dark .edit-lemma {
+	background: rgba(255, 255, 255, 0.7); border: 0px currentColor; border-image: none; width: 62px; padding-top: 7px; padding-bottom: 7px;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle-dark .lemma-discussion {
+	background: rgba(255, 255, 255, 0.7); border: 0px currentColor; border-image: none; width: 62px; padding-top: 7px; padding-bottom: 7px;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle-light .edit-lemma {
+	background: rgba(0, 0, 0, 0.3); border: 0px currentColor; border-image: none; width: 62px; color: rgb(255, 255, 255); padding-top: 7px; padding-bottom: 7px;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle-light .lemma-discussion {
+	background: rgba(0, 0, 0, 0.3); border: 0px currentColor; border-image: none; width: 62px; color: rgb(255, 255, 255); padding-top: 7px; padding-bottom: 7px;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle-light .edit-lemma:hover {
+	background: rgba(82, 163, 245, 0.7);
+}
+.wiki-lemma .lemmaWgt-lemmaTitle-light .lemma-discussion:hover {
+	background: rgba(82, 163, 245, 0.7);
+}
+.wiki-lemma .lemmaWgt-lemmaTitle-light .edit-lemma em {
+	color: rgb(255, 255, 255);
+}
+.wiki-lemma .lemmaWgt-lemmaTitle-light .lemma-discussion em {
+	color: rgb(255, 255, 255);
+}
+.wiki-lemma .j-discussion-link .num {
+	display: none;
+}
+.module-pager {
+	text-align: right; color: rgb(136, 136, 136); font-family: Microsoft YaHei,SimHei,Verdana; font-size: 14px;
+}
+.module-pager span {
+	margin: 0px 10px 0px 0px;
+}
+.module-pager .index {
+	color: rgb(85, 85, 85);
+}
+.module-pager .pTag {
+	text-align: center; line-height: 16px; font-size: 12px; text-decoration: none; vertical-align: middle; display: inline-block; -moz-box-orient: vertical;
+}
+.module-pager .pTag:focus {
+	outline: 0px;
+}
+.module-pager .disabled {
+	cursor: default;
+}
+.module-pager .disabled:hover {
+	cursor: default;
+}
+.module-pager .pTag {
+	margin: 0px 0px 0px -1px; border: 1px solid rgb(187, 187, 187); border-image: none; width: 20px; height: 20px; color: rgb(119, 119, 119); line-height: 20px; font-size: 12px; text-decoration: none;
+}
+.module-pager .pTag em {
+	text-decoration: none;
+}
+.module-pager .pTag:hover {
+	color: rgb(51, 141, 230); text-decoration: none;
+}
+.module-pager .prev {
+	border-radius: 2px 0px 0px 2px;
+}
+.module-pager .next {
+	border-radius: 0px 2px 2px 0px;
+}
+.module-pager .disabled {
+	color: rgb(187, 187, 187);
+}
+.module-pager .disabled:hover {
+	color: rgb(187, 187, 187);
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .personal-lemma {
+	border-color: rgb(197, 197, 197); margin: 0px 5px 0px 0px; outline: 0px; border-radius: 3px; width: 130px; height: 14px; color: rgb(102, 102, 102); line-height: 14px; padding-right: 0px; padding-left: 0px; font-size: 12px; display: inline-block; position: relative; -moz-box-orient: vertical;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .personal-lemma:active {
+	outline: 0px;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .personal-lemma:focus {
+	outline: 0px;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .personal-lemma:visited {
+	outline: 0px;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .personal-lemma:hover {
+	background: rgb(82, 163, 245); border-color: rgb(82, 163, 245); color: rgb(255, 255, 255); text-decoration: none;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .personal-lemma:hover em {
+	color: rgb(255, 255, 255); text-decoration: none;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .personal-lemma em {
+	margin: 0px 7px 0px 0px; color: rgb(82, 163, 245); line-height: 12px; font-size: 12px; vertical-align: text-top;
+}
+.personal {
+	position: relative;
+}
+.personal .personal__tip {
+	left: -146px; top: -42px; padding-bottom: 15px; display: none; position: absolute; z-index: 1; cursor: pointer; min-width: 450px;
+}
+.personal .personal__tip .personal__tip__text {
+	background: rgb(255, 255, 255); padding: 8px 10px; border-radius: 1px; border: 1px solid rgb(209, 209, 209); border-image: none; color: rgb(51, 51, 51); font-size: 12px; opacity: 1;
+}
+.personal .personal__tip .personal__tip__link {
+	top: 0px !important; position: relative;
+}
+.personal .personal__tip::after {
+	left: 206px; bottom: -3px; position: absolute; content: url(https://bkssl.bdimg.com/static/wiki-lemma/widget/basicElement/personalIcon/img/triangle_9bfcefb.png);
+}
+.lemma-picture {
+	border: 1px solid rgb(224, 224, 224); border-image: none; overflow: hidden;
+}
+.lemma-picture .image-link {
+	display: block;
+}
+.lemma-picture .image-link:hover {
+	opacity: 0.9;
+}
+.lemma-picture img {
+	margin: 0px auto; display: block;
+}
+.lemma-picture .description {
+	padding: 8px 7px; text-align: left; color: rgb(85, 85, 85); line-height: 15px; text-indent: 0px; font-family: "宋体"; font-size: 12px; font-style: normal; font-weight: 400; border-top-color: rgb(224, 224, 224); border-top-width: 1px; border-top-style: solid; display: block; -ms-word-break: break-all; -ms-word-wrap: break-word; min-height: 12px;
+}
+.lemma-picture:hover .description {
+	text-decoration: none;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemma-pinyin {
+	font-size: 14px; display: block;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemma-pinyin .text {
+	color: rgb(145, 148, 145);
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemma-pinyin .speak {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/basicElement/pinyin/img/speak_de95774.gif") no-repeat -29px 5px; outline: 0px; left: 2px; top: 1px; width: 16px; height: 16px; text-decoration: none; display: inline-block; position: relative; cursor: pointer; -moz-box-orient: vertical;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemma-pinyin .speak:hover {
+	background-position: 0px 5px;
+}
+.slide-pager {
+	margin: 0px auto;
+}
+.slide-pager .slidePager-prev {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/basicElement/slidePager/img/pager_7570f7f.png") no-repeat; border: 1px solid rgb(230, 230, 230); border-image: none; width: 18px; height: 18px; float: left; display: block;
+}
+.slide-pager .slidePager-next {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/basicElement/slidePager/img/pager_7570f7f.png") no-repeat; border: 1px solid rgb(230, 230, 230); border-image: none; width: 18px; height: 18px; float: left; display: block;
+}
+.slide-pager .slidePager-prev.disabled {
+	cursor: default; opacity: 0.5; background-color: rgb(255, 255, 255);
+}
+.slide-pager .slidePager-next.disabled {
+	cursor: default; opacity: 0.5; background-color: rgb(255, 255, 255);
+}
+.slide-pager .slidePager-next {
+	background-position: bottom;
+}
+.slide-pager .slidePager-list {
+	float: left; display: block;
+}
+.slide-pager .slidePager-list .slidePager-item {
+	width: 15px; height: 20px; text-align: center; color: rgb(189, 189, 189); line-height: 20px; font-size: 17px; vertical-align: middle; float: left; display: inline-block; cursor: pointer; -webkit-font-smoothing: antialiased;
+}
+.slide-pager .slidePager-list .slidePager-item.selected {
+	color: rgb(82, 163, 245); cursor: text;
+}
+.split-icon {
+	outline: 0px; width: 20px; height: 18px; padding-right: 8px; padding-left: 8px; display: none;
+}
+.split-icon:focus {
+	outline: 0px;
+}
+.bksharebuttonbox.top-share {
+	height: 18px; text-align: center; line-height: 18px; padding-left: 8px; display: block; position: relative; z-index: 10001;
+}
+.bksharebuttonbox.top-share .top-share-icon {
+	margin: 0px; border: 0px currentColor; border-image: none; width: auto; height: 18px; line-height: 18px; text-decoration: none; float: none; display: block; cursor: default; min-width: 32px;
+}
+.bksharebuttonbox.top-share .share-count {
+	background: 0px 0px; margin: 0px; padding: 0px; height: 18px; text-align: left; color: rgb(136, 136, 136); line-height: 18px; font-family: Arial; float: left; display: block; min-width: 10px;
+}
+.bksharebuttonbox.top-share .new-top-share {
+	background: padding-box content-box rgb(255, 255, 255); right: 0px; padding-top: 10px; display: none; position: absolute;
+}
+.bksharebuttonbox.top-share .new-top-share::before {
+	top: 6px; width: 0px; height: 0px; right: 14px; border-right-color: transparent; border-bottom-color: rgb(0, 0, 0); border-left-color: transparent; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; position: absolute; content: " ";
+}
+.bksharebuttonbox.top-share .new-top-share::after {
+	top: 6px; width: 0px; height: 0px; right: 14px; border-right-color: transparent; border-bottom-color: rgb(255, 255, 255); border-left-color: transparent; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; position: absolute; content: " ";
+}
+.bksharebuttonbox.top-share .new-top-share .top-share-list {
+	border-radius: 2px; border: 1px solid rgb(224, 224, 224); border-image: none; width: 164px; height: 39px;
+}
+.bksharebuttonbox.top-share .new-top-share .top-share-list .top-share-item {
+	width: 41px; height: 39px; line-height: 42px; font-size: 20px; float: left;
+}
+.bksharebuttonbox.top-share .new-top-share .top-share-list .top-share-item:hover {
+	background: rgb(245, 245, 245);
+}
+.bksharebuttonbox.top-share .new-top-share .top-share-list .top-share-item a {
+	text-decoration: none; display: block;
+}
+.bksharebuttonbox.top-share .new-top-share .top-share-list .top-share-item .bds_qzone {
+	color: rgb(244, 192, 49);
+}
+.bksharebuttonbox.top-share .new-top-share .top-share-list .top-share-item .bds_tsina {
+	color: rgb(246, 136, 62);
+}
+.bksharebuttonbox.top-share .new-top-share .top-share-list .top-share-item .bds_wechat {
+	color: rgb(113, 194, 103);
+}
+.bksharebuttonbox.top-share .new-top-share .top-share-list .top-share-item .bds_tqq {
+	color: rgb(124, 197, 241);
+}
+.bdsharebuttonbox {
+	display: none;
+}
+.top-vote {
+	height: 18px; color: rgb(136, 136, 136); line-height: 16px; padding-right: 8px; padding-left: 8px; font-family: arial; font-size: 12px; text-decoration: none; display: block; position: relative;
+}
+.top-vote .vote-count {
+	height: 18px; text-align: center; color: rgb(136, 136, 136); float: left; display: block; visibility: visible; min-width: 14px;
+}
+.top-vote .vote-tip {
+	top: 0px; color: rgb(136, 136, 136); text-decoration: none; display: none; position: absolute;
+}
+.top-vote .voted-tip {
+	top: 0px; color: rgb(136, 136, 136); text-decoration: none; display: none; position: absolute;
+}
+.top-vote.top-tool-icon:hover {
+	text-decoration: none;
+}
+.top-vote.top-tool-icon:hover .vote-count {
+	visibility: hidden;
+}
+.top-vote.top-tool-icon:hover .vote-tip {
+	color: rgb(77, 138, 200); display: block;
+}
+.top-vote.top-tool-icon:hover .cmn-icon {
+	visibility: hidden;
+}
+.top-vote.top-tool-icon.voted {
+	color: rgb(136, 136, 136);
+}
+.top-vote.top-tool-icon.voted .vote-tip {
+	display: none;
+}
+.top-vote.top-tool-icon.voted .cmn-icon {
+	color: rgb(204, 204, 204) !important;
+}
+.top-vote.top-tool-icon.voted:hover {
+	text-decoration: none;
+}
+.top-vote.top-tool-icon.voted:hover .voted-tip {
+	display: block;
+}
+.yidian-doctor-icon {
+	border-radius: 9px; border: 1px solid rgb(2, 183, 202); border-image: none; height: 14px; color: rgb(92, 208, 220); line-height: 14px; padding-right: 2px; margin-right: 10px; vertical-align: 1px; display: inline-block;
+}
+.yidian-doctor-icon strong {
+	margin: 0px -5.5px; font-weight: 400; vertical-align: 1px; display: inline-block; transform: scale(0.84);
+}
+.yidian-doctor-icon-tip {
+	margin: -1px 0px 0px -1px; width: 16px; height: 16px; vertical-align: bottom; display: inline-block; background-image: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/basicElement/yidianDoctorIcon/img/yidian_doctor_icon_v3_bfee3d1.png"); background-size: 100% 100%;
+}
+.wiki-lemma .lemmaWgt-albumList-poster {
+	width: 330px; float: left; position: relative;
+}
+.wiki-lemma .lemmaWgt-albumList-poster dt {
+	margin: 0px 0px 10px; font-size: 16px; font-weight: 700;
+}
+.wiki-lemma .lemmaWgt-albumList-poster dt em {
+	color: rgb(82, 163, 245);
+}
+.wiki-lemma .lemmaWgt-albumList-poster dt a {
+	padding: 0px 8px 0px 0px; color: rgb(102, 102, 102); line-height: 24px; font-size: 12px; font-weight: 400; float: right;
+}
+.wiki-lemma .lemmaWgt-albumList-poster dd.lemmaWgt-albumList-poster_viewport {
+	height: 102px;
+}
+.wiki-lemma .lemmaWgt-albumList-poster dd.lemmaWgt-albumList-poster_viewport a {
+	margin: 0px 8px 0px 0px; width: 102px; height: 102px; text-decoration: none; float: left; position: relative;
+}
+.wiki-lemma .lemmaWgt-albumList-poster dd.lemmaWgt-albumList-poster_viewport a:hover .album-desc {
+	opacity: 1;
+}
+.wiki-lemma .lemmaWgt-albumList-poster dd.lemmaWgt-albumList-poster_viewport a img {
+	width: 102px; height: 102px; text-decoration: none; display: block;
+}
+.wiki-lemma .lemmaWgt-albumList-poster dd.lemmaWgt-albumList-poster_viewport a .album-desc {
+	background: rgba(82, 163, 245, 0.75); transition:0.15s linear; left: 0px; top: 0px; width: 100%; height: 100%; text-decoration: none; position: absolute; opacity: 0; -webkit-transition: .15s linear;
+}
+.wiki-lemma .lemmaWgt-albumList-poster dd.lemmaWgt-albumList-poster_viewport a .album-desc em {
+	margin: 20px auto 8px; width: 34px; color: rgb(255, 255, 255); font-size: 24px; text-decoration: none; display: block;
+}
+.wiki-lemma .lemmaWgt-albumList-poster dd.lemmaWgt-albumList-poster_viewport a .album-desc .album-desc_content {
+	padding: 0px 15px; height: 36px; text-align: center; color: rgb(255, 255, 255); line-height: 18px; overflow: hidden; font-size: 14px; text-decoration: none;
+}
+.album-list {
+	margin: 30px 0px;
+}
+.album-list .header {
+	background: rgb(245, 245, 245); height: 40px; clear: both; border-bottom-color: rgb(224, 224, 224); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.album-list .header .title {
+	line-height: 40px; padding-left: 10px; font-family: Microsoft YaHei,sans-serif; font-size: 19px;
+}
+.album-list .header .more-link {
+	background: rgb(250, 250, 250); padding: 0px 10px; border: 1px solid rgb(204, 204, 204); border-image: none; width: 56px; height: 22px; line-height: 22px; font-size: 12px; text-decoration: none; margin-top: 8px; margin-right: 10px; float: right; display: block; position: relative;
+}
+.album-list .header .more-link em {
+	top: 7px; width: 0px; height: 0px; right: 10px; border-top-color: transparent; border-bottom-color: transparent; border-left-color: rgb(77, 138, 200); border-top-width: 4px; border-bottom-width: 4px; border-left-width: 4px; border-top-style: solid; border-bottom-style: solid; border-left-style: solid; display: block; position: absolute;
+}
+.album-list .scroller {
+	width: 790px; height: 213px; overflow: hidden;
+}
+.album-list .list {
+	overflow: hidden; margin-top: 15px; position: relative;
+}
+.album-list .list .lemma-album {
+	margin-top: 0px; margin-right: 15px; float: left;
+}
+.album-list .list .lemma-album.last {
+	margin-right: 0px;
+}
+.album-list .list .lemma-album .description {
+	height: 18px; overflow: hidden; white-space: nowrap;
+}
+.album-list .footer {
+	margin-top: 15px; border-bottom-color: rgb(224, 224, 224); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.album-list .footer .module-pager {
+	margin-top: 15px; margin-bottom: 15px;
+}
+.wiki-lemma .lemmaWgt-baseInfo-simple-largeMovie {
+	margin: 8px 0px 0px; width: 310px; color: rgb(238, 238, 238); overflow: hidden; padding-right: 20px; font-size: 14px; float: left; table-layout: fixed;
+}
+.wiki-lemma .lemmaWgt-baseInfo-simple-largeMovie tbody tr {
+	height: 26px; line-height: 26px;
+}
+.wiki-lemma .lemmaWgt-baseInfo-simple-largeMovie tbody tr td {
+	overflow: hidden; white-space: nowrap; -ms-word-wrap: normal; -ms-text-overflow: ellipsis;
+}
+.wiki-lemma .lemmaWgt-baseInfo-simple-largeMovie tbody tr td.lemmaWgt-baseInfo_key {
+	width: 70px; color: rgb(170, 170, 170);
+}
+.wiki-lemma .lemmaWgt-baseInfo-simple-largeMovie tbody tr td.lemmaWgt-baseInfo_value {
+	width: 240px; max-width: 240px;
+}
+.wiki-lemma .lemmaWgt-baseInfo-simple-largeMovie tbody tr td.lemmaWgt-baseInfo_value .movie-rate {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/baseInfo/resource/img/star-gray_552a158.png"); margin: 4px 7px 0px 0px; width: 85px; height: 21px; float: left; position: relative;
+}
+.wiki-lemma .lemmaWgt-baseInfo-simple-largeMovie tbody tr td.lemmaWgt-baseInfo_value .movie-rate .movie-rate-cover {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/baseInfo/resource/img/star-blue_a469424.png"); transition:1s ease-out; left: 0px; top: 0px; width: 0px; height: 100%; position: absolute; -webkit-transition: 1s ease-out;
+}
+.wiki-lemma .lemmaWgt-baseInfo-simple-largeMovie tbody tr td.lemmaWgt-baseInfo_value .movie-point {
+	color: rgb(82, 163, 245); font-size: 20px; float: left;
+}
+.wiki-lemma .lemmaWgt-baseInfo-simple-largeStar {
+	margin: 8px 0px 0px; width: 310px; overflow: hidden; padding-right: 20px; font-size: 14px; float: left; table-layout: fixed;
+}
+.wiki-lemma .lemmaWgt-baseInfo-simple-largeStar tbody tr {
+	height: 26px; line-height: 26px;
+}
+.wiki-lemma .lemmaWgt-baseInfo-simple-largeStar tbody tr td {
+	overflow: hidden; white-space: nowrap; -ms-word-wrap: normal; -ms-text-overflow: ellipsis;
+}
+.wiki-lemma .lemmaWgt-baseInfo-simple-largeStar tbody tr td.lemmaWgt-baseInfo_key {
+	width: 70px; color: rgb(102, 102, 102);
+}
+.wiki-lemma .lemmaWgt-baseInfo-simple-largeStar tbody tr td.lemmaWgt-baseInfo_value {
+	width: 240px; max-width: 240px;
+}
+.wiki-lemma .lemmaWgt-baseInfo-simple-largeStar-light {
+	color: rgb(238, 238, 238);
+}
+.wiki-lemma .lemmaWgt-baseInfo-simple-largeStar-light tbody tr td.lemmaWgt-baseInfo_key {
+	color: rgb(187, 187, 187);
+}
+.basic-info {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/basicInfo/img/basicInfo-bg_ccaff81.png"); margin: 20px 0px 35px; clear: both;
+}
+.basic-info .basicInfo-block {
+	width: 395px; float: left;
+}
+.basic-info .basicInfo-block .basicInfo-item {
+	margin: 0px; padding: 0px; line-height: 26px; float: left; display: block;
+}
+.basic-info .basicInfo-block .basicInfo-item.name {
+	padding: 0px 5px 0px 12px; width: 90px; color: rgb(153, 153, 153); overflow: hidden; font-weight: 700; white-space: nowrap; -ms-word-wrap: normal; -ms-text-overflow: ellipsis;
+}
+.basic-info .basicInfo-block .basicInfo-item.value {
+	width: 285px; color: rgb(51, 51, 51); float: left; position: relative; -ms-word-break: break-all; -ms-zoom: 1;
+}
+.basic-info .toggle {
+	width: 40px; text-align: right; right: 0px; bottom: 0px; color: rgb(153, 153, 153); display: block; position: absolute; z-index: 1; cursor: pointer;
+}
+.basic-info .toggle:hover {
+	text-decoration: none;
+}
+.basic-info .toggle .arrow {
+	left: 0px; top: 3px; width: 0px; height: 0px; display: block; position: absolute;
+}
+.basic-info .toggle.toCollapse .arrow {
+	border-right-color: transparent; border-bottom-color: rgb(180, 180, 180); border-left-color: transparent; border-right-width: 5px; border-bottom-width: 4px; border-left-width: 5px; border-right-style: solid; border-bottom-style: solid; border-left-style: solid;
+}
+.basic-info .toggle.toCollapse .arrow.arrow-border {
+	top: 11px;
+}
+.basic-info .toggle.toCollapse .arrow.arrow-bg {
+	top: 12px; border-bottom-color: rgb(255, 255, 255);
+}
+.basic-info .toggle.toExpand .arrow {
+	border-top-color: rgb(180, 180, 180); border-right-color: transparent; border-left-color: transparent; border-top-width: 4px; border-right-width: 5px; border-left-width: 5px; border-top-style: solid; border-right-style: solid; border-left-style: solid;
+}
+.basic-info .toggle.toExpand .arrow.arrow-border {
+	top: 12px;
+}
+.basic-info .toggle.toExpand .arrow.arrow-bg {
+	top: 11px; border-top-color: rgb(255, 255, 255);
+}
+.basic-info .basicInfo-overlap {
+	background: rgb(255, 255, 255); padding: 0px 4px 0px 2px; border: 1px solid rgb(212, 212, 212); border-image: none; left: -100px; top: -1px; overflow: hidden; float: none; visibility: hidden; position: absolute; z-index: 1; box-shadow: 0px 1px 5px #ddd;
+}
+.basic-info .basicInfo-overlap .basicInfo-block.overlap {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/basicInfo/img/basicInfo-bg_ccaff81.png") rgb(255, 255, 255); width: 390px; overflow: hidden; float: none;
+}
+.basic-info .basicInfo-overlap .basicInfo-block.overlap .name {
+	padding-left: 2px;
+}
+.custom-title.headline-1 {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/customTitle/img/title-line_743dba1.png") repeat-x; margin: 35px 0px 15px -30px; line-height: 22px; overflow: hidden; clear: both; font-family: "Microsoft Yahei",SimHei,Verdana; font-size: 22px; font-weight: 500; border-left-color: rgb(79, 156, 238); border-left-width: 12px; border-left-style: solid; display: block; position: relative; -ms-zoom: 1;
+}
+.custom-title.headline-1 .headline-content {
+	background: rgb(255, 255, 255); padding: 0px 8px 0px 18px; color: rgb(0, 0, 0); line-height: 1;
+}
+.custom-title.headline-1 .custom-text {
+	background: rgb(255, 255, 255); color: rgb(136, 136, 136); padding-left: 10px; font-family: simSun; font-size: 12px; float: right; display: block;
+}
+.custom-title.headline-1.noLineBg {
+	background: 0px 0px;
+}
+.enterprisePgc .custom-title.headline-1 {
+	background: 0px 0px; color: rgb(19, 130, 237);
+}
+.building .custom-title.headline-1 {
+	background: 0px 0px; color: rgb(19, 130, 237);
+}
+.edit-prompt {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/editPrompt/img/edit-prompt_fc8eae6.png") no-repeat 12px rgb(249, 249, 249); margin: 10px 0px; width: 755px; height: 37px; color: rgb(102, 102, 102); line-height: 37px; padding-left: 35px; clear: both; font-size: 12px;
+}
+.edit-prompt .edit-prompt-link {
+	color: rgb(19, 110, 194); text-decoration: none; cursor: pointer;
+}
+.edit-prompt .edit-prompt-link:hover {
+	text-decoration: underline;
+}
+.edit-prompt .edit-prompt-upgrade {
+	color: rgb(19, 110, 194); text-decoration: none;
+}
+.small-screen .edit-prompt {
+	width: 655px;
+}
+.lemmaWgt-lemmaCatalog {
+	margin: 35px 0px;
+}
+.lemmaWgt-lemmaCatalog::after {
+	height: 0px; overflow: hidden; clear: both; font-size: 0px; display: block; visibility: hidden; content: "\0020";
+}
+.lemmaWgt-lemmaCatalog .lemma-catalog {
+	background: rgb(251, 251, 251); font-family: arial,tahoma,"Microsoft Yahei","宋体",sans-serif; border-top-color: rgb(221, 221, 221); border-bottom-color: rgb(221, 221, 221); border-top-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid; float: left;
+}
+.lemmaWgt-lemmaCatalog .lemma-catalog .block-title {
+	margin: 22px 0px 0px 20px; width: 62px; height: 48px; text-align: center; line-height: 48px; font-size: 18px; font-weight: 400; float: left;
+}
+.lemmaWgt-lemmaCatalog .lemma-catalog .catalog-list {
+	width: 706px; overflow: hidden; padding-top: 15px; padding-bottom: 20px; border-left-color: rgb(235, 235, 235); border-left-width: 1px; border-left-style: solid; float: left; display: block; position: relative; background-color: rgb(255, 255, 255);
+}
+.lemmaWgt-lemmaCatalog .lemma-catalog .catalog-list ol {
+	border-left-color: rgb(245, 245, 245); border-left-width: 1px; border-left-style: solid; float: left;
+}
+.lemmaWgt-lemmaCatalog .lemma-catalog .catalog-list ol:first-child {
+	border-left-color: currentColor; border-left-width: 0px; border-left-style: none;
+}
+.lemmaWgt-lemmaCatalog .lemma-catalog .catalog-list ol li.level1 {
+	line-height: 28px;
+}
+.lemmaWgt-lemmaCatalog .lemma-catalog .catalog-list ol li.level1 .index {
+	width: 18px; text-align: right; color: rgb(99, 160, 223); padding-right: 8px; padding-left: 20px; font-size: 16px; vertical-align: top; display: inline-block; -moz-box-orient: vertical;
+}
+.lemmaWgt-lemmaCatalog .lemma-catalog .catalog-list ol li.level1 .text {
+	width: 120px; font-size: 16px; font-weight: 500; vertical-align: top; display: inline-block; background-color: rgb(255, 255, 255); -moz-box-orient: vertical;
+}
+.lemmaWgt-lemmaCatalog .lemma-catalog .catalog-list ol li.level1 .text a {
+	color: rgb(19, 110, 194);
+}
+.lemmaWgt-lemmaCatalog .lemma-catalog .catalog-list ol li.level2 {
+	line-height: 21px;
+}
+.lemmaWgt-lemmaCatalog .lemma-catalog .catalog-list ol li.level2 .index {
+	width: 5px; color: rgb(204, 204, 204); line-height: 16px; padding-right: 5px; padding-left: 41px; font-size: 12px; vertical-align: top; display: inline-block; -moz-box-orient: vertical;
+}
+.lemmaWgt-lemmaCatalog .lemma-catalog .catalog-list ol li.level2 .text {
+	width: 115px; line-height: 16px; font-size: 12px; vertical-align: top; display: inline-block; -moz-box-orient: vertical;
+}
+.lemmaWgt-lemmaCatalog .lemma-catalog .catalog-list ol li.level2 .text a {
+	color: rgb(51, 51, 51);
+}
+.lemmaWgt-lemmaCatalog .lemma-catalog .column-1 {
+	width: auto;
+}
+.lemmaWgt-lemmaCatalog .lemma-catalog .column-1 ol {
+	width: 234.33px;
+}
+.lemmaWgt-lemmaCatalog .lemma-catalog .column-1 ol li.level1 .text {
+	width: 180px;
+}
+.lemmaWgt-lemmaCatalog .lemma-catalog .column-1 ol li.level2 .text {
+	width: 175px;
+}
+.lemmaWgt-lemmaCatalog .lemma-catalog .column-3 {
+	width: auto;
+}
+.lemmaWgt-lemmaCatalog .lemma-catalog .column-3 ol {
+	width: 175.5px;
+}
+.lemmaWgt-lemmaCatalog .lemma-catalog .column-4 ol {
+	width: 175.5px;
+}
+.lemmaWgt-crumb {
+	padding-top: 20px; font-size: 14px; margin-bottom: 20px;
+}
+.lemma-picture.text-pic {
+	margin: 0px 0px 3px; position: relative;
+}
+.lemma-picture.layout-right {
+	clear: right; margin-left: 0px; float: right;
+}
+.lemma-picture.layout-left {
+	margin-left: 0px; float: left;
+}
+.lemma-picture.layout-center {
+	clear: both; margin-right: auto; margin-left: auto; float: none; display: block;
+}
+.lemma-picture.layout-panorama {
+	max-width: 790px !important;
+}
+.lemma-picture.layout-panorama .scrollx {
+	-ms-overflow-x: auto; -ms-overflow-y: hidden;
+}
+.lemma-picture.layout-panorama .scrolly {
+	-ms-overflow-x: hidden; -ms-overflow-y: auto;
+}
+.lemma-picture.layout-panorama .scrolly.scrollx {
+	-ms-overflow-x: auto;
+}
+.lemma-picture.layout-abreast {
+	margin: 0px 5px 0px 0px; display: inline-block;
+}
+.small-screen .lemma-picture.layout-panorama {
+	width: 690px !important;
+}
+.lemma-reference {
+	clear: both; margin-top: 30px; margin-bottom: 30px;
+}
+.lemma-reference dt.reference-title {
+	margin: 0px !important; padding: 0px !important; line-height: 45px; font-family: "Microsoft YaHei",sans-serif; font-size: 19px; font-weight: 200; border-bottom-color: rgb(204, 204, 204); border-bottom-width: 2px; border-bottom-style: solid;
+}
+.lemma-reference .toggle {
+	background: rgb(245, 245, 245); margin: 20px 0px -10px; border-radius: 2px; width: 90px; height: 28px; text-align: center; color: rgb(51, 51, 51); line-height: 28px; font-size: 0px; cursor: pointer;
+}
+.lemma-reference .toggle .text {
+	font-size: 12px;
+}
+.lemma-reference .toggle .toggle-arrow {
+	width: 8px; height: 5px; margin-left: 4px; vertical-align: 2px; display: inline-block;
+}
+.lemma-reference.expand .toggle-arrow {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaReference/img/reference_toggle_bb6573e.png") no-repeat -10px 0px;
+}
+.lemma-reference.expand .more {
+	display: block;
+}
+.lemma-reference.expand .expand-text {
+	display: none;
+}
+.lemma-reference.expand .collapse-text {
+	display: inline-block;
+}
+.lemma-reference.collapse .toggle-arrow {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaReference/img/reference_toggle_bb6573e.png") no-repeat 0px 0px;
+}
+.lemma-reference.collapse .more {
+	display: none;
+}
+.lemma-reference.collapse .expand-text {
+	display: inline-block;
+}
+.lemma-reference.collapse .collapse-text {
+	display: none;
+}
+.lemma-reference.collapse .reference-list-wrap {
+	overflow: hidden;
+}
+.lemma-reference .reference-list-wrap {
+	color: rgb(51, 51, 51); -ms-word-break: break-all; -ms-word-wrap: break-word;
+}
+.lemma-reference .reference-list-wrap .reference-list {
+	margin: 0px; padding: 0px;
+}
+.lemma-reference .reference-list-wrap .reference-list .reference-item {
+	width: 100%; color: rgb(170, 170, 170); line-height: 20px; font-size: 12px; margin-top: 9px;
+}
+.lemma-reference .reference-list-wrap .reference-list .reference-item.focus {
+	background: rgb(230, 240, 248);
+}
+.lemma-reference .reference-list-wrap .reference-list .reference-item a {
+	color: rgb(102, 102, 102); text-decoration: none;
+}
+.lemma-reference .reference-list-wrap .reference-list .reference-item a:hover {
+	border-bottom-color: rgb(102, 102, 102); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.lemma-reference .reference-list-wrap .reference-list .reference-item .index {
+	color: rgb(102, 102, 102); float: left;
+}
+.lemma-reference .reference-list-wrap .reference-list .reference-item .gotop {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaReference/img/view_reference_19e8a75.gif") no-repeat 0px -14px; width: 15px; height: 14px; overflow: hidden; text-decoration: none; margin-top: 3px; margin-right: 4px; float: left; display: inline-block; _zoom: 1;
+}
+.lemma-reference .reference-list-wrap .reference-list .reference-item .gotop:hover {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaReference/img/view_reference_19e8a75.gif") no-repeat 0px -30px;
+}
+.lemma-reference .reference-list-wrap .reference-list .reference-item .linkout {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaReference/img/view_reference_19e8a75.gif") no-repeat right 2px; padding-right: 18px;
+}
+.lemma-reference .reference-list-wrap .reference-list .reference-item.reference-item--type4 .link-text {
+	padding-right: 15px; position: relative;
+}
+.lemma-reference .reference-list-wrap .reference-list .reference-item.reference-item--type4 .link-text .wiki-lemma-icons_img {
+	top: 0.5px; right: 3px; position: absolute;
+}
+.reference-tip {
+	border: 1px solid rgb(150, 170, 198); border-image: none; display: none; position: absolute; z-index: 1001;
+}
+.reference-tip .content {
+	padding: 15px; width: 220px; line-height: 1.5; -ms-word-break: break-all; max-width: 220px; background-color: rgb(250, 252, 255);
+}
+.reference-tip .reference-tip__item {
+	margin: 4px 0px; font-size: 12px; cursor: pointer;
+}
+.reference-tip .reference-tip__item.reference-tip__item--type4 .img-preview-container a {
+	padding-right: 0px;
+}
+.reference-tip .reference-tip__item.reference-tip__item--type4 .img-preview-container .img-preview-container__img {
+	background-position: center; border: 1px solid rgb(204, 204, 204); border-image: none; width: 22px; height: 32px; display: inline-block; background-repeat: no-repeat; background-size: contain;
+}
+.reference-tip .reference-tip__item.reference-tip__item--type4 .wiki-lemma-icons_img {
+	margin: 0px 4px; top: 2px; position: relative;
+}
+.reference-tip .reference-tip__item.reference-tip__item--type4 .type4-detail-link {
+	display: block;
+}
+.reference-tip .reference-tip__item.reference-tip__item--type4 .reference-tip__item--type4__content {
+	position: relative;
+}
+.reference-tip .reference-tip__item.reference-tip__item--type4 .reference-tip__item--type4__content .type4__remarks {
+	color: rgb(153, 153, 153);
+}
+.reference-tip .reference-tip__item.reference-tip__item--type4 .reference-tip__item--type4__content.has-doubt {
+	padding-right: 68px;
+}
+.reference-tip .reference-tip__item.reference-tip__item--type4 .reference-tip__item--type4__content.has-doubt .doubt-tag {
+	border-width: 1px 1px 1px 0px; border-style: solid solid solid none; border-color: rgb(244, 136, 46) rgb(244, 136, 46) rgb(244, 136, 46) currentColor; padding: 0px 4px; border-image: none; top: 0px; height: 16px; right: 0px; color: rgb(244, 136, 46); line-height: 16px; position: absolute;
+}
+.reference-tip .reference-tip__item.reference-tip__item--type4 .reference-tip__item--type4__content.has-doubt .doubt-tag::before {
+	left: -9px; top: -1px; width: 0px; height: 0px; border-top-color: transparent; border-right-color: rgb(244, 136, 46); border-bottom-color: transparent; border-top-width: 9px; border-right-width: 9px; border-bottom-width: 9px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; position: absolute; content: "";
+}
+.reference-tip .reference-tip__item.reference-tip__item--type4 .reference-tip__item--type4__content.has-doubt .doubt-tag::after {
+	left: -8px; top: 0px; width: 0px; height: 0px; border-top-color: transparent; border-right-color: rgb(255, 255, 255); border-bottom-color: transparent; border-top-width: 8px; border-right-width: 8px; border-bottom-width: 8px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; position: absolute; content: "";
+}
+.reference-tip .reference-tip__item a:link {
+	outline: 0px; text-decoration: none;
+}
+.reference-tip .reference-tip__item a:visited {
+	outline: 0px; text-decoration: none;
+}
+.reference-tip .reference-tip__item a:hover {
+	outline: 0px; text-decoration: none;
+}
+.reference-tip .reference-tip__item a:active {
+	outline: 0px; text-decoration: none;
+}
+.reference-tip .title {
+	padding: 2px 0px; top: 0px; width: 20px; height: 100%; text-align: center; right: 0px; color: rgb(255, 255, 255); vertical-align: middle; background-color: rgb(150, 170, 198);
+}
+.reference-tip .triangle-bg {
+	left: 10px; width: 0px; height: 0px; position: absolute;
+}
+.reference-tip .triangle-border {
+	left: 10px; width: 0px; height: 0px; position: absolute;
+}
+.reference-tip .triangle-bg {
+	top: -8px; border-right-color: transparent; border-bottom-color: rgb(250, 252, 255); border-left-color: transparent; border-right-width: 8px; border-bottom-width: 10px; border-left-width: 8px; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; z-index: 1;
+}
+.reference-tip .triangle-border {
+	top: -10px; border-right-color: transparent; border-bottom-color: rgb(150, 170, 198); border-left-color: transparent; border-right-width: 8px; border-bottom-width: 10px; border-left-width: 8px; border-right-style: solid; border-bottom-style: solid; border-left-style: solid;
+}
+span.ref.with-ctr {
+	background: rgba(173, 179, 185, 0.2);
+}
+sup {
+	padding: 0px 2px; top: -0.5em; color: rgb(51, 102, 204); margin-left: 2px; vertical-align: baseline; white-space: nowrap; position: relative; cursor: pointer;
+}
+sup.sup--hasDoubtStatus {
+	color: rgb(244, 136, 46);
+}
+sup.sup--noDoubtStatus {
+	color: rgb(51, 102, 204);
+}
+.sup-anchor {
+	top: -50px; line-height: 0; font-size: 0px; position: relative;
+}
+.lemma-paper-box {
+	clear: both;
+}
+.lemma-paper {
+	margin-top: 30px; margin-bottom: 30px;
+}
+.lemma-paper dt.paper-title {
+	margin: 0px !important; padding: 0px !important; border-bottom-color: rgb(204, 204, 204); border-bottom-width: 2px; border-bottom-style: solid; position: relative;
+}
+.lemma-paper dt.paper-title .sciencePaper-title {
+	line-height: 45px; font-family: "Microsoft YaHei",sans-serif; font-size: 19px; font-weight: 200;
+}
+.lemma-paper dt.paper-title .sciencePaper-from {
+	top: 15px; right: 5px; color: rgb(153, 153, 153); font-size: 12px; display: inline-block; position: absolute;
+}
+.lemma-paper dt.paper-title .sciencePaper-from .sciencePaper-link {
+	text-decoration: none;
+}
+.lemma-paper dt.paper-title .sciencePaper-from .sciencePaper-link .sciencePaper-logo {
+	width: auto; height: 15px; margin-left: 6px;
+}
+.lemma-paper .toggle {
+	background: rgb(248, 248, 248); margin: 20px 0px -10px; border-radius: 2px; width: 90px; height: 28px; text-align: center; color: rgb(51, 51, 51); line-height: 28px; font-size: 0px; cursor: pointer;
+}
+.lemma-paper .toggle .text {
+	color: rgb(51, 51, 51); font-size: 12px; text-decoration: none; display: block;
+}
+.lemma-paper .sciencePaper-list-wrap {
+	color: rgb(51, 51, 51); -ms-word-break: break-all; -ms-word-wrap: break-word;
+}
+.lemma-paper .sciencePaper-list-wrap .sciencePaper-list {
+	margin: 0px; padding: 0px; font-size: 0px;
+}
+.lemma-paper .sciencePaper-list-wrap .sciencePaper-list .sciencePaper-item {
+	width: 100%; color: rgb(170, 170, 170); line-height: 14px; margin-top: 9px; display: inline-block;
+}
+.lemma-paper .sciencePaper-list-wrap .sciencePaper-list .sciencePaper-item::before {
+	border-radius: 50%; width: 4px; height: 4px; color: rgb(153, 153, 153); margin-right: 6px; margin-left: 6px; vertical-align: 5px; display: inline-block; content: ""; background-color: rgb(153, 153, 153);
+}
+.lemma-paper .sciencePaper-list-wrap .sciencePaper-list .sciencePaper-item a {
+	color: rgb(102, 102, 102); text-decoration: none;
+}
+.lemma-paper .sciencePaper-list-wrap .sciencePaper-list .sciencePaper-item a:hover {
+	border-bottom-color: rgb(102, 102, 102); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.lemma-paper .sciencePaper-list-wrap .sciencePaper-list .sciencePaper-item .interrupt {
+	margin: 0px; overflow: hidden; font-size: 12px; white-space: nowrap; -ms-text-overflow: ellipsis;
+}
+.lemma-paper .sciencePaper-list-wrap .sciencePaper-list .sciencePaper-item .punctuation {
+	display: inline-block;
+}
+.lemma-paper .sciencePaper-list-wrap .sciencePaper-list .sciencePaper-item .title {
+	display: inline-block; max-width: 384px;
+}
+.lemma-paper .sciencePaper-list-wrap .sciencePaper-list .sciencePaper-item .authors {
+	display: inline-block; max-width: 180px;
+}
+.lemma-paper .sciencePaper-list-wrap .sciencePaper-list .sciencePaper-item .publishedAt {
+	display: inline-block; max-width: 120px;
+}
+.lemma-paper .sciencePaper-list-wrap .sciencePaper-list .sciencePaper-item .time {
+	display: inline-block;
+}
+.lemma-paper .sciencePaper-list-wrap .sciencePaper-list .sciencePaper-item.focus {
+	background: rgb(230, 240, 248);
+}
+.lemma-statistics dt.title {
+	color: rgb(85, 85, 85); font-family: arial; font-weight: 700;
+}
+.lemma-statistics .description {
+	padding-bottom: 6px;
+}
+.lemma-statistics .excellent-description {
+	padding-bottom: 0px;
+}
+.lemma-statistics .split-line {
+	border-bottom-color: rgb(230, 230, 230); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.lemma-statistics .right {
+	float: right;
+}
+.lemma-statistics .right img {
+	height: 15px;
+}
+.lemma-statistics .contribute-flag-icon {
+	top: 3px; height: 16px; position: relative;
+}
+.lemma-statistics .contribute-flag-container {
+	width: 16px; display: inline-block;
+}
+.lemma-statistics .show-userCard {
+	color: rgb(102, 102, 102);
+}
+.lemma-statistics .latest-title {
+	float: left;
+}
+.lemma-statistics .latest-content {
+	width: 172px; display: inline-block; -ms-word-break: break-all;
+}
+.wiki-lemma .lemmaWgt-lemmaSummary {
+	line-height: 24px; text-indent: 2em; padding-bottom: 10px; font-size: 14px; border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.wiki-lemma .lemmaWgt-lemmaSummary .lemmaWgt-lemmaSummary-more {
+	outline: 0px; color: rgb(120, 120, 120); text-decoration: none;
+}
+.wiki-lemma .lemmaWgt-lemmaSummary .lemmaWgt-lemmaSummary-more:hover {
+	color: rgb(51, 141, 230);
+}
+.wiki-lemma .lemmaWgt-lemmaSummary-light {
+	color: rgb(238, 238, 238);
+}
+.wiki-lemma .lemmaWgt-lemmaSummary-light .lemmaWgt-lemmaSummary-more {
+	color: rgb(187, 187, 187);
+}
+.lemma-summary {
+	color: rgb(51, 51, 51); line-height: 24px; text-indent: 2em; clear: both; font-size: 14px; margin-bottom: 15px; -ms-zoom: 1; -ms-word-wrap: break-word;
+}
+#open-tag {
+	line-height: 30px; overflow: hidden; padding-top: 8px; padding-bottom: 8px; clear: both; margin-bottom: 30px; border-top-color: rgb(204, 204, 204); border-bottom-color: rgb(230, 230, 230); border-top-width: 2px; border-bottom-width: 0px; border-top-style: solid; border-bottom-style: solid; position: relative;
+}
+#open-tag::after {
+	height: 0px; overflow: hidden; clear: both; font-size: 0px; display: block; visibility: hidden; content: "\0020";
+}
+#open-tag dd {
+	padding-left: 75px;
+}
+.open-tag {
+	padding: 1px 4px; border: 1px solid rgb(230, 230, 230); border-image: none; color: rgb(102, 102, 102); text-decoration: none; margin-right: 5px; margin-bottom: 5px; vertical-align: middle; display: inline-block; white-space: nowrap; background-color: rgb(245, 245, 245);
+}
+.open-tag:hover {
+	color: rgb(51, 102, 204); text-decoration: underline;
+}
+.open-tag-title {
+	height: 20px; font-weight: 700; margin-right: 15px; float: left;
+}
+.open-tag-collapse {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaTag/img/toggle_08dde48.png") no-repeat 1px 8px; margin: 10px; top: 0px; width: 10px; right: 0px; float: left; position: absolute; cursor: pointer;
+}
+.collapse .open-tag-collapse {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaTag/img/toggle_08dde48.png") no-repeat -9px 8px;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle {
+	margin: 0px 0px 10px; width: 700px; font-family: arial,tahoma,"Microsoft Yahei","宋体",sans-serif;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemmaWgt-lemmaTitle-logo {
+	margin: -10px 10px 0px 0px; float: left;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemmaWgt-lemmaTitle-logo img {
+	width: 80px; height: 80px; display: block;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemmaWgt-lemmaTitle-title {
+	margin: 0px 0px 5px; line-height: 39px;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemmaWgt-lemmaTitle-title h1 {
+	margin: 0px 10px 0px 0px; line-height: 1.15; font-size: 34px; font-weight: 400; vertical-align: sub; display: inline;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemmaWgt-lemmaTitle-title h2 {
+	margin: 0px 10px 0px -10px; font-size: 20px; font-weight: 400; vertical-align: sub; display: inline;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemmaWgt-lemmaTitle-title a {
+	top: -2px; position: relative;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemmaWgt-lemmaTitle-subTitle {
+	margin: -5px 0px 5px;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemmaWgt-lemmaTitle-subTitle h3 {
+	font-size: 14px; font-weight: 400;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemmaWgt-lemmaTitle-keyInfo {
+	background: rgb(238, 247, 253); padding: 5px 2px 4px 10px; color: rgb(71, 72, 73); line-height: 1; font-size: 14px; margin-top: 5px; vertical-align: middle; border-left-color: rgb(82, 163, 245); border-left-width: 3px; border-left-style: solid; display: inline-block; -moz-box-orient: vertical;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemmaWgt-lemmaTitle-keyInfo ul {
+	
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemmaWgt-lemmaTitle-keyInfo ul::after {
+	height: 0px; overflow: hidden; clear: both; font-size: 0px; display: block; visibility: hidden; content: "\0020";
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemmaWgt-lemmaTitle-keyInfo ul li {
+	padding: 0px 8px; border-left-color: rgb(209, 223, 232); border-left-width: 1px; border-left-style: solid; float: left;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemmaWgt-lemmaTitle-keyInfo ul li:first-child {
+	border: 0px currentColor; border-image: none; padding-left: 0px;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemmaWgt-lemmaTitle-keyInfo-with-link {
+	background: 0px 0px; padding: 0px; border-left-color: currentColor; border-left-width: 0px; border-left-style: none;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemmaWgt-lemmaTitle-keyInfo-with-link ul li {
+	background: rgb(239, 247, 255); padding: 5px; border: 1px solid rgb(223, 241, 252); border-image: none; margin-right: 5px;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemmaWgt-lemmaTitle-keyInfo-with-link ul li a {
+	color: rgb(61, 140, 219);
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemmaWgt-lemmaTitle-keyInfo-with-link ul li:first-child {
+	border: 1px solid rgb(223, 241, 252); border-image: none; padding-left: 5px;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemmaWgt-lemmaTitle-keyInfo-yidian-doctor {
+	margin-bottom: 10px;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemmaWgt-lemmaTitle-keyInfo-yidian-doctor .lemmaWgt-lemmaTitle-keyInfo-yidian-doctor-tag {
+	color: rgb(153, 153, 153);
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .lemmaWgt-lemmaTitle-keyInfo-yidian-doctor .lemmaWgt-lemmaTitle-keyInfo-yidian-doctor-tag-first {
+	border: 0px currentColor; border-image: none;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle .subTitle {
+	height: 16px; line-height: 12px; padding-top: 7px; clear: both; font-size: 16px;
+}
+.wiki-lemma .lemmaWgt-lemmaTitle-light .lemmaWgt-lemmaTitle-title h1 {
+	color: rgb(255, 255, 255);
+}
+.wiki-lemma .lemmaWgt-lemmaTitle-light .lemmaWgt-lemmaTitle-title h2 {
+	color: rgb(238, 238, 238);
+}
+.wiki-lemma .lemmaWgt-lemmaTitle-light .lemmaWgt-lemmaTitle-subTitle h3 {
+	color: rgb(238, 238, 238);
+}
+.small-feature .lemmaWgt-lemmaTitle .lemmaWgt-lemmaTitle-title h1 {
+	font-size: 38px;
+}
+.small-feature .lemmaWgt-lemmaTitle .lemmaWgt-lemmaTitle-subTitle {
+	margin-top: 0px;
+}
+.small-feature .lemmaWgt-lemmaTitle .lemmaWgt-lemmaTitle-subTitle h3 {
+	font-size: 16px;
+}
+.wiki-lemma.large-feature .poster-top .lemmaWgt-lemmaTitle {
+	width: 894px;
+}
+.wiki-lemma.large-feature .poster-top .lemmaWgt-lemmaTitle .lemmaWgt-lemmaTitle-title h1 {
+	font-size: 42px;
+}
+.history .lemmaWgt-lemmaTitle .lemmaWgt-lemmaTitle-title h1 {
+	background-position: right 9px; padding-right: 30px; background-repeat: no-repeat;
+}
+.history .lemmaWgt-lemmaTitle .lemmaWgt-lemmaTitle-title h1.complex {
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAV9QTFRFPonUWqLnKnS6/f398vLyKXC3aKPZ8fHxb6fcYZ7WKXC4KnG52lxGM3zFN4HKKnK5L3fAK3S81trfy+L4NX/H9Pf6W5nToM/61+LrcZOzkMLyhavPfbXs0Ob68/PzhKC735SHWpnSdqvfyuP6PIfQpLnOq8HXd63hgaLBPYbQgrXjNX7H6OjoqtT7grXkerPqZaPdfZy64Or06e3wv9nywd76msv49fX1L3jALHa+O4XOMXrDx9/2nbnUaqfegLTnY6DZ297hPofTMXnD5uvv7e3t3HdllsPtj6nBhqXBOYLMi8HyksLvw9v0orzV1ePw439tUZDK0+Pwj7/rO4TO9PT0xt711NneWpnTPojT4uPkn7rTk8TzhLfmcKfdOYPN4ZeKLXa+jr7qgJ25yeT8c63k+vz9ibnnirvp0ef81On9kKjBK3S65eXlZq3w0zYi++MG2EkwQo7W////////V+qY9AAAAHV0Uk5T//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8Am7De6gAAARRJREFUeNpU0GVvwzAQgGEnabJyxwwdMzN2W8fMzEx26P6/Flt27JyUSHmfDzkdgmDc6NAEiIFtO45j87eLFVB6BNTuREF2FY5c5S/uhgR4SocrpfN4XQLUIrTQRAhB6GCgRK4LJ+ji522whlBqAAljqOJ7au/Uf2FyG8LH6v5k/den7/sUtOs1AYcd7bv3Q30CensMDnMTdwVfDNG8sxiHx83G7jbeNU3zdm44ZIffH+Jx1nUvmOwKh/6RJcuyJFRiDpnj5USC1uChkBGwWGy9qg66rjOYHxVQVeqpM3MptoKuWaU/b2EjvNV2Wdj/6vC5ct3OXI7lVOoXq9cFGG8xTTOZfC3H0xABMJoxnZjBv/8FGABoq9hJHp11sQAAAABJRU5ErkJggg==");
+}
+.history .lemmaWgt-lemmaTitle .lemmaWgt-lemmaTitle-title h1.good_0 {
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAACXBIWXMAAAsTAAALEwEAmpwYAAAKTWlDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjanVN3WJP3Fj7f92UPVkLY8LGXbIEAIiOsCMgQWaIQkgBhhBASQMWFiApWFBURnEhVxILVCkidiOKgKLhnQYqIWotVXDjuH9yntX167+3t+9f7vOec5/zOec8PgBESJpHmomoAOVKFPDrYH49PSMTJvYACFUjgBCAQ5svCZwXFAADwA3l4fnSwP/wBr28AAgBw1S4kEsfh/4O6UCZXACCRAOAiEucLAZBSAMguVMgUAMgYALBTs2QKAJQAAGx5fEIiAKoNAOz0ST4FANipk9wXANiiHKkIAI0BAJkoRyQCQLsAYFWBUiwCwMIAoKxAIi4EwK4BgFm2MkcCgL0FAHaOWJAPQGAAgJlCLMwAIDgCAEMeE80DIEwDoDDSv+CpX3CFuEgBAMDLlc2XS9IzFLiV0Bp38vDg4iHiwmyxQmEXKRBmCeQinJebIxNI5wNMzgwAABr50cH+OD+Q5+bk4eZm52zv9MWi/mvwbyI+IfHf/ryMAgQAEE7P79pf5eXWA3DHAbB1v2upWwDaVgBo3/ldM9sJoFoK0Hr5i3k4/EAenqFQyDwdHAoLC+0lYqG9MOOLPv8z4W/gi372/EAe/tt68ABxmkCZrcCjg/1xYW52rlKO58sEQjFu9+cj/seFf/2OKdHiNLFcLBWK8ViJuFAiTcd5uVKRRCHJleIS6X8y8R+W/QmTdw0ArIZPwE62B7XLbMB+7gECiw5Y0nYAQH7zLYwaC5EAEGc0Mnn3AACTv/mPQCsBAM2XpOMAALzoGFyolBdMxggAAESggSqwQQcMwRSswA6cwR28wBcCYQZEQAwkwDwQQgbkgBwKoRiWQRlUwDrYBLWwAxqgEZrhELTBMTgN5+ASXIHrcBcGYBiewhi8hgkEQcgIE2EhOogRYo7YIs4IF5mOBCJhSDSSgKQg6YgUUSLFyHKkAqlCapFdSCPyLXIUOY1cQPqQ28ggMor8irxHMZSBslED1AJ1QLmoHxqKxqBz0XQ0D12AlqJr0Rq0Hj2AtqKn0UvodXQAfYqOY4DRMQ5mjNlhXIyHRWCJWBomxxZj5Vg1Vo81Yx1YN3YVG8CeYe8IJAKLgBPsCF6EEMJsgpCQR1hMWEOoJewjtBK6CFcJg4Qxwicik6hPtCV6EvnEeGI6sZBYRqwm7iEeIZ4lXicOE1+TSCQOyZLkTgohJZAySQtJa0jbSC2kU6Q+0hBpnEwm65Btyd7kCLKArCCXkbeQD5BPkvvJw+S3FDrFiOJMCaIkUqSUEko1ZT/lBKWfMkKZoKpRzame1AiqiDqfWkltoHZQL1OHqRM0dZolzZsWQ8ukLaPV0JppZ2n3aC/pdLoJ3YMeRZfQl9Jr6Afp5+mD9HcMDYYNg8dIYigZaxl7GacYtxkvmUymBdOXmchUMNcyG5lnmA+Yb1VYKvYqfBWRyhKVOpVWlX6V56pUVXNVP9V5qgtUq1UPq15WfaZGVbNQ46kJ1Bar1akdVbupNq7OUndSj1DPUV+jvl/9gvpjDbKGhUaghkijVGO3xhmNIRbGMmXxWELWclYD6yxrmE1iW7L57Ex2Bfsbdi97TFNDc6pmrGaRZp3mcc0BDsax4PA52ZxKziHODc57LQMtPy2x1mqtZq1+rTfaetq+2mLtcu0W7eva73VwnUCdLJ31Om0693UJuja6UbqFutt1z+o+02PreekJ9cr1Dund0Uf1bfSj9Rfq79bv0R83MDQINpAZbDE4Y/DMkGPoa5hpuNHwhOGoEctoupHEaKPRSaMnuCbuh2fjNXgXPmasbxxirDTeZdxrPGFiaTLbpMSkxeS+Kc2Ua5pmutG003TMzMgs3KzYrMnsjjnVnGueYb7ZvNv8jYWlRZzFSos2i8eW2pZ8ywWWTZb3rJhWPlZ5VvVW16xJ1lzrLOtt1ldsUBtXmwybOpvLtqitm63Edptt3xTiFI8p0in1U27aMez87ArsmuwG7Tn2YfYl9m32zx3MHBId1jt0O3xydHXMdmxwvOuk4TTDqcSpw+lXZxtnoXOd8zUXpkuQyxKXdpcXU22niqdun3rLleUa7rrStdP1o5u7m9yt2W3U3cw9xX2r+00umxvJXcM970H08PdY4nHM452nm6fC85DnL152Xlle+70eT7OcJp7WMG3I28Rb4L3Le2A6Pj1l+s7pAz7GPgKfep+Hvqa+It89viN+1n6Zfgf8nvs7+sv9j/i/4XnyFvFOBWABwQHlAb2BGoGzA2sDHwSZBKUHNQWNBbsGLww+FUIMCQ1ZH3KTb8AX8hv5YzPcZyya0RXKCJ0VWhv6MMwmTB7WEY6GzwjfEH5vpvlM6cy2CIjgR2yIuB9pGZkX+X0UKSoyqi7qUbRTdHF09yzWrORZ+2e9jvGPqYy5O9tqtnJ2Z6xqbFJsY+ybuIC4qriBeIf4RfGXEnQTJAntieTE2MQ9ieNzAudsmjOc5JpUlnRjruXcorkX5unOy553PFk1WZB8OIWYEpeyP+WDIEJQLxhP5aduTR0T8oSbhU9FvqKNolGxt7hKPJLmnVaV9jjdO31D+miGT0Z1xjMJT1IreZEZkrkj801WRNberM/ZcdktOZSclJyjUg1plrQr1zC3KLdPZisrkw3keeZtyhuTh8r35CP5c/PbFWyFTNGjtFKuUA4WTC+oK3hbGFt4uEi9SFrUM99m/ur5IwuCFny9kLBQuLCz2Lh4WfHgIr9FuxYji1MXdy4xXVK6ZHhp8NJ9y2jLspb9UOJYUlXyannc8o5Sg9KlpUMrglc0lamUycturvRauWMVYZVkVe9ql9VbVn8qF5VfrHCsqK74sEa45uJXTl/VfPV5bdra3kq3yu3rSOuk626s91m/r0q9akHV0IbwDa0b8Y3lG19tSt50oXpq9Y7NtM3KzQM1YTXtW8y2rNvyoTaj9nqdf13LVv2tq7e+2Sba1r/dd3vzDoMdFTve75TsvLUreFdrvUV99W7S7oLdjxpiG7q/5n7duEd3T8Wej3ulewf2Re/ranRvbNyvv7+yCW1SNo0eSDpw5ZuAb9qb7Zp3tXBaKg7CQeXBJ9+mfHvjUOihzsPcw83fmX+39QjrSHkr0jq/dawto22gPaG97+iMo50dXh1Hvrf/fu8x42N1xzWPV56gnSg98fnkgpPjp2Snnp1OPz3Umdx590z8mWtdUV29Z0PPnj8XdO5Mt1/3yfPe549d8Lxw9CL3Ytslt0utPa49R35w/eFIr1tv62X3y+1XPK509E3rO9Hv03/6asDVc9f41y5dn3m978bsG7duJt0cuCW69fh29u0XdwruTNxdeo94r/y+2v3qB/oP6n+0/rFlwG3g+GDAYM/DWQ/vDgmHnv6U/9OH4dJHzEfVI0YjjY+dHx8bDRq98mTOk+GnsqcTz8p+Vv9563Or59/94vtLz1j82PAL+YvPv655qfNy76uprzrHI8cfvM55PfGm/K3O233vuO+638e9H5ko/ED+UPPR+mPHp9BP9z7nfP78L/eE8/sl0p8zAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAMAUExURY+Pj8PDw5WVlfLy8v39/b29ve3t7cDAwLa2tujo6JCQkM/Pz5iXktDQ0O/v78rKyt3d3ZGRkLu7u9LS0uvr6/Pz89pcRuTk5MTExNPT09/f3/Hx8fDw8MXFxZ2blNvb27e3t52alJ2blbW1te7u7pqXk+Hh4b6+vufn55SSkZSTkc7OzpuZlPb29pKSkZaVkvf39/r6+urq6qKiopeWkt+Uh9nZ2Z2aldjY2KWlpcfHx5mYk+GXipqZlJWUkdra2svLy/X19dbW1pyalJKRkLOzs+N/ba+vr9TU1PT09JuYk9x3ZZeVkpSUkY+QkJaUktzc3K6uruXl5d7e3tM2IvvjBthJMK2trf///////1paWltbW1xcXF1dXV5eXl9fX2BgYGFhYWJiYmNjY2RkZGVlZWZmZmdnZ2hoaGlpaWpqamtra2xsbG1tbW5ubm9vb3BwcHFxcXJycnNzc3R0dHV1dXZ2dnd3d3h4eHl5eXp6ent7e3x8fH19fX5+fn9/f4CAgIGBgYKCgoODg4SEhIWFhYaGhoeHh4iIiImJiYqKiouLi4yMjI2NjY6Ojo+Pj5CQkJGRkZKSkpOTk5SUlJWVlZaWlpeXl5iYmJmZmZqampubm5ycnJ2dnZ6enp+fn6CgoKGhoaKioqOjo6SkpKWlpaampqenp6ioqKmpqaqqqqurq6ysrK2tra6urq+vr7CwsLGxsbKysrOzs7S0tLW1tba2tre3t7i4uLm5ubq6uru7u7y8vL29vb6+vr+/v8DAwMHBwcLCwsPDw8TExMXFxcbGxsfHx8jIyMnJycrKysvLy8zMzM3Nzc7Ozs/Pz9DQ0NHR0dLS0tPT09TU1NXV1dbW1tfX19jY2NnZ2dra2tvb29zc3N3d3d7e3t/f3+Dg4OHh4eLi4uPj4+Tk5OXl5ebm5ufn5+jo6Onp6erq6uvr6+zs7O3t7e7u7u/v7/Dw8PHx8fLy8vPz8/T09PX19fb29vf39/j4+Pn5+fr6+vv7+/z8/P39/f7+/v///6uTKLEAAABadFJOU///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////ANHWim8AAAEVSURBVHjaVNDFdsQwDAVQOzDMPNPBMjPTlJlkTVLp/3+kizqxo4XO8bsL6zzBzBwmh5mZBTNzOJsFQTDTO1QWWHkC7DxIgslteAqtX8J3A3zZik9qHamUAd4fzve3EHF4spGdM+fy4qS/6zbaiIiTARto3rvuam9EI0TEzXwM3lsq1Tu9IyJERHlViqBxkf15qdcjWPI9DYXKNE/RoISCq+HwuFs+17mUEj7aGnaK5UFHEhGRAwDwvazhWnbS6bSBT6Vh7dGv1YjIISIAgPUIig+ZzJjIcRwiANjORLBXPfs1c1CtRFdxN2dBzlde3NXKV5yLZ/VqtXsjxH8sfGW3y1waCyGEWEB1ywlgr6mUUsr19PtvAKfgoX/xVx17AAAAAElFTkSuQmCC");
+}
+.history .lemmaWgt-lemmaTitle .lemmaWgt-lemmaTitle-title h1.good_1 {
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAXFQTFRFyX0s46tD/f392Z9M8vLyzn4u675c2lxG8fHxzX0u0ow71pZEz4Iy0Yc38Mtu6bpY7sFh68Ji2quG458827SW2Z5L6LZR+Oyl1pRC49vV9OOQ5ODc9O7q04491JE//fn18c91z4Aw2a6K2JxJ8diB7sVm15tI7e3t5bqN2JxK78lr+u+t+/Ox89F4/v359+yi+OjC7MBf5ePj4aFB7tB079d+5cSp6Ojo58em4ZeK8+CN1ZRCz38w15lG6LdT0Yk56LZS0IQ1+Oii8M1x7MFh8+OS2J5L+eyn16N48/Pz3bOK2qyE7L9e+u7T469Q4bON685y79aG1JFA7Mdp439t4Miq3LaV9uic6b1a9+ad9PT0+Omj6cFi89J435SH89Z+8+3n15hG9NqE9fX17tZ/0489zn8w0ok4zoAw68em15pI9uS/8eXL0IU18c1y8NZ97c2x493X3Hdl5eXl6ctU0zYi++MG2Ekw1p42////////FbbuswAAAHt0Uk5T//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8Ak8Oo6gAAARdJREFUeNpU0FVzxCAUBWBIttl2te7u7m5bd3d395bo/fWFDARyGDKT8z1w5yKgccJhFSAfLMu2bYt/HaKA0odA7e0wyF6FA0d5xfmTAGPRYKToFWmRAB+6ft5hmqauH45ky3Ght2ius6f8joq51AoSNtuWS8avL70uJg2jAXQ3nx431n55nscAv90IeJ9a/J5PpQTcrmkc4rtD7Z6Iid14hEPpw2BTLu8xxu5EP4e9nf2Fvg2/Ry5NdQWHqos8wzAkPBIOsa2TdJq19DKICXh9Lp6Zpj1CPmTWBdQkB1yZgmSZmAp+PhWYPSJasKvtRNAnVsiZst3hpxe/rpssJOp2ASrrs3Loyf8l9xAC0FYJS0Tj//8CDAB2xeQSfs9l2AAAAABJRU5ErkJggg==");
+}
+.history .lemmaWgt-lemmaTitle .lemmaWgt-lemmaTitle-title h1.good_2 {
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAACXBIWXMAAAsTAAALEwEAmpwYAAAKTWlDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjanVN3WJP3Fj7f92UPVkLY8LGXbIEAIiOsCMgQWaIQkgBhhBASQMWFiApWFBURnEhVxILVCkidiOKgKLhnQYqIWotVXDjuH9yntX167+3t+9f7vOec5/zOec8PgBESJpHmomoAOVKFPDrYH49PSMTJvYACFUjgBCAQ5svCZwXFAADwA3l4fnSwP/wBr28AAgBw1S4kEsfh/4O6UCZXACCRAOAiEucLAZBSAMguVMgUAMgYALBTs2QKAJQAAGx5fEIiAKoNAOz0ST4FANipk9wXANiiHKkIAI0BAJkoRyQCQLsAYFWBUiwCwMIAoKxAIi4EwK4BgFm2MkcCgL0FAHaOWJAPQGAAgJlCLMwAIDgCAEMeE80DIEwDoDDSv+CpX3CFuEgBAMDLlc2XS9IzFLiV0Bp38vDg4iHiwmyxQmEXKRBmCeQinJebIxNI5wNMzgwAABr50cH+OD+Q5+bk4eZm52zv9MWi/mvwbyI+IfHf/ryMAgQAEE7P79pf5eXWA3DHAbB1v2upWwDaVgBo3/ldM9sJoFoK0Hr5i3k4/EAenqFQyDwdHAoLC+0lYqG9MOOLPv8z4W/gi372/EAe/tt68ABxmkCZrcCjg/1xYW52rlKO58sEQjFu9+cj/seFf/2OKdHiNLFcLBWK8ViJuFAiTcd5uVKRRCHJleIS6X8y8R+W/QmTdw0ArIZPwE62B7XLbMB+7gECiw5Y0nYAQH7zLYwaC5EAEGc0Mnn3AACTv/mPQCsBAM2XpOMAALzoGFyolBdMxggAAESggSqwQQcMwRSswA6cwR28wBcCYQZEQAwkwDwQQgbkgBwKoRiWQRlUwDrYBLWwAxqgEZrhELTBMTgN5+ASXIHrcBcGYBiewhi8hgkEQcgIE2EhOogRYo7YIs4IF5mOBCJhSDSSgKQg6YgUUSLFyHKkAqlCapFdSCPyLXIUOY1cQPqQ28ggMor8irxHMZSBslED1AJ1QLmoHxqKxqBz0XQ0D12AlqJr0Rq0Hj2AtqKn0UvodXQAfYqOY4DRMQ5mjNlhXIyHRWCJWBomxxZj5Vg1Vo81Yx1YN3YVG8CeYe8IJAKLgBPsCF6EEMJsgpCQR1hMWEOoJewjtBK6CFcJg4Qxwicik6hPtCV6EvnEeGI6sZBYRqwm7iEeIZ4lXicOE1+TSCQOyZLkTgohJZAySQtJa0jbSC2kU6Q+0hBpnEwm65Btyd7kCLKArCCXkbeQD5BPkvvJw+S3FDrFiOJMCaIkUqSUEko1ZT/lBKWfMkKZoKpRzame1AiqiDqfWkltoHZQL1OHqRM0dZolzZsWQ8ukLaPV0JppZ2n3aC/pdLoJ3YMeRZfQl9Jr6Afp5+mD9HcMDYYNg8dIYigZaxl7GacYtxkvmUymBdOXmchUMNcyG5lnmA+Yb1VYKvYqfBWRyhKVOpVWlX6V56pUVXNVP9V5qgtUq1UPq15WfaZGVbNQ46kJ1Bar1akdVbupNq7OUndSj1DPUV+jvl/9gvpjDbKGhUaghkijVGO3xhmNIRbGMmXxWELWclYD6yxrmE1iW7L57Ex2Bfsbdi97TFNDc6pmrGaRZp3mcc0BDsax4PA52ZxKziHODc57LQMtPy2x1mqtZq1+rTfaetq+2mLtcu0W7eva73VwnUCdLJ31Om0693UJuja6UbqFutt1z+o+02PreekJ9cr1Dund0Uf1bfSj9Rfq79bv0R83MDQINpAZbDE4Y/DMkGPoa5hpuNHwhOGoEctoupHEaKPRSaMnuCbuh2fjNXgXPmasbxxirDTeZdxrPGFiaTLbpMSkxeS+Kc2Ua5pmutG003TMzMgs3KzYrMnsjjnVnGueYb7ZvNv8jYWlRZzFSos2i8eW2pZ8ywWWTZb3rJhWPlZ5VvVW16xJ1lzrLOtt1ldsUBtXmwybOpvLtqitm63Edptt3xTiFI8p0in1U27aMez87ArsmuwG7Tn2YfYl9m32zx3MHBId1jt0O3xydHXMdmxwvOuk4TTDqcSpw+lXZxtnoXOd8zUXpkuQyxKXdpcXU22niqdun3rLleUa7rrStdP1o5u7m9yt2W3U3cw9xX2r+00umxvJXcM970H08PdY4nHM452nm6fC85DnL152Xlle+70eT7OcJp7WMG3I28Rb4L3Le2A6Pj1l+s7pAz7GPgKfep+Hvqa+It89viN+1n6Zfgf8nvs7+sv9j/i/4XnyFvFOBWABwQHlAb2BGoGzA2sDHwSZBKUHNQWNBbsGLww+FUIMCQ1ZH3KTb8AX8hv5YzPcZyya0RXKCJ0VWhv6MMwmTB7WEY6GzwjfEH5vpvlM6cy2CIjgR2yIuB9pGZkX+X0UKSoyqi7qUbRTdHF09yzWrORZ+2e9jvGPqYy5O9tqtnJ2Z6xqbFJsY+ybuIC4qriBeIf4RfGXEnQTJAntieTE2MQ9ieNzAudsmjOc5JpUlnRjruXcorkX5unOy553PFk1WZB8OIWYEpeyP+WDIEJQLxhP5aduTR0T8oSbhU9FvqKNolGxt7hKPJLmnVaV9jjdO31D+miGT0Z1xjMJT1IreZEZkrkj801WRNberM/ZcdktOZSclJyjUg1plrQr1zC3KLdPZisrkw3keeZtyhuTh8r35CP5c/PbFWyFTNGjtFKuUA4WTC+oK3hbGFt4uEi9SFrUM99m/ur5IwuCFny9kLBQuLCz2Lh4WfHgIr9FuxYji1MXdy4xXVK6ZHhp8NJ9y2jLspb9UOJYUlXyannc8o5Sg9KlpUMrglc0lamUycturvRauWMVYZVkVe9ql9VbVn8qF5VfrHCsqK74sEa45uJXTl/VfPV5bdra3kq3yu3rSOuk626s91m/r0q9akHV0IbwDa0b8Y3lG19tSt50oXpq9Y7NtM3KzQM1YTXtW8y2rNvyoTaj9nqdf13LVv2tq7e+2Sba1r/dd3vzDoMdFTve75TsvLUreFdrvUV99W7S7oLdjxpiG7q/5n7duEd3T8Wej3ulewf2Re/ranRvbNyvv7+yCW1SNo0eSDpw5ZuAb9qb7Zp3tXBaKg7CQeXBJ9+mfHvjUOihzsPcw83fmX+39QjrSHkr0jq/dawto22gPaG97+iMo50dXh1Hvrf/fu8x42N1xzWPV56gnSg98fnkgpPjp2Snnp1OPz3Umdx590z8mWtdUV29Z0PPnj8XdO5Mt1/3yfPe549d8Lxw9CL3Ytslt0utPa49R35w/eFIr1tv62X3y+1XPK509E3rO9Hv03/6asDVc9f41y5dn3m978bsG7duJt0cuCW69fh29u0XdwruTNxdeo94r/y+2v3qB/oP6n+0/rFlwG3g+GDAYM/DWQ/vDgmHnv6U/9OH4dJHzEfVI0YjjY+dHx8bDRq98mTOk+GnsqcTz8p+Vv9563Or59/94vtLz1j82PAL+YvPv655qfNy76uprzrHI8cfvM55PfGm/K3O233vuO+638e9H5ko/ED+UPPR+mPHp9BP9z7nfP78L/eE8/sl0p8zAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAMAUExURf/BSPFcE/+sP/JgFP+RAfWBJv39/fLy8v6JLPHx8fR7I/+nSP+WOPNyHvJlF/NoGf6CJv56HtpcRvNuHP3htv7Vfv+bPf/CZ/+vT+q9n9lMM/K6ovnDqv+2V/V/Jdx3Zf/Ygv+1VPR4Iebb1v+QMvm7m/2LL/+ZOv+lRvJgFf/OdftrFf7ahft8I/6DJ/+wUuuUbuGXivWsf/xoE/+hQv24Xuyeef+QM/739POmhPR1H+mqj/+RNOqig/+rTPFjFvFdFPFeFPX19ejo6P/AYPV/Jv+1Vfbt6f/BY/FfFfR9JfV9JP+5WfTgwv/hkPN1ION/bf6tUOuefv7pyv+pSf7biP/Haf/XfvNsG9hKMfNsGvR4Iv+rTd+Uh/T09PPz8/6ML+3t7eymffFiFvK8m/55Huuqjv+tTfXs5v/lk+Xj4v/cieXf2//89+bZ0/+gQvzdtP+FAeXl5dM2IvvjBthJMP93Af///////3l5eXp6ent7e3x8fH19fX5+fn9/f4CAgIGBgYKCgoODg4SEhIWFhYaGhoeHh4iIiImJiYqKiouLi4yMjI2NjY6Ojo+Pj5CQkJGRkZKSkpOTk5SUlJWVlZaWlpeXl5iYmJmZmZqampubm5ycnJ2dnZ6enp+fn6CgoKGhoaKioqOjo6SkpKWlpaampqenp6ioqKmpqaqqqqurq6ysrK2tra6urq+vr7CwsLGxsbKysrOzs7S0tLW1tba2tre3t7i4uLm5ubq6uru7u7y8vL29vb6+vr+/v8DAwMHBwcLCwsPDw8TExMXFxcbGxsfHx8jIyMnJycrKysvLy8zMzM3Nzc7Ozs/Pz9DQ0NHR0dLS0tPT09TU1NXV1dbW1tfX19jY2NnZ2dra2tvb29zc3N3d3d7e3t/f3+Dg4OHh4eLi4uPj4+Tk5OXl5ebm5ufn5+jo6Onp6erq6uvr6+zs7O3t7e7u7u/v7/Dw8PHx8fLy8vPz8/T09PX19fb29vf39/j4+Pn5+fr6+vv7+/z8/P39/f7+/v///+Y8YG8AAAB5dFJOU////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////wClVIrsAAABKElEQVR42lTQRZPDMAwFYNuBdsuwzMzM3GVmZma2m0b6+XtxYkcHzfh9B2seQUQsBAcREQkiYiGfdxwnL3dBaKDlAdBzJwgq12HvXPulsk4BDmT8kzLX4l4BblvW8Q4hxLIqFovUuVhc2/1+erJECGHLg6jgcOOzfm1rBRoIYWzzyYfvSElnTfkrABDCmBl58+CvsazvKBoFgNl2xszLB1vC7sjVL3jDTD4ZkhDfH26Lydw0TR7/kJAtjU2PNQMAgME559kvCWetd+FwWMGFkJDs6U2lAMAAAM45T3rQknhOpwEMwwDgnCdGPRh/7HLVDOV+vKuwukOD9Rdh+11NzPv5XL+40dqtotR1XdeldEro7SKuzlBKKT1oEgsYALRvhRBChGz5/h8A1t3WO2OiBJQAAAAASUVORK5CYII=");
+}
+.nolemma {
+	padding: 45px 0px; text-align: center; color: rgb(136, 136, 136); font-family: arial; font-size: 14px;
+}
+.nolemma .border {
+	margin: 15px 0px; width: 400px; border-bottom-color: rgb(238, 238, 238); border-bottom-width: 1px; border-bottom-style: solid; display: inline-block; -moz-box-orient: vertical;
+}
+.nolemma .btn {
+	background: rgb(255, 255, 255); padding: 7px 18px; border-radius: 3px; border: 1px solid rgb(69, 157, 245); border-image: none; text-align: center; color: rgb(69, 157, 245); line-height: 1; font-size: 14px; display: inline-block; -moz-box-orient: vertical;
+}
+.nolemma .btn:hover {
+	border-color: rgb(34, 137, 242); color: rgb(25, 116, 205); text-decoration: none;
+}
+.nolemma .btn:focus {
+	outline: 0px;
+}
+.mt15 {
+	margin-top: 15px;
+}
+.fs24 {
+	font-size: 32px;
+}
+.fs32 {
+	font-size: 32px;
+}
+.caaa {
+	color: rgb(170, 170, 170);
+}
+.go-auth-box {
+	color: rgb(153, 153, 153); clear: both; font-size: 12px; margin-bottom: 35px;
+}
+.go-auth-box .go-auth-con {
+	margin-top: 15px; display: inline-block;
+}
+.go-auth-box .wiki-lemma-icons {
+	font-size: 16px; margin-right: 5px; vertical-align: -3px;
+}
+.personal-auth {
+	margin: 15px 0px; color: rgb(102, 102, 102); font-size: 12px;
+}
+.personal-auth .cmn-icon {
+	color: rgb(153, 153, 153); margin-right: 5px; vertical-align: -1px;
+}
+.personal-auth .auth-details {
+	color: rgb(102, 102, 102); margin-left: 12px;
+}
+.personal-auth.star-large-light {
+	color: rgb(204, 204, 204);
+}
+.personal-auth.star-large-light .auth-details {
+	color: rgb(204, 204, 204);
+}
+.personal-auth.star-large-dark {
+	color: rgb(153, 153, 153);
+}
+.personal-auth.star-large-dark .auth-details {
+	color: rgb(153, 153, 153);
+}
+.polysemant-list {
+	margin: 0px auto; width: 1139px; overflow: hidden; position: relative;
+}
+.polysemant-list .polysemantList-header {
+	width: 1109px; color: rgb(102, 102, 102); line-height: 35px; padding-left: 30px; font-size: 12px;
+}
+.polysemant-list .polysemantList-header::after {
+	height: 0px; overflow: hidden; clear: both; font-size: 0px; display: block; visibility: hidden; content: "\0020";
+}
+.polysemant-list .polysemantList-header .polysemantList-header-title {
+	line-height: 35px; float: left;
+}
+.polysemant-list .polysemantList-header .polysemantList-header-title a {
+	color: rgb(19, 110, 194);
+}
+.polysemant-list .polysemantList-header .polysemantList-header-title .toggle {
+	display: inline-block; -moz-box-orient: vertical;
+}
+.polysemant-list .polysemantList-header .polysemantList-header-title .toggle.expand .polysemant-button--expand {
+	display: inline-block; -moz-box-orient: vertical;
+}
+.polysemant-list .polysemantList-header .polysemantList-header-title .toggle.collapse .polysemant-button--collapse {
+	display: inline-block; -moz-box-orient: vertical;
+}
+.polysemant-list .polysemantList-header .polysemantList-addButton {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/polysemantList/img/polysemant_61ac178.png") no-repeat 6px -45px rgb(255, 255, 255); margin: 5px 20px 0px 0px; outline: 0px; border-radius: 2px; border: 1px solid rgb(230, 230, 230); border-image: none; width: 57px; height: 22px; color: rgb(160, 160, 160); line-height: 22px; padding-left: 22px; font-size: 12px; text-decoration: none; float: right; display: block; position: relative; box-shadow: 0px 1px 1px #e9e9e9;
+}
+.polysemant-list .polysemantList-header .polysemantList-addButton:hover {
+	color: rgb(19, 110, 194);
+}
+.polysemant-list .polysemantList-wrapper {
+	padding-left: 30px; position: relative;
+}
+.polysemant-list .polysemantList-wrapper .item {
+	width: 360px; height: 32px; color: rgb(153, 153, 153); line-height: 32px; overflow: hidden; padding-right: 7px; font-size: 14px; float: left; display: block;
+}
+.polysemant-list .polysemantList-wrapper .item a {
+	color: rgb(19, 110, 194); margin-left: 7px;
+}
+.polysemant-list .polysemantList-wrapper .item .selected {
+	color: rgb(51, 51, 51); font-weight: 700; margin-left: 7px;
+}
+.polysemant-list .polysemantList-wrapper .fold-on {
+	outline: 0px; right: 30px; bottom: 2px; color: rgb(153, 153, 153); text-decoration: none; position: absolute;
+}
+.polysemant-list .polysemantList-wrapper .fold-off {
+	outline: 0px; right: 30px; bottom: 2px; color: rgb(153, 153, 153); text-decoration: none; position: absolute;
+}
+.polysemant-list .polysemantList-wrapper .fold-on em {
+	text-decoration: none; vertical-align: middle;
+}
+.polysemant-list .polysemantList-wrapper .fold-off em {
+	text-decoration: none; vertical-align: middle;
+}
+.polysemant-list .polysemantList-wrapper .fold-on:hover {
+	color: rgb(19, 110, 194);
+}
+.polysemant-list .polysemantList-wrapper .fold-off:hover {
+	color: rgb(19, 110, 194);
+}
+.polysemant-list .polysemantList-wrapper .fold-on {
+	display: block;
+}
+.polysemant-list .polysemantList-wrapper .fold-off {
+	display: none;
+}
+.polysemant-list-normal {
+	margin-top: 20px; background-color: rgb(255, 255, 255);
+}
+.polysemant-list-normal .polysemantList-header {
+	border: 1px solid rgb(221, 221, 221); border-image: none; width: 1107px;
+}
+.polysemant-list-normal .polysemantList-wrapper {
+	background: rgb(252, 252, 252); border-width: 1px; border-style: solid; border-color: rgb(242, 242, 242) rgb(230, 230, 230) rgb(229, 229, 229); border-image: none; overflow: hidden; padding-top: 9px; padding-bottom: 9px; position: relative; -ms-zoom: 1;
+}
+.polysemant-list-normal .polysemant-button__icon {
+	background: rgb(248, 248, 248);
+}
+.polysemant-list-lemma-title {
+	color: rgb(51, 51, 51);
+}
+.polysemant-separator {
+	margin-left: 7px; border-left-color: rgb(224, 224, 224); border-left-width: 1px; border-left-style: solid;
+}
+.polysemant-button {
+	padding: 0px 11px; height: 100%; display: inline-block; -moz-box-orient: vertical;
+}
+.polysemantList-header .polysemant-button:hover {
+	text-decoration: none;
+}
+.polysemant-button--expand {
+	display: none;
+}
+.polysemant-button--collapse {
+	display: none;
+}
+.polysemant-button__text {
+	color: rgb(51, 51, 51);
+}
+.polysemant-button__icon {
+	background: rgb(255, 255, 255); border-radius: 2px; top: 2px; width: 13px; height: 13px; text-align: center; color: rgb(51, 51, 51); line-height: 1; font-size: 13px; display: inline-block; position: relative; box-shadow: 0px 1px 0px 0px #e0e0e0; -moz-box-orient: vertical;
+}
+.view-tip-panel {
+	margin: -5px 0px 10px; color: rgb(136, 136, 136); line-height: 18px; font-family: SimSun; font-size: 12px; display: block;
+}
+.view-tip-panel .viewTip-icon {
+	border: 1px solid rgb(99, 174, 249); border-image: none; width: 40px; height: 18px; text-align: center; color: rgb(87, 155, 224); line-height: 18px; font-size: 12px; display: inline-block;
+}
+.view-tip-panel .viewTip-fromTitle {
+	color: rgb(87, 155, 224);
+}
+h1.lemma-title .view-tip-panel {
+	clear: both; margin-top: 9px; margin-left: 2px;
+}
+.side-catalog {
+	width: 270px; height: 221px; bottom: 10px; line-height: 19px; font-family: 宋体; font-size: 14px; position: fixed; z-index: 1;
+}
+.side-catalog .side-bar {
+	border-width: 0px 1px; border-style: none solid; border-color: currentColor rgb(234, 234, 234); border-image: none; left: 5px; top: 0px; width: 0px; height: 194px; position: absolute; background-color: rgb(234, 234, 234);
+}
+.side-catalog .side-bar .circle.start {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/sideCatalog/img/sideCatalog_a278e02.gif") no-repeat 0px -199px; left: -5px; width: 10px; height: 10px; overflow: hidden; position: absolute; -ms-zoom: 1;
+}
+.side-catalog .side-bar .circle.end {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/sideCatalog/img/sideCatalog_a278e02.gif") no-repeat 0px -199px; left: -5px; width: 10px; height: 10px; overflow: hidden; position: absolute; -ms-zoom: 1;
+}
+.side-catalog .side-bar .circle.start {
+	top: 0px;
+}
+.side-catalog .side-bar .circle.end {
+	margin: 0px; bottom: 0px;
+}
+.side-catalog .catalog-scroller {
+	left: 0px; top: 0px; width: 210px; height: 171px; overflow: hidden; padding-top: 15px; position: absolute; z-index: 1;
+}
+.side-catalog .catalog-scroller .catalog-list {
+	width: 210px; height: auto; position: relative;
+}
+.side-catalog .catalog-scroller .catalog-list .arrow {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/sideCatalog/img/sideCatalog_a278e02.gif") no-repeat -271px -38px; left: 0px; top: 5px; width: 18px; height: 13px; position: absolute; z-index: 2; cursor: pointer;
+}
+.side-catalog .catalog-scroller .catalog-list .catalog-title {
+	padding-left: 20px; margin-bottom: 7px; position: relative;
+}
+.side-catalog .catalog-scroller .catalog-list .catalog-title .text {
+	line-height: 19px; display: block;
+}
+.side-catalog .catalog-scroller .catalog-list .catalog-title .pointer {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/sideCatalog/img/sideCatalog_a278e02.gif") no-repeat 3px -222px; left: 0px; width: 10px; height: 10px; margin-top: 4px; display: block; position: absolute; cursor: pointer;
+}
+.side-catalog .catalog-scroller .catalog-list .catalog-title .pointer:hover {
+	background-position: 3px -245px;
+}
+.side-catalog .catalog-scroller .catalog-list .catalog-title:hover .text {
+	background: rgb(245, 245, 245); border-radius: 2px; box-shadow: 0px 1px 0px #eaeaea;
+}
+.side-catalog .catalog-scroller .catalog-list .catalog-title:hover .pointer {
+	background-position: 3px -245px;
+}
+.side-catalog .catalog-scroller .catalog-list .catalog-title.level1 .text {
+	padding-left: 10px;
+}
+.side-catalog .catalog-scroller .catalog-list .catalog-title.level1 .title-index {
+	color: rgb(153, 153, 153); padding-right: 5px; font-family: Arial; font-size: 14px; font-weight: 700;
+}
+.side-catalog .catalog-scroller .catalog-list .catalog-title.level1 .title-link {
+	color: rgb(85, 85, 85); font-weight: 700; text-decoration: none;
+}
+.side-catalog .catalog-scroller .catalog-list .catalog-title.level2 .text {
+	padding-left: 22px;
+}
+.side-catalog .catalog-scroller .catalog-list .catalog-title.level2 .title-index {
+	color: rgb(153, 153, 153); padding-right: 5px; font-family: Arail; font-size: 14px;
+}
+.side-catalog .catalog-scroller .catalog-list .catalog-title.level2 .title-link {
+	color: rgb(102, 102, 102); text-decoration: none;
+}
+.side-catalog.collapse {
+	height: 96px;
+}
+.side-catalog.collapse .toggle-button {
+	background-position: -104px 0px;
+}
+.side-catalog.collapse .toggle-button:hover {
+	background-position: -154px 0px;
+}
+.side-catalog.collapse .side-bar {
+	display: none;
+}
+.side-catalog.collapse .catalog-scroller {
+	display: none;
+}
+.side-catalog.collapse .right-wrap {
+	display: none;
+}
+.side-catalog .right-wrap {
+	top: 57px; width: 22px; height: 50px; right: 20px; display: none; position: absolute;
+}
+.side-catalog .right-wrap .go-up {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/sideCatalog/img/sideCatalog_a278e02.gif") no-repeat; width: 22px; height: 25px; display: block;
+}
+.side-catalog .right-wrap .go-down {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/sideCatalog/img/sideCatalog_a278e02.gif") no-repeat; width: 22px; height: 25px; display: block;
+}
+.side-catalog .right-wrap .go-up {
+	background-position: -248px -83px;
+}
+.side-catalog .right-wrap .go-up.disable {
+	background-position: -275px -83px;
+}
+.side-catalog .right-wrap .go-down {
+	background-position: -248px -108px;
+}
+.side-catalog .right-wrap .go-down.disable {
+	background-position: -275px -108px;
+}
+.side-catalog .bottom-wrap {
+	height: 45px; bottom: 51px; position: absolute;
+}
+.side-catalog .bottom-wrap a {
+	float: left;
+}
+.side-catalog .bottom-wrap .toggle-button {
+	width: 45px; height: 45px; display: block; cursor: pointer;
+}
+.side-catalog .bottom-wrap .gotop-button {
+	width: 45px; height: 45px; display: block; cursor: pointer;
+}
+.side-catalog .bottom-wrap .toggle-button {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/sideCatalog/img/sideCatalog_a278e02.gif") no-repeat 0px 0px;
+}
+.side-catalog .bottom-wrap .toggle-button:hover {
+	background-position: -53px 0px;
+}
+.side-catalog .bottom-wrap .gotop-button {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/sideCatalog/img/sideCatalog_a278e02.gif") no-repeat -1px -62px; margin-left: 8px;
+}
+.side-catalog .bottom-wrap .gotop-button:hover {
+	background-position: -74px -62px;
+}
+.side-catalog-smaller {
+	height: 236px;
+}
+.side-catalog-smaller .side-bar {
+	height: 194px;
+}
+.side-catalog-smaller .catalog-scroller {
+	height: 165px;
+}
+.side-catalog-smaller .bottom-wrap {
+	bottom: -8px;
+}
+.side-catalog-smaller .right-wrap {
+	top: 66px;
+}
+.lemmaWgt-subLemmaListTitle {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/subLemmaListTitle/resource/img/icon_95b7f0a.png") no-repeat left 1px; margin: 25px 0px 10px; padding: 0px 0px 7px 25px; font-size: 14px; border-bottom-color: rgb(221, 221, 221); border-bottom-width: 2px; border-bottom-style: solid;
+}
+.lemmaWgt-subLemmaListTitle a {
+	font-weight: 700;
+}
+.wiki-lemma .summary-pic {
+	border: 1px solid rgb(221, 221, 221); border-image: none; width: 268px; line-height: 0; font-size: 0px; margin-bottom: 20px; position: relative; box-shadow: 1px 1px 1px #ccc;
+}
+.wiki-lemma .summary-pic a {
+	text-decoration: none;
+}
+.wiki-lemma .summary-pic a:hover {
+	color: rgb(19, 110, 194);
+}
+.wiki-lemma .summary-pic:hover .picAlbumBtn {
+	background: rgba(136, 136, 136, 0.8);
+}
+.wiki-lemma .summary-pic:hover .picAlbumBtn em {
+	box-shadow: -1px 1px 0px 0px rgba(136,136,136,0.8), -2px 2px 0px 0px #fff;
+}
+.wiki-lemma .summary-pic img {
+	margin: 0px auto; display: block;
+}
+.wiki-lemma .summary-pic .picAlbumBtn {
+	background: rgba(0, 0, 0, 0.65); padding: 5px 10px 10px 11px; border-radius: 3px; border: 0px currentColor; transition:0.2s; border-image: none; right: 10px; bottom: 10px; color: rgb(255, 255, 255); line-height: 1; font-family: arial,tahoma,"Microsoft Yahei","宋体",sans-serif; font-size: 14px; text-decoration: none; display: none; position: absolute; cursor: pointer; -webkit-transition: .2s;
+}
+.wiki-lemma .summary-pic .picAlbumBtn * {
+	vertical-align: middle;
+}
+.wiki-lemma .summary-pic .picAlbumBtn em {
+	padding: 3px 4px 4px; border: 1px solid rgb(255, 255, 255); border-image: none; line-height: 0; font-size: 0px; text-decoration: none; margin-right: 6px; box-shadow: -1px 1px 0px 0px rgba(0,0,0,0.65), -2px 2px 0px 0px #fff;
+}
+.wiki-lemma .summary-pic div {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/summaryPicture/resource/img/icon_ec5bee4.png") no-repeat 15px 10px; padding: 8px 5px 8px 14px; color: rgb(51, 51, 51); line-height: 23px; text-indent: 30px; font-family: arial,tahoma,"Microsoft Yahei","宋体",sans-serif; font-size: 16px; text-decoration: none; box-shadow: 0px -1px 1px #ddd;
+}
+.feature .summary-pic {
+	overflow: hidden; margin-right: 20px; max-height: 362px;
+}
+.feature .summary-pic .picAlbumBtn {
+	display: block;
+}
+.feature .summary-pic div {
+	display: none;
+}
+.tashuo-bottom {
+	width: 790px; padding-top: 20px; clear: both; font-family: Microsoft YaHei,SimHei,Verdana; margin-bottom: 20px;
+}
+.tashuo-bottom a {
+	text-decoration: none;
+}
+.tashuo-bottom .tashuo-bottom-title-essence {
+	background: rgb(248, 248, 248); padding: 10px 0px; width: 100%; height: 20px; border-bottom-color: rgb(238, 238, 238); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.tashuo-bottom .tashuo-bottom-title-essence img {
+	width: 52px; height: 100%; margin-left: 10px; float: left;
+}
+.tashuo-bottom .tashuo-bottom-title-essence span {
+	padding: 5px 0px 0px 6px; width: 108px; height: 18px; color: rgb(153, 153, 153); font-size: 12px; display: inline-block;
+}
+.tashuo-bottom .tashuo-bottom-title-essence .tashuo-more {
+	width: 62px; color: rgb(102, 102, 102); padding-top: 5px; font-size: 12px; margin-right: 15px; float: right; display: inline-block; position: relative;
+}
+.tashuo-bottom .tashuo-bottom-title-essence .tashuo-more em {
+	top: 8px; right: 0px; font-size: 10px; position: absolute;
+}
+.tashuo-bottom .tashuo-bottom-title-essence .tashuo-more:hover {
+	text-decoration: none;
+}
+.tashuo-bottom .tashuo-author {
+	height: 16px;
+}
+.tashuo-bottom .tashuo-author a {
+	color: rgb(102, 102, 102);
+}
+.tashuo-bottom .tashuo-author .ta-author-area {
+	width: 16px; float: left; position: relative;
+}
+.tashuo-bottom .tashuo-author .ta-author-area span {
+	background: rgb(253, 253, 253); border-radius: 50%; height: 16px; overflow: hidden; display: block;
+}
+.tashuo-bottom .tashuo-author .ta-author-area span img {
+	height: auto; max-width: 100%;
+}
+.tashuo-bottom .tashuo-author i {
+	top: 2px; width: 12px; height: 12px; margin-left: 2px; display: inline-block; position: relative; background-image: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/tashuo/img/ta-v_3e34675.png"); background-repeat: no-repeat; background-size: 10px 10px;
+}
+.tashuo-bottom .tashuo-author .ta-author-slogan-area {
+	overflow: hidden; font-size: 12px; margin-left: 8px; float: left; white-space: nowrap; -ms-text-overflow: ellipsis; max-width: 165px;
+}
+.tashuo-bottom .tashuo-author .ta-author-slogan-area strong {
+	font-weight: 400;
+}
+.tashuo-bottom .tashuo-author .ta-author-slogan-area span {
+	margin-left: 5px;
+}
+.tashuo-bottom .tashuo-operator {
+	width: 100%; color: rgb(153, 153, 153); font-size: 12px;
+}
+.tashuo-bottom .tashuo-operator span {
+	display: inline-block;
+}
+.tashuo-bottom .tashuo-operator span strong {
+	font-weight: 400;
+}
+.tashuo-bottom .tashuo-operator .tashuo-publish-date {
+	float: left;
+}
+.tashuo-bottom .tashuo-operator .tashuo-view {
+	float: right;
+}
+.tashuo-bottom .tashuo-operator .tashuo-view i {
+	color: rgb(153, 153, 153); font-style: normal; margin-right: 7px;
+}
+.tashuo-bottom .tashuo-operator .tashuo-like {
+	margin-left: 18px; float: right; cursor: pointer;
+}
+.tashuo-bottom .tashuo-operator .tashuo-like i {
+	background-position: 1px 0px; width: 13px; height: 12px; margin-right: 7px; vertical-align: -1px; display: inline-block; background-image: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/tashuo/img/like-spr_39c5f36.png"); background-repeat: no-repeat; background-size: 26px 12px;
+}
+.tashuo-bottom .tashuo-operator .tashuo-liked i {
+	background-position: -13px 0px;
+}
+.tashuo-bottom .title {
+	width: 100%; line-height: 20px; overflow: hidden; font-size: 14px; white-space: normal; -ms-text-overflow: ellipsis; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+}
+.tashuo-bottom .title a {
+	color: rgb(51, 51, 51);
+}
+.tashuo-bottom .title a:hover {
+	text-decoration: none;
+}
+.tashuo-bottom .abstract {
+	width: 100%; line-height: 20px; overflow: hidden; font-size: 12px; cursor: pointer; -ms-word-break: break-all; -ms-word-wrap: break-word; -ms-text-overflow: ellipsis; -webkit-box-orient: vertical;
+}
+.tashuo-bottom .abstract a {
+	color: rgb(102, 102, 102);
+}
+.tashuo-bottom .abstract a:hover {
+	text-decoration: none;
+}
+.tashuo-bottom .tashuo-tags {
+	padding: 20px 0px 0px 10px;
+}
+.tashuo-bottom .tashuo-tags span {
+	padding: 0px 15px; border-radius: 2px; border: 1px solid rgb(213, 213, 213); border-image: none; height: 30px; color: rgb(51, 51, 51); line-height: 30px; font-size: 12px; margin-right: 8px; display: inline-block; cursor: pointer;
+}
+.tashuo-bottom .tashuo-tags .current-tab {
+	background: rgb(153, 153, 153); border: 0px currentColor; border-image: none; color: rgb(255, 255, 255);
+}
+.tashuo-single {
+	height: 154px; padding-top: 20px;
+}
+.tashuo-single .tashuo-author {
+	margin-left: 10px;
+}
+.tashuo-single .tashuo-content {
+	padding: 12px 0px 26px 10px; height: 120px;
+}
+.tashuo-single .cover {
+	width: 216px; height: 120px; overflow: hidden; float: left; display: inline-block;
+}
+.tashuo-single .tashuo-content-essence {
+	width: 538px; margin-left: 20px; float: left;
+}
+.tashuo-single .tashuo-content-essence .abstract {
+	margin: 12px 0px; width: 99%; height: 60px; -webkit-line-clamp: 3;
+}
+.tashuo-multiple {
+	margin: 0px 0px 16px 10px; height: 294px; overflow: hidden; padding-top: 20px; position: relative;
+}
+.tashuo-multiple .tashuo-view {
+	width: 780px; height: 253px; overflow: hidden; margin-bottom: 18px;
+}
+.tashuo-multiple .tashuo-slider {
+	height: 253px; overflow: hidden;
+}
+.tashuo-multiple .tashuo-slider .slider-item {
+	width: 984px; float: left;
+}
+.tashuo-multiple .tashuo-list {
+	width: 984px; height: 250px;
+}
+.tashuo-multiple .tashuo-list .tashuo-item {
+	width: 216px; margin-right: 30px; float: left;
+}
+.tashuo-multiple .cover {
+	width: 216px; height: 120px; overflow: hidden; margin-top: 10px; display: inline-block; position: relative;
+}
+.tashuo-multiple .cover .overlay {
+	width: 100%; height: 59px; bottom: -1px; position: absolute;
+}
+.tashuo-multiple .cover .title {
+	left: 10px; width: 198px; bottom: 8px; color: rgb(255, 255, 255); position: absolute;
+}
+.tashuo-multiple .abstract {
+	padding: 8px 0px 0px; height: 62px; margin-bottom: 6px; -webkit-line-clamp: 3;
+}
+.tashuo-multiple .no-cover {
+	height: 203px; margin-top: 10px;
+}
+.tashuo-multiple .no-cover .title {
+	line-height: 22px;
+}
+.tashuo-multiple .no-cover .abstract {
+	height: 144px; padding-top: 11px; -webkit-line-clamp: 7;
+}
+.tashuo-multiple .tashuo-operator {
+	padding-top: 6px;
+}
+.lemmaWgt-taskLemmasInfoCard {
+	background: rgb(255, 255, 255); margin: 0px auto 20px; padding: 10px; border: 1px solid rgb(229, 229, 229); border-image: none; width: 1117px; font-size: 14px; box-shadow: -2px 2px 3px #ddd;
+}
+.lemmaWgt-taskLemmasInfoCard table {
+	border: 1px solid rgb(204, 204, 204); border-image: none; width: 100%; border-collapse: collapse;
+}
+.lemmaWgt-taskLemmasInfoCard table tr {
+	border-bottom-color: rgb(221, 221, 221); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.lemmaWgt-taskLemmasInfoCard table th {
+	height: 32px; text-align: center; line-height: 32px;
+}
+.lemmaWgt-taskLemmasInfoCard table td {
+	height: 32px; text-align: center; line-height: 32px;
+}
+.top-tool {
+	right: -20px; float: right; position: relative; z-index: 1;
+}
+.top-tool .add-sub-icon {
+	border-right-color: rgb(204, 210, 216); border-right-width: 1px; border-right-style: solid; float: left;
+}
+.top-tool .split-icon {
+	border-right-color: rgb(204, 210, 216); border-right-width: 1px; border-right-style: solid; float: left;
+}
+.top-tool .top-collect {
+	border-right-color: rgb(204, 210, 216); border-right-width: 1px; border-right-style: solid; float: left;
+}
+.top-tool .top-vote {
+	border-right-color: rgb(204, 210, 216); border-right-width: 1px; border-right-style: solid; float: left;
+}
+.top-tool .top-share {
+	border-right-color: rgb(204, 210, 216); border-right-width: 1px; border-right-style: solid; float: left;
+}
+.top-tool .top-share {
+	border-right-color: currentColor; border-right-width: 0px; border-right-style: none;
+}
+.top-tool .top-tool-icon .cmn-icon {
+	color: rgb(81, 156, 234); font-size: 14px; margin-right: 6px; float: left;
+}
+.large-feature .top-tool {
+	top: 410px; right: 0px; position: absolute;
+}
+.large-feature .top-tool.bottom-tool {
+	top: 458px;
+}
+.large-feature .top-tool .top-collect {
+	border-right-color: currentColor; border-right-width: 0px; border-right-style: none;
+}
+.large-feature .top-tool .top-vote {
+	border-right-color: currentColor; border-right-width: 0px; border-right-style: none;
+}
+.lemmaWgt-userComment {
+	background: rgba(82, 163, 245, 0.1); margin: 30px auto 0px; padding: 20px; border: 1px solid rgb(229, 229, 229); border-image: none; width: 1037px; font-size: 14px; position: relative;
+}
+.lemmaWgt-userComment dt {
+	line-height: 14px; padding-left: 10px; font-weight: 700; margin-right: 200px; margin-bottom: 15px; border-left-color: rgb(82, 163, 245); border-left-width: 2px; border-left-style: solid;
+}
+.lemmaWgt-userComment dd {
+	font-size: 12px; margin-right: 200px;
+}
+.lemmaWgt-userComment .audit-info {
+	right: 15px; bottom: 5px; margin-right: 0px; position: absolute;
+}
+.lemmaWgt-userComment .audit-info a {
+	margin-left: 10px;
+}
+.lemmaWgt-userComment .audit-info a:hover {
+	text-decoration: none;
+}
+.lemmaWgt-versionInfoCard {
+	background: rgb(255, 255, 255); margin: 0px auto 20px; border: 1px solid rgb(229, 229, 229); border-image: none; width: 1137px; font-size: 16px;
+}
+.lemmaWgt-versionInfoCard .versionInfoCard-content {
+	padding: 20px; position: relative;
+}
+.lemmaWgt-versionInfoCard .versionInfoCard-content .specific-expert-name {
+	margin: 0px 5px;
+}
+.lemmaWgt-versionInfoCard .versionInfoCard-content .specific-expert-name i {
+	width: 12px; height: 12px; margin-left: 3px; vertical-align: text-bottom; display: inline-block; background-image: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/versionInfoCard/images/expert-v_3e34675.png"); background-repeat: no-repeat; background-size: 100% 100%;
+}
+.lemmaWgt-versionInfoCard .versionInfoCard-content .contribute-flag {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/versionInfoCard/images/contribute-flag-bg_8faa0c2.png") no-repeat 0% 0% / cover; margin: 0px 2px; outline: 0px; width: 20px; height: 20px; color: rgb(52, 151, 82); font-size: 20px; text-decoration: none; vertical-align: middle; display: inline-block; -moz-box-orient: vertical;
+}
+.lemmaWgt-versionInfoCard .versionInfoCard-content .contribute-flag-1 {
+	background-position: 0px 0px;
+}
+.lemmaWgt-versionInfoCard .versionInfoCard-content .contribute-flag-2 {
+	background-position: -24px 0px;
+}
+.lemmaWgt-versionInfoCard .versionInfoCard-content .contribute-flag-3 {
+	background-position: -48px 0px;
+}
+.lemmaWgt-versionInfoCard .versionInfoCard-content .contribute-flag-4 {
+	background-position: -72px 0px;
+}
+.lemmaWgt-versionInfoCard .versionInfoCard-content .jump-area {
+	top: 50%; right: 20px; font-size: 0px; margin-top: -16px; position: absolute;
+}
+.lemmaWgt-versionInfoCard .versionInfoCard-content .jump-area a {
+	margin: 0px 10px 0px 0px; color: rgb(102, 102, 102); text-decoration: none;
+}
+.lemmaWgt-versionInfoCard .versionInfoCard-content .jump-area a:hover {
+	text-decoration: none;
+}
+.lemma-album {
+	width: 170px; text-decoration: none; border-bottom-color: currentColor; border-bottom-width: 0px; border-bottom-style: none; display: block;
+}
+.lemma-album:hover {
+	text-decoration: none !important;
+}
+.lemma-album:hover .album-wrap {
+	opacity: 0.9;
+}
+.lemma-album:hover div.description {
+	text-decoration: none;
+}
+.lemma-album .album-wrap {
+	border: 1px solid rgb(224, 224, 224); border-image: none; width: 168px; height: 167px; overflow: hidden; position: relative;
+}
+.lemma-album .picture {
+	border: 0px currentColor; border-image: none; width: 168px; height: 167px; display: block; position: absolute;
+}
+.lemma-album .description {
+	border-width: 0px 1px 1px; border-style: none solid solid; border-color: currentColor rgb(224, 224, 224) rgb(224, 224, 224); padding: 8px 7px; border-image: none; text-align: left; color: rgb(85, 85, 85); line-height: 18px; text-indent: 0px; overflow: hidden; font-family: simSun; font-size: 12px; text-decoration: none; display: block; white-space: nowrap; -ms-text-overflow: ellipsis;
+}
+.lemma-album .description .number {
+	color: gray; display: inline;
+}
+.lemma-album .albumBg .albumBgFir {
+	border-width: 1px; border-style: solid; border-color: rgb(245, 245, 245) rgb(230, 230, 230) rgb(230, 230, 230); margin: 0px auto; border-image: none; height: 1px; overflow: hidden;
+}
+.lemma-album .albumBg .albumBgSec {
+	border-width: 1px; border-style: solid; border-color: rgb(245, 245, 245) rgb(230, 230, 230) rgb(230, 230, 230); margin: 0px auto; border-image: none; height: 1px; overflow: hidden;
+}
+.lemma-album .albumBg .albumBgFir {
+	width: 160px;
+}
+.lemma-album .albumBg .albumBgSec {
+	width: 140px;
+}
+.lemma-album:hover {
+	text-decoration: none;
+}
+.lemma-album {
+	margin: 10px 0px; position: relative;
+}
+.lemma-album.layout-right {
+	clear: right; float: right;
+}
+.lemma-album.layout-left {
+	float: left;
+}
+.lemma-album-marquee {
+	margin: 20px 0px; width: 100%; text-indent: 0px; overflow: hidden;
+}
+.lemma-album-marquee .lemma-album-marquee__view {
+	width: 100%; overflow: hidden; position: relative;
+}
+.lemma-album-marquee .lemma-album-marquee__view .lemma-album-marquee__view__imgcontainer {
+	width: 100%; height: 168px; line-height: 0; overflow: hidden; position: relative;
+}
+.lemma-album-marquee .lemma-album-marquee__view .lemma-album-marquee__view__imgcontainer .marquee-canvas {
+	width: 1000%;
+}
+.lemma-album-marquee .lemma-album-marquee__view .lemma-album-marquee__view__imgcontainer .marquee-canvas li {
+	height: 168px; padding-right: 3px; float: left;
+}
+.lemma-album-marquee .lemma-album-marquee__view .lemma-album-marquee__view__imgcontainer .marquee-canvas li a {
+	display: block;
+}
+.lemma-album-marquee .lemma-album-marquee__view .lemma-album-marquee__view__imgcontainer .marquee-canvas li img {
+	height: 168px;
+}
+.lemma-album-marquee .lemma-album-marquee__view .lemma-album-marquee__view__tool__btn {
+	background: rgba(12, 13, 15, 0.6); outline: 0px; border: 0px currentColor; border-image: none; top: 64px; width: 38px; height: 40px; color: rgb(255, 255, 255); font-size: 18px; display: none; position: absolute;
+}
+.lemma-album-marquee .lemma-album-marquee__view .lemma-album-marquee__view__tool__btn.lemma-album-marquee__view__tool__btn--left {
+	border-radius: 0px 100px 100px 0px; left: 0px;
+}
+.lemma-album-marquee .lemma-album-marquee__view .lemma-album-marquee__view__tool__btn.lemma-album-marquee__view__tool__btn--left .cmn-icon {
+	left: -4px; height: 40px; line-height: 40px; position: relative;
+}
+.lemma-album-marquee .lemma-album-marquee__view .lemma-album-marquee__view__tool__btn.lemma-album-marquee__view__tool__btn--right {
+	border-radius: 100px 0px 0px 100px; right: 0px;
+}
+.lemma-album-marquee .lemma-album-marquee__view .lemma-album-marquee__view__tool__btn.lemma-album-marquee__view__tool__btn--right .cmn-icon {
+	height: 40px; right: -4px; line-height: 40px; position: relative;
+}
+.lemma-album-marquee .lemma-album-marquee__view:hover .lemma-album-marquee__view__tool__btn {
+	display: inline-block;
+}
+.lemma-album-marquee .lemma-album-marquee__desc {
+	color: rgb(153, 153, 153); line-height: 1; font-size: 12px; margin-top: 10px;
+}
+.lemma-album-marquee.disable-scroll-left .lemma-album-marquee__view__tool__btn--left {
+	cursor: default; opacity: 0.1;
+}
+.lemma-album-marquee.disable-scroll-right .lemma-album-marquee__view__tool__btn--right {
+	cursor: default; opacity: 0.1;
+}
+.lemma-album-marquee.disable-scroll .lemma-album-marquee__view__tool__btn {
+	display: none;
+}
+.cell-module {
+	margin: 0px 0px 20px; width: 100%; text-align: left; color: rgb(0, 0, 0); line-height: 24px; border-collapse: collapse;
+}
+.cell-module.submodule th {
+	border-width: 0px 0px 1px; border-style: none none solid; border-color: currentColor currentColor rgb(213, 220, 224); border-image: none; color: rgb(130, 142, 153) !important; font-size: 12px; font-weight: 400; background-color: rgb(249, 249, 249);
+}
+.cell-module th {
+	padding: 5px 20px; height: 20px; text-align: left; line-height: 20px; border-right-color: currentColor !important; border-left-color: currentColor !important; border-right-width: 0px !important; border-left-width: 0px !important; border-right-style: none !important; border-left-style: none !important; -ms-word-wrap: break-word;
+}
+.cell-module td {
+	padding: 5px 20px; height: 20px; text-align: left; line-height: 20px; border-right-color: currentColor !important; border-left-color: currentColor !important; border-right-width: 0px !important; border-left-width: 0px !important; border-right-style: none !important; border-left-style: none !important; -ms-word-wrap: break-word;
+}
+.cell-module th {
+	border-top-color: rgb(204, 204, 204) !important; border-bottom-color: rgb(230, 230, 230) !important; border-top-width: 2px !important; border-bottom-width: 1px !important; border-top-style: solid !important; border-bottom-style: solid !important; background-color: rgb(255, 255, 255);
+}
+.cell-module td {
+	font-size: 12px; font-weight: 400; border-top-color: currentColor !important; border-bottom-color: rgb(245, 245, 245) !important; border-top-width: 0px !important; border-bottom-width: 1px !important; border-top-style: none !important; border-bottom-style: solid !important;
+}
+.cell-module td.last {
+	border-bottom-color: rgb(188, 197, 204) !important; border-bottom-width: 1px !important; border-bottom-style: solid !important;
+}
+.cell-module .cellModule-pager td {
+	text-align: center;
+}
+.horizontal-module {
+	width: 100%; margin-bottom: 14px; border-top-color: rgb(154, 165, 173); border-top-width: 2px; border-top-style: solid; border-collapse: collapse; border-spacing: 0;
+}
+.horizontal-module .normal {
+	padding: 0px 20px; height: 30px; text-align: left; line-height: 30px; font-size: 13px; font-weight: 700; border-bottom-color: rgb(230, 230, 230); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.horizontal-module .normal.title-td {
+	text-align: center;
+}
+.horizontal-module .subModule-tr {
+	display: none;
+}
+.horizontal-module .toggle .toggle-button {
+	width: 19px; height: 17px; margin-left: 12px; display: block; cursor: pointer;
+}
+.horizontal-module .toggle .toggle-button.collapsed {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/commonModule/horizontalModule/img/toggle_a8c5261.gif") no-repeat -25px -25px;
+}
+.horizontal-module .toggle .toggle-button.expaned {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/commonModule/horizontalModule/img/toggle_a8c5261.gif") no-repeat -25px 0px !important;
+}
+table.horizontal-module td.normal {
+	border: 0px currentColor; border-image: none;
+}
+table.horizontal-module td.submodule {
+	border: 0px currentColor; border-image: none;
+}
+table.horizontal-module td.normal {
+	border-bottom-color: rgb(230, 230, 230); border-bottom-width: 1px; border-bottom-style: solid;
+}
+table.horizontal-module td.submodule {
+	background: rgb(255, 255, 255); padding-right: 0px; padding-left: 0px; border-bottom-color: currentColor; border-bottom-width: 0px; border-bottom-style: none;
+}
+table.horizontal-module th {
+	padding: 5px 20px; height: 20px; line-height: 20px; border-right-color: currentColor !important; border-left-color: currentColor !important; border-right-width: 0px !important; border-left-width: 0px !important; border-right-style: none !important; border-left-style: none !important; -ms-word-wrap: break-word;
+}
+table.horizontal-module td {
+	padding: 5px 20px; height: 20px; line-height: 20px; border-right-color: currentColor !important; border-left-color: currentColor !important; border-right-width: 0px !important; border-left-width: 0px !important; border-right-style: none !important; border-left-style: none !important; -ms-word-wrap: break-word;
+}
+table.horizontal-module th {
+	padding: 0px 20px !important; text-align: left !important; border-top-color: rgb(204, 204, 204) !important; border-bottom-color: rgb(230, 230, 230) !important; border-top-width: 2px !important; border-bottom-width: 1px !important; border-top-style: solid !important; border-bottom-style: solid !important; background-color: rgb(245, 245, 245);
+}
+table.horizontal-module td {
+	font-size: 12px; font-weight: 400; border-top-color: currentColor !important; border-bottom-color: rgb(245, 245, 245) !important; border-top-width: 0px !important; border-bottom-width: 1px !important; border-top-style: none !important; border-bottom-style: solid !important; background-color: rgb(250, 250, 250);
+}
+table.horizontal-module td.last {
+	border-bottom-color: rgb(188, 197, 204) !important; border-bottom-width: 1px !important; border-bottom-style: solid !important;
+}
+.list-module {
+	border-bottom-color: rgb(230, 230, 230); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.list-module li {
+	list-style: none; line-height: 28px; border-bottom-color: rgb(245, 245, 245); border-bottom-width: 1px; border-bottom-style: solid; display: block;
+}
+.list-module .column {
+	padding: 5px 0px; height: 20px; font-size: 12px;
+}
+.list-module .column.spot {
+	padding-right: 5px; padding-left: 16px;
+}
+.magazine {
+	width: 790px; height: 340px; overflow: hidden; margin-top: 15px; position: relative;
+}
+.magazine.double-line {
+	height: 760px;
+}
+.magazine .magazine-slider {
+	position: absolute;
+}
+.magazine .magazine-slider .slider-item {
+	width: 790px; float: left;
+}
+.magazine .magazineList-block {
+	width: 800px;
+}
+.magazine .magazineList-block .magazine-item {
+	width: 186px; margin-right: 12px; margin-bottom: 54px; float: left; position: relative;
+}
+.magazine .magazineList-block .magazine-item .text-hover {
+	color: rgb(136, 136, 136);
+}
+.magazine .magazineList-block .magazine-item .text-hover:hover {
+	text-decoration: none;
+}
+.magazine .magazineList-block .magazine-item .pic {
+	width: 185px; height: 250px; overflow: hidden; position: relative;
+}
+.magazine .magazineList-block .magazine-item .pic img {
+	width: 100%;
+}
+.magazine .magazineList-block .magazine-item .name {
+	height: 20px; color: rgb(51, 51, 51); padding-top: 18px; font-size: 14px; display: inline-block;
+}
+.magazine .magazineList-block .magazine-item .time {
+	padding-top: 4px;
+}
+.magazine .magazineList-block .magazine-item .name {
+	width: 185px; overflow: hidden; white-space: nowrap; -ms-text-overflow: ellipsis;
+}
+.magazine .magazineList-block .magazine-item .time {
+	width: 185px; overflow: hidden; white-space: nowrap; -ms-text-overflow: ellipsis;
+}
+.magazine .magazineList-block .magazine-item .tips {
+	width: 185px; overflow: hidden; white-space: nowrap; -ms-text-overflow: ellipsis;
+}
+.magazine .magazineList-block .magazine-item .tips div {
+	width: 185px; overflow: hidden; white-space: nowrap; -ms-text-overflow: ellipsis;
+}
+.magazine .magazineList-block .magazine-item .tips {
+	padding-top: 3px;
+}
+.magazine .magazineList-block .magazine-item .time {
+	height: 16px; color: rgb(136, 136, 136); font-size: 12px; display: inline-block;
+}
+.magazine .magazineList-block .magazine-item .tips {
+	height: 16px; color: rgb(136, 136, 136); font-size: 12px; display: inline-block;
+}
+.lemma-map {
+	padding: 5px; border: 1px solid rgb(221, 221, 221); border-image: none; width: 790px; text-align: center; line-height: 12px; text-indent: 0px; overflow: hidden; box-sizing: border-box;
+}
+.lemma-map .desc {
+	margin: 2px 0px 0px; text-align: center; color: rgb(0, 0, 0); line-height: 16px; font-size: 12px; font-weight: 400; display: block; white-space: nowrap;
+}
+.lemma-map .marker-title {
+	color: rgb(51, 51, 51); line-height: 20px; overflow: hidden; padding-right: 50px; font-size: 14px; font-weight: 400; white-space: nowrap; position: relative; -ms-text-overflow: ellipsis;
+}
+.lemma-map .marker-link {
+	top: 0px; right: 20px; color: rgb(153, 153, 153); font-size: 12px; position: absolute;
+}
+.lemma-map .marker-detail {
+	color: rgb(102, 102, 102); line-height: 18px; overflow: auto; font-size: 12px; margin-top: 2px; max-height: 36px;
+}
+.lemma-map-small {
+	border: 1px solid rgb(221, 221, 221); border-image: none; width: 790px; overflow: hidden; padding-left: 281px; position: relative; min-height: 114px; box-sizing: border-box;
+}
+.lemma-map-small .map-container {
+	left: 0px; top: 0px; width: 281px; height: 100%; position: absolute;
+}
+.lemma-map-small .map-info-container {
+	padding: 12px; text-indent: 0px;
+}
+.lemma-map-small .map-info-title {
+	color: rgb(51, 51, 51); line-height: 20px; font-size: 14px; font-weight: 400;
+}
+.lemma-map-small .map-info-address {
+	color: rgb(102, 102, 102); line-height: 18px; padding-bottom: 20px; font-size: 12px; margin-top: 2px;
+}
+.lemma-map-small .map-info-link {
+	left: 293px; bottom: 12px; color: rgb(153, 153, 153); line-height: 18px; font-size: 12px; position: absolute;
+}
+.module-music h3 {
+	margin: 0px; clear: none; font-family: 微软雅黑; font-size: 16px; font-weight: 500;
+}
+.module-music table th {
+	padding: 5px 20px; height: 20px; text-align: left; line-height: 20px; border-right-color: currentColor !important; border-left-color: currentColor !important; border-right-width: 0px !important; border-left-width: 0px !important; border-right-style: none !important; border-left-style: none !important; -ms-word-wrap: break-word;
+}
+.module-music table td {
+	padding: 5px 20px; height: 20px; text-align: left; line-height: 20px; border-right-color: currentColor !important; border-left-color: currentColor !important; border-right-width: 0px !important; border-left-width: 0px !important; border-right-style: none !important; border-left-style: none !important; -ms-word-wrap: break-word;
+}
+.module-music table th {
+	border-top-color: currentColor !important; border-bottom-color: rgb(230, 230, 230) !important; border-top-width: 0px !important; border-bottom-width: 1px !important; border-top-style: none !important; border-bottom-style: solid !important; background-color: rgb(255, 255, 255);
+}
+.module-music table td {
+	font-size: 12px; font-weight: 400; border-top-color: currentColor !important; border-bottom-color: rgb(245, 245, 245) !important; border-top-width: 0px !important; border-bottom-width: 1px !important; border-top-style: none !important; border-bottom-style: solid !important;
+}
+.module-music table td.last {
+	border-bottom-color: rgb(188, 197, 204) !important; border-bottom-width: 1px !important; border-bottom-style: solid !important;
+}
+.musicAlbum-model {
+	font-size: 12px; float: right;
+}
+.musicAlbum-model .model-list {
+	color: rgb(19, 110, 194); cursor: pointer;
+}
+.musicAlbum-model .model-detail {
+	color: rgb(19, 110, 194); cursor: pointer;
+}
+.musicAlbum-model .model-list.highlight {
+	color: rgb(0, 0, 0); font-weight: 700; cursor: text;
+}
+.musicAlbum-model .model-detail.highlight {
+	color: rgb(0, 0, 0); font-weight: 700; cursor: text;
+}
+.musicAlbum-wrapper {
+	margin: 10px 0px 20px; border-top-color: rgb(204, 204, 204); border-bottom-color: rgb(230, 230, 230); border-top-width: 2px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid;
+}
+.musicAlbum-wrapper .clear {
+	clear: both;
+}
+.musicAlbum-wrapper .musicAlbum-table {
+	width: 100%; color: rgb(0, 0, 0); line-height: 22px; font-size: 12px; border-collapse: collapse; -ms-word-break: break-all; -ms-word-wrap: break-word;
+}
+.musicAlbum-wrapper .musicAlbum-table thead th {
+	height: 27px; text-align: center; color: rgb(85, 85, 85); line-height: 27px; font-weight: 700; border-bottom-color: rgb(230, 230, 230); border-bottom-width: 1px; border-bottom-style: solid; background-color: rgb(249, 249, 249);
+}
+.musicAlbum-wrapper .musicAlbum-table tr {
+	border-bottom-color: rgb(245, 245, 245); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.musicAlbum-wrapper .musicAlbum-table tr td {
+	height: 27px; line-height: 27px; vertical-align: middle;
+}
+.musicAlbum-wrapper .musicAlbum-table .album-item.expand {
+	background-color: rgb(250, 250, 250);
+}
+.musicAlbum-wrapper .musicAlbum-table .align-center {
+	text-align: center;
+}
+.musicAlbum-wrapper .musicAlbum-table .with-padding {
+	padding-left: 15px;
+}
+.musicAlbum-wrapper .musicAlbum-table .detail-toggle {
+	margin: 0px auto; width: 20px; height: 10px; display: inline-block;
+}
+.musicAlbum-wrapper .musicAlbum-table .detail-toggle.collapse {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/commonModule/music/img/music_6a44e56.png") no-repeat -87px -51px;
+}
+.musicAlbum-wrapper .musicAlbum-table .detail-toggle.expand {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/commonModule/music/img/music_6a44e56.png") no-repeat -87px -68px;
+}
+.musicAlbum-detail.collapse {
+	display: none;
+}
+.musicAlbum-detail.expand {
+	display: table-row;
+}
+.musicAlbum-detail .detail-wrapper {
+	padding-top: 10px; padding-left: 15px;
+}
+.musicAlbum-detail .detail-wrapper .musicAlbum-pic {
+	width: 125px; padding-bottom: 3px; float: right; visibility: visible;
+}
+.musicAlbum-detail .songList-block {
+	width: 100%;
+}
+.musicAlbum-detail .songList-block .item-index {
+	width: 35px;
+}
+.musicAlbum-detail .songList-block .item-name {
+	width: 210px;
+}
+.musicAlbumStar-viewport {
+	width: 790px; height: 202px; overflow: hidden; margin-top: 15px; position: relative;
+}
+.musicAlbumStar-viewport.double-line {
+	height: 404px;
+}
+.musicAlbumStar-viewport .musicAlbumStar-slider {
+	position: absolute;
+}
+.musicAlbumStar-viewport .musicAlbumStar-slider .slider-item {
+	width: 790px; float: left;
+}
+.musicAlbumStar-viewport .albumList-block {
+	width: 790px;
+}
+.musicAlbumStar-viewport .albumList-block .album-item {
+	width: 143px; overflow: hidden; margin-right: 16px; margin-bottom: 16px; float: left;
+}
+.musicAlbumStar-viewport .albumList-block .album-item .pic {
+	overflow: hidden; border-bottom-color: rgb(224, 224, 224); border-bottom-width: 1px; border-bottom-style: solid; position: relative;
+}
+.musicAlbumStar-viewport .albumList-block .album-item .pic:hover .fg {
+	background-position: 0px -60px;
+}
+.musicAlbumStar-viewport .albumList-block .album-item .pic:hover .playBtn {
+	opacity: 1;
+}
+.musicAlbumStar-viewport .albumList-block .album-item .pic .bg {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/commonModule/music/musicAlbumForStar/img/musicAlbum-bg_2c8d03b.png"); width: 143px; height: 137px; display: block;
+}
+.musicAlbumStar-viewport .albumList-block .album-item .pic .cover {
+	border-width: 1px 1px 1px 0px; border-style: solid solid solid none; border-color: rgb(214, 214, 214) rgb(214, 214, 214) rgb(214, 214, 214) currentColor; border-image: none; left: 7px; top: 0px; position: absolute;
+}
+.musicAlbumStar-viewport .albumList-block .album-item .pic .fg {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/commonModule/music/musicAlbumForStar/img/musicAlbum-fg_c859601.png") no-repeat; left: 8px; top: 1px; width: 135px; height: 60px; position: absolute;
+}
+.musicAlbumStar-viewport .albumList-block .album-item .albumName {
+	line-height: 18px; overflow: hidden; font-family: "Microsoft Yahei" !important; font-size: 14px; font-weight: 700; margin-top: 6px; display: block; white-space: nowrap; -ms-word-wrap: normal; -ms-text-overflow: ellipsis;
+}
+.musicAlbumStar-viewport .albumList-block .album-item i {
+	color: rgb(136, 136, 136); font-style: normal; font-weight: 700;
+}
+.musicOther-wrapper {
+	margin-top: 10px; margin-bottom: 20px; border-bottom-color: rgb(230, 230, 230); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.musicOther-wrapper table {
+	border-top-color: rgb(204, 204, 204); border-top-width: 2px; border-top-style: solid;
+}
+.musicOther-wrapper tr {
+	border-bottom-color: rgb(245, 245, 245); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.musicOther-wrapper td {
+	height: 27px; line-height: 27px;
+}
+.module-music .musicHot-header {
+	width: 200px; text-align: right; margin-bottom: 4px; float: right;
+}
+.module-music .musicHot-header .from {
+	color: rgb(153, 153, 153); font-size: 12px;
+}
+.module-music .musicHot-header .from .music-logo {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/commonModule/music/img/musicLogo_136f07a.png") no-repeat 0px 1px / contain; margin: -3px 0px 0px 6px; top: 5px; width: 20px; height: 27px; display: inline-block; position: relative;
+}
+.module-music .musicHot-wrapper {
+	overflow: hidden; margin-top: 10px; margin-bottom: 20px; border-top-color: rgb(229, 229, 229); border-bottom-color: rgb(230, 230, 230); border-top-width: 2px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid;
+}
+.module-music .musicHot-wrapper .musicHot-block {
+	width: 33%; float: left;
+}
+.module-music .musicHot-wrapper .musicHot-block .musicHot-table {
+	line-height: 24px; font-size: 12px; border-collapse: collapse; border-spacing: 0;
+}
+.module-music .musicHot-wrapper .musicHot-block tr {
+	border-bottom-color: rgb(245, 245, 245); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.module-music .musicHot-wrapper .musicHot-block tr a {
+	color: rgb(19, 110, 194);
+}
+.module-music .musicHot-wrapper .musicHot-block .item-index {
+	padding-left: 15px;
+}
+.module-music .musicHot-wrapper .musicHot-block .item-name {
+	height: 27px; line-height: 27px; font-size: 12px;
+}
+.module-music .musicHot-wrapper .musicHot-block .item-name a {
+	outline: 0px; color: rgb(51, 51, 51); cursor: text;
+}
+.module-music .musicHot-wrapper .musicHot-block .item-name a:hover {
+	text-decoration: none;
+}
+.module-music .musicHot-wrapper .musicHot-block .listen-icon {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/commonModule/music/img/music_6a44e56.png") no-repeat -30px -45px; margin: 0px auto; width: 17px; height: 17px; display: block;
+}
+.module-music .musicHot-wrapper .musicHot-block .listen-icon:hover {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/commonModule/music/img/music_6a44e56.png") no-repeat 0px -45px;
+}
+.musicSingle-wrapper {
+	margin-top: 10px; margin-bottom: 20px; border-top-color: rgb(204, 204, 204); border-bottom-color: rgb(230, 230, 230); border-top-width: 2px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid;
+}
+.musicSingle-wrapper tr {
+	border-bottom-color: rgb(245, 245, 245); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.musicSingle-wrapper td {
+	height: 27px; line-height: 27px;
+}
+.musicAlbumStar-viewport {
+	width: 790px; height: 202px; overflow: hidden; margin-top: 15px; position: relative;
+}
+.musicAlbumStar-viewport.double-line {
+	height: 404px;
+}
+.musicAlbumStar-viewport .musicAlbumStar-slider {
+	position: absolute;
+}
+.musicAlbumStar-viewport .musicAlbumStar-slider .slider-item {
+	width: 790px; float: left;
+}
+.musicAlbumStar-viewport .albumList-block {
+	width: 790px;
+}
+.musicAlbumStar-viewport .albumList-block .album-item {
+	width: 143px; overflow: hidden; margin-right: 16px; margin-bottom: 16px; float: left;
+}
+.musicAlbumStar-viewport .albumList-block .album-item .pic {
+	overflow: hidden; border-bottom-color: rgb(224, 224, 224); border-bottom-width: 1px; border-bottom-style: solid; position: relative;
+}
+.musicAlbumStar-viewport .albumList-block .album-item .pic:hover .fg {
+	background-position: 0px -60px;
+}
+.musicAlbumStar-viewport .albumList-block .album-item .pic:hover .playBtn {
+	opacity: 1;
+}
+.musicAlbumStar-viewport .albumList-block .album-item .pic .bg {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/commonModule/musicAlbum/img/musicAlbum-bg_2c8d03b.png"); width: 143px; height: 137px; display: block;
+}
+.musicAlbumStar-viewport .albumList-block .album-item .pic .cover {
+	border-width: 1px 1px 1px 0px; border-style: solid solid solid none; border-color: rgb(214, 214, 214) rgb(214, 214, 214) rgb(214, 214, 214) currentColor; border-image: none; left: 7px; top: 0px; position: absolute;
+}
+.musicAlbumStar-viewport .albumList-block .album-item .pic .fg {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/commonModule/musicAlbum/img/musicAlbum-fg_c859601.png") no-repeat; left: 8px; top: 1px; width: 135px; height: 60px; position: absolute;
+}
+.musicAlbumStar-viewport .albumList-block .album-item .albumName {
+	height: 22px; line-height: 22px; overflow: hidden; font-family: "Microsoft Yahei" !important; font-size: 14px; font-weight: 700; margin-top: 6px; white-space: nowrap; -ms-word-wrap: normal; -ms-text-overflow: ellipsis;
+}
+.musicAlbumStar-viewport .albumList-block .album-item .albumDate {
+	height: 20px; line-height: 20px; overflow: hidden; white-space: nowrap; -ms-word-wrap: normal; -ms-text-overflow: ellipsis;
+}
+.musicAlbumStar-viewport .albumList-block .album-item i {
+	color: rgb(136, 136, 136); font-style: normal; font-weight: 700;
+}
+.musicAlbum-detail.collapse {
+	display: none;
+}
+.musicAlbum-detail.expand {
+	display: table-row;
+}
+.musicAlbum-detail .detail-wrapper {
+	padding-top: 10px; padding-left: 15px;
+}
+.musicAlbum-detail .detail-wrapper .musicAlbum-pic {
+	width: 125px; padding-bottom: 3px; float: right; visibility: visible;
+}
+.musicAlbum-detail .songList-block {
+	width: 100%;
+}
+.musicAlbum-detail .songList-block .item-index {
+	width: 35px;
+}
+.musicAlbum-detail .songList-block .item-name {
+	width: 210px;
+}
+.musicAlbum-model {
+	font-size: 12px; float: right;
+}
+.musicAlbum-model .model-list {
+	color: rgb(19, 110, 194); cursor: pointer;
+}
+.musicAlbum-model .model-detail {
+	color: rgb(19, 110, 194); cursor: pointer;
+}
+.musicAlbum-model .model-list.highlight {
+	color: rgb(0, 0, 0); font-weight: 700; cursor: text;
+}
+.musicAlbum-model .model-detail.highlight {
+	color: rgb(0, 0, 0); font-weight: 700; cursor: text;
+}
+.musicAlbum-wrapper {
+	margin: 10px 0px 20px; border-top-color: rgb(204, 204, 204); border-bottom-color: rgb(230, 230, 230); border-top-width: 2px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid;
+}
+.musicAlbum-wrapper .clear {
+	clear: both;
+}
+.musicAlbum-wrapper .musicAlbum-table {
+	width: 100%; color: rgb(0, 0, 0); line-height: 22px; font-size: 12px; border-collapse: collapse; -ms-word-break: break-all; -ms-word-wrap: break-word;
+}
+.musicAlbum-wrapper .musicAlbum-table th {
+	height: 27px; line-height: 27px; border-right-color: currentColor !important; border-left-color: currentColor !important; border-right-width: 0px !important; border-left-width: 0px !important; border-right-style: none !important; border-left-style: none !important;
+}
+.musicAlbum-wrapper .musicAlbum-table td {
+	height: 27px; line-height: 27px; border-right-color: currentColor !important; border-left-color: currentColor !important; border-right-width: 0px !important; border-left-width: 0px !important; border-right-style: none !important; border-left-style: none !important;
+}
+.musicAlbum-wrapper .musicAlbum-table thead th {
+	text-align: center; color: rgb(85, 85, 85); font-weight: 700; border-bottom-color: rgb(230, 230, 230); border-bottom-width: 1px; border-bottom-style: solid; background-color: rgb(249, 249, 249);
+}
+.musicAlbum-wrapper .musicAlbum-table tr {
+	border-bottom-color: rgb(245, 245, 245); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.musicAlbum-wrapper .musicAlbum-table tr td {
+	vertical-align: middle;
+}
+.musicAlbum-wrapper .musicAlbum-table .album-item.expand {
+	background-color: rgb(250, 250, 250);
+}
+.musicAlbum-wrapper .musicAlbum-table .align-center {
+	text-align: center;
+}
+.musicAlbum-wrapper .musicAlbum-table .with-padding {
+	padding-left: 15px;
+}
+.musicAlbum-wrapper .musicAlbum-table .detail-toggle {
+	margin: 0px auto; width: 20px; height: 10px; display: inline-block;
+}
+.musicAlbum-wrapper .musicAlbum-table .detail-toggle.collapse {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/commonModule/musicAlbum/img/music_6a44e56.png") no-repeat -87px -51px;
+}
+.musicAlbum-wrapper .musicAlbum-table .detail-toggle.expand {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/commonModule/musicAlbum/img/music_6a44e56.png") no-repeat -87px -68px;
+}
+.musicOther-wrapper {
+	margin-top: 10px; margin-bottom: 20px; border-bottom-color: rgb(230, 230, 230); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.musicOther-wrapper table {
+	border-top-color: rgb(204, 204, 204); border-top-width: 2px; border-top-style: solid;
+}
+.musicOther-wrapper tr {
+	border-bottom-color: rgb(245, 245, 245); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.musicOther-wrapper td {
+	height: 27px; line-height: 27px; border-right-color: currentColor !important; border-left-color: currentColor !important; border-right-width: 0px !important; border-left-width: 0px !important; border-right-style: none !important; border-left-style: none !important;
+}
+.musicSingle-wrapper {
+	margin-top: 10px; margin-bottom: 20px; border-top-color: rgb(204, 204, 204); border-bottom-color: rgb(230, 230, 230); border-top-width: 2px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid;
+}
+.musicSingle-wrapper th {
+	border-right-color: currentColor !important; border-left-color: currentColor !important; border-right-width: 0px !important; border-left-width: 0px !important; border-right-style: none !important; border-left-style: none !important;
+}
+.musicSingle-wrapper td {
+	border-right-color: currentColor !important; border-left-color: currentColor !important; border-right-width: 0px !important; border-left-width: 0px !important; border-right-style: none !important; border-left-style: none !important;
+}
+.musicSingle-wrapper tr {
+	border-bottom-color: rgb(245, 245, 245); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.musicSingle-wrapper td {
+	height: 27px; line-height: 27px;
+}
+.enterprise_tips {
+	background: rgb(251, 251, 251); padding: 5px 10px 5px 5px; border-radius: 2px; border: 1px solid rgb(221, 221, 221); border-image: none; left: 0px; height: 15px; line-height: 15px; font-size: 14px; margin-top: 10px; display: none; position: absolute; z-index: 999; min-width: 255px; max-width: 600px;
+}
+.enterprise_tips p {
+	overflow: hidden; white-space: nowrap; -ms-text-overflow: ellipsis; max-width: 600px;
+}
+.enterprise_tips p a {
+	text-decoration: none;
+}
+.enterprise_tips .connection_key {
+	margin-right: 10px;
+}
+.enterprise_tips .arrow {
+	left: 50%; top: -10px; width: 20px; height: 10px; text-align: center; color: rgb(221, 221, 221); line-height: 20px; overflow: hidden; font-size: 20px; margin-left: -10px; position: absolute; z-index: 0;
+}
+.enterprise_tips .arrow em {
+	left: 0px; top: 2px; width: 20px; color: rgb(255, 255, 255); position: absolute;
+}
+.en_conne_notice {
+	right: -14px; bottom: 0px; color: rgb(153, 153, 153); padding-bottom: 5px; position: absolute;
+}
+.en_conne_notice .notice_ico {
+	font-size: 13px; display: block;
+}
+.en_conne_notice .enterprise_tips p a {
+	text-decoration: underline;
+}
+.en_conne_notice:hover .enterprise_tips {
+	display: block;
+}
+.poster-absolute .en_conne_notice {
+	right: 300px; bottom: 30px;
+}
+.common-page {
+	color: rgb(19, 110, 194); clear: left; font-size: 12px; text-decoration: none; display: inline-block; cursor: pointer;
+}
+.common-page:hover {
+	color: rgb(19, 110, 194); text-decoration: none; cursor: pointer;
+}
+.common-page:visited {
+	color: rgb(19, 110, 194);
+}
+.common-page:active {
+	color: rgb(19, 110, 194);
+}
+.module-common-showType a.common-page-disable {
+	font-size: 12px; font-weight: 700; text-decoration: none; display: inline-block; cursor: text;
+}
+.common-page-container a.common-page-disable {
+	font-size: 12px; font-weight: 700; text-decoration: none; display: inline-block; cursor: text;
+}
+.common-page-container a.common-page-disable-num {
+	font-size: 12px; font-weight: 700; text-decoration: none; display: inline-block; cursor: text;
+}
+.common-page-container a.common-page-disable {
+	color: rgb(187, 187, 187);
+}
+.common-page-container a.common-page-disable-num {
+	color: rgb(0, 0, 0);
+}
+.common-page-container .module-common-showType a.common-page-disable {
+	color: rgb(0, 0, 0);
+}
+.common-page-split {
+	width: 3px; color: rgb(187, 187, 187); display: inline-block;
+}
+.common-page-container a.common-pagenum {
+	margin: 0px 4px; width: 16px;
+}
+.common-page-container a.common-prevnext {
+	margin: 0px 5px; font-weight: 400;
+}
+.module-common-showType {
+	height: 30px; text-align: right; line-height: 30px; font-size: 12px;
+}
+.module-common-showType a {
+	margin: 0px 3px; width: 60px; text-align: center; text-decoration: none; display: inline-block;
+}
+.common-page-container a:hover {
+	text-decoration: none !important;
+}
+.common-page-container {
+	margin-top: -14px; margin-bottom: 14px; border-bottom-color: rgb(188, 197, 204); border-bottom-width: 1px; border-bottom-style: solid; background-color: rgb(250, 251, 252);
+}
+.lemmaWgt-roleIntroduction {
+	width: 788px; margin-bottom: 10px;
+}
+.lemmaWgt-roleIntroduction ul {
+	overflow: hidden;
+}
+.lemmaWgt-roleIntroduction ul .roleIntroduction-item {
+	border-width: 1px 0px 0px; border-style: solid none none; border-color: rgb(228, 228, 228) currentColor currentColor; margin: 0px; padding: 15px; border-image: none; width: 758px; overflow: hidden;
+}
+.lemmaWgt-roleIntroduction ul :first-child.roleIntroduction-item {
+	border-top-color: currentColor; border-top-width: 0px; border-top-style: none;
+}
+.lemmaWgt-roleIntroduction ul .roleIntroduction-item .roleIntrodcution-picture {
+	width: 135px; height: 160px; overflow: hidden; float: left; display: block;
+}
+.lemmaWgt-roleIntroduction ul .roleIntroduction-item .roleIntrodcution-picture img {
+	width: 135px;
+}
+.lemmaWgt-roleIntroduction ul .roleIntroduction-item .roleIntrodcution-descritpion {
+	width: 600px; color: rgb(102, 102, 102); line-height: 22px; font-size: 12px; margin-left: 20px; float: left; display: block;
+}
+.lemmaWgt-roleIntroduction ul .roleIntroduction-item .roleIntrodcution-descritpion .item-key {
+	margin: 0px 6px 0px 0px; color: rgb(153, 153, 153);
+}
+.lemmaWgt-roleIntroduction ul .roleIntroduction-item .roleIntrodcution-descritpion .item-value {
+	color: rgb(102, 102, 102);
+}
+.lemmaWgt-roleIntroduction ul .roleIntroduction-item .roleIntrodcution-descritpion .role-name {
+	margin: 0px 0px 3px; height: 22px; font-family: arial,tahoma,"Microsoft Yahei","宋体",sans-serif; font-size: 16px;
+}
+.lemmaWgt-roleIntroduction ul .roleIntroduction-item .roleIntrodcution-descritpion .role-actor {
+	height: 22px; font-family: arial,tahoma,"Microsoft Yahei","宋体",sans-serif;
+}
+.lemmaWgt-roleIntroduction ul .roleIntroduction-item .roleIntrodcution-descritpion .role-voice {
+	margin: 0px 0px 5px; font-family: arial,tahoma,"Microsoft Yahei","宋体",sans-serif; min-height: 22px;
+}
+.lemmaWgt-roleIntroduction ul .roleIntroduction-item .roleIntrodcution-descritpion .role-description {
+	color: rgb(51, 51, 51);
+}
+.lemmaWgt-roleIntroduction ul .roleIntroduction-item.more {
+	display: none;
+}
+.lemmaWgt-roleIntroduction .expand-all-container {
+	text-align: right; margin-top: 10px;
+}
+.lemmaWgt-roleIntroduction .expand-all-container .expand-all {
+	background: rgb(252, 252, 252); padding: 5px 0px; outline: 0px; border-radius: 3px; border: 1px solid rgb(238, 238, 238); border-image: none; text-align: center; color: rgb(119, 119, 119); text-decoration: none; display: block;
+}
+.lemmaWgt-roleIntroduction .expand-all-container .expand-all em {
+	text-decoration: none;
+}
+.lemmaWgt-roleIntroduction .expand-all-container .expand-all span {
+	text-decoration: none;
+}
+.lemmaWgt-roleIntroduction .expand-all-container .expand-all em {
+	margin-left: 5px; vertical-align: middle;
+}
+.lemmaWgt-roleIntroduction .expand-all-container .expand-all:hover {
+	border-color: rgb(221, 221, 221);
+}
+.dramaSeries .pageBar {
+	font: 14px/28px "Microsoft Yahei"; padding: 0px 0px 9px 5px; height: 38px; overflow: hidden; font-size-adjust: none; font-stretch: normal;
+}
+.dramaSeries .pageBar .pagers {
+	font-size: 0px; margin-right: 60px;
+}
+.dramaSeries .pageBar .pagers a {
+	margin: 10px 8px 0px 0px; border-radius: 2px; border: 1px solid rgb(220, 220, 220); border-image: none; width: 62px; height: 28px; text-align: center; color: rgb(102, 102, 102); font-size: 14px; display: inline-block;
+}
+.dramaSeries .pageBar .pagers a.cur {
+	background: rgb(82, 163, 245); border-color: rgb(82, 163, 245); color: rgb(255, 255, 255) !important; text-decoration: none !important; cursor: default;
+}
+.dramaSeries .pageBar .pagers a:hover {
+	border-color: rgb(82, 163, 245); color: rgb(51, 141, 230); text-decoration: none;
+}
+.dramaSeries .pageBar .more {
+	background: url("seriesBtn.png") no-repeat 45px top; width: 46px; height: 30px; color: rgb(102, 102, 102); padding-left: 12px; margin-top: 10px; border-left-color: rgb(226, 226, 226); border-left-width: 1px; border-left-style: solid; float: right; display: block;
+}
+.dramaSeries .pageBar .more:hover {
+	color: rgb(19, 130, 237); text-decoration: none;
+}
+.dramaSeries .unfold {
+	height: auto;
+}
+.dramaSeries .unfold .more {
+	background-position: 45px -30px;
+}
+.dramaSeries .dramaSerialList {
+	margin-top: 4px;
+}
+.dramaSeries .dramaSerialList dl {
+	color: rgb(51, 51, 51); display: none;
+}
+.dramaSeries .dramaSerialList dl:first-child {
+	display: block;
+}
+.dramaSeries .dramaSerialList dl dt {
+	font: 700 16px/34px "Microsoft Yahei"; text-indent: 2em; font-size-adjust: none; font-stretch: normal;
+}
+.dramaSeries .dramaSerialList dl dt * {
+	vertical-align: middle;
+}
+.dramaSeries .dramaSerialList dl dt .playBtn {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/commonModule/series/img/playBtn_d86774b.png") no-repeat bottom; border: 1px solid rgb(79, 156, 238); border-image: none; width: 14px; height: 12px; line-height: 0; font-size: 0px; margin-left: 15px; vertical-align: middle; display: inline-block;
+}
+.dramaSeries .dramaSerialList dl dt .playBtn:hover {
+	background-position: 0px -14px;
+}
+.dramaSeries .dramaSerialList dl dd {
+	line-height: 24px; font-size: 14px;
+}
+.dramaSeries .dramaSerialList dl dd::after {
+	height: 0px; overflow: hidden; clear: both; font-size: 0px; display: block; visibility: hidden; content: "\0020";
+}
+.dramaSeries .dramaSerialList dl dd img {
+	margin: 0px 0px 10px 20px; border: 1px solid rgb(224, 224, 224); border-image: none; float: right;
+}
+.dramaSeries .series-pic {
+	margin: 0px 0px 10px 10px; float: right;
+}
+.lemmaWgt-commonModule-video {
+	margin: 0px 0px 25px; padding: 5px; border: 1px solid rgb(221, 221, 221); border-image: none; text-indent: 0px;
+}
+.lemmaWgt-commonModule-video.layoutright {
+	clear: right; float: right;
+}
+.lemmaWgt-commonModule-video.layoutleft {
+	clear: left; float: left;
+}
+.lemmaWgt-commonModule-video .video-container {
+	margin-bottom: 5px;
+}
+.lemmaWgt-commonModule-video .video-title {
+	text-align: center; font-size: 12px;
+}
+.wiki-lemma .promotion-declaration {
+	background: rgb(249, 249, 249); margin: 10px 0px 20px; padding: 7px; border: 1px solid rgb(241, 241, 241); border-image: none; display: none;
+}
+.wiki-lemma .promotion-declaration::after {
+	height: 0px; overflow: hidden; clear: both; font-size: 0px; display: block; visibility: hidden; content: "\0020";
+}
+.wiki-lemma .promotion-declaration .declarationLogo {
+	margin: 0px 8px 0px 0px; border-radius: 3px; border: 1px solid rgb(170, 177, 185); border-image: none; width: 32px; height: 16px; text-align: center; color: rgb(255, 255, 255); line-height: 16px; font-size: 12px; float: left; background-color: rgb(182, 187, 193);
+}
+.wiki-lemma .promotion-declaration .hotspot {
+	border-color: rgb(240, 105, 84); background-color: rgb(240, 105, 84);
+}
+.wiki-lemma .promotion-declaration .declarationContent {
+	line-height: 18px; font-size: 12px; float: left;
+}
+.wiki-lemma .promotion-declaration .declarationContent .declaration-refer {
+	margin: 3px 0px 0px; color: rgb(102, 102, 102); line-height: 18px; font-size: 12px;
+}
+.declare-wrap {
+	background: rgb(255, 255, 255); padding-bottom: 5px; margin-top: -10px; display: none;
+}
+.declare {
+	background: rgb(249, 244, 217); padding: 10px 15px; color: rgb(143, 127, 93); position: relative;
+}
+.declare::after {
+	height: 0px; overflow: hidden; clear: both; font-size: 0px; display: block; visibility: hidden; content: "\0020";
+}
+.declare .close-btn {
+	top: 12px; right: 15px; position: absolute; cursor: pointer;
+}
+.declare .close-btn .cmn-icons_close {
+	font-size: 13px;
+}
+.declare .declare-details {
+	margin-left: 5px;
+}
+.wiki-lemma .side-box.fengchao {
+	background: rgb(255, 255, 255); line-height: 18px; padding-top: 10px; clear: both; display: none;
+}
+.fc-guess-like {
+	background: rgb(255, 255, 255); margin: 10px auto 0px; border: 1px solid rgb(229, 229, 229); border-image: none; width: 1137px; display: none; position: relative;
+}
+.fc-guess-like h6 {
+	margin: 20px 0px 0px 25px; line-height: 1.2; font-size: 19px; font-weight: 400;
+}
+.fc-guess-like ul {
+	padding: 0px 25px 20px; margin-top: 5px;
+}
+.fc-guess-like ul li {
+	margin: 6px 20px 0px 0px; width: 195px; color: rgb(51, 142, 214); overflow: hidden; float: left; display: inline; white-space: nowrap; -ms-text-overflow: ellipsis;
+}
+.fc-guess-like ul li a {
+	color: rgb(51, 142, 214); font-size: 14px;
+}
+.new .logo-du {
+	left: 26px; top: 20px; position: absolute;
+}
+.new .cmn-icons_logo-du {
+	color: rgb(136, 136, 136); font-size: 20px;
+}
+.new h6 {
+	margin: 20px 0px 0px 54px;
+}
+.new ul {
+	font: 12px/1.5 arial, "宋体", sans-serif; font-size-adjust: none; font-stretch: normal;
+}
+.new ul li::before {
+	background: rgb(51, 142, 214); margin: 0px 5px 3px 0px; border-radius: 50%; width: 3px; height: 3px; display: inline-block; content: "";
+}
+.body-wrapper .pvBtn-box {
+	color: rgb(136, 136, 136); font-size: 0px; margin-bottom: 15px; max-height: 139px;
+}
+.body-wrapper .pvBtn-box .buttonBefore {
+	font-size: 12px; margin-right: 10px;
+}
+.body-wrapper .pvBtn-box .buttonAfter {
+	font-size: 12px;
+}
+.body-wrapper .pvBtn-box .leadPVBtnWrapper {
+	margin-right: 10px;
+}
+.body-wrapper .pvBtn-box .leadPVBtnWrapper .leadPVBtn {
+	padding: 7px 8px; color: rgb(58, 150, 244); font-size: 14px;
+}
+.body-wrapper .pvBtn-box .leadPVBtnWrapper .leadPVBtn .leadPVBtn_icon {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/promotion/leadPVBtn/img/college_hat_icon_blue_fb42324.png?__sprite") no-repeat 0px 0px; height: 18px; margin-right: 6px; vertical-align: middle; display: inline-block;
+}
+.body-wrapper .pvBtn-box .leadPVBtnWrapper .leadPVBtn .admission {
+	width: 26px; background-image: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/promotion/leadPVBtn/img/college_hat_icon_blue_fb42324.png?__sprite");
+}
+.body-wrapper .pvBtn-box .leadPVBtnWrapper .leadPVBtn .studyAbroad {
+	width: 26px; background-image: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/promotion/leadPVBtn/img/college_hat_icon_blue_fb42324.png?__sprite");
+}
+.body-wrapper .pvBtn-box .leadPVBtnWrapper .leadPVBtn .readFree {
+	width: 18px; background-image: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/promotion/leadPVBtn/img/book_icon_blue_52c308a.png?__sprite");
+}
+.body-wrapper .pvBtn-box .leadPVBtnWrapper .leadPVBtn:hover {
+	color: rgb(255, 255, 255);
+}
+.body-wrapper .pvBtn-box .leadPVBtnWrapper .leadPVBtn:hover .admission {
+	background-image: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/promotion/leadPVBtn/img/college_hat_icon_white_ba795dd.png?__sprite");
+}
+.body-wrapper .pvBtn-box .leadPVBtnWrapper .leadPVBtn:hover .studyAbroad {
+	background-image: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/promotion/leadPVBtn/img/college_hat_icon_white_ba795dd.png?__sprite");
+}
+.body-wrapper .pvBtn-box .leadPVBtnWrapper .leadPVBtn:hover .readFree {
+	background-image: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/promotion/leadPVBtn/img/book_icon_white_a5615b1.png?__sprite");
+}
+.body-wrapper .pvBtn-box .leadPVBtn_qrcode {
+	font-size: 14px; margin-right: 10px; display: inline-block; position: relative;
+}
+.body-wrapper .pvBtn-box .leadPVBtn_qrcode i {
+	font-style: normal; font-weight: 400; display: inline-block;
+}
+.body-wrapper .pvBtn-box .leadPVBtn_qrcode strong {
+	font-style: normal; font-weight: 400; display: inline-block;
+}
+.body-wrapper .pvBtn-box .leadPVBtn_qrcode .leadPVBtn_qrcode_text {
+	padding: 6px 8px; border-radius: 2px; border: 1px solid rgb(168, 209, 250); border-image: none; color: rgb(61, 140, 219); line-height: 1; font-family: "Microsoft Yahei"; display: inline-block; cursor: pointer; box-shadow: 0px 0px 1px rgba(168,209,250,0.2);
+}
+.body-wrapper .pvBtn-box .leadPVBtn_qrcode .leadPVBtn_qrcode_text i {
+	width: 18px; height: 20px; margin-right: 5px; vertical-align: -4px; background-image: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/promotion/leadPVBtn/img/pvbtn-icons-mobile_fa8cbf0.png?__sprite"); background-repeat: no-repeat;
+}
+.body-wrapper .pvBtn-box .leadPVBtn_qrcode .leadPVBtn_qrcode_text .leadPVBtn_qrcode_icon_android {
+	background-position: -2px -2px;
+}
+.body-wrapper .pvBtn-box .leadPVBtn_qrcode .leadPVBtn_qrcode_text .leadPVBtn_qrcode_icon_ios {
+	background-position: -22px -2px;
+}
+.body-wrapper .pvBtn-box .leadPVBtn_qrcode .leadPVBtn_qrcode_pic {
+	left: 0px; top: 100%; width: 100%; display: block; position: absolute; z-index: 50;
+}
+.body-wrapper .pvBtn-box .leadPVBtn_qrcode .leadPVBtn_qrcode_pic span {
+	padding: 12px 12px 8px; border: 1px solid rgb(211, 215, 218); border-image: none; text-align: center; margin-top: 5px; display: block; box-shadow: 0px 0px 3px #d3d7da; background-color: rgb(255, 255, 255);
+}
+.body-wrapper .pvBtn-box .leadPVBtn_qrcode .leadPVBtn_qrcode_pic span i {
+	overflow: hidden; display: block;
+}
+.body-wrapper .pvBtn-box .leadPVBtn_qrcode .leadPVBtn_qrcode_pic span i img {
+	margin: 0px auto; height: auto; max-width: 100%;
+}
+.body-wrapper .pvBtn-box .leadPVBtn_qrcode .leadPVBtn_qrcode_pic span strong {
+	color: rgb(102, 102, 102); line-height: 1; margin-top: 9px;
+}
+.body-wrapper .pvBtn-box .leadPVBtn_qrcode .leadPVBtn_qrcode_pic {
+	display: none;
+}
+.body-wrapper .pvBtn-box .leadPVBtn_qrcode:hover .leadPVBtn_qrcode_text {
+	box-shadow: 0px 0px 3px rgba(168,209,250,0.8);
+}
+.body-wrapper .pvBtn-box .leadPVBtn_qrcode:hover .leadPVBtn_qrcode_pic {
+	display: block;
+}
+.medical-modal-container {
+	left: 0px; top: 0px; width: 100%; height: 100%; position: fixed; z-index: 1002;
+}
+.medical-modal-container .medical-modal-mask {
+	transition:opacity 0.6s; left: 0px; top: 0px; width: 100%; height: 100%; position: absolute; opacity: 0; background-color: rgba(0, 0, 0, 0.65); -webkit-transition: opacity .6s;
+}
+.medical-modal-container .medical-modal {
+	transition:0.6s; left: 50%; top: 50%; width: 366px; text-align: center; padding-bottom: 24px; margin-top: -175px; margin-left: -183px; position: absolute; opacity: 0; background-color: rgb(255, 255, 255); -webkit-transition: all .6s;
+}
+.medical-modal-container .medical-modal-header {
+	padding: 0px 13px 0px 12px; text-align: left; color: rgb(51, 51, 51); line-height: 30px; font-size: 12px; border-bottom-color: rgb(229, 229, 229); border-bottom-width: 1px; border-bottom-style: solid; background-color: rgb(250, 251, 252);
+}
+.medical-modal-container .medical-modal-header .cmn-icon {
+	color: rgb(151, 151, 151); margin-top: 9px; float: right; cursor: pointer;
+}
+.medical-modal-container .medical-modal-body {
+	padding-top: 20px;
+}
+.medical-modal-container .logo-container {
+	width: 103px; height: 30px; display: inline-block; background-image: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/promotion/medicalModal/img/logo_0acf2a8.png"); background-size: 103px 30px;
+}
+.medical-modal-container .medical-modal-content {
+	margin-top: 20px;
+}
+.medical-modal-container .medical-modal-content div:first-child {
+	color: rgb(51, 51, 51); line-height: 1; font-size: 18px;
+}
+.medical-modal-container .medical-modal-content div:last-child {
+	color: rgb(153, 153, 153); line-height: 22px; font-size: 14px; margin-top: 8px;
+}
+.medical-modal-container .medical-modal-link {
+	padding: 0px 17px; border-radius: 15px; color: rgb(255, 255, 255); line-height: 30px; font-family: PingFangSC-Medium; font-size: 14px; margin-top: 20px; display: inline-block; background-image: linear-gradient(134deg, rgb(0, 207, 163) 0px, rgb(1, 193, 221) 100%);
+}
+.medical-modal-container.slide-up .medical-modal-mask {
+	opacity: 1;
+}
+.medical-modal-container.slide-up .medical-modal {
+	opacity: 1; transform: translateY(50px); -webkit-transform: translateY(50px);
+}
+.lemmaWgt-psAdvice {
+	margin: 35px 0px; padding: 10px 0px 0px; height: 65px; clear: both; border-top-color: rgb(222, 222, 222); border-top-width: 1px; border-top-style: solid;
+}
+.lemmaWgt-psAdvice div {
+	margin: 0px 0px 5px; font-family: arial,tahoma,"Microsoft Yahei","宋体",sans-serif; font-size: 19px;
+}
+.related-business-wrap {
+	clear: both; display: none;
+}
+.EC_1064box .ec_li .desc {
+	height: 40px; overflow: hidden;
+}
+.right-ad {
+	right: 0px; bottom: 0px; position: fixed; z-index: 999;
+}
+.right-ad .rightAd-link {
+	outline: 0px;
+}
+.right-ad .rightAd-link img {
+	width: 135px; height: 180px;
+}
+.right-ad .rightAd-close {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/promotion/rightAd/img/right-ad-btn_6ff8686.png") no-repeat center / 14px auto; width: 30px; height: 30px; right: 0px; bottom: 0px; display: block; position: absolute; z-index: 1;
+}
+.lemmaWgt-promotion-rightBigAd {
+	font-family: arial,tahoma,"Microsoft Yahei","宋体",sans-serif; margin-bottom: 10px; display: none;
+}
+.lemmaWgt-promotion-rightBigAd a {
+	text-decoration: none; display: block;
+}
+.lemmaWgt-promotion-rightBigAd a img {
+	width: 270px; text-decoration: none; display: block;
+}
+.rightGuessLike {
+	background: rgb(255, 255, 255); padding: 10px; border: 1px solid rgb(230, 230, 230); border-image: none; width: 248px; display: none;
+}
+.rightGuessLike .rightGuessLike-title .baidu-logo em {
+	color: rgb(136, 136, 136); font-size: 16px;
+}
+.rightGuessLike .rightGuessLike-title .rightGuessLike-name {
+	color: rgb(85, 85, 85); line-height: 17px; font-family: PingFangSC-Semibold; font-size: 14px; margin-left: 3px; vertical-align: 2px; display: inline-block;
+}
+.rightGuessLike .rightGuessLike-list {
+	width: 100%; color: rgb(0, 0, 0); margin-top: -2px;
+}
+.rightGuessLike .rightGuessLike-list li {
+	width: 50%; text-align: justify; color: rgb(102, 102, 102); line-height: 1.1; overflow: hidden; padding-bottom: 1px; font-family: PingFangSC-Regular; font-size: 12px; margin-top: 12px; float: left; white-space: nowrap; -ms-text-overflow: ellipsis;
+}
+.rightGuessLike .rightGuessLike-list li::before {
+	background: rgb(51, 142, 214); margin: 0px 3px 3px 0px; border-radius: 50%; width: 3px; height: 3px; display: inline-block; content: "";
+}
+.lemmaWgt-promotion-rightPreciseAd {
+	font-family: arial,tahoma,"Microsoft Yahei","宋体",sans-serif; margin-bottom: 10px; display: none;
+}
+.lemmaWgt-promotion-rightPreciseAd a {
+	text-decoration: none; display: block;
+}
+.lemmaWgt-promotion-rightPreciseAd a img {
+	width: 270px; text-decoration: none; display: block;
+}
+.tashuo-right {
+	background: rgb(255, 255, 255); border: 1px solid rgb(230, 230, 230); border-image: none; width: 268px; height: 288px; font-family: Microsoft YaHei,SimHei,Verdana; margin-bottom: 10px; display: none;
+}
+.tashuo-right a:hover {
+	text-decoration: none;
+}
+.tashuo-right .tashuo-right-title-essence {
+	margin: 0px auto; padding: 10px 0px; width: 240px; height: 18px; border-bottom-color: rgb(238, 238, 238); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.tashuo-right .tashuo-right-title-essence img {
+	height: 16px; float: left;
+}
+.tashuo-right .tashuo-right-title-essence span {
+	color: rgb(153, 153, 153); font-size: 12px; margin-top: 1px; margin-left: 6px; display: inline-block;
+}
+.tashuo-right .slides {
+	position: relative;
+}
+.tashuo-right .viewport {
+	width: 268px; height: 240px; overflow: hidden; position: relative;
+}
+.tashuo-right .slides_btn {
+	background: rgba(0, 0, 0, 0.2); transition:0.4s; top: 95px; width: 22px; height: 36px; color: rgb(238, 238, 238); font-size: 16px; display: none; position: absolute; cursor: pointer; -webkit-transition: .4s;
+}
+.tashuo-right .slides_btn:hover {
+	background: rgba(0, 0, 0, 0.4);
+}
+.tashuo-right .slides_btn em {
+	left: 6px; top: 10px; position: absolute;
+}
+.tashuo-right .prev {
+	border-radius: 0px 3px 3px 0px; left: 0px;
+}
+.tashuo-right .next {
+	border-radius: 3px 0px 0px 3px; right: 0px;
+}
+.tashuo-right .next em {
+	left: 8px;
+}
+.tashuo-right .tashuo-item {
+	padding: 12px 0px 16px;
+}
+.tashuo-right .tashuo-item .tashuo-item-author {
+	padding: 0px 14px; height: 16px;
+}
+.tashuo-right .tashuo-item .tashuo-item-author a {
+	color: rgb(102, 102, 102);
+}
+.tashuo-right .tashuo-item .tashuo-item-author .ta-author-area {
+	width: 16px; float: left; position: relative;
+}
+.tashuo-right .tashuo-item .tashuo-item-author .ta-author-area span {
+	background: rgb(253, 253, 253); border-radius: 50%; height: 16px; overflow: hidden; display: block;
+}
+.tashuo-right .tashuo-item .tashuo-item-author .ta-author-area span img {
+	height: auto; max-width: 100%;
+}
+.tashuo-right .tashuo-item .tashuo-item-author .ta-author-slogan-area {
+	overflow: hidden; font-size: 12px; margin-left: 8px; float: left; white-space: nowrap; -ms-text-overflow: ellipsis; max-width: 205px;
+}
+.tashuo-right .tashuo-item .tashuo-item-author .ta-author-slogan-area strong {
+	font-weight: 400;
+}
+.tashuo-right .tashuo-item .tashuo-item-author .ta-author-slogan-area span {
+	margin-left: 5px;
+}
+.tashuo-right .tashuo-item .tashuo-item-author i {
+	top: 2px; width: 12px; height: 12px; margin-left: 2px; display: inline-block; position: relative; background-image: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/promotion/rightTashuo/img/ta-v_3e34675.png"); background-repeat: no-repeat; background-size: 10px 10px;
+}
+.tashuo-right .tashuo-item .tashuo-item-title {
+	width: 238px; color: rgb(255, 255, 255); line-height: 20px; overflow: hidden; font-size: 14px; -ms-text-overflow: ellipsis; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+}
+.tashuo-right .tashuo-item .tashuo-item-title a:hover {
+	text-decoration: none;
+}
+.tashuo-right .tashuo-item .tashuo-item-abstract {
+	padding: 11px 12px; width: 242px; line-height: 20px; overflow: hidden; font-size: 12px; cursor: pointer; -ms-text-overflow: ellipsis; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+}
+.tashuo-right .tashuo-item .tashuo-item-abstract a {
+	color: rgb(102, 102, 102);
+}
+.tashuo-right .tashuo-item .tashuo-item-abstract a:hover {
+	text-decoration: none;
+}
+.tashuo-right .tashuo-item .tashuo-item-cover {
+	width: 268px; height: 150px; overflow: hidden; margin-top: 12px; display: block; position: relative;
+}
+.tashuo-right .tashuo-item .tashuo-item-cover .overlay {
+	left: 0px; width: 100%; height: 59px; bottom: -1px; position: absolute;
+}
+.tashuo-right .tashuo-item .tashuo-item-cover .overlay img {
+	width: 100%;
+}
+.tashuo-right .tashuo-item .tashuo-item-cover .tashuo-item-title {
+	left: 14px; bottom: 10px; position: absolute;
+}
+.tashuo-right .tashuo-item .no-cover {
+	padding: 12px 14px;
+}
+.tashuo-right .tashuo-item .no-cover .tashuo-item-title {
+	width: 240px; line-height: 22px;
+}
+.tashuo-right .tashuo-item .no-cover .tashuo-item-title a {
+	color: rgb(51, 51, 51);
+}
+.tashuo-right .tashuo-item .no-cover .tashuo-item-abstract {
+	padding: 11px 0px 0px; -webkit-line-clamp: 8; -webkit-box-orient: vertical;
+}
+.lemmaWgt-promotion-slide {
+	font-family: arial,tahoma,"Microsoft Yahei","宋体",sans-serif; margin-bottom: 10px; display: none;
+}
+.lemmaWgt-promotion-slide .promotion_viewport {
+	width: 270px; height: 150px; overflow: hidden; position: relative;
+}
+.lemmaWgt-promotion-slide .promotion_viewport:hover .promotion_viewport_pager .pTagBox .prev {
+	left: 0px; top: -72px; opacity: 1;
+}
+.lemmaWgt-promotion-slide .promotion_viewport:hover .promotion_viewport_pager .pTagBox .next {
+	left: 248px; top: -72px; opacity: 1;
+}
+.lemmaWgt-promotion-slide .promotion_viewport .promotion_viewport_pager {
+	bottom: 0px; opacity: 1;
+}
+.lemmaWgt-promotion-slide .promotion_viewport dl {
+	left: 0px; top: 0px; width: 1350px; position: absolute;
+}
+.lemmaWgt-promotion-slide .promotion_viewport dl dd {
+	float: left;
+}
+.lemmaWgt-promotion-slide .promotion_viewport dl dd a {
+	outline: 0px; text-decoration: none;
+}
+.lemmaWgt-promotion-slide .promotion_viewport dl dd a img {
+	width: 270px; text-decoration: none; display: block;
+}
+.lemmaWgt-promotion-slide .promotion_viewport .promotion_viewport_pager {
+	transition:0.4s; left: 0px; width: 100%; height: 22px; text-align: center; bottom: 0px; position: absolute; -webkit-transition: .4s;
+}
+.lemmaWgt-promotion-slide .promotion_viewport .promotion_viewport_pager .pTagBox {
+	font-family: sans-serif;
+}
+.lemmaWgt-promotion-slide .promotion_viewport .promotion_viewport_pager .pTagBox .pTag {
+	width: 18px; height: 18px; line-height: 18px; font-size: 16px; text-decoration: none;
+}
+.lemmaWgt-promotion-slide .promotion_viewport .promotion_viewport_pager .pTagBox .prev {
+	background: rgba(0, 0, 0, 0.2); transition:0.4s; top: -72px; width: 22px; height: 36px; color: rgb(238, 238, 238); line-height: 42px; font-size: 16px; position: absolute; opacity: 0; -webkit-transition: .4s;
+}
+.lemmaWgt-promotion-slide .promotion_viewport .promotion_viewport_pager .pTagBox .next {
+	background: rgba(0, 0, 0, 0.2); transition:0.4s; top: -72px; width: 22px; height: 36px; color: rgb(238, 238, 238); line-height: 42px; font-size: 16px; position: absolute; opacity: 0; -webkit-transition: .4s;
+}
+.lemmaWgt-promotion-slide .promotion_viewport .promotion_viewport_pager .pTagBox .prev:hover {
+	background: rgba(0, 0, 0, 0.4);
+}
+.lemmaWgt-promotion-slide .promotion_viewport .promotion_viewport_pager .pTagBox .next:hover {
+	background: rgba(0, 0, 0, 0.4);
+}
+.lemmaWgt-promotion-slide .promotion_viewport .promotion_viewport_pager .pTagBox .prev {
+	border-radius: 0px 3px 3px 0px; left: 0px;
+}
+.lemmaWgt-promotion-slide .promotion_viewport .promotion_viewport_pager .pTagBox .next {
+	border-radius: 3px 0px 0px 3px; right: 0px;
+}
+.lemmaWgt-promotion-slide .promotion_viewport .promotion_viewport_pager .pTagBox .disabled {
+	color: rgb(187, 187, 187);
+}
+.lemmaWgt-promotion-slide .promotion_viewport .promotion_viewport_pager .pTagBox .dot {
+	width: 14px; height: 22px; text-align: center; bottom: 0px; color: rgb(255, 255, 255); line-height: 22px; font-size: 14px; opacity: 0.8;
+}
+.lemmaWgt-promotion-slide .promotion_viewport .promotion_viewport_pager .pTagBox .cur {
+	top: 0px; color: rgb(69, 157, 245); font-size: 18px; margin-left: -4px; position: relative;
+}
+.lemmaWgt-promotion-slide .promotion_viewport .promotion_viewport_pager .pTagBox span {
+	margin: 0px 10px;
+}
+.header-wrapper.pc-header-new .topA {
+	background-position: right; outline: 0px; top: 14px; width: 150px; height: 75px; right: -100px; text-indent: -999em; font-size: 0px; display: block; position: absolute; background-image: url("resource/img/topad-old.png"); background-repeat: no-repeat; background-size: contain;
+}
+@media screen and (max-width:1441px)
+{
+.header-wrapper.pc-header-new .topA {
+	right: -50px;
+}
+}
+.wiki-lemma .side-box.unionAd {
+	background: rgb(255, 255, 255); color: rgb(102, 102, 102); line-height: 18px; padding-top: 10px; clear: both; display: none;
+}
+.wiki-lemma .side-box.unionAd p {
+	text-align: right; padding-right: 5px; margin-bottom: 10px;
+}
+.wiki-lemma .side-box.unionAd.union {
+	padding: 9px; width: 250px;
+}
+.wiki-lemma .side-box.unionAd.union iframe {
+	display: block;
+}
+.wiki-lemma .side-box.unionAd.union.imgType {
+	padding: 0px; border: 0px currentColor; border-image: none;
+}
+.wiki-lemma .side-box.unionAd.union.linkType {
+	padding-bottom: 0px;
+}
+.wiki-lemma .side-box.unionAd_fromPs {
+	background: rgb(255, 255, 255); padding: 0px; border: 0px currentColor; border-image: none;
+}
+.wiki-lemma .side-box.unionAd_fromPs::after {
+	height: 0px; overflow: hidden; clear: both; font-size: 0px; display: block; visibility: hidden; content: "\0020";
+}
+.wiki-lemma .side-box.unionAd_fromPs iframe {
+	display: block;
+}
+.lemmaWgt-promotion-vbaike {
+	background: rgb(252, 252, 252); padding: 10px 14px 0px; border: 1px solid rgb(230, 230, 230); border-image: none; font-family: arial,tahoma,"Microsoft Yahei","宋体",sans-serif; margin-bottom: 10px; display: none;
+}
+.lemmaWgt-promotion-vbaike .promotion_title {
+	margin: 0px 0px 8px; color: rgb(85, 85, 85); font-family: arial; font-size: 14px; font-weight: 700;
+}
+.lemmaWgt-promotion-vbaike .promotion_title a {
+	outline: 0px; color: rgb(102, 102, 102); font-family: arial; font-size: 12px; font-weight: 400; float: right;
+}
+.lemmaWgt-promotion-vbaike .promotion_viewport {
+	margin: 0px 0px 0px -14px; width: 268px; height: 152px; overflow: hidden; position: relative;
+}
+.lemmaWgt-promotion-vbaike .promotion_viewport:hover .promotion_viewport_pager {
+	opacity: 1;
+}
+.lemmaWgt-promotion-vbaike .promotion_viewport dl {
+	left: 0px; top: 0px; width: 1200px; position: absolute;
+}
+.lemmaWgt-promotion-vbaike .promotion_viewport dl dd {
+	float: left;
+}
+.lemmaWgt-promotion-vbaike .promotion_viewport dl dd a {
+	outline: 0px; text-decoration: none;
+}
+.lemmaWgt-promotion-vbaike .promotion_viewport dl dd a img {
+	width: 268px; height: 152px; text-decoration: none; display: block;
+}
+.lemmaWgt-promotion-vbaike .promotion_viewport .promotion_viewport_pager {
+	padding: 4px 0px; transition:0.4s; left: 0px; width: 100%; height: 22px; text-align: center; bottom: -4px; position: absolute; opacity: 0; -webkit-transition: .4s;
+}
+.lemmaWgt-promotion-vbaike .promotion_viewport .promotion_viewport_pager .pNum {
+	display: none;
+}
+.lemmaWgt-promotion-vbaike .promotion_viewport .promotion_viewport_pager .pTagBox {
+	font-family: sans-serif;
+}
+.lemmaWgt-promotion-vbaike .promotion_viewport .promotion_viewport_pager .pTagBox .pTag {
+	width: 18px; height: 18px; line-height: 18px; font-size: 16px; text-decoration: none;
+}
+.lemmaWgt-promotion-vbaike .promotion_viewport .promotion_viewport_pager .pTagBox .prev {
+	background: rgba(0, 0, 0, 0.2); transition:0.4s; top: -75px; width: 22px; height: 36px; color: rgb(238, 238, 238); line-height: 42px; font-size: 16px; text-decoration: none; position: absolute; -webkit-transition: .4s;
+}
+.lemmaWgt-promotion-vbaike .promotion_viewport .promotion_viewport_pager .pTagBox .next {
+	background: rgba(0, 0, 0, 0.2); transition:0.4s; top: -75px; width: 22px; height: 36px; color: rgb(238, 238, 238); line-height: 42px; font-size: 16px; text-decoration: none; position: absolute; -webkit-transition: .4s;
+}
+.lemmaWgt-promotion-vbaike .promotion_viewport .promotion_viewport_pager .pTagBox .prev:hover {
+	background: rgba(0, 0, 0, 0.4);
+}
+.lemmaWgt-promotion-vbaike .promotion_viewport .promotion_viewport_pager .pTagBox .next:hover {
+	background: rgba(0, 0, 0, 0.4);
+}
+.lemmaWgt-promotion-vbaike .promotion_viewport .promotion_viewport_pager .pTagBox .prev {
+	border-radius: 0px 3px 3px 0px; left: 0px;
+}
+.lemmaWgt-promotion-vbaike .promotion_viewport .promotion_viewport_pager .pTagBox .next {
+	border-radius: 3px 0px 0px 3px; right: 0px;
+}
+.lemmaWgt-promotion-vbaike .promotion_viewport .promotion_viewport_pager .pTagBox span {
+	font-size: 0px;
+}
+.ps-container {
+	overflow: hidden !important; -ms-overflow-style: none; -ms-touch-action: none; touch-action: none;
+}
+@media screen and (-ms-high-contrast:active), all and (-ms-high-contrast:none)
+{
+.ps-container {
+	overflow: auto !important;
+}
+}
+.ps-container.ps-active-x > .ps-scrollbar-x-rail {
+	display: block;
+}
+.ps-container.ps-active-y > .ps-scrollbar-y-rail {
+	display: block;
+}
+.ps-container > .ps-scrollbar-x-rail {
+	height: 8px; bottom: 10px; position: absolute;
+}
+.ps-container > .ps-scrollbar-x-rail > .ps-scrollbar-x {
+	height: 8px; bottom: 0px; position: absolute;
+}
+.ps-container > .ps-scrollbar-y-rail {
+	width: 8px; right: 3px; display: none; position: absolute;
+}
+.ps-container > .ps-scrollbar-y-rail > .ps-scrollbar-y {
+	width: 8px; right: 0px; position: absolute;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-largeFeature {
+	height: 120px; margin-right: 50px; float: left; position: relative;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-largeFeature .lemmaWgt-secondsKnow-logo {
+	background: url("https://baikebcs.bdimg.com/front-end/second-know/img/logo-small.png") no-repeat 0% 0% / contain; margin: 9px 0px 15px; width: 84px; height: 20px;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-largeFeature .lemmaWgt-secondsKnow-gallery {
+	height: 80px; padding-right: 100px; float: left; opacity: 0;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-largeFeature .lemmaWgt-secondsKnow-gallery li {
+	width: 240px; height: 135px; margin-right: 24px; border-bottom-color: rgba(0, 0, 0, 0.05); border-bottom-width: 2px; border-bottom-style: solid; float: left; position: relative;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-largeFeature .lemmaWgt-secondsKnow-gallery li:hover .video-shadow {
+	opacity: 1;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-largeFeature .lemmaWgt-secondsKnow-gallery li a {
+	left: 0px; top: 0px; width: 100%; height: 100%; overflow: hidden; text-decoration: none; position: absolute;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-largeFeature .lemmaWgt-secondsKnow-gallery li a img {
+	width: 100%; height: 100%;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-largeFeature .lemmaWgt-secondsKnow-gallery li a span {
+	padding: 0px 8px; left: 0px; width: 184px; height: 26px; color: rgb(255, 255, 255); line-height: 26px; overflow: hidden; font-size: 14px; white-space: nowrap; position: absolute; -ms-word-wrap: normal; -ms-text-overflow: ellipsis; opacity: 0.8;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-largeFeature .lemmaWgt-secondsKnow-gallery li a .video-shadow {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/configModule/secondsKnow/resource/img/play_f39130b.png") no-repeat 8px 87px / 40px; left: 0px; top: 0px; width: 100%; height: 100%; position: absolute; opacity: 0.75;
+}
+.wiki-lemma .lemmaWgt-secondsKnow {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/configModule/secondsKnow/resource/img/bg-gradient_a2c841c.png") repeat-x; height: 420px; margin-bottom: -240px; position: relative;
+}
+.wiki-lemma .lemmaWgt-secondsKnow::after {
+	height: 0px; overflow: hidden; clear: both; font-size: 0px; display: block; visibility: hidden; content: "\0020";
+}
+.wiki-lemma .lemmaWgt-secondsKnow::before {
+	left: 0px; top: 0px; width: 100%; height: 100%; position: absolute; z-index: -1; content: "";
+}
+.wiki-lemma .lemmaWgt-secondsKnow .lemmaWgt-secondsKnow-cnt {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/configModule/secondsKnow/resource/img/bg-main_ade960d.png") no-repeat top; height: 100%;
+}
+.wiki-lemma .lemmaWgt-secondsKnow .layout {
+	position: relative;
+}
+.wiki-lemma .lemmaWgt-secondsKnow .layout::after {
+	height: 0px; overflow: hidden; clear: both; font-size: 0px; display: block; visibility: hidden; content: "\0020";
+}
+.wiki-lemma .lemmaWgt-secondsKnow .layout .lemmaWgt-secondsKnow-logo {
+	background: url("https://baikebcs.bdimg.com/front-end/second-know/img/logo.png") no-repeat 0% 0% / contain; top: 65px; width: 165px; height: 80px; margin-right: 50px; float: left; position: relative;
+}
+.wiki-lemma .lemmaWgt-secondsKnow .layout .lemmaWgt-secondsKnow-gallery {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/configModule/secondsKnow/resource/img/slogan_477f6c5.png?__sprite") no-repeat right; height: 110px; overflow: hidden; padding-right: 120px; margin-top: 50px; float: left; max-width: 606px; opacity: 0;
+}
+.wiki-lemma .lemmaWgt-secondsKnow .layout .lemmaWgt-secondsKnow-gallery li {
+	width: 200px; height: 110px; margin-right: 2px; float: left; position: relative;
+}
+.wiki-lemma .lemmaWgt-secondsKnow .layout .lemmaWgt-secondsKnow-gallery li:first-child {
+	border-width: 0px 2px;
+}
+.wiki-lemma .lemmaWgt-secondsKnow .layout .lemmaWgt-secondsKnow-gallery li:hover .video-shadow {
+	opacity: 0.4;
+}
+.wiki-lemma .lemmaWgt-secondsKnow .layout .lemmaWgt-secondsKnow-gallery li:hover .video-play {
+	opacity: 0.8;
+}
+.wiki-lemma .lemmaWgt-secondsKnow .layout .lemmaWgt-secondsKnow-gallery li a {
+	left: 0px; top: 0px; width: 100%; height: 100%; overflow: hidden; text-decoration: none; position: absolute;
+}
+.wiki-lemma .lemmaWgt-secondsKnow .layout .lemmaWgt-secondsKnow-gallery li a img {
+	width: 200px;
+}
+.wiki-lemma .lemmaWgt-secondsKnow .layout .lemmaWgt-secondsKnow-gallery li a span {
+	padding: 0px 8px; left: 0px; width: 184px; height: 26px; color: rgb(255, 255, 255); line-height: 26px; overflow: hidden; font-size: 14px; white-space: nowrap; position: absolute; -ms-word-wrap: normal; -ms-text-overflow: ellipsis; opacity: 0.8;
+}
+.wiki-lemma .lemmaWgt-secondsKnow .layout .lemmaWgt-secondsKnow-gallery li a .video-pv {
+	top: 0px; text-align: right; color: rgb(238, 238, 238);
+}
+.wiki-lemma .lemmaWgt-secondsKnow .layout .lemmaWgt-secondsKnow-gallery li a .video-title {
+	bottom: 0px;
+}
+.wiki-lemma .lemmaWgt-secondsKnow .layout .lemmaWgt-secondsKnow-gallery li a .video-title .video-title-content {
+	padding: 0px; width: 110px; overflow: hidden; float: left; white-space: nowrap; position: static; -ms-word-wrap: normal; -ms-text-overflow: ellipsis;
+}
+.wiki-lemma .lemmaWgt-secondsKnow .layout .lemmaWgt-secondsKnow-gallery li a .video-title .video-title-vv {
+	padding: 0px; width: auto; float: right; position: static; max-width: 74px;
+}
+.wiki-lemma .lemmaWgt-secondsKnow .layout .lemmaWgt-secondsKnow-gallery li a .video-title .video-title-vv em {
+	top: -1px; font-size: 12px; margin-right: 3px; vertical-align: middle; position: relative;
+}
+.wiki-lemma .lemmaWgt-secondsKnow .layout .lemmaWgt-secondsKnow-gallery li a .video-shadow {
+	background: rgb(0, 0, 0); transition:0.4s; left: 0px; top: 0px; width: 100%; height: 100%; position: absolute; opacity: 0.25; -webkit-transition: .4s;
+}
+.wiki-lemma .lemmaWgt-secondsKnow .layout .lemmaWgt-secondsKnow-gallery li a .video-play {
+	background: rgb(255, 255, 255); margin: -25px 0px 0px -19px; padding: 0px; border-radius: 38px; left: 50%; top: 50%; width: 38px; height: 38px; text-align: center; position: absolute; opacity: 0.6;
+}
+.wiki-lemma .lemmaWgt-secondsKnow .layout .lemmaWgt-secondsKnow-gallery li a .video-play em {
+	left: 1px; top: 1px; color: rgb(0, 0, 0); line-height: 38px; font-size: 21px; position: relative;
+}
+.wiki-lemma .lemmaWgt-secondsKnow .layout .lemmaWgt-secondsKnow-gallery li a::before {
+	left: 0px; width: 100%; height: 0px; bottom: 0px; position: absolute; content: ""; box-shadow: 0px -5px 20px 20px rgba(0,0,0,0.5);
+}
+.wiki-lemma .lemmaWgt-secondsKnow-pageBg {
+	position: relative; z-index: 1;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-pageBg .lemmaWgt-secondsKnow-gallery {
+	width: 197px; height: 112px; margin-top: 63px; margin-right: 112px; float: right; opacity: 0;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-pageBg .lemmaWgt-secondsKnow-gallery li {
+	border: 1px solid rgb(59, 140, 251); border-image: none; width: 195px;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-pageBg .lemmaWgt-secondsKnow-gallery li a {
+	width: 195px; height: 110px; overflow: hidden; text-decoration: none; display: block; position: relative;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-pageBg .lemmaWgt-secondsKnow-gallery li a:hover .video-shadow {
+	opacity: 0.4;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-pageBg .lemmaWgt-secondsKnow-gallery li a:hover .video-play {
+	opacity: 0.8;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-pageBg .lemmaWgt-secondsKnow-gallery li a img {
+	width: 195px;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-pageBg .lemmaWgt-secondsKnow-gallery li a span {
+	padding: 0px 8px; left: 0px; width: 179px; height: 26px; color: rgb(255, 255, 255); line-height: 26px; overflow: hidden; font-size: 14px; white-space: nowrap; position: absolute; -ms-word-wrap: normal; -ms-text-overflow: ellipsis; opacity: 0.8;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-pageBg .lemmaWgt-secondsKnow-gallery li a .video-pv {
+	top: 0px; text-align: right; color: rgb(238, 238, 238);
+}
+.wiki-lemma .lemmaWgt-secondsKnow-pageBg .lemmaWgt-secondsKnow-gallery li a .video-title {
+	bottom: 0px;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-pageBg .lemmaWgt-secondsKnow-gallery li a .video-title .video-title-content {
+	padding: 0px; width: 110px; overflow: hidden; float: left; white-space: nowrap; position: static; -ms-word-wrap: normal; -ms-text-overflow: ellipsis;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-pageBg .lemmaWgt-secondsKnow-gallery li a .video-title .video-title-vv {
+	padding: 0px; width: auto; float: right; position: static; max-width: 74px;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-pageBg .lemmaWgt-secondsKnow-gallery li a .video-title .video-title-vv em {
+	top: -1px; font-size: 12px; margin-right: 3px; vertical-align: middle; position: relative;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-pageBg .lemmaWgt-secondsKnow-gallery li a .video-shadow {
+	background: rgb(0, 0, 0); padding: 0px; transition:0.4s; left: 0px; top: 0px; width: 100%; height: 100%; position: absolute; opacity: 0.25; -webkit-transition: .4s;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-pageBg .lemmaWgt-secondsKnow-gallery li a .video-play {
+	background: rgb(255, 255, 255); margin: -15px 0px 0px -15px; padding: 0px; border-radius: 30px; left: 50%; top: 50%; width: 30px; height: 30px; text-align: center; position: absolute; opacity: 0.6;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-pageBg .lemmaWgt-secondsKnow-gallery li a .video-play em {
+	left: 1px; top: 1px; color: rgb(0, 0, 0); line-height: 30px; font-size: 17px; position: relative;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-pageBg .lemmaWgt-secondsKnow-gallery li a::before {
+	left: 0px; width: 100%; height: 0px; bottom: 0px; position: absolute; content: ""; box-shadow: 0px -5px 20px 20px rgba(0,0,0,0.5);
+}
+.wiki-lemma .lemmaWgt-secondsKnow-pageBg .page-bg-name {
+	background: rgb(59, 140, 251); height: 26px; text-align: center; color: rgb(255, 255, 255); line-height: 26px; font-size: 14px;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-isScience-pageBg {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/configModule/secondsKnow/resource/img/bg-isScience_521f2a1.png") no-repeat center 0px; width: 100%; height: 480px; z-index: 0;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-isScience-pageBg::after {
+	height: 0px; overflow: hidden; clear: both; font-size: 0px; display: block; visibility: hidden; content: "\0020";
+}
+.wiki-lemma .lemmaWgt-secondsKnow-isScience-pageBg::before {
+	left: 0px; top: 0px; width: 100%; height: 100%; position: absolute; z-index: -1; content: "";
+}
+.wiki-lemma .lemmaWgt-secondsKnow-isScience-pageBg .bgMask {
+	background: -ms-linear-gradient(transparent 0px, rgb(245, 245, 245) 100px); width: 100%; height: 100px; bottom: 0px; position: absolute;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog-bubble {
+	padding: 0px; border: 1px solid rgb(0, 0, 0); border-image: none; z-index: 2002; box-shadow: 0px 4px 6px -4px rgba(0,0,0,0.75);
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog-bubble .bubble-content {
+	background: rgb(54, 54, 54); padding: 5px 0px 5px 16px;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog-bubble .bubble-content::after {
+	height: 0px; overflow: hidden; clear: both; font-size: 0px; display: block; visibility: hidden; content: "\0020";
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog-bubble .bubble-content a {
+	height: 28px; font-size: 24px; text-decoration: none; margin-right: 16px; float: left;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog-bubble .bubble-content a[data-channel=wechat] {
+	color: rgb(0, 196, 106);
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog-bubble .bubble-content a[data-channel=qzone] {
+	color: rgb(255, 177, 69);
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog-bubble .bubble-content a[data-channel=tqq] {
+	color: rgb(56, 196, 239);
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog-bubble .bubble-content a[data-channel=weibo] {
+	color: rgb(255, 139, 83);
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog-bubble .tail {
+	background: rgb(54, 54, 54);
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog-qrcode-bubble {
+	padding: 0px; border: 1px solid rgb(0, 0, 0); border-image: none; z-index: 2002; box-shadow: 0px 4px 6px -4px rgba(0,0,0,0.75);
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog-qrcode-bubble .bubble-content {
+	background: rgb(54, 54, 54); padding: 0px; width: 180px; height: 180px; overflow: hidden;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog-qrcode-bubble .tail {
+	background: rgb(54, 54, 54);
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog {
+	border: 1px solid rgb(0, 0, 0); border-image: none; height: 440px;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog dd.con {
+	padding: 0px; text-align: left;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog dd.close {
+	top: 0px; right: -45px; font-size: 36px;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog .lemmaWgt-secondsKnow-dialog-content .dialog-player {
+	background: rgb(34, 34, 34); width: 685px; height: 440px; float: left;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog .lemmaWgt-secondsKnow-dialog-content .dialog-player .player-container {
+	background: rgb(0, 0, 0); height: 390px; position: relative;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog .lemmaWgt-secondsKnow-dialog-content .dialog-player .player-bar {
+	padding: 0px 15px; color: rgb(221, 221, 221); line-height: 50px; font-size: 18px;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog .lemmaWgt-secondsKnow-dialog-content .dialog-player .player-bar .bar-title {
+	overflow: hidden; padding-right: 30px; float: left; white-space: nowrap; -ms-word-wrap: normal; -ms-text-overflow: ellipsis; max-width: 320px;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog .lemmaWgt-secondsKnow-dialog-content .dialog-player .player-bar .bar-vv {
+	color: rgb(187, 187, 187); font-size: 16px;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog .lemmaWgt-secondsKnow-dialog-content .dialog-player .player-bar .bar-vv em {
+	top: -1px; font-size: 14px; margin-right: 5px; vertical-align: middle; position: relative;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog .lemmaWgt-secondsKnow-dialog-content .dialog-player .player-bar .share-btn {
+	color: rgb(204, 204, 204); font-size: 23px; text-decoration: none; margin-top: 2px; float: right; cursor: pointer;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog .lemmaWgt-secondsKnow-dialog-content .dialog-list {
+	background: rgb(40, 40, 40); width: 215px; height: 440px; float: left;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog .lemmaWgt-secondsKnow-dialog-content .dialog-list .list-title {
+	height: 45px; color: rgb(221, 221, 221); line-height: 45px; padding-left: 20px; font-size: 16px; margin-bottom: 15px; border-bottom-color: rgb(17, 17, 17); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog .lemmaWgt-secondsKnow-dialog-content .dialog-list .list-title span {
+	font-size: 14px;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog .lemmaWgt-secondsKnow-dialog-content .dialog-list .list-gallery {
+	padding: 0px 20px; width: 150px; height: 365px; overflow: hidden; position: relative;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog .lemmaWgt-secondsKnow-dialog-content .dialog-list .list-gallery .ps-scrollbar-y-rail {
+	background: rgb(53, 53, 53);
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog .lemmaWgt-secondsKnow-dialog-content .dialog-list .list-gallery .ps-scrollbar-y-rail .ps-scrollbar-y {
+	background: rgb(80, 80, 80);
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog .lemmaWgt-secondsKnow-dialog-content .dialog-list .list-gallery li {
+	width: 140px; height: 103px; margin-bottom: 10px; position: relative;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog .lemmaWgt-secondsKnow-dialog-content .dialog-list .list-gallery li.play a {
+	cursor: default;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog .lemmaWgt-secondsKnow-dialog-content .dialog-list .list-gallery li.play .video-shadow {
+	background: rgba(0, 0, 0, 0.7); font-size: 14px;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog .lemmaWgt-secondsKnow-dialog-content .dialog-list .list-gallery li .video-title {
+	top: 75px; width: 140px; height: 28px; color: rgb(221, 221, 221); line-height: 24px; overflow: hidden; font-size: 14px; white-space: nowrap; position: absolute; -ms-word-wrap: normal; -ms-text-overflow: ellipsis;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog .lemmaWgt-secondsKnow-dialog-content .dialog-list .list-gallery li a {
+	left: 0px; top: 0px; width: 140px; height: 75px; overflow: hidden; text-decoration: none; position: absolute;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog .lemmaWgt-secondsKnow-dialog-content .dialog-list .list-gallery li a img {
+	width: 140px; height: 75px;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog .lemmaWgt-secondsKnow-dialog-content .dialog-list .list-gallery li a span {
+	left: 0px; top: 0px; height: 26px; text-align: right; color: rgb(238, 238, 238); line-height: 26px; overflow: hidden; font-size: 14px; white-space: nowrap; position: absolute; -ms-word-wrap: normal; -ms-text-overflow: ellipsis; opacity: 0.8;
+}
+.wiki-lemma .lemmaWgt-secondsKnow-dialog .lemmaWgt-secondsKnow-dialog-content .dialog-list .list-gallery li a .video-shadow {
+	background: rgba(0, 0, 0, 0.3); left: 0px; top: 0px; width: 100%; height: 150%; text-align: center; color: rgb(51, 141, 230); line-height: 85px; font-size: 0px; position: absolute;
+}
+.wiki-lemma .dialog-player__flash-not-support {
+	margin: auto; left: 0px; top: 0px; width: 600px; height: 30px; text-align: center; right: 0px; bottom: 0px; color: rgb(255, 255, 255); font-size: 18px; position: absolute;
+}
+.lemmaWgt-secondsKnow-gallery-li .larkplayer > :not(video) {
+	display: none;
+}
+.secondsknow-large-container {
+	background: rgb(10, 49, 138); height: 285px; overflow: hidden; position: relative;
+}
+.secondsknow-large-gradient {
+	background: radial-gradient(50% 50%, rgba(85, 109, 214, 0.7), rgba(10, 49, 138, 0)); border-radius: 50%; left: 50%; top: 50%; width: 750px; height: 750px; margin-top: -335px; margin-left: -652px; position: absolute;
+}
+.secondsknow-large {
+	margin: auto; width: 935px; height: 100%; position: relative;
+}
+.secondsknow-large::after {
+	height: 0px; overflow: hidden; clear: both; font-size: 0px; display: block; visibility: hidden; content: "\0020";
+}
+.sl-slogen {
+	background: url("https://baikebcs.bdimg.com/front-end/second-know/img/logo.png") no-repeat 0% 0% / contain; top: 50%; width: 140px; height: 55px; margin-top: -27.5px; float: left; position: relative;
+}
+.sl-player {
+	background: rgb(6, 18, 47); border-radius: 0px 4px 4px 0px; top: 50%; width: 653px; height: 225px; overflow: hidden; margin-top: -112.5px; margin-left: 25px; float: left; position: relative; box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.3);
+}
+.sl-player::after {
+	height: 0px; overflow: hidden; clear: both; font-size: 0px; display: block; visibility: hidden; content: "\0020";
+}
+.sl-player__main {
+	width: 400px; height: 100%; float: left; position: relative;
+}
+.sl-player-initial-cover {
+	background: no-repeat center / cover rgb(0, 0, 0); width: 100%; height: 0px; padding-bottom: 56.25%; position: absolute; z-index: 2; cursor: pointer;
+}
+.sl-player-initial-cover__play {
+	background: rgba(0, 0, 0, 0.4); margin: auto; border-radius: 50%; left: 0px; top: 0px; width: 48px; height: 48px; text-align: center; right: 0px; bottom: 0px; position: absolute; box-sizing: border-box;
+}
+.sl-player-initial-cover__play__icon {
+	color: rgb(255, 255, 255); font-size: 48px;
+}
+.sl-player-el {
+	position: relative; z-index: 1;
+}
+.sl-player__list {
+	width: 236px; height: 100%; overflow: hidden; margin-left: 12px; float: left;
+}
+.sl-player__list__title {
+	color: rgb(153, 153, 153); line-height: 1; font-size: 12px;
+}
+.sl-player__list__title::after {
+	height: 0px; overflow: hidden; clear: both; font-size: 0px; display: block; visibility: hidden; content: "\0020";
+}
+.sl-player__list__title__relative {
+	cursor: pointer;
+}
+.sl-player__list__title__recommend {
+	cursor: pointer;
+}
+.sl-player-title--active {
+	color: rgb(222, 222, 222);
+}
+.sl-player__list__title__relative {
+	padding: 17px 10px 12px 0px; float: left;
+}
+.sl-player__list__title__separator {
+	width: 0px; margin-top: 16px; border-right-color: rgb(51, 51, 51); border-right-width: 1px; border-right-style: solid; float: left;
+}
+.sl-player__list__title__recommend {
+	padding: 17px 10px 12px; float: left;
+}
+.sl-player-list-ul {
+	width: 100%; height: 185px; position: relative; -ms-overflow-x: hidden; -ms-overflow-y: scroll;
+}
+.sl-player-list-ul .ps-scrollbar-y-rail {
+	background: rgb(6, 18, 47); width: 4px; right: 0px;
+}
+.sl-player-list-ul .ps-scrollbar-y-rail .ps-scrollbar-y {
+	background: rgba(69, 157, 245, 0.24); border-radius: 3px; width: 4px; height: 100px !important;
+}
+.sl-player__list__recommend {
+	display: none;
+}
+.sl-player-list-item {
+	width: 100%; height: 52px; margin-bottom: 10px; position: relative; cursor: pointer;
+}
+.sl-player-list-item__cover {
+	background: no-repeat center / cover rgb(0, 0, 0); width: 68px; height: 100%; float: left;
+}
+.sl-player-list-item__text {
+	padding: 10px; height: 100%; float: left; max-width: 136px; box-sizing: border-box;
+}
+.sl-player-list-item__share {
+	padding: 5px; right: 15px; bottom: 3px; color: rgb(85, 109, 169); position: absolute; z-index: 1; cursor: pointer;
+}
+.sl-player-list-item__share:hover {
+	color: rgb(255, 255, 255);
+}
+.sl-player-list-item__overlay {
+	background: rgb(69, 157, 245); left: 0px; top: 0px; width: 224px; height: 100%; display: none; position: absolute; opacity: 0.24;
+}
+.sl-player-list-item--active .sl-player-list-item__overlay {
+	display: block;
+}
+.sl-player-list-item--active .sl-player-list-item__share {
+	color: rgb(255, 255, 255);
+}
+.sl-player-list-item__text__title {
+	color: rgb(222, 222, 222); line-height: 1; overflow: hidden; font-size: 12px; margin-bottom: 10px; white-space: nowrap; -ms-word-wrap: normal; -ms-text-overflow: ellipsis;
+}
+.sl-player-list-item__text__subtitle {
+	color: rgb(170, 170, 170); line-height: 1; font-size: 12px;
+}
+.sl-sub-slogen {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/configModule/secondsKnowLarge/img/sub-slogen_cef21db.svg") no-repeat center / contain; top: 50%; width: 90px; height: 70px; margin-top: -35px; margin-left: 25px; float: left; position: relative;
+}
+.sl-share-bubble {
+	border: 1px solid rgb(6, 18, 47); border-image: none; box-shadow: none;
+}
+.sl-share-bubble .secondsknow-share-icon {
+	width: 32px; height: 30px; text-align: center; float: left; display: block;
+}
+.sl-share-bubble .secondsknow-share-icon:hover {
+	text-decoration: none;
+}
+.sl-share-bubble .secondsknow-share-icon__em {
+	height: 100%; color: rgb(85, 109, 169); line-height: 30px; font-size: 17px; display: block;
+}
+.sl-share-bubble .secondsknow-share-icon__em.cmn-icons_logo-wechat:hover {
+	color: rgb(0, 196, 106);
+}
+.sl-share-bubble .secondsknow-share-icon__em.cmn-icons_logo-qzone:hover {
+	color: rgb(255, 177, 69);
+}
+.sl-share-bubble .secondsknow-share-icon__em.cmn-icons_logo-qq:hover {
+	color: rgb(56, 196, 239);
+}
+.sl-share-bubble .secondsknow-share-icon__em.cmn-icons_logo-sina-weibo:hover {
+	color: rgb(255, 139, 83);
+}
+.sl-share-bubble.wgt_bubble .tail {
+	border-width: 1px 0px 0px 1px; border-style: solid none none solid; border-color: rgb(6, 18, 47) currentColor currentColor rgb(6, 18, 47); border-image: none; box-shadow: none;
+}

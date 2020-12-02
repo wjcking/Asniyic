@@ -1,0 +1,92 @@
+﻿
+if (!window.CUSTOMER && window.MIP && window.MIP.sandbox && window.MIP.sandbox.CUSTOMER) {
+    window.CUSTOMER = window.MIP.sandbox.CUSTOMER;
+}
+
+CUSTOMER.ready(function(customer){
+    
+    
+
+            
+            //Weights:10,showWeight:0
+            
+            
+            if (customer.isUrl(["/201704/1806594.html","/201903/2540630.html","/201803/2466997.html","/201803/2464534.html","/201709/2302199.html","/201802/2457052.html","/201803/2464315.html","/201803/2461663.html","/201803/2461662.html","/201707/2119438.html","/201803/2465163.html","/201803/2464315.html","/201309/516600.html","/201711/2426655.html","/201802/2457052.html","/201707/2133315.html","/201803/2465163.html","/201803/2464534.html","/201802/2458074.html","/201706/2001590.html"])) {
+                
+                customer.handle({pid: 89, cid:20288, styles:null});
+                return;
+                
+            }
+            
+            
+            //Weights:9,showWeight:0
+            
+            
+            if (customer.isCus(["channel:guke"])) {
+                
+                customer.handle({pid: 89, cid:15098, styles:null});
+                return;
+                
+            }
+            
+            
+            //Weights:9,showWeight:0
+            
+            
+            if (customer.isCus(["channel:shen,medicine"])) {
+                
+                customer.handle({pid: 89, cid:22, styles:null});
+                return;
+                
+            }
+            
+            
+            //Weights:8,showWeight:0
+            
+            
+            if (customer.isCus(["channel:eye"])) {
+                
+                customer.handle({pid: 89, cid:9807, styles:null});
+                return;
+                
+            }
+            
+            
+            //Weights:4,showWeight:0
+            
+            
+            if (( customer.isRefUrl(["sogou.com"]) || customer.isBro(["sougou"])  )) {
+                    
+                    CUSTOMER.setId(14189);
+                    document.write('<script type="text/javascript">	var sogou_ad_id=1124705;	var sogou_ad_width=20;	var sogou_ad_height=10;	var sogou_ad_float=0;	var sogou_ad_close=1;</'+'script>'+'<script type="text/javascript" src="https://theta.sogoucdn.com/wap/js/wp.js"></'+'script>');
+                    return;
+                    
+            }
+            
+            
+            //Weights:2,showWeight:0
+            
+            
+            if (!customer.isCus(["channel:health"])) {
+                    
+                    var baidu = '<script type="text/javascript" src="//kdewa111.familydoctor.com.cn/production/cx-p/source/dfm-d/resource/uu.js"></'+'script>';
+                    if(typeof window.MIP === "object"){
+                        customer.mipAdd(baidu, 89, 57);
+                    }else{
+                        customer.renderBaidu(baidu, 89, 57);
+                    }
+                    return;
+                    
+            }
+            
+
+                
+                return;
+                
+    
+
+});
+
+if (typeof mipgg === 'function') {
+    mipgg();
+}

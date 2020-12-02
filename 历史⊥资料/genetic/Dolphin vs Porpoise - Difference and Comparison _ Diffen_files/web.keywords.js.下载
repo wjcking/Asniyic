@@ -1,0 +1,5 @@
+
+        window.$mediavine = window.$mediavine || {};
+        window.$mediavine.web = window.$mediavine.web || {};
+        window.$mediavine.web.keywords = {"status":"PROCESSED","sales_kw":"porpoise intelligence dolphins,porpoise anatomy close,porpoise,term porpoise,porpoise species,dolphin,dolphin s head,s dolphin,references dolphin,difference,new zealand,comparison,delphinidae,hector,phocoenidae","sales_cat":"464,465,468"};
+      

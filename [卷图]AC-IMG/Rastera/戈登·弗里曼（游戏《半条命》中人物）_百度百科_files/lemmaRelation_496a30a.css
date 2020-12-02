@@ -1,0 +1,711 @@
+.main-content .rs-container table th {
+	padding: 0px; border: 0px currentColor; border-image: none; height: inherit; line-height: inherit; font-size: inherit;
+}
+.main-content .rs-container table td {
+	padding: 0px; border: 0px currentColor; border-image: none; height: inherit; line-height: inherit; font-size: inherit;
+}
+.main-content .rs-container table .content {
+	background: 0px 0px; border: 0px currentColor; border-image: none; width: auto;
+}
+.rs-container {
+	clear: both; margin-bottom: 10px;
+}
+.topic-ops .title-folder {
+	margin-top: 5px;
+}
+a.title-edit {
+	margin-top: 5px;
+}
+a.title-folder {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaRelation/resource/img/rs-topic-bg_c3a5f67.png");
+}
+a.title-folder-close {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaRelation/resource/img/rs-topic-bg_c3a5f67.png");
+}
+a.title-edit {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaRelation/resource/img/rs-topic-bg_c3a5f67.png");
+}
+a.title-folder {
+	border-radius: 2px; border: 1px solid rgb(237, 242, 245); border-image: none; width: 17px; height: 17px; float: left;
+}
+a.title-edit {
+	border-radius: 2px; border: 1px solid rgb(237, 242, 245); border-image: none; width: 17px; height: 17px; float: left;
+}
+a.title-folder:hover {
+	border: 1px solid rgb(190, 203, 212); border-image: none;
+}
+a.title-edit:hover {
+	border: 1px solid rgb(190, 203, 212); border-image: none;
+}
+a.title-folder {
+	background-position: 3px -250px;
+}
+a.title-folder:hover {
+	background-position: 3px -264px;
+}
+a.title-folder-close {
+	background-position: -15px -250px;
+}
+a.title-folder-close:hover {
+	background-position: -15px -264px;
+}
+a.title-edit {
+	background-position: 3px -217px;
+}
+a.title-edit:hover {
+	background-position: 3px -233px;
+}
+.lemma-relation-table .ops {
+	padding: 0px 9px; height: 29px; color: rgb(255, 255, 255); line-height: 29px; float: right;
+}
+.title-banner a.title-folder {
+	border: 1px solid rgb(250, 251, 252); border-image: none; margin-top: 5px;
+}
+.title-banner a.title-folder:hover {
+	border: 1px solid rgb(190, 203, 212); border-image: none;
+}
+.rs-hidden {
+	display: none;
+}
+.relation-create-lemma-color {
+	color: rgb(204, 0, 0);
+}
+.relation-create-lemma-color:visited {
+	color: rgb(204, 0, 0);
+}
+.lemma-relation-table {
+	line-height: 28px; font-size: 12px;
+}
+.lemma-relation-table .center {
+	text-align: center !important;
+}
+.lemma-relation-table .center th {
+	text-align: center !important;
+}
+.lemma-relation-table .center td {
+	text-align: center !important;
+}
+.relation-table-banner {
+	background: rgb(237, 242, 245); height: 28px; padding-left: 15px; border-top-color: rgb(154, 165, 173); border-bottom-color: rgb(188, 197, 204); border-top-width: 2px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid;
+}
+.lemma-relation-table .border-close {
+	border-top-color: rgb(237, 242, 245); border-bottom-color: rgb(237, 242, 245); border-top-width: 2px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid;
+}
+.relation-table-banner h3 {
+	font-size: 14px;
+}
+.relation-table-banner h3 a.table-title {
+	color: rgb(0, 0, 0); text-decoration: none;
+}
+.relation-table-banner h3 a.table-title:hover {
+	text-decoration: underline;
+}
+.relation-table-view-control {
+	padding: 0px 10px; height: 29px; line-height: 29px; float: right;
+}
+.relation-table-view-control .title-folder {
+	margin-top: 5px;
+}
+.relation-table-main {
+	color: rgb(102, 102, 102); clear: both; border-bottom-color: rgb(188, 197, 204); border-bottom-width: 1px; border-bottom-style: solid; display: block; position: relative; -ms-zoom: 1;
+}
+.relation-table-main table {
+	border-color: rgb(222, 223, 225); width: 100%;
+}
+.relation-table-main .hd {
+	color: rgb(0, 0, 0); font-weight: 700;
+}
+.relation-table-main th {
+	background: rgb(250, 251, 252); color: rgb(0, 0, 0);
+}
+.relation-table-main a {
+	text-decoration: none;
+}
+.relation-table-main a:hover {
+	text-decoration: underline;
+}
+.relation-table-main .title-banner {
+	text-align: center; line-height: 30px;
+}
+.relation-table-main .remark-banner {
+	text-align: center; line-height: 30px;
+}
+.relation-table-main .title-banner {
+	height: 28px; overflow: hidden;
+}
+.relation-table-main .remark-banner {
+	background: rgb(227, 241, 252);
+}
+.relation-table-main .center {
+	font-weight: 700;
+}
+.relation-table-main .entries-box {
+	padding: 5px; line-height: 20px;
+}
+.relation-table-main strong {
+	color: rgb(0, 0, 0);
+}
+.lemma-relation-table .relation-split {
+	padding: 0px 5px; color: rgb(153, 153, 153); line-height: 14px; font-size: 14px;
+}
+.embed-relation-tb {
+	width: 100%; margin-top: 2px;
+}
+.embed-relation-tb th {
+	text-align: center; font-weight: 700;
+}
+.embed-relation-tb table th {
+	font-weight: 400;
+}
+.tb-entries {
+	width: 100%; line-height: 25px;
+}
+.embed-relation-tb .tb-entries td {
+	border: 0px currentColor !important; border-image: none !important;
+}
+.relation-table-main .entry-item .explain {
+	font-weight: 400;
+}
+.explain {
+	white-space: nowrap;
+}
+.lemma-relation-top {
+	padding: 0px; border: 0px currentColor; border-image: none;
+}
+.relation-table-main {
+	color: rgb(91, 95, 101); font-size: 12px;
+}
+.relation-table-main th {
+	color: rgb(51, 51, 51);
+}
+.relation-table-main th {
+	background: rgb(250, 251, 252);
+}
+.relation-table-main .remark-banner {
+	background: rgb(250, 251, 252);
+}
+.relation-unit {
+	margin: 0px; border-top-color: rgb(222, 223, 225); border-top-width: 1px; border-top-style: solid;
+}
+.relation-table-main .embed-relation-lv3 th {
+	background: rgb(250, 251, 252);
+}
+.relation-table-main .title-banner {
+	background: rgb(250, 251, 252);
+}
+.relation-table-main .hd {
+	background: rgb(250, 251, 252);
+}
+.relation-table-outer {
+	margin-top: 0px; border-top-color: rgb(206, 211, 217); border-top-width: 1px; border-top-style: solid;
+}
+.relation-table-outer th {
+	border-width: 1px;
+}
+.relation-table-outer td {
+	border-width: 1px;
+}
+.relation-table-main table tr.relation-table-style td {
+	background: rgb(250, 250, 250);
+}
+.rs-topic {
+	background: rgb(250, 250, 250); width: 100%; overflow: hidden; font-size: 12px; position: relative;
+}
+.rs-topic a {
+	-ms-word-break: break-all;
+}
+.rs-topic .head {
+	background: rgb(237, 242, 245); height: 29px; border-top-color: rgb(154, 165, 173); border-bottom-color: rgb(188, 197, 204); border-top-width: 2px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid;
+}
+.rs-topic .border-close {
+	border-top-color: rgb(237, 242, 245); border-bottom-color: rgb(237, 242, 245); border-top-width: 2px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid;
+}
+.rs-topic h1 {
+	width: 260px; height: 29px; line-height: 29px; overflow: hidden; padding-left: 15px; font-size: 14px; float: left;
+}
+.rs-topic .allTitle h1 span {
+	font-weight: 400;
+}
+.rs-topic .bd {
+	height: 390px; overflow: hidden; background-color: rgb(255, 255, 255);
+}
+.rs-topic .head ul {
+	margin-top: 6px; float: left;
+}
+.rs-topic .head ul li {
+	border-width: 1px 1px 0px; border-style: solid solid none; border-color: rgb(154, 165, 173) rgb(154, 165, 173) currentColor; border-radius: 2px 2px 0px 0px; border-image: none; font-size: 12px; margin-left: 6px; float: left; background-color: rgb(255, 255, 255); _position: relative; _bottom: -1px;
+}
+.rs-topic .head ul li a {
+	padding: 0px 12px; height: 22px; bottom: 0px; color: rgb(107, 125, 153); line-height: 22px; text-decoration: none; float: left; position: relative; cursor: pointer; background-color: rgb(249, 250, 251);
+}
+.rs-topic .head ul li a:hover {
+	color: rgb(84, 107, 140);
+}
+.rs-topic .head ul li.sel a {
+	background: rgb(255, 255, 255); height: 23px; bottom: -2px; color: rgb(0, 0, 0); line-height: 18px; position: relative; cursor: default;
+}
+.topic-menu-shadow {
+	background: rgb(218, 225, 230); width: 690px; height: 2px; line-height: 2px; font-size: 2px; position: relative; z-index: 99; opacity: 0.25;
+}
+.rs-topic .head .topic-ops {
+	padding: 0px 10px; height: 29px; color: rgb(255, 255, 255); line-height: 29px; float: right;
+}
+.rs-topic .menu {
+	width: 129px; height: 390px; overflow: hidden; float: left; position: relative; background-color: rgb(250, 251, 252);
+}
+.rs-topic .menu-slide {
+	width: 20px; height: 390px; border-left-color: rgb(213, 220, 224); border-left-width: 1px; border-left-style: solid; float: left; background-color: rgb(255, 255, 255);
+}
+.rs-topic .icon-slide {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaRelation/resource/img/rs-topic-bg_c3a5f67.png") no-repeat 0px -71px; width: 12px; height: 37px; margin-top: 166px; margin-left: -1px; display: none; _position: relative; _left: -1;
+}
+.rs-topic a.icon-slide:hover {
+	background-position: -13px -71px;
+}
+.rs-topic .icon-slide-close {
+	background-position: 0px -34px;
+}
+.rs-topic a.icon-slide-close:hover {
+	background-position: -13px -34px;
+}
+.rs-topic .mode-full .menu-slide-wp {
+	padding-left: 10px; float: left; background-color: rgb(246, 248, 250);
+}
+.rs-topic .mode-full .menu {
+	display: none;
+}
+.rs-topic .mode-full .scrollPanel {
+	width: 642px;
+}
+.rs-topic .menu .tree {
+	padding: 9px 0px 5px 5px; height: 340px; overflow: hidden;
+}
+.rs-topic .menu .scroll {
+	margin: 0px auto; width: 108px; text-align: center; overflow: hidden; padding-top: 5px;
+}
+.rs-topic .menu .scroll a {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaRelation/resource/img/rs-topic-bg_c3a5f67.png") no-repeat 0px -173px; width: 51px; height: 19px; float: left; display: block; cursor: pointer;
+}
+.rs-topic .menu .scroll .up:hover {
+	background-position: 0px -192px;
+}
+.rs-topic .menu .scroll .up-disable {
+	background-position: 0px -154px; cursor: default;
+}
+.rs-topic .menu .scroll .down {
+	background-position: -51px -173px; margin-left: 5px;
+}
+.rs-topic .menu .scroll .down:hover {
+	background-position: -51px -192px;
+}
+.rs-topic .menu .scroll .down-disable {
+	background-position: -51px -154px; margin-left: 5px; cursor: default;
+}
+.rs-topic .menu .tangram-tree .highLight .light-icon {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaRelation/resource/img/rs-topic-bg_c3a5f67.png") no-repeat 0px -126px; margin: 5px 10px 0px 0px; width: 12px; height: 12px; right: 0px; position: absolute;
+}
+.rs-topic .tangram-tree .highLight .tangram-tree-node-over .light-icon {
+	background-position: 0px -140px;
+}
+.rs-topic .tangram-tree .highLight .tangram-tree-node-current .light-icon {
+	background-position: 0px -112px;
+}
+.rs-topic .main {
+	height: 388px; float: right; position: relative; -ms-zoom: 1;
+}
+.rs-topic .main .info-list {
+	padding: 15px 10px 15px 15px; width: 100%; line-height: 20px;
+}
+.rs-topic .main .info-list .left {
+	margin-right: 10px; float: left;
+}
+.rs-topic .main .info-list .right {
+	margin-left: 10px; float: right;
+}
+.rs-topic .main .info-list .info-img {
+	padding: 2px; border: 1px solid rgb(209, 209, 209); border-image: none;
+}
+.rs-topic .main .info-list a {
+	text-decoration: none;
+}
+.rs-topic .main .info-list a:hover {
+	text-decoration: underline;
+}
+.rs-topic .main .image-type-ul {
+	margin: 10px 10px 10px 0px; overflow: hidden;
+}
+.rs-topic .main .image-type-ul li {
+	margin: 2px; float: left; display: block;
+}
+.rs-topic .main .image-type-ul li img {
+	vertical-align: middle;
+}
+.rs-topic .main .image-type-ul li .click-fix {
+	background: url("about:_blank"); left: 0px; top: 0px; position: absolute; cursor: pointer;
+}
+.rs-topic .main .image-type-ul li span {
+	text-align: center; overflow: hidden; display: inline-block;
+}
+.rs-topic .main .image-type-ul a {
+	text-decoration: none; display: block; position: relative; cursor: pointer;
+}
+.rs-topic .main .image-type-ul a .over-div {
+	border: 1px solid rgb(0, 0, 0); border-image: none; opacity: 0.1;
+}
+.rs-topic .main .image-type-ul a:hover .over-div {
+	opacity: 0.5;
+}
+.rs-topic .main .image-type-ul a:hover .mask {
+	text-decoration: none;
+}
+.rs-topic .main .image-type-ul a:hover .title {
+	text-decoration: none;
+}
+.rs-topic .main .image-type-ul .mask {
+	background: rgb(0, 0, 0); height: 25px; line-height: 25px; margin-top: -25px; opacity: 0.3;
+}
+.rs-topic .main .image-type-ul a:hover .mask {
+	opacity: 0.6;
+}
+.rs-topic .main .image-type-ul .title {
+	padding: 0px 5px; height: 25px; color: rgb(255, 255, 255); line-height: 25px; overflow: hidden; font-size: 12px; font-weight: 400; margin-top: -25px; position: relative;
+}
+.rs-topic .main .info-detail {
+	width: 100%; overflow: hidden; -ms-zoom: 1;
+}
+.rs-topic .main .info-detail .left {
+	text-align: left; float: none;
+}
+.rs-topic .main .image-type-ul .left {
+	text-align: left; float: none;
+}
+.rs-topic .main .info-detail .right {
+	text-align: right; float: none;
+}
+.rs-topic .main .image-type-ul .right {
+	text-align: right; float: none;
+}
+.rs-topic .main .info-detail .center {
+	text-align: center; float: none;
+}
+.rs-topic .main .image-type-ul .center {
+	text-align: center; float: none;
+}
+.rs-topic .main .info-detail .title {
+	font-weight: 700;
+}
+.rs-topic .main .info-list .info-list-td {
+	vertical-align: top; border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); border-top-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid; -ms-word-break: break-all; -ms-zoom: 1; -ms-word-wrap: break-word;
+}
+.rs-topic .main .info-list .info-list-td-over {
+	background: rgb(247, 247, 247);
+}
+.rs-topic .main .info-list .info-list-td a:hover img {
+	border-color: rgb(42, 123, 203);
+}
+.rs-topic .main .info-list .info-list-td .item-wp {
+	padding: 10px;
+}
+.rs-topic .main .info-list .info-item {
+	padding: 10px; width: 100%; height: 100%;
+}
+.rs-topic .main .info-list .info-item td {
+	padding: 0px;
+}
+.rs-topic .main .info-list .beInLemma {
+	background: rgb(237, 242, 245);
+}
+.rs-topic .main .info-list .beInLemma .info-img {
+	border: 2px solid rgb(39, 133, 227); border-image: none;
+}
+.rs-topic .main .image-type-ul li.beInLemma .over-div {
+	border: 1px solid rgb(39, 133, 227); border-image: none; position: relative; opacity: 1;
+}
+.rs-topic .main .image-type-ul li.beInLemma .mask {
+	background: rgb(43, 135, 227); opacity: 0.8;
+}
+.rs-topic .info-list .info-split td {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaRelation/resource/img/rs-topic-bg_c3a5f67.png") repeat-x 0px -413px; padding: 0px; width: 515px; height: 2px;
+}
+.rs-topic .bottom-border {
+	border-top-color: rgb(188, 197, 204); border-top-width: 1px; border-top-style: solid;
+}
+.rs-topic .bottom-border-close {
+	border-top-color: rgb(237, 242, 245); border-top-width: 1px; border-top-style: solid;
+}
+.rs-topic .scrollPanel {
+	width: 535px; height: 388px; overflow: hidden; position: relative; _width: 528px;
+}
+.rs-topic .mask-div {
+	background: rgb(0, 0, 0); left: 0px; top: 0px; width: 100%; height: 100%; position: absolute; z-index: 11000; opacity: 0.1;
+}
+.rs-topic .loading-div {
+	background: url("/guanxi/static/image/loading-topic.gif?@=906i9q") no-repeat; left: 50%; top: 50%; width: 16px; height: 11px; text-align: center; position: absolute; z-index: 11001;
+}
+.rs-topic-buffer {
+	left: -9999px; top: -999px; position: absolute;
+}
+.rs-topic .tangram-scrollbar-slider-thumb {
+	border-radius: 5px; background-color: rgb(202, 210, 219);
+}
+.rs-topic .scrollbar-y-thumb-btn-hover {
+	border-radius: 5px; background-color: rgb(180, 191, 204);
+}
+.rs-topic .tangram-tree-leaf {
+	color: rgb(64, 90, 128);
+}
+.tangram-tree {
+	width: 127px; font-size: 12px; cursor: pointer;
+}
+.tangram-tree dl {
+	margin: 0px; padding: 0px;
+}
+dt {
+	margin: 0px; padding: 0px;
+}
+dd {
+	margin: 0px; padding: 0px;
+}
+.tangram-tree a {
+	text-decoration: none;
+}
+.tangram-tree span {
+	height: 24px; line-height: 24px; vertical-align: top; -ms-zoom: 1;
+}
+.tangram-tree-node-blank {
+	background-position: center; margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; width: 16px; height: 24px; vertical-align: top; display: inline-block; background-repeat: no-repeat;
+}
+.tangram-tree-node-Tplus {
+	background-position: center; margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; width: 16px; height: 24px; vertical-align: top; display: inline-block; background-repeat: no-repeat;
+}
+.tangram-tree-node-Lplus {
+	background-position: center; margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; width: 16px; height: 24px; vertical-align: top; display: inline-block; background-repeat: no-repeat;
+}
+.tangram-tree-node-Tminus {
+	background-position: center; margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; width: 16px; height: 24px; vertical-align: top; display: inline-block; background-repeat: no-repeat;
+}
+.tangram-tree-node-Lminus {
+	background-position: center; margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; width: 16px; height: 24px; vertical-align: top; display: inline-block; background-repeat: no-repeat;
+}
+.tangram-tree-node-open-trunk {
+	background-position: center; margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; width: 16px; height: 24px; vertical-align: top; display: inline-block; background-repeat: no-repeat;
+}
+.tangram-tree-node-L {
+	background-position: center; margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; width: 16px; height: 24px; vertical-align: top; display: inline-block; background-repeat: no-repeat;
+}
+.tangram-tree-node-I {
+	background-position: center; margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; width: 16px; height: 24px; vertical-align: top; display: inline-block; background-repeat: no-repeat;
+}
+.tangram-tree-node-T {
+	background-position: center; margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; width: 16px; height: 24px; vertical-align: top; display: inline-block; background-repeat: no-repeat;
+}
+.tangram-tree-node-leaf {
+	background-position: center; margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; width: 16px; height: 24px; vertical-align: top; display: inline-block; background-repeat: no-repeat;
+}
+.tangram-tree-node-trunk {
+	background-position: center; margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; width: 16px; height: 24px; vertical-align: top; display: inline-block; background-repeat: no-repeat;
+}
+.tangram-tree-node-checkbox {
+	background-position: center; margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; width: 16px; height: 24px; vertical-align: top; display: inline-block; background-repeat: no-repeat;
+}
+.tangram-tree-node-checkbox-check {
+	background-position: center; margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; width: 16px; height: 24px; vertical-align: top; display: inline-block; background-repeat: no-repeat;
+}
+.tangram-tree-node-checkbox-halfcheck {
+	background-position: center; margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; width: 16px; height: 24px; vertical-align: top; display: inline-block; background-repeat: no-repeat;
+}
+.tangram-tree-node-blank {
+	width: 5px;
+}
+.tangram-tree-node-T {
+	display: none;
+}
+.tangram-tree-node-L {
+	display: none;
+}
+.tangram-tree-node-I {
+	width: 8px;
+}
+.tangram-tree-node-leaf {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaRelation/resource/img/rs-topic-bg_c3a5f67.png") no-repeat -164px -172px; width: 8px;
+}
+.tangram-tree-node-current .tangram-tree-node-leaf {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaRelation/resource/img/rs-topic-bg_c3a5f67.png") no-repeat -164px -152px;
+}
+.tangram-tree-node-trunk {
+	display: none;
+}
+.tangram-tree-node-open-trunk {
+	display: none;
+}
+.tangram-tree-node-Tplus {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaRelation/resource/img/rs-topic-bg_c3a5f67.png") no-repeat -17px 8px; transition:transform 0.5s; transform: rotate(0deg); -webkit-transform: rotate(0); -webkit-transition: -webkit-transform .5s; -moz-transform: rotate(0); -o-transform: rotate(0); -moz-transition: -moz-transform .5s; -o-transition: -o-transform .5s;
+}
+.tangram-tree-node-Lplus {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaRelation/resource/img/rs-topic-bg_c3a5f67.png") no-repeat -17px 8px; transition:transform 0.5s; transform: rotate(0deg); -webkit-transform: rotate(0); -webkit-transition: -webkit-transform .5s; -moz-transform: rotate(0); -o-transform: rotate(0); -moz-transition: -moz-transform .5s; -o-transition: -o-transform .5s;
+}
+.tangram-tree-node-Tminus {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaRelation/resource/img/rs-topic-bg_c3a5f67.png") no-repeat -17px 8px; transition:transform 0.5s; transform: rotate(90deg); -webkit-transform: rotate(90deg); -webkit-transition: -webkit-transform .5s; -moz-transform: rotate(90deg); -o-transform: rotate(90deg); -moz-transition: -moz-transform .5s; -o-transition: -o-transform .5s;
+}
+.tangram-tree-node-Lminus {
+	background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaRelation/resource/img/rs-topic-bg_c3a5f67.png") no-repeat -17px 8px; transition:transform 0.5s; transform: rotate(90deg); -webkit-transform: rotate(90deg); -webkit-transition: -webkit-transform .5s; -moz-transform: rotate(90deg); -o-transform: rotate(90deg); -moz-transition: -moz-transform .5s; -o-transition: -o-transform .5s;
+}
+.tangram-tree-leaf {
+	color: rgb(62, 100, 136);
+}
+.tangram-tree .tangram-tree-node-over {
+	background-color: rgb(235, 239, 242);
+}
+.tangram-tree .tangram-tree-node-current {
+	color: rgb(255, 255, 255); cursor: default; background-color: rgb(116, 147, 179);
+}
+.tangram-tree-node-text {
+	display: inline;
+}
+.tangram-tree-proxy {
+	border: 2px dotted rgb(0, 0, 0); border-image: none; width: 18px; height: 12px; font-size: 12px; position: absolute;
+}
+.tangram-tree-node-node {
+	vertical-align: top; -ms-zoom: 1;
+}
+.tangram-tree-node-input {
+	height: 18px;
+}
+.tangram-tree-sort {
+	height: 6px; font-size: 5px; background-color: rgb(0, 0, 0);
+}
+.tangram-tree-sort-transparent {
+	height: 6px; font-size: 5px;
+}
+.tangram-tree-trunk {
+	font-weight: 700;
+}
+.tangram-tree-level-3 {
+	background: rgb(218, 224, 230);
+}
+.tangram-tree-level-2 {
+	font-weight: 400;
+}
+.tangram-scrollbar {
+	width: 100%; height: 100%;
+}
+.tangram-scrollbar-track {
+	width: 100%; height: 100%; overflow: hidden;
+}
+.tangram-scrollbar-slider {
+	width: 100%; height: 100%;
+}
+.tangram-scrollbar-slider-thumb {
+	background: rgb(169, 184, 206); width: 100%; height: 100%;
+}
+.tangram-scrollbar-prev {
+	font-size: 0px;
+}
+.tangram-scrollbar-next {
+	font-size: 0px;
+}
+.tangram-scrollbar-thumb-btn {
+	font-size: 0px;
+}
+.scrollbar-y {
+	background: rgb(242, 245, 247);
+}
+.scrollbar-y-prev {
+	width: 8px; height: 0px; line-height: 0;
+}
+.scrollbar-y-prev-hover {
+	background-position: -15px 0px;
+}
+.scrollbar-y-prev-press {
+	background-position: -30px 0px;
+}
+.scrollbar-y-next {
+	width: 8px; height: 0px; line-height: 0;
+}
+.scrollbar-y-next-hover {
+	background-position: -15px -15px;
+}
+.scrollbar-y-next-press {
+	background-position: -30px -15px;
+}
+.scrollbar-y-thumb-btn {
+	width: 100%; height: 100%; position: relative;
+}
+.scrollbar-y-thumb-prev {
+	top: 0px; width: 100%; height: 0px; font-size: 0px; position: absolute;
+}
+.scrollbar-y-thumb-next {
+	width: 100%; height: 0px; bottom: 0px !important; font-size: 0px; position: absolute;
+}
+.scrollbar-y-thumb-btn-hover {
+	background: rgb(149, 168, 195);
+}
+.scrollbar-y-thumb-btn-hover .scrollbar-y-thumb-prev {
+	background-position: -45px -10px;
+}
+.scrollbar-y-thumb-btn-hover .scrollbar-y-thumb-next {
+	background-position: -45px -15px;
+}
+.scrollbar-y-thumb-btn-press {
+	background-position: -90px 0px;
+}
+.scrollbar-y-thumb-btn-press .scrollbar-y-thumb-prev {
+	background-position: -45px -20px;
+}
+.scrollbar-y-thumb-btn-press .scrollbar-y-thumb-next {
+	background-position: -45px -25px;
+}
+.scrollbar-x {
+	
+}
+.scrollbar-x-track {
+	float: left;
+}
+.scrollbar-x-prev {
+	width: 8px; height: 8px; float: left;
+}
+.scrollbar-x-prev-hover {
+	background-position: -15px 0px;
+}
+.scrollbar-x-prev-press {
+	background-position: -30px 0px;
+}
+.scrollbar-x-next {
+	width: 8px; height: 8px; float: left;
+}
+.scrollbar-x-next-hover {
+	background-position: -15px -15px;
+}
+.scrollbar-x-next-press {
+	background-position: -30px -15px;
+}
+.scrollbar-x-thumb-btn {
+	width: 100%; height: 100%; position: relative;
+}
+.scrollbar-x-thumb-prev {
+	left: 0px; width: 5px; height: 100%; font-size: 0px; position: absolute;
+}
+.scrollbar-x-thumb-next {
+	width: 5px; height: 100%; right: 0px !important; font-size: 0px; position: absolute;
+}
+.scrollbar-x-thumb-btn-hover {
+	background-position: 0px -45px;
+}
+.scrollbar-x-thumb-btn-hover .scrollbar-x-thumb-prev {
+	background-position: -45px -15px;
+}
+.scrollbar-x-thumb-btn-hover .scrollbar-x-thumb-next {
+	background-position: -50px -15px;
+}
+.scrollbar-x-thumb-btn-press {
+	background-position: 0px -60px;
+}
+.scrollbar-x-thumb-btn-press .scrollbar-x-thumb-prev {
+	background-position: -55px 0px;
+}
+.scrollbar-x-thumb-btn-press .scrollbar-x-thumb-next {
+	background-position: -60px 0px;
+}
+.tangram-scrollpanel {
+	line-height: 0;
+}

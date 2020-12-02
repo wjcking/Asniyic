@@ -1,0 +1,150 @@
+
+(function( url, is_mobile ){
+
+    if( is_mobile ) {
+        if( url == 'https://www.hunanhr.cn/' ) {
+            location.href = 'https://m.hunanhr.cn/';
+        } else {
+            location.href = location.href.replace('www.', 'm.');
+        }
+    }
+
+})( 
+    location.href.split('#')[0].toLowerCase(), 
+    navigator.userAgent.toLowerCase().indexOf('mobile') >= 0  
+    || navigator.userAgent.toLowerCase().indexOf('android') >= 0 
+    || navigator.userAgent.toLowerCase().indexOf('ios') >= 0 
+    || navigator.userAgent.toLowerCase().indexOf('iphone') >= 0 
+)
+
+function ok3w_ads(id){
+switch(id){
+//1000-100
+case "s001":
+break;
+
+//640-80-640-250
+case "s002":
+break;
+
+//300-250
+case "s003":
+
+document.writeln("<!--搜索 开始-->");
+document.writeln("<div class=\'nav_bar\'>");
+document.writeln("	<div class=\'wx_search\'>");
+document.writeln("		<form action=\'https://www.baidu.com/s?\' target=\'_blank\'>");
+document.writeln("			<input type=\'text\' id=\'bdcsMain\' class=\'keyword\' placeholder=\'请输入搜索词\' name=\'wd\'>");
+document.writeln("			<button type=\'submit\' class=\'btn-tj\' value=\'\'><b>搜索</b></button>");
+document.writeln("			<div>");
+document.writeln("				<input type=\'hidden\' name=\'si\' value=\'hunanhr.cn\'>");
+document.writeln("				<input type=\'hidden\' name=\'ct\' value=\'2097152\'>");
+document.writeln("			</div>");
+document.writeln("		</form>");
+document.writeln("	</div>");
+document.writeln("</div>");
+document.writeln("<!--搜索 结束-->");   
+   
+break;
+    
+
+case "s004":
+break;
+    
+//360-300    
+case "s005":
+document.writeln("<script type=\'text/javascript\' src=\'https://yy.101505.com/pay/statics/cpt3.js\'></script>");
+document.writeln("<script>");
+document.writeln("(function(){");
+document.writeln("    var bp = document.createElement(\'script\');");
+document.writeln("    var curProtocol = window.location.protocol.split(\':\')[0];");
+document.writeln("    if (curProtocol === \'https\') {");
+document.writeln("        bp.src = \'https://zz.bdstatic.com/linksubmit/push.js\';");
+document.writeln("    }");
+document.writeln("    else {");
+document.writeln("        bp.src = \'http://push.zhanzhang.baidu.com/push.js\';");
+document.writeln("    }");
+document.writeln("    var s = document.getElementsByTagName(\'script\')[0];");
+document.writeln("    s.parentNode.insertBefore(bp, s);");
+document.writeln("})();");
+document.writeln("</script>");    
+break;
+    
+    
+case "s006":
+document.writeln("<script>");
+document.writeln("(function(){");
+document.writeln("var src = \'https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba\';");
+document.writeln("document.write(\'<script src=\'\' + src + \'\' id=\'sozz\'><\/\//script>\');");
+document.writeln("})();");
+document.writeln("</script>");
+break;
+    
+//300-250    
+case "s007":
+
+break;
+    
+//300-250  悬浮    
+case "s008":
+break;
+case "s009":
+break;
+    
+case "s0010":
+break;
+    
+    
+case "s0011":
+break;
+    
+    
+case "s0012":
+break;
+case "s0013":
+break;
+
+case "s0014":
+break;
+
+case "s0021":
+
+    
+    document.writeln("<script>");
+document.writeln("var _hmt = _hmt || [];");
+document.writeln("(function() {");
+document.writeln("  var hm = document.createElement(\'script\');");
+document.writeln("  hm.src = \'https://hm.baidu.com/hm.js?00315f98df81329ef81a63d94224f142\';");
+document.writeln("  var s = document.getElementsByTagName(\'script\')[0]; ");
+document.writeln("  s.parentNode.insertBefore(hm, s);");
+document.writeln("})();");
+document.writeln("</script>");
+document.writeln("");
+    
+    
+document.writeln("<script src=\'https://s5.cnzz.com/z_stat.php?id=1275459979&web_id=1275459979\' language=\'JavaScript\'></script>");    
+break;
+//注册
+case "s0022":
+    document.writeln("<script type=\'text/javascript\' src=\'https://yy.101505.com/pay/statics/cpt4.js\'></script>");
+    document.writeln("<script>");
+    document.writeln("(function(){");
+    document.writeln("    var bp = document.createElement(\'script\');");
+    document.writeln("    var curProtocol = window.location.protocol.split(\':\')[0];");
+    document.writeln("    if (curProtocol === \'https\') {");
+    document.writeln("        bp.src = \'https://zz.bdstatic.com/linksubmit/push.js\';");
+    document.writeln("    }");
+    document.writeln("    else {");
+    document.writeln("        bp.src = \'http://push.zhanzhang.baidu.com/push.js\';");
+    document.writeln("    }");
+    document.writeln("    var s = document.getElementsByTagName(\'script\')[0];");
+    document.writeln("    s.parentNode.insertBefore(bp, s);");
+    document.writeln("})();");
+    document.writeln("</script>");
+    break;
+//登录
+case "s0023":
+    document.writeln("<script type=\'text/javascript\' src=\'https://yy.101505.com/pay/statics/cpt4.js\'></script>");
+    // break;
+}
+}

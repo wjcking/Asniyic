@@ -1,0 +1,15 @@
+.lemmaWgt-searchHeader {
+	left: 0px; top: 0px; width: 100%; font-family: arial; border-bottom-color: rgb(235, 235, 235); border-bottom-width: 1px; border-bottom-style: solid; display: none; position: fixed; z-index: 1001; min-width: 1139px; opacity: 0; box-shadow: 0px 0px 5px #888; background-color: rgb(255, 255, 255);
+}
+.lemmaWgt-searchHeader .wgt-searchbar-simple {
+	float: left;
+}
+.lemmaWgt-searchHeader .wgt-searchbar-simple .search .form .suggestion {
+	top: 33px;
+}
+.lemmaWgt-searchHeader .layout {
+	
+}
+.lemmaWgt-searchHeader .layout::after {
+	height: 0px; overflow: hidden; clear: both; font-size: 0px; display: block; visibility: hidden; content: "\0020";
+}
